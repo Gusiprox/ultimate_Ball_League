@@ -14,9 +14,21 @@ config/name="ultimate ball league"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayFabManager="*uid://cweb6sfc0rrca"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-playfab/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
+
+[playfab]
+
+title_id="934BD"
 
 [rendering]
 
