@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://1po63b1fpubw"]
 
+[ext_resource type="Script" uid="uid://b4hk03ox1hgh8" path="res://menus/login/login.gd" id="1_73cux"]
+
 [node name="Login" type="Control" unique_id=1365454647]
 layout_mode = 3
 anchors_preset = 15
@@ -7,24 +9,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_73cux")
 
-[node name="User" type="CodeEdit" parent="." unique_id=64382478]
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1385749352]
 layout_mode = 0
-offset_left = 180.0
-offset_top = 134.0
-offset_right = 1043.0
-offset_bottom = 276.0
+offset_left = 43.0
+offset_top = 133.0
+offset_right = 1049.0
+offset_bottom = 281.0
+placeholder_text = "User"
+context_menu_enabled = false
+emoji_menu_enabled = false
+structured_text_bidi_override = 3
 
-[node name="Password" type="CodeEdit" parent="." unique_id=1971230335]
+[node name="TextEdit2" type="TextEdit" parent="." unique_id=1677061385]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 351.0
-offset_right = 1042.0
-offset_bottom = 493.0
+offset_left = 47.0
+offset_top = 338.0
+offset_right = 1053.0
+offset_bottom = 486.0
+placeholder_text = "Password"
+context_menu_enabled = false
+emoji_menu_enabled = false
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1602425645]
+[node name="Button" type="Button" parent="." unique_id=360777239]
 layout_mode = 0
-offset_left = 368.0
-offset_top = 10.0
+offset_left = 238.0
+offset_top = 530.0
 offset_right = 781.0
-offset_bottom = 115.0
+offset_bottom = 617.0
+text = "Entrar"
+
+[connection signal="button_down" from="Button" to="." method="_onButtonDown"]

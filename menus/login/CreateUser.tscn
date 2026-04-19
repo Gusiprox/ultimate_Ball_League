@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://ca7dby62rvtkh"]
 
+[ext_resource type="Script" uid="uid://dpbeu1k4c6bxu" path="res://menus/login/create_user.gd" id="1_dtfol"]
+
 [node name="CreateUser" type="Control" unique_id=927097092]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dtfol")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1398633855]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 179.0
+offset_right = 834.0
+offset_bottom = 311.0
+placeholder_text = "Email"
+
+[node name="TextEdit2" type="TextEdit" parent="." unique_id=154255501]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 357.0
+offset_right = 836.0
+offset_bottom = 470.0
+placeholder_text = "Password"
+
+[node name="TextEdit3" type="TextEdit" parent="." unique_id=165110031]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 54.0
+offset_right = 840.0
+offset_bottom = 152.0
+placeholder_text = "Username"
+
+[node name="Button" type="Button" parent="." unique_id=36293053]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 519.0
+offset_right = 688.0
+offset_bottom = 620.0
+text = "Crear Cuenta"
+
+[connection signal="button_down" from="Button" to="." method="_onButtonDown"]
