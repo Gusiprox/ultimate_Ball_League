@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://doa74lhr2ny0i"]
+
+[ext_resource type="Texture2D" uid="uid://dlolmdsoww0ig" path="res://menus/menu_start/img/marco.png" id="1_a2csu"]
+[ext_resource type="Texture2D" uid="uid://bxociqwadxqhm" path="res://menus/menu_start/img/fondoMenuStart.png" id="1_yddou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lyl5"]
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lnwt5"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2csu"]
+font_size = 22
+
+[node name="MenuStart" type="Control" unique_id=1081471218]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = 1.0
+
+[node name="imgMenuStart" type="Sprite2D" parent="." unique_id=994998472]
+position = Vector2(579, 324.00003)
+scale = Vector2(0.8238636, 0.84635425)
+texture = ExtResource("1_yddou")
+
+[node name="lblTitulo" type="Label" parent="." unique_id=1830393522]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35640138
+anchor_top = 0.13713405
+anchor_right = 0.6576167
+anchor_bottom = 0.2019489
+grow_horizontal = 2
+text = "Ultimate Ball League"
+label_settings = SubResource("LabelSettings_4lyl5")
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="." unique_id=1901536556]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 544.0
+offset_top = 322.0
+offset_right = -548.0
+offset_bottom = -294.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+
+[node name="panelLogin" type="Panel" parent="." unique_id=43315237]
+layout_mode = 0
+offset_left = 1189.0
+offset_top = 11.0
+offset_right = 1759.0
+offset_bottom = 461.0
+
+[node name="imgLogin" type="Sprite2D" parent="panelLogin" unique_id=1913531884]
+position = Vector2(283.99994, 224)
+scale = Vector2(0.48154357, 0.6993865)
+texture = ExtResource("1_a2csu")
+
+[node name="lblLogin" type="Label" parent="panelLogin" unique_id=1656458228]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 89.0
+offset_right = 348.0
+offset_bottom = 120.0
+text = "Iniciar sesión"
+label_settings = SubResource("LabelSettings_lnwt5")
+
+[node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
+layout_mode = 0
+offset_left = 1203.0
+offset_top = 533.0
+offset_right = 1816.0
+offset_bottom = 996.0
+
+[node name="imgCreateUser" type="Sprite2D" parent="panelCreateUser" unique_id=2119921127]
+position = Vector2(308.99997, 230.25002)
+scale = Vector2(0.52055365, 0.72162575)
+texture = ExtResource("1_a2csu")
+
+[node name="lblCreateUser" type="Label" parent="panelCreateUser" unique_id=1532704003]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 102.0
+offset_right = 368.0
+offset_bottom = 133.0
+text = "Create user"
+label_settings = SubResource("LabelSettings_a2csu")

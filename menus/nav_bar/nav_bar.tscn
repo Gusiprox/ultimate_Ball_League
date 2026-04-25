@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dfda6fgmlw17f"]
+
+[ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
+
+[node name="NavBar" type="Panel" unique_id=1305611965]
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 0.082
+offset_right = -0.15209961
+offset_bottom = -0.13600159
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=576141330]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 1140.0
+offset_bottom = 52.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1816500458]
+layout_mode = 2
+
+[node name="NavBarButtons" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1054026203]
+layout_mode = 2
+
+[node name="btnMenuPlay" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=1108961023]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Jugar"
+
+[node name="btnMenuEditPlayer" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=2103016809]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Editar personaje"
+
+[node name="btnMenuEditTeam" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=1697499274]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Editar equipo"
+
+[node name="btnMenuGacha" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=141373700]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Gacha"
+
+[node name="btnMenuStore" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=1926674001]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Tienda"
+
+[node name="btnMenuInventory" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=274448116]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 14
+text = "Inventario"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=826802110]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusInfo" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1134217168]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="." unique_id=1253009537]
+layout_mode = 0
+offset_left = 1099.0
+offset_top = 3.0
+offset_right = 2051.0
+offset_bottom = 952.0
+rotation = -0.0033827927
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("1_rqlcp")
