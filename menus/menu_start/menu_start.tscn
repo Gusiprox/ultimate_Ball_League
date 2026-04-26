@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://doa74lhr2ny0i"]
 
+[ext_resource type="Script" uid="uid://c44lqto6ey3um" path="res://menus/menu_start/menu_start.gd" id="1_28y4e"]
 [ext_resource type="Texture2D" uid="uid://dlolmdsoww0ig" path="res://menus/menu_start/img/marco.png" id="1_a2csu"]
 [ext_resource type="Texture2D" uid="uid://bxociqwadxqhm" path="res://menus/menu_start/img/fondoMenuStart.png" id="1_yddou"]
 
@@ -10,16 +11,21 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_lnwt5"]
 font_size = 22
 
+[sub_resource type="LabelSettings" id="LabelSettings_yddou"]
+font_size = 13
+
 [sub_resource type="LabelSettings" id="LabelSettings_a2csu"]
 font_size = 22
 
 [node name="MenuStart" type="Control" unique_id=1081471218]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -2.0
 offset_right = 2.0
 offset_bottom = 1.0
+script = ExtResource("1_28y4e")
 
 [node name="imgMenuStart" type="Sprite2D" parent="." unique_id=994998472]
 position = Vector2(579, 324.00003)
@@ -39,7 +45,7 @@ label_settings = SubResource("LabelSettings_4lyl5")
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="." unique_id=1901536556]
+[node name="btnStart" type="Button" parent="." unique_id=1901536556]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -53,11 +59,19 @@ grow_vertical = 2
 text = "Start"
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
-layout_mode = 0
-offset_left = 1189.0
-offset_top = 11.0
-offset_right = 1759.0
-offset_bottom = 461.0
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = -225.0
+offset_right = 285.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="imgLogin" type="Sprite2D" parent="panelLogin" unique_id=1913531884]
 position = Vector2(283.99994, 224)
@@ -73,12 +87,61 @@ offset_bottom = 120.0
 text = "Iniciar sesión"
 label_settings = SubResource("LabelSettings_lnwt5")
 
-[node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
+[node name="btnLogin" type="Button" parent="panelLogin" unique_id=575906891]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.697
+anchor_right = 0.5
+anchor_bottom = 0.697
+offset_left = -51.0
+offset_top = -13.150024
+offset_right = 51.0
+offset_bottom = 12.849976
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "Iniciar sesión"
+
+[node name="btnCreateUser" type="Button" parent="panelLogin" unique_id=487387173]
 layout_mode = 0
-offset_left = 1203.0
-offset_top = 533.0
-offset_right = 1816.0
-offset_bottom = 996.0
+offset_left = 306.0
+offset_top = 359.5
+offset_right = 414.0
+offset_bottom = 390.5
+theme_override_font_sizes/font_size = 13
+text = "Crear cuenta"
+
+[node name="lblCreateUser" type="Label" parent="panelLogin" unique_id=1983271161]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 364.5
+offset_right = 297.0
+offset_bottom = 387.5
+text = "¿No tienes cuenta?"
+label_settings = SubResource("LabelSettings_yddou")
+
+[node name="btnCloseLogin" type="Button" parent="panelLogin" unique_id=850601247]
+layout_mode = 0
+offset_left = 557.0
+offset_top = -17.0
+offset_right = 587.0
+offset_bottom = 10.0
+text = "X"
+
+[node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.5
+offset_top = -231.5
+offset_right = 306.5
+offset_bottom = 231.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="imgCreateUser" type="Sprite2D" parent="panelCreateUser" unique_id=2119921127]
 position = Vector2(308.99997, 230.25002)
@@ -86,10 +149,45 @@ scale = Vector2(0.52055365, 0.72162575)
 texture = ExtResource("1_a2csu")
 
 [node name="lblCreateUser" type="Label" parent="panelCreateUser" unique_id=1532704003]
-layout_mode = 0
-offset_left = 245.0
-offset_top = 102.0
-offset_right = 368.0
-offset_bottom = 133.0
-text = "Create user"
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.24100001
+anchor_right = 0.5
+anchor_bottom = 0.24100001
+offset_left = -60.0
+offset_top = -15.583008
+offset_right = 63.0
+offset_bottom = 15.416992
+grow_horizontal = 2
+text = "Crear usuario"
 label_settings = SubResource("LabelSettings_a2csu")
+
+[node name="btnCloseCreateUser" type="Button" parent="panelCreateUser" unique_id=2130809316]
+layout_mode = 0
+offset_left = 606.0
+offset_top = -20.0
+offset_right = 637.0
+offset_bottom = 11.0
+text = "X"
+
+[node name="btnCreateUser" type="Button" parent="panelCreateUser" unique_id=1549339883]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.76900005
+anchor_right = 0.5
+anchor_bottom = 0.76900005
+offset_left = -47.0
+offset_top = -13.047028
+offset_right = 47.0
+offset_bottom = 12.952972
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+text = "Crear usuario"
+
+[connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="panelLogin/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
+[connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
+[connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]

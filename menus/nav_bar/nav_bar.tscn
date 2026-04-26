@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dfda6fgmlw17f"]
 
+[ext_resource type="Script" uid="uid://djup5b30n6b8m" path="res://menus/nav_bar/nav_bar.gd" id="1_q0cxf"]
 [ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
 
 [node name="NavBar" type="Panel" unique_id=1305611965]
@@ -8,6 +9,7 @@ anchor_right = 1.001
 anchor_bottom = 0.082
 offset_right = -0.15209961
 offset_bottom = -0.13600159
+script = ExtResource("1_q0cxf")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=576141330]
 layout_mode = 0
@@ -60,19 +62,45 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
 text = "Inventario"
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=826802110]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="StatusInfo" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1134217168]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="." unique_id=1253009537]
+[node name="btnMenuUser" type="Button" parent="." unique_id=1253009537]
 layout_mode = 0
-offset_left = 1099.0
-offset_top = 3.0
-offset_right = 2051.0
+offset_left = 1094.0
+offset_top = 2.9999998
+offset_right = 2046.0
 offset_bottom = 952.0
 rotation = -0.0033827927
 scale = Vector2(0.05, 0.05)
 icon = ExtResource("1_rqlcp")
+
+[node name="imgPulls" type="Sprite2D" parent="." unique_id=2089728813]
+position = Vector2(804.99994, 26.000002)
+scale = Vector2(0.04955449, 0.04871936)
+
+[node name="lblPulls" type="Label" parent="." unique_id=97378288]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 16.0
+offset_right = 900.0
+offset_bottom = 39.0
+text = "0"
+
+[node name="imgCoins" type="Sprite2D" parent="." unique_id=370523503]
+position = Vector2(970, 27)
+
+[node name="lblCoins" type="Label" parent="." unique_id=304735851]
+layout_mode = 0
+offset_left = 1015.0
+offset_top = 17.0
+offset_right = 1055.0
+offset_bottom = 40.0
+text = "0"
+
+[node name="MenuUser" type="Panel" parent="." unique_id=71924952]
+visible = false
+layout_mode = 0
+offset_left = 964.0
+offset_top = 58.0
+offset_right = 1160.0
+offset_bottom = 504.0
+
+[connection signal="pressed" from="btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
