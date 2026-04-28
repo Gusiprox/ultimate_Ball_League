@@ -157,6 +157,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a2csu")
+metadata/_edit_use_anchors_ = true
 
 [node name="lblCreateUser" type="Label" parent="panelCreateUser" unique_id=1532704003]
 layout_mode = 1
@@ -198,6 +199,7 @@ theme_override_font_sizes/font_size = 13
 text = "Crear usuario"
 
 [connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="panelLogin/btnLogin" to="." method="_on_btn_login_pressed"]
 [connection signal="pressed" from="panelLogin/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
