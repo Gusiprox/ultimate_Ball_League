@@ -3,6 +3,17 @@
 [ext_resource type="Script" uid="uid://djup5b30n6b8m" path="res://menus/nav_bar/nav_bar.gd" id="1_q0cxf"]
 [ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0cxf"]
+bg_color = Color(0, 0.3254902, 0.3882353, 0.9764706)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 8.0
+expand_margin_right = 10.0
+expand_margin_bottom = 8.0
+
 [node name="NavBar" type="Panel" unique_id=1305611965]
 anchors_preset = -1
 anchor_right = 1.001
@@ -11,7 +22,18 @@ offset_right = -0.15209961
 offset_bottom = -0.22400665
 script = ExtResource("1_q0cxf")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1980002430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.78900164, 0.9348869, 0.59607846)
+
 [node name="imgNavBar" type="NinePatchRect" parent="." unique_id=493451409]
+visible = false
+self_modulate = Color(0.45882353, 1, 1, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +67,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_q0cxf")
 text = "Jugar"
 
 [node name="btnMenuEditPlayer" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=2103016809]
