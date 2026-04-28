@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://stkxt42wb70w"
-path="res://.godot/imported/fondoMenuStart.png-1d7564e5729ceb11a9fe0e66a9dd3c51.ctex"
+uid="uid://b5qsccdrgisli"
+path="res://.godot/imported/NavBar.png-c6a60272daeb90ebc4ae45c22ac17918.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/menu_start/img/fondoMenuStart.png"
-dest_files=["res://.godot/imported/fondoMenuStart.png-1d7564e5729ceb11a9fe0e66a9dd3c51.ctex"]
+source_file="res://menus/nav_bar/img/NavBar.png"
+dest_files=["res://.godot/imported/NavBar.png-c6a60272daeb90ebc4ae45c22ac17918.ctex"]
 
 [params]
 

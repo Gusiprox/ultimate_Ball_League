@@ -14,9 +14,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-
 func _on_btn_menu_user_pressed() -> void:
-	if(menuUser.visible == true):
-		menuUser.visible = false
-	else:
-		menuUser.visible = true
+	menuUser.visible = !menuUser.visible
