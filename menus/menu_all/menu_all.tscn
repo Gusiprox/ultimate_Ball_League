@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb70usrep3pyw"]
 
-[ext_resource type="Texture2D" uid="uid://bfdp2hae1u1ru" path="res://menu_all/img/FondoCon5.png" id="1_t2kp5"]
+[ext_resource type="Texture2D" uid="uid://bfdp2hae1u1ru" path="res://menus/menu_all/img/FondoCon5.png" id="1_t2kp5"]
 [ext_resource type="PackedScene" uid="uid://dfda6fgmlw17f" path="res://menus/nav_bar/nav_bar.tscn" id="2_0rnwl"]
 [ext_resource type="PackedScene" uid="uid://dbwdtcbpwg82v" path="res://menus/menu_play/menuPlay.tscn" id="3_baml4"]
 

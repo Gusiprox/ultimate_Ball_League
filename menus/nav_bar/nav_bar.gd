@@ -30,3 +30,8 @@ func _on_btn_conf_exit_pressed() -> void:
 
 func _on_btn_cancel_exit_pressed() -> void:
 	menuExit.visible = false
+
+
+func _on_btn_sign_out_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
+	#Faltaría que en el servidor se cerrara la sesión actual

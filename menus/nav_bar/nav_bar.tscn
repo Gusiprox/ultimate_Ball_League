@@ -236,6 +236,7 @@ layout_mode = 2
 text = " No "
 
 [connection signal="pressed" from="btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
+[connection signal="pressed" from="MenuUser/MarginContainer/VBoxContainer/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
 [connection signal="pressed" from="MenuUser/MarginContainer/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="MenuExit/HBoxContainer/btnConfExit" to="." method="_on_btn_conf_exit_pressed"]
 [connection signal="pressed" from="MenuExit/HBoxContainer/btnCancelExit" to="." method="_on_btn_cancel_exit_pressed"]
