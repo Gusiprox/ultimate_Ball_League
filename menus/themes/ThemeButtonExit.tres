@@ -1,47 +1,33 @@
-[gd_resource type="Theme" format=3 uid="uid://drsjk77syd12u"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgo1k"]
-bg_color = Color(0.6363151, 0.040449265, 0.086818434, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 10.0
-expand_margin_top = 2.0
-expand_margin_right = 10.0
-expand_margin_bottom = 2.0
-shadow_size = 25
-shadow_offset = Vector2(40, 40)
+[gd_resource type="Theme" format=3 uid="uid://bp8mfjsiwnedp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxqkt"]
-bg_color = Color(0.8296926, 0.072593145, 0.13075832, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 10.0
-expand_margin_top = 2.0
-expand_margin_right = 10.0
-expand_margin_bottom = 2.0
-shadow_color = Color(0, 0, 0, 0.30980393)
-shadow_size = 25
-shadow_offset = Vector2(40, 40)
+bg_color = Color(0.63529414, 0.039215688, 0.08627451, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piu6u"]
-bg_color = Color(0.7092601, 0.050414726, 0.10179161, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 10.0
-expand_margin_top = 2.0
-expand_margin_right = 10.0
-expand_margin_bottom = 2.0
-shadow_color = Color(0, 0, 0, 0.654902)
-shadow_size = 25
-shadow_offset = Vector2(40, 40)
+bg_color = Color(0.83137256, 0.07450981, 0.12941177, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgo1k"]
+bg_color = Color(0.70980394, 0.050980393, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
 
 [resource]
-Button/styles/hover = SubResource("StyleBoxFlat_kgo1k")
-Button/styles/normal = SubResource("StyleBoxFlat_uxqkt")
-Button/styles/pressed = SubResource("StyleBoxFlat_piu6u")
+Button/styles/hover = SubResource("StyleBoxFlat_uxqkt")
+Button/styles/normal = SubResource("StyleBoxFlat_piu6u")
+Button/styles/pressed = SubResource("StyleBoxFlat_kgo1k")

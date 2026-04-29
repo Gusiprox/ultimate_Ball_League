@@ -16,14 +16,12 @@ texture = ExtResource("1_t2kp5")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="NavBar" parent="." unique_id=1305611965 instance=ExtResource("2_0rnwl")]
-offset_left = -1.0
-offset_top = -2.0
-offset_right = -1.1520996
-offset_bottom = -2.2240067
-grow_horizontal = 2
-size_flags_vertical = 4
-
 [node name="MenuPlay" parent="." unique_id=37333949 instance=ExtResource("3_baml4")]
 offset_right = 0.0
 offset_bottom = 0.0
+
+[node name="NavBar" parent="." unique_id=1305611965 instance=ExtResource("2_0rnwl")]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.1520996
+offset_bottom = -1.2240067
