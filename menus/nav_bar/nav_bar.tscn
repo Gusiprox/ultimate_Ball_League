@@ -9,7 +9,7 @@
 bg_color = Color(0, 0.7882353, 0.93333334, 0.59607846)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btywh"]
-bg_color = Color(0, 0.7882353, 0.93333334, 0.59607846)
+bg_color = Color(0, 0.5735186, 0.6816697, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -21,7 +21,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xtyc"]
-bg_color = Color(0, 0.5211034, 0.6227535, 0.59607846)
+bg_color = Color(2.117753e-06, 0.48270786, 0.5767922, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -236,6 +236,7 @@ layout_mode = 2
 text = " No "
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NavBarButtons/btnMenuPlay" to="." method="_on_btn_menu_play_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/NavBarButtons/btnMenuEditPlayer" to="." method="_on_btn_menu_edit_player_pressed"]
 [connection signal="pressed" from="btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
 [connection signal="pressed" from="MenuUser/MarginContainer/VBoxContainer/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
 [connection signal="pressed" from="MenuUser/MarginContainer/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://drcebvuq2lxot"]
+
+[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_463yv"]
+
+[node name="MenuEditCharacter" type="Control" unique_id=740546051]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuHats" type="Panel" parent="." unique_id=549290044]
+layout_mode = 0
+offset_left = 621.0
+offset_top = 105.0
+offset_right = 1117.0
+offset_bottom = 613.0
+
+[node name="Label" type="Label" parent="MenuHats" unique_id=330173271]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_top = 24.0
+offset_right = 69.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "Sombreros"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuHats" unique_id=129901680]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -167.0
+offset_right = 176.0
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="MenuHats/ScrollContainer" unique_id=251508510]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="CharacterCard" parent="MenuHats/ScrollContainer/GridContainer" unique_id=131578327 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard2" parent="MenuHats/ScrollContainer/GridContainer" unique_id=560873995 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard3" parent="MenuHats/ScrollContainer/GridContainer" unique_id=1868251955 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard4" parent="MenuHats/ScrollContainer/GridContainer" unique_id=200853152 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard5" parent="MenuHats/ScrollContainer/GridContainer" unique_id=1916658321 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard6" parent="MenuHats/ScrollContainer/GridContainer" unique_id=689413336 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard7" parent="MenuHats/ScrollContainer/GridContainer" unique_id=1364394447 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard8" parent="MenuHats/ScrollContainer/GridContainer" unique_id=1546102272 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard9" parent="MenuHats/ScrollContainer/GridContainer" unique_id=669156094 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard11" parent="MenuHats/ScrollContainer/GridContainer" unique_id=1628341912 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard13" parent="MenuHats/ScrollContainer/GridContainer" unique_id=144181854 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard12" parent="MenuHats/ScrollContainer/GridContainer" unique_id=560439028 instance=ExtResource("1_463yv")]
+layout_mode = 2
+
+[node name="CharacterCard10" parent="MenuHats/ScrollContainer/GridContainer" unique_id=166319448 instance=ExtResource("1_463yv")]
+layout_mode = 2
