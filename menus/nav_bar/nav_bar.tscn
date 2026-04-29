@@ -235,6 +235,7 @@ text = "   Si   "
 layout_mode = 2
 text = " No "
 
+[connection signal="pressed" from="MarginContainer/HBoxContainer/NavBarButtons/btnMenuPlay" to="." method="_on_btn_menu_play_pressed"]
 [connection signal="pressed" from="btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
 [connection signal="pressed" from="MenuUser/MarginContainer/VBoxContainer/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
 [connection signal="pressed" from="MenuUser/MarginContainer/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]

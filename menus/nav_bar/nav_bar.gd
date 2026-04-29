@@ -2,7 +2,7 @@ extends Panel
 
 @onready var menuUser = $MenuUser
 @onready var menuExit = $MenuExit
-
+@onready var menuPlay = $"../MenuPlay"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,3 +35,10 @@ func _on_btn_cancel_exit_pressed() -> void:
 func _on_btn_sign_out_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
 	#Faltaría que en el servidor se cerrara la sesión actual
+
+
+#Los botones del navbar dan error en la escena solo con el navbar porque no están los menús
+
+func _on_btn_menu_play_pressed() -> void:
+	menuPlay.visible = false
+	pass # Replace with function body.
