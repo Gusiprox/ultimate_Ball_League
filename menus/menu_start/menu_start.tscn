@@ -125,7 +125,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 13
 text = "Iniciar sesión"
 
-[node name="btnCreateUser" type="Button" parent="panelLogin" unique_id=487387173]
+[node name="btnOpenCreateUser" type="Button" parent="panelLogin" unique_id=487387173]
 layout_mode = 0
 offset_left = 306.0
 offset_top = 359.5
@@ -218,6 +218,7 @@ text = "Crear usuario"
 [connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="panelLogin/btnLogin" to="." method="_on_btn_login_pressed"]
-[connection signal="pressed" from="panelLogin/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
+[connection signal="pressed" from="panelLogin/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
+[connection signal="pressed" from="panelCreateUser/btnCreateUser" to="." method="_on_btn_create_user_pressed"]

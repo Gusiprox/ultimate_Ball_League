@@ -17,10 +17,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-
 func _on_btn_create_user_pressed() -> void:
-	menuLogin.visible = false
-	menuCreate.visible = true
+	menuLogin.visible = true
+	menuCreate.visible = false
+	#Gestionar que se hayan metido todos los datos
+	#Falta que se cree de verdad la cuenta
 
 
 func _on_btn_start_pressed() -> void:
@@ -41,3 +42,8 @@ func _on_btn_login_pressed() -> void:
 
 func _on_btn_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_btn_open_create_user_pressed() -> void:
+	menuLogin.visible = false
+	menuCreate.visible = true
