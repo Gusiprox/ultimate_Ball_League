@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c44lqto6ey3um" path="res://menus/menu_start/menu_start.gd" id="1_28y4e"]
 [ext_resource type="Texture2D" uid="uid://dlolmdsoww0ig" path="res://menus/menu_start/img/marco.png" id="1_a2csu"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/ThemeYellowBtn.tres" id="1_bond3"]
 [ext_resource type="Texture2D" uid="uid://stkxt42wb70w" path="res://menus/menu_start/img/fondoMenuStart.png" id="1_yddou"]
+[ext_resource type="Texture2D" uid="uid://pb645lb8bmfk" path="res://menus/menu_start/img/exit.png" id="4_28y4e"]
+[ext_resource type="Theme" uid="uid://drsjk77syd12u" path="res://menus/themes/ThemeButtonExit.tres" id="4_bond3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lyl5"]
 font_size = 30
@@ -49,16 +52,29 @@ metadata/_edit_use_anchors_ = true
 
 [node name="btnStart" type="Button" parent="." unique_id=1901536556]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 544.0
-offset_top = 322.0
-offset_right = -548.0
-offset_bottom = -294.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 34.5
+offset_right = 76.0
+offset_bottom = 106.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bond3")
 text = "Start"
+
+[node name="btnExit" type="Button" parent="." unique_id=1809097881]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 581.0
+offset_right = 1728.0
+offset_bottom = 1221.0
+scale = Vector2(0.07, 0.07)
+theme = ExtResource("4_bond3")
+icon = ExtResource("4_28y4e")
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
 visible = false
@@ -136,6 +152,7 @@ offset_bottom = 10.0
 text = "X"
 
 [node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -199,6 +216,7 @@ theme_override_font_sizes/font_size = 13
 text = "Crear usuario"
 
 [connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="panelLogin/btnLogin" to="." method="_on_btn_login_pressed"]
 [connection signal="pressed" from="panelLogin/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]

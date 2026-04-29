@@ -2,17 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djup5b30n6b8m" path="res://menus/nav_bar/nav_bar.gd" id="1_q0cxf"]
 [ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0cxf"]
-bg_color = Color(0, 0.3254902, 0.3882353, 0.9764706)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 10.0
-expand_margin_top = 8.0
-expand_margin_right = 10.0
-expand_margin_bottom = 8.0
+[ext_resource type="Theme" uid="uid://c0jsv3iix0if4" path="res://menus/themes/ThemeButtonNav.tres" id="2_btywh"]
 
 [node name="NavBar" type="Panel" unique_id=1305611965]
 anchors_preset = -1
@@ -60,14 +50,14 @@ layout_mode = 2
 
 [node name="NavBarButtons" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1054026203]
 layout_mode = 2
-theme_override_constants/separation = 17
+theme = ExtResource("2_btywh")
+theme_override_constants/separation = 30
 
 [node name="btnMenuPlay" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=1108961023]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_q0cxf")
 text = "Jugar"
 
 [node name="btnMenuEditPlayer" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=2103016809]
@@ -110,7 +100,9 @@ offset_right = 2046.0
 offset_bottom = 963.0
 rotation = -0.0033827927
 scale = Vector2(0.05, 0.05)
+theme_override_constants/icon_max_width = 1000
 icon = ExtResource("1_rqlcp")
+expand_icon = true
 
 [node name="imgPulls" type="Sprite2D" parent="." unique_id=2089728813]
 position = Vector2(804.99994, 26.000002)
@@ -138,10 +130,10 @@ text = "0"
 [node name="MenuUser" type="Panel" parent="." unique_id=71924952]
 visible = false
 layout_mode = 0
-offset_left = 964.0
-offset_top = 58.0
-offset_right = 1160.0
-offset_bottom = 504.0
+offset_left = 961.0
+offset_top = 82.0
+offset_right = 1157.0
+offset_bottom = 528.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MenuUser" unique_id=931634644]
 layout_mode = 1

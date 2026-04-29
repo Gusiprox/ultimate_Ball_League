@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://suhhmco6kwas"
-path="res://.godot/imported/usuario.png-397c1836b1eb26945f42e39db4e21da6.ctex"
+uid="uid://pb645lb8bmfk"
+path="res://.godot/imported/exit.png-1d3d2049bd28155128469b9aec20b3d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/nav_bar/img/usuario.png"
-dest_files=["res://.godot/imported/usuario.png-397c1836b1eb26945f42e39db4e21da6.ctex"]
+source_file="res://menus/menu_start/img/exit.png"
+dest_files=["res://.godot/imported/exit.png-1d3d2049bd28155128469b9aec20b3d9.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -37,3 +37,7 @@ func _on_btn_close_create_user_pressed() -> void:
 
 func _on_btn_login_pressed() -> void:
 	get_tree().change_scene_to_file("res://menu_all/menu_all.tscn")
+
+
+func _on_btn_exit_pressed() -> void:
+	get_tree().quit()
