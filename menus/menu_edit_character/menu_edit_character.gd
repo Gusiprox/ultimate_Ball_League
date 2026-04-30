@@ -7,11 +7,6 @@ func _ready() -> void:
 	menuListChar.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_btn_change_char_pressed() -> void:
 	menuListChar.visible = true
 

@@ -12,11 +12,6 @@ func _ready() -> void:
 	menuExit.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_btn_menu_user_pressed() -> void:
 	menuUser.visible = !menuUser.visible
 

@@ -25,8 +25,3 @@ func _gestionar_cambio_de_menu(nombre_menu: String):
 			nodo_menu.show()
 		else:
 			nodo_menu.hide()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
