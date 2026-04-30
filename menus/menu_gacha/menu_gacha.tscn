@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c1rh5rea5smsf"]
+
+[ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/ThemeYellowBtn.tres" id="2_uvj2q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvj2q"]
+bg_color = Color(0.24313726, 0.13725491, 0.10980392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.6039216, 0.29411766, 0.12156863, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MenuGacha" type="Control" unique_id=2058835036]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBanner" type="Panel" parent="." unique_id=854339921]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -207.0
+offset_right = 274.0
+offset_bottom = 268.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvj2q")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuBanner" unique_id=341333945]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.5625
+offset_top = -181.0
+offset_right = 219.5625
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MenuBanner/MarginContainer" unique_id=426097043]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="lblBannerName" type="Label" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=179555522]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Permanente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="space" type="Control" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=408222127]
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
+custom_minimum_size = Vector2(450, 300)
+layout_mode = 2
+texture = ExtResource("1_hsln1")
+region_rect = Rect2(0, 0, 500, 303)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=1308673948]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_uvj2q")
+theme_override_constants/separation = 30
+
+[node name="btnOnePull" type="Button" parent="MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2093886414]
+layout_mode = 2
+size_flags_vertical = 8
+text = "  Tirar 1  "
+
+[node name="btnTenPulls" type="Button" parent="MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1811901350]
+layout_mode = 2
+text = "  Tirar 10  "

@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cfnoay1blshlx"]
+
+[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_sdn1g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uk4v"]
+bg_color = Color(0.1330637, 0.41505545, 0.14027178, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8089986, 0.8089981, 0.80899847, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arh1h"]
+bg_color = Color(0.24148643, 0.13901049, 0.11071243, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(0.6046219, 0.29240084, 0.12321984, 1)
+
+[node name="MenuEditTeam" type="Control" unique_id=801215074]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuField" type="Panel" parent="." unique_id=730481447]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.20399305
+anchor_top = 0.5046296
+anchor_right = 0.3298611
+anchor_bottom = 0.58641976
+offset_left = -156.0
+offset_top = -186.0
+offset_right = 156.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4uk4v")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuCharacters" type="Panel" parent="." unique_id=237924738]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 105.0
+offset_right = 1078.0
+offset_bottom = 614.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_arh1h")
+
+[node name="lblCharacters" type="Label" parent="MenuCharacters" unique_id=1681075565]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -69.0
+offset_top = 24.0
+offset_right = 68.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "Personajes"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuCharacters" unique_id=1087778451]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -166.5
+offset_right = 147.0
+offset_bottom = 209.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="MenuCharacters/ScrollContainer" unique_id=190382852]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="CharacterCard" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=131578327 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard2" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=117250526 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard3" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=1428998004 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard4" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=1772363677 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard5" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=1469778522 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard6" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=243773407 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard7" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=1168506150 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard8" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=463783869 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard9" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=950435860 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard11" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=1477742934 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard13" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=940972803 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard12" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=2029642668 instance=ExtResource("1_sdn1g")]
+layout_mode = 2
+
+[node name="CharacterCard10" parent="MenuCharacters/ScrollContainer/GridContainer" unique_id=1322498757 instance=ExtResource("1_sdn1g")]
+layout_mode = 2

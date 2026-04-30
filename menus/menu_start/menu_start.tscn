@@ -152,7 +152,6 @@ offset_bottom = 10.0
 text = "X"
 
 [node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

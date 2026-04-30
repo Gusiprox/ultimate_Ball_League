@@ -5,7 +5,9 @@ extends CanvasLayer
 
 @onready var dic_menus = {
 	"play": $MenuPlay,
-	"editCharacter": $MenuEditCharacter
+	"editCharacter": $MenuEditCharacter,
+	"editTeam": $MenuEditTeam,
+	"gacha": $MenuGacha
 }
 
 # Called when the node enters the scene tree for the first time.

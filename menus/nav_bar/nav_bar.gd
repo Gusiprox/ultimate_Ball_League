@@ -45,3 +45,11 @@ func _on_btn_menu_play_pressed() -> void:
 
 func _on_btn_menu_edit_player_pressed() -> void:
 	menu_requested.emit("editCharacter")
+
+
+func _on_btn_menu_edit_team_pressed() -> void:
+	menu_requested.emit("editTeam")
+
+
+func _on_btn_menu_gacha_pressed() -> void:
+	menu_requested.emit("gacha")
