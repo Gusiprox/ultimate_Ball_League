@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://c2e8560ctbxjd"]
 
+[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/ThemePanel.tres" id="1_nyot1"]
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_t0gjc"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0gjc"]
 
 [node name="MenuStore" type="Control" unique_id=1067569597]
 layout_mode = 3
@@ -25,7 +24,7 @@ offset_right = 476.0
 offset_bottom = 269.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_t0gjc")
+theme = ExtResource("1_nyot1")
 
 [node name="lblStore" type="Label" parent="frame" unique_id=962807460]
 layout_mode = 1

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cfnoay1blshlx"]
 
+[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/ThemePanel.tres" id="1_arh1h"]
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_sdn1g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uk4v"]
@@ -9,14 +10,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.8089986, 0.8089981, 0.80899847, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arh1h"]
-bg_color = Color(0.24148643, 0.13901049, 0.11071243, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.6046219, 0.29240084, 0.12321984, 1)
 
 [node name="MenuEditTeam" type="Control" unique_id=801215074]
 layout_mode = 3
@@ -48,7 +41,7 @@ offset_left = 644.0
 offset_top = 105.0
 offset_right = 1078.0
 offset_bottom = 614.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_arh1h")
+theme = ExtResource("1_arh1h")
 
 [node name="lblCharacters" type="Label" parent="MenuCharacters" unique_id=1681075565]
 layout_mode = 1

@@ -1,20 +1,8 @@
 [gd_scene format=3 uid="uid://c1rh5rea5smsf"]
 
 [ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
+[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/ThemePanel.tres" id="1_oiud2"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/ThemeYellowBtn.tres" id="2_uvj2q"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvj2q"]
-bg_color = Color(0.24313726, 0.13725491, 0.10980392, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.6039216, 0.29411766, 0.12156863, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-shadow_size = 15
 
 [node name="MenuGacha" type="Control" unique_id=2058835036]
 layout_mode = 3
@@ -34,10 +22,10 @@ anchor_bottom = 0.5
 offset_left = -274.0
 offset_top = -207.0
 offset_right = 274.0
-offset_bottom = 268.0
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_uvj2q")
+theme = ExtResource("1_oiud2")
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuBanner" unique_id=341333945]
 layout_mode = 1
