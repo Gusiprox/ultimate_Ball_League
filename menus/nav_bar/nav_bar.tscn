@@ -8,6 +8,8 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.7882353, 0.93333334, 0.59607846)
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_qkb7d"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btywh"]
 bg_color = Color(0, 0.5735186, 0.6816697, 1)
 border_width_left = 5
@@ -27,6 +29,10 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.6509804, 0.5372549, 0.21176471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="NavBar" type="Panel" unique_id=1305611965]
 anchors_preset = -1
@@ -64,6 +70,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qkb7d")
 text = "Jugar"
 
 [node name="btnMenuEditPlayer" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=2103016809]
@@ -71,12 +79,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qkb7d")
 text = "Editar personaje"
 
 [node name="btnMenuEditTeam" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=1697499274]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qkb7d")
 text = "Editar equipo"
 
 [node name="btnMenuGacha" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=141373700]
@@ -84,18 +96,24 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qkb7d")
 text = "Gacha"
 
 [node name="btnMenuStore" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=1926674001]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qkb7d")
 text = "Tienda"
 
 [node name="btnMenuInventory" type="Button" parent="MarginContainer/HBoxContainer/NavBarButtons" unique_id=274448116]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
+toggle_mode = true
+button_group = SubResource("ButtonGroup_qkb7d")
 text = "Inventario"
 
 [node name="btnMenuUser" type="Button" parent="." unique_id=1253009537]

@@ -25,7 +25,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7tv5"]
-bg_color = Color(0, 0.25695834, 0.30815625, 0.9764706)
+bg_color = Color(2.7675182e-07, 0.18539447, 0.22471383, 0.9764706)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
