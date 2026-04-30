@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://c2e8560ctbxjd"]
+
+[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_t0gjc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0gjc"]
+
+[node name="MenuStore" type="Control" unique_id=1067569597]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="frame" type="Panel" parent="." unique_id=775027296]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -206.0
+offset_right = 476.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t0gjc")
+
+[node name="lblStore" type="Label" parent="frame" unique_id=962807460]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 37.0
+offset_right = 74.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 28
+text = "Tienda"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="margin" type="MarginContainer" parent="frame" unique_id=174345837]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.0
+offset_top = -129.0
+offset_right = 388.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="frame/margin" unique_id=1914649652]
+clip_children = 1
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="frame/margin/ScrollContainer" unique_id=757393786]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 8
+
+[node name="CharacterCard" parent="frame/margin/ScrollContainer/GridContainer" unique_id=131578327 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard2" parent="frame/margin/ScrollContainer/GridContainer" unique_id=526322495 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard3" parent="frame/margin/ScrollContainer/GridContainer" unique_id=1732916620 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard4" parent="frame/margin/ScrollContainer/GridContainer" unique_id=322921527 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard5" parent="frame/margin/ScrollContainer/GridContainer" unique_id=832186607 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard6" parent="frame/margin/ScrollContainer/GridContainer" unique_id=758575846 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard7" parent="frame/margin/ScrollContainer/GridContainer" unique_id=760616112 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard8" parent="frame/margin/ScrollContainer/GridContainer" unique_id=450359447 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard9" parent="frame/margin/ScrollContainer/GridContainer" unique_id=1939353432 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard11" parent="frame/margin/ScrollContainer/GridContainer" unique_id=2031973932 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard13" parent="frame/margin/ScrollContainer/GridContainer" unique_id=1624778138 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard12" parent="frame/margin/ScrollContainer/GridContainer" unique_id=581396397 instance=ExtResource("1_t0gjc")]
+layout_mode = 2
+
+[node name="CharacterCard10" parent="frame/margin/ScrollContainer/GridContainer" unique_id=273733055 instance=ExtResource("1_t0gjc")]
+layout_mode = 2

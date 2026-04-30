@@ -2,8 +2,7 @@ extends Panel
 
 @onready var menuUser = $MenuUser
 @onready var menuExit = $MenuExit
-@onready var menuPlay = $"../MenuPlay"
-@onready var menuEditarPers = $"../MenuEditCharacter"
+
 
 signal menu_requested(menu_name)
 
@@ -53,3 +52,7 @@ func _on_btn_menu_edit_team_pressed() -> void:
 
 func _on_btn_menu_gacha_pressed() -> void:
 	menu_requested.emit("gacha")
+
+
+func _on_btn_menu_store_pressed() -> void:
+	menu_requested.emit("store")

@@ -12,10 +12,10 @@ border_color = Color(0.8089986, 0.8089981, 0.80899847, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arh1h"]
 bg_color = Color(0.24148643, 0.13901049, 0.11071243, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 4
-border_width_bottom = 3
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0.6046219, 0.29240084, 0.12321984, 1)
 
 [node name="MenuEditTeam" type="Control" unique_id=801215074]
