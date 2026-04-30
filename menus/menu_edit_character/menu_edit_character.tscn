@@ -2,14 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_463yv"]
 [ext_resource type="Script" uid="uid://2rtap4dp74ut" path="res://menus/menu_edit_character/menu_edit_character.gd" id="1_afq85"]
+[ext_resource type="Theme" uid="uid://bo84q6mdsb6cy" path="res://menus/themes/ThemeScrollBar.tres" id="2_y5seb"]
+[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/ThemeCloseMenu.tres" id="4_ay4hy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_463yv"]
 bg_color = Color(0.24148643, 0.13901049, 0.11071243, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
 border_color = Color(0.6046219, 0.29240084, 0.12321984, 1)
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afq85"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,6 +20,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_afq85"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5seb"]
+bg_color = Color(0.18874735, 0.5584248, 0.67427754, 1)
 
 [node name="MenuEditCharacter" type="Control" unique_id=740546051]
 layout_mode = 3
@@ -62,6 +66,7 @@ offset_right = 196.0
 offset_bottom = 209.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_y5seb")
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="MenuHats/List" unique_id=251508510]
@@ -174,7 +179,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_afq85")
 
 [node name="MenuListChar" type="Panel" parent="." unique_id=1717209840]
-visible = false
 layout_mode = 0
 offset_left = 51.0
 offset_top = 104.0
@@ -188,6 +192,7 @@ offset_left = 517.0
 offset_top = -17.0
 offset_right = 547.0
 offset_bottom = 14.0
+theme = ExtResource("4_ay4hy")
 text = "X"
 
 [node name="List" type="ScrollContainer" parent="MenuListChar" unique_id=1619875651]
@@ -204,6 +209,7 @@ offset_right = 196.0
 offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_y5seb")
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="MenuListChar/List" unique_id=591929378]
