@@ -5,7 +5,7 @@ extends Panel
 @onready var menuPlay = $"../MenuPlay"
 @onready var menuEditarPers = $"../MenuEditCharacter"
 
-
+signal menu_requested(menu_name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,14 +39,9 @@ func _on_btn_sign_out_pressed() -> void:
 	#Faltaría que en el servidor se cerrara la sesión actual
 
 
-#Los botones del navbar dan error en la escena solo con el navbar porque no están los menús
-
 func _on_btn_menu_play_pressed() -> void:
-	menuPlay.visible = true
-	menuEditarPers.visible = false
-	pass # Replace with function body.
+	menu_requested.emit("play")
 
 
 func _on_btn_menu_edit_player_pressed() -> void:
-	menuEditarPers.visible = true
-	menuPlay.visible = false
+	menu_requested.emit("editCharacter")
