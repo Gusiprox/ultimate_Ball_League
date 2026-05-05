@@ -1,8 +1,8 @@
 extends Panel
 
-@onready var menuUser = $MenuUser
-@onready var menuExit = $MenuExit
-@onready var menuOptions = $MenuOptions
+@onready var menuUser = $marginMenu/Control/MenuUser
+@onready var menuExit = $marginMenu/Control/MenuExit
+@onready var menuOptions = $marginMenu/Control/MenuOptions
 
 
 signal menu_requested(menu_name)

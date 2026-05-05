@@ -36,7 +36,16 @@ grow_vertical = 2
 [node name="glow" type="WorldEnvironment" parent="." unique_id=1873404771]
 environment = SubResource("Environment_krwax")
 
-[node name="MenuBanner" type="Panel" parent="." unique_id=854339921]
+[node name="marginMenu" type="MarginContainer" parent="." unique_id=1209050465]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Control" type="Control" parent="marginMenu" unique_id=572560301]
+layout_mode = 2
+
+[node name="MenuBanner" type="Panel" parent="marginMenu/Control" unique_id=854339921]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,14 +53,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -426.0
-offset_top = -210.0
+offset_top = -248.0
 offset_right = 426.0
-offset_bottom = 286.0
+offset_bottom = 248.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_p5jkf")
 
-[node name="borderImg" type="Panel" parent="MenuBanner" unique_id=1708206767]
+[node name="borderImg" type="Panel" parent="marginMenu/Control/MenuBanner" unique_id=1708206767]
 z_index = 1
 layout_mode = 1
 anchors_preset = 8
@@ -67,7 +76,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhgi5")
 
-[node name="particles" type="CPUParticles2D" parent="MenuBanner" unique_id=1247162968]
+[node name="particles" type="CPUParticles2D" parent="marginMenu/Control/MenuBanner" unique_id=1247162968]
 position = Vector2(426, 249)
 texture = ExtResource("2_dhgi5")
 lifetime = 2.0
@@ -81,7 +90,7 @@ scale_amount_max = 0.02
 color = Color(0.73961323, 0.7542988, 0.7893644, 1)
 color_ramp = SubResource("Gradient_dhgi5")
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuBanner" unique_id=341333945]
+[node name="MarginContainer" type="MarginContainer" parent="marginMenu/Control/MenuBanner" unique_id=341333945]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -95,40 +104,40 @@ offset_bottom = 181.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MenuBanner/MarginContainer" unique_id=426097043]
+[node name="HBoxContainer" type="VBoxContainer" parent="marginMenu/Control/MenuBanner/MarginContainer" unique_id=426097043]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 30
 
-[node name="lblBannerName" type="Label" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=179555522]
+[node name="lblBannerName" type="Label" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=179555522]
 layout_mode = 2
 theme = ExtResource("3_dhgi5")
 text = "Permanente"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="space" type="Control" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=408222127]
+[node name="space" type="Control" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=408222127]
 visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
+[node name="NinePatchRect" type="NinePatchRect" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
 custom_minimum_size = Vector2(450, 300)
 layout_mode = 2
 texture = ExtResource("1_hsln1")
 region_rect = Rect2(0, 0, 500, 303)
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=1308673948]
+[node name="VBoxContainer" type="HBoxContainer" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=1308673948]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_uvj2q")
 theme_override_constants/separation = 30
 
-[node name="btnOnePull" type="Button" parent="MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2093886414]
+[node name="btnOnePull" type="Button" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2093886414]
 layout_mode = 2
 size_flags_vertical = 8
 text = "  Tirar 1  "
 
-[node name="btnTenPulls" type="Button" parent="MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1811901350]
+[node name="btnTenPulls" type="Button" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1811901350]
 layout_mode = 2
 text = "  Tirar 10  "

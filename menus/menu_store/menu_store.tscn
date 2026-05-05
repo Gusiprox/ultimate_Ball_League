@@ -14,29 +14,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="imgCoins" type="NinePatchRect" parent="." unique_id=338781156]
-modulate = Color(0.9483672, 0.67443055, 0.19494939, 1)
-z_index = 1
+[node name="marginMenu" type="MarginContainer" parent="." unique_id=313458676]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 102.0
-offset_right = 145.2202
-offset_bottom = 186.27164
-rotation = -0.1737908
-texture = ExtResource("1_24c0n")
+offset_top = 71.0
+offset_right = 1153.0
+offset_bottom = 647.0
 
-[node name="imgCart" type="NinePatchRect" parent="." unique_id=1553500773]
-modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
-z_index = 1
-layout_mode = 0
-offset_left = 1013.99994
-offset_top = 522.99994
-offset_right = 1101.9683
-offset_bottom = 614.3205
-rotation = 0.26169088
-texture = ExtResource("2_lhwub")
+[node name="Control" type="Control" parent="marginMenu" unique_id=155260095]
+layout_mode = 2
 
-[node name="frame" type="Panel" parent="." unique_id=775027296]
+[node name="frame" type="Panel" parent="marginMenu/Control" unique_id=775027296]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,14 +31,36 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -476.0
-offset_top = -197.0
+offset_top = -237.5
 offset_right = 476.0
-offset_bottom = 278.0
+offset_bottom = 237.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_nyot1")
 
-[node name="lblStore" type="Label" parent="frame" unique_id=962807460]
+[node name="imgCoins" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=338781156]
+modulate = Color(0.9483672, 0.67443055, 0.19494939, 1)
+z_index = 1
+layout_mode = 0
+offset_left = -37.5
+offset_top = -26.5
+offset_right = 44.7202
+offset_bottom = 57.771637
+rotation = -0.1737908
+texture = ExtResource("1_24c0n")
+
+[node name="imgCart" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=1553500773]
+modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 914.49994
+offset_top = 402.5
+offset_right = 1002.46826
+offset_bottom = 493.82056
+rotation = 0.26169088
+texture = ExtResource("2_lhwub")
+
+[node name="lblStore" type="Label" parent="marginMenu/Control/frame" unique_id=962807460]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -66,7 +75,7 @@ text = "Tienda"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="margin" type="MarginContainer" parent="frame" unique_id=174345837]
+[node name="margin" type="MarginContainer" parent="marginMenu/Control/frame" unique_id=174345837]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,12 +89,12 @@ offset_bottom = 129.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="frame/margin" unique_id=1914649652]
+[node name="ScrollContainer" type="ScrollContainer" parent="marginMenu/Control/frame/margin" unique_id=1914649652]
 clip_children = 1
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="frame/margin/ScrollContainer" unique_id=757393786]
+[node name="GridContainer" type="GridContainer" parent="marginMenu/Control/frame/margin/ScrollContainer" unique_id=757393786]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -94,41 +103,41 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 8
 
-[node name="CharacterCard" parent="frame/margin/ScrollContainer/GridContainer" unique_id=131578327 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=131578327 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard2" parent="frame/margin/ScrollContainer/GridContainer" unique_id=526322495 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard2" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=526322495 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard3" parent="frame/margin/ScrollContainer/GridContainer" unique_id=1732916620 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard3" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=1732916620 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard4" parent="frame/margin/ScrollContainer/GridContainer" unique_id=322921527 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard4" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=322921527 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard5" parent="frame/margin/ScrollContainer/GridContainer" unique_id=832186607 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard5" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=832186607 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard6" parent="frame/margin/ScrollContainer/GridContainer" unique_id=758575846 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard6" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=758575846 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard7" parent="frame/margin/ScrollContainer/GridContainer" unique_id=760616112 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard7" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=760616112 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard8" parent="frame/margin/ScrollContainer/GridContainer" unique_id=450359447 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard8" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=450359447 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard9" parent="frame/margin/ScrollContainer/GridContainer" unique_id=1939353432 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard9" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=1939353432 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard11" parent="frame/margin/ScrollContainer/GridContainer" unique_id=2031973932 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard11" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=2031973932 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard13" parent="frame/margin/ScrollContainer/GridContainer" unique_id=1624778138 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard13" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=1624778138 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard12" parent="frame/margin/ScrollContainer/GridContainer" unique_id=581396397 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard12" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=581396397 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
 
-[node name="CharacterCard10" parent="frame/margin/ScrollContainer/GridContainer" unique_id=273733055 instance=ExtResource("1_t0gjc")]
+[node name="CharacterCard10" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=273733055 instance=ExtResource("1_t0gjc")]
 layout_mode = 2
