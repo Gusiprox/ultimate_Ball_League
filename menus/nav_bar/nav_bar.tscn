@@ -144,8 +144,8 @@ layout_mode = 2
 text = "0"
 
 [node name="imgCoin" type="Sprite2D" parent="marginNavBar/HBoxContainer/HBoxContainer" unique_id=370523503]
-position = Vector2(163, 26.5)
-scale = Vector2(0.7, 0.7)
+position = Vector2(161, 25.5)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("3_8xtyc")
 
 [node name="imgPulls" type="Sprite2D" parent="marginNavBar/HBoxContainer/HBoxContainer" unique_id=2089728813]

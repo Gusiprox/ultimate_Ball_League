@@ -41,6 +41,7 @@ theme = ExtResource("1_nyot1")
 [node name="imgCoins" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=338781156]
 modulate = Color(0.9483672, 0.67443055, 0.19494939, 1)
 z_index = 1
+texture_filter = 4
 layout_mode = 0
 offset_left = -37.5
 offset_top = -26.5
@@ -52,6 +53,7 @@ texture = ExtResource("1_24c0n")
 [node name="imgCart" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=1553500773]
 modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
 z_index = 1
+texture_filter = 4
 layout_mode = 0
 offset_left = 914.49994
 offset_top = 402.5
