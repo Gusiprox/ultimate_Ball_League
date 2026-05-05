@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://c2e8560ctbxjd"]
 
-[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/panel/ThemePanel.tres" id="1_nyot1"]
+[ext_resource type="Texture2D" uid="uid://b81rb2678cm8m" path="res://menus/menu_store/img/coins.png" id="1_24c0n"]
+[ext_resource type="Theme" uid="uid://bmlsvo0bf02u5" path="res://menus/themes/panel/ThemePanelStore.tres" id="1_nyot1"]
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_t0gjc"]
+[ext_resource type="Texture2D" uid="uid://qelhphsxis0g" path="res://menus/menu_store/img/shoppingCart.png" id="2_lhwub"]
+[ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="4_lhwub"]
 
 [node name="MenuStore" type="Control" unique_id=1067569597]
 layout_mode = 3
@@ -10,6 +13,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="imgCoins" type="NinePatchRect" parent="." unique_id=338781156]
+modulate = Color(0.9483672, 0.67443055, 0.19494939, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 63.000004
+offset_top = 92.0
+offset_right = 145.2202
+offset_bottom = 176.27164
+rotation = -0.1737908
+texture = ExtResource("1_24c0n")
+
+[node name="imgCart" type="NinePatchRect" parent="." unique_id=1553500773]
+modulate = Color(0.7666196, 0.76661956, 0.76661956, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 1013.99994
+offset_top = 522.99994
+offset_right = 1101.9683
+offset_bottom = 614.3205
+rotation = 0.26169088
+texture = ExtResource("2_lhwub")
 
 [node name="frame" type="Panel" parent="." unique_id=775027296]
 layout_mode = 1
@@ -36,7 +61,7 @@ offset_top = 37.0
 offset_right = 74.0
 offset_bottom = 76.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 28
+theme = ExtResource("4_lhwub")
 text = "Tienda"
 horizontal_alignment = 1
 vertical_alignment = 1
