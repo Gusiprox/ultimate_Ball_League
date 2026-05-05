@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://djup5b30n6b8m" path="res://menus/nav_bar/nav_bar.gd" id="1_q0cxf"]
 [ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
-[ext_resource type="Theme" uid="uid://c0jsv3iix0if4" path="res://menus/themes/ThemeButtonNav.tres" id="2_btywh"]
-[ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/ThemeButtonExit.tres" id="4_qkb7d"]
+[ext_resource type="Theme" uid="uid://c0jsv3iix0if4" path="res://menus/themes/button/ThemeButtonNav.tres" id="2_btywh"]
+[ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="4_qkb7d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
-bg_color = Color(0, 0.7882353, 0.93333334, 0.59607846)
+bg_color = Color(0, 0.57254905, 0.68235296, 1)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_qkb7d"]
 

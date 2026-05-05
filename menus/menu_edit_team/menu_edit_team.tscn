@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cfnoay1blshlx"]
 
-[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/ThemePanel.tres" id="1_arh1h"]
+[ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_arh1h"]
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_sdn1g"]
+[ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="2_n0moq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uk4v"]
 bg_color = Color(0.1330637, 0.41505545, 0.14027178, 1)
@@ -53,7 +54,7 @@ offset_top = 24.0
 offset_right = 68.0
 offset_bottom = 60.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 26
+theme = ExtResource("2_n0moq")
 text = "Personajes"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MenuCharacters" unique_id=1087778451]

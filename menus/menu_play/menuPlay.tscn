@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbwdtcbpwg82v"]
 
-[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/ThemeYellowBtn.tres" id="1_inr87"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="1_inr87"]
 
 [node name="MenuPlay" type="Control" unique_id=37333949]
 layout_mode = 3

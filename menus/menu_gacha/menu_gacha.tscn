@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://c1rh5rea5smsf"]
 
 [ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
-[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/ThemePanel.tres" id="1_oiud2"]
-[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/ThemeYellowBtn.tres" id="2_uvj2q"]
+[ext_resource type="Theme" uid="uid://d3b3ik0l8kapl" path="res://menus/themes/panel/ThemePanelGacha.tres" id="1_p5jkf"]
+[ext_resource type="Texture2D" uid="uid://ct6paqmlk6r3" path="res://menus/menu_gacha/img/whiteStar.png" id="2_dhgi5"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="2_uvj2q"]
+[ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="3_dhgi5"]
+
+[sub_resource type="Environment" id="Environment_krwax"]
+background_mode = 3
+glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhgi5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.019541433, 0.22378, 0.31913868, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Gradient" id="Gradient_dhgi5"]
+colors = PackedColorArray(0.7411765, 0.7529412, 0.7882353, 1, 0.7411765, 0.7529412, 0.7882353, 0)
 
 [node name="MenuGacha" type="Control" unique_id=2058835036]
 layout_mode = 3
@@ -12,6 +33,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="glow" type="WorldEnvironment" parent="." unique_id=1873404771]
+environment = SubResource("Environment_krwax")
+
 [node name="MenuBanner" type="Panel" parent="." unique_id=854339921]
 layout_mode = 1
 anchors_preset = 8
@@ -19,13 +43,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -274.0
-offset_top = -207.0
-offset_right = 274.0
-offset_bottom = 276.0
+offset_left = -426.0
+offset_top = -210.0
+offset_right = 426.0
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_oiud2")
+theme = ExtResource("1_p5jkf")
+
+[node name="borderImg" type="Panel" parent="MenuBanner" unique_id=1708206767]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -145.0
+offset_right = 228.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dhgi5")
+
+[node name="particles" type="CPUParticles2D" parent="MenuBanner" unique_id=1247162968]
+position = Vector2(426, 249)
+texture = ExtResource("2_dhgi5")
+lifetime = 2.0
+randomness = 0.73
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(400, 230)
+gravity = Vector2(0, 0)
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+color = Color(0.73961323, 0.7542988, 0.7893644, 1)
+color_ramp = SubResource("Gradient_dhgi5")
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuBanner" unique_id=341333945]
 layout_mode = 1
@@ -48,7 +102,7 @@ theme_override_constants/separation = 30
 
 [node name="lblBannerName" type="Label" parent="MenuBanner/MarginContainer/HBoxContainer" unique_id=179555522]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme = ExtResource("3_dhgi5")
 text = "Permanente"
 horizontal_alignment = 1
 vertical_alignment = 1

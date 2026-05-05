@@ -2,18 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_463yv"]
 [ext_resource type="Script" uid="uid://2rtap4dp74ut" path="res://menus/menu_edit_character/menu_edit_character.gd" id="1_afq85"]
-[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/ThemePanel.tres" id="2_lci8i"]
+[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/panel/ThemePanel.tres" id="2_lci8i"]
 [ext_resource type="Theme" uid="uid://bo84q6mdsb6cy" path="res://menus/themes/ThemeScrollBar.tres" id="2_y5seb"]
-[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/ThemeYellowBtn.tres" id="4_7le24"]
-[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/ThemeCloseMenu.tres" id="4_ay4hy"]
+[ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="3_f7lkf"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_7le24"]
+[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="4_ay4hy"]
+[ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="6_5hpj6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afq85"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_afq85"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5seb"]
-bg_color = Color(0.18874735, 0.5584248, 0.67427754, 1)
 
 [node name="MenuEditCharacter" type="Control" unique_id=740546051]
 layout_mode = 3
@@ -42,7 +41,7 @@ offset_top = 24.0
 offset_right = 69.0
 offset_bottom = 60.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 26
+theme = ExtResource("3_f7lkf")
 text = "Sombreros"
 
 [node name="List" type="ScrollContainer" parent="MenuHats" unique_id=129901680]
@@ -173,20 +172,19 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_afq85")
 
 [node name="MenuListChar" type="Panel" parent="." unique_id=1717209840]
-visible = false
 layout_mode = 0
-offset_left = 51.0
-offset_top = 104.0
-offset_right = 584.0
-offset_bottom = 609.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_y5seb")
+offset_left = 71.0
+offset_top = 141.0
+offset_right = 564.0
+offset_bottom = 594.0
+theme = ExtResource("6_5hpj6")
 
 [node name="btnCloseMenu" type="Button" parent="MenuListChar" unique_id=462567158]
 layout_mode = 0
-offset_left = 517.0
-offset_top = -17.0
-offset_right = 547.0
-offset_bottom = 14.0
+offset_left = 474.0
+offset_top = -14.0
+offset_right = 504.0
+offset_bottom = 17.0
 theme = ExtResource("4_ay4hy")
 text = "X"
 
