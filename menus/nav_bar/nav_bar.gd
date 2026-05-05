@@ -2,6 +2,7 @@ extends Panel
 
 @onready var menuUser = $MenuUser
 @onready var menuExit = $MenuExit
+@onready var menuOptions = $MenuOptions
 
 
 signal menu_requested(menu_name)
@@ -10,6 +11,7 @@ signal menu_requested(menu_name)
 func _ready() -> void:
 	menuUser.visible = false
 	menuExit.visible = false
+	menuOptions.visible = false
 
 
 func _on_btn_menu_user_pressed() -> void:
@@ -51,3 +53,11 @@ func _on_btn_menu_gacha_pressed() -> void:
 
 func _on_btn_menu_store_pressed() -> void:
 	menu_requested.emit("store")
+
+
+func _on_btn_options_pressed() -> void:
+	menuOptions.visible = !menuOptions.visible
+
+
+func _on_btn_close_options_pressed() -> void:
+	menuOptions.visible = false
