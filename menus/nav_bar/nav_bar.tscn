@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://djup5b30n6b8m" path="res://menus/nav_bar/nav_bar.gd" id="1_q0cxf"]
 [ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
 [ext_resource type="Theme" uid="uid://c0jsv3iix0if4" path="res://menus/themes/button/ThemeButtonNav.tres" id="2_btywh"]
+[ext_resource type="Texture2D" uid="uid://wif5avule4gr" path="res://menus/nav_bar/img/coin7.png" id="4_8xtyc"]
 [ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="4_qkb7d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
@@ -52,6 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 0.113000005
 offset_right = 1.0
 offset_bottom = -0.22400665
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkb7d")
 script = ExtResource("1_q0cxf")
 
@@ -71,6 +73,7 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="marginNavBar" unique_id=1816500458]
 layout_mode = 2
+theme_override_constants/separation = 200
 
 [node name="NavBarButtons" type="HBoxContainer" parent="marginNavBar/HBoxContainer" unique_id=1054026203]
 layout_mode = 2
@@ -128,6 +131,18 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_qkb7d")
 text = "Inventario"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="marginNavBar/HBoxContainer" unique_id=1223201770]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="lblPulls" type="Label" parent="marginNavBar/HBoxContainer/HBoxContainer" unique_id=97378288]
+layout_mode = 2
+text = "0"
+
+[node name="lblCoins" type="Label" parent="marginNavBar/HBoxContainer/HBoxContainer" unique_id=304735851]
+layout_mode = 2
+text = "0"
+
 [node name="btnMenuUser" type="Button" parent="." unique_id=1253009537]
 layout_mode = 0
 offset_left = 1094.0
@@ -141,43 +156,33 @@ icon = ExtResource("1_rqlcp")
 expand_icon = true
 
 [node name="imgPulls" type="Sprite2D" parent="." unique_id=2089728813]
-position = Vector2(804.99994, 26.000002)
-scale = Vector2(0.04955449, 0.04871936)
-
-[node name="lblPulls" type="Label" parent="." unique_id=97378288]
-layout_mode = 0
-offset_left = 861.0
-offset_top = 23.0
-offset_right = 901.0
-offset_bottom = 46.0
-text = "0"
+position = Vector2(747, 39)
+scale = Vector2(0.07488864, 0.074471034)
 
 [node name="imgCoins" type="Sprite2D" parent="." unique_id=370523503]
-position = Vector2(970, 27)
-
-[node name="lblCoins" type="Label" parent="." unique_id=304735851]
-layout_mode = 0
-offset_left = 1014.0
-offset_top = 23.0
-offset_right = 1054.0
-offset_bottom = 46.0
-text = "0"
+position = Vector2(960, 37)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("4_8xtyc")
 
 [node name="marginMenu" type="MarginContainer" parent="." unique_id=1223506342]
 layout_mode = 0
 offset_top = 75.0
 offset_right = 1153.0
 offset_bottom = 652.0
+mouse_filter = 2
 
 [node name="Control" type="Control" parent="marginMenu" unique_id=1504740908]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="MenuUser" type="Panel" parent="marginMenu/Control" unique_id=71924952]
+visible = false
 layout_mode = 0
 offset_left = 951.0
 offset_top = 9.0
 offset_right = 1147.0
 offset_bottom = 455.0
+mouse_filter = 1
 theme = ExtResource("2_btywh")
 theme_override_styles/panel = SubResource("StyleBoxFlat_btywh")
 
@@ -228,6 +233,7 @@ offset_right = 103.0
 offset_bottom = 64.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8xtyc")
 
 [node name="lblExitQuestion" type="Label" parent="marginMenu/Control/MenuExit" unique_id=1021731243]
@@ -269,6 +275,7 @@ offset_right = 242.5
 offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("2_btywh")
 theme_override_styles/panel = SubResource("StyleBoxFlat_7n53b")
 

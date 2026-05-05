@@ -22,36 +22,39 @@ texture = ExtResource("1_t2kp5")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="." unique_id=1894885512]
-layout_mode = 3
-anchors_preset = 0
+[node name="marginMenu" type="MarginContainer" parent="." unique_id=550254004]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MenuStore" parent="Control" unique_id=1067569597 instance=ExtResource("8_ltr18")]
-visible = false
+[node name="Control" type="Control" parent="marginMenu" unique_id=1894885512]
+layout_mode = 2
+
+[node name="NavBar" parent="marginMenu/Control" unique_id=1305611965 instance=ExtResource("2_0rnwl")]
 layout_mode = 1
-
-[node name="MenuPlay" parent="Control" unique_id=37333949 instance=ExtResource("3_baml4")]
-visible = false
-layout_mode = 1
-offset_right = 0.0
-offset_bottom = 0.0
-
-[node name="MenuEditTeam" parent="Control" unique_id=801215074 instance=ExtResource("6_n4ji6")]
-visible = false
-layout_mode = 1
-offset_right = 1111.0
-offset_bottom = 608.0
-
-[node name="MenuGacha" parent="Control" unique_id=2058835036 instance=ExtResource("7_5i7iq")]
-visible = false
-layout_mode = 1
-
-[node name="MenuEditCharacter" parent="Control" unique_id=740546051 instance=ExtResource("4_bbx7q")]
-visible = false
-layout_mode = 1
-
-[node name="NavBar" parent="." unique_id=1305611965 instance=ExtResource("2_0rnwl")]
 offset_left = -1.0
 offset_right = 0.0
-offset_bottom = 0.0
 grow_horizontal = 2
+
+[node name="MenuStore" parent="marginMenu/Control" unique_id=1067569597 instance=ExtResource("8_ltr18")]
+visible = false
+layout_mode = 1
+
+[node name="MenuPlay" parent="marginMenu/Control" unique_id=37333949 instance=ExtResource("3_baml4")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="MenuGacha" parent="marginMenu/Control" unique_id=2058835036 instance=ExtResource("7_5i7iq")]
+visible = false
+layout_mode = 1
+
+[node name="MenuEditTeam" parent="marginMenu/Control" unique_id=801215074 instance=ExtResource("6_n4ji6")]
+visible = false
+layout_mode = 1
+
+[node name="MenuEditCharacter" parent="marginMenu/Control" unique_id=740546051 instance=ExtResource("4_bbx7q")]
+visible = false
+layout_mode = 1
