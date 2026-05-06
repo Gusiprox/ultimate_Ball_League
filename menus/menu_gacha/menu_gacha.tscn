@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ct6paqmlk6r3" path="res://menus/menu_gacha/img/whiteStar.png" id="2_dhgi5"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="2_uvj2q"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="3_dhgi5"]
+[ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="6_krwax"]
 
 [sub_resource type="Environment" id="Environment_krwax"]
 background_mode = 3
@@ -53,9 +54,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -426.0
-offset_top = -254.0
+offset_top = -258.0
 offset_right = 426.0
-offset_bottom = 254.0
+offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dhgi5")
@@ -69,12 +70,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -237.5
-offset_top = -158.0
+offset_top = -163.0
 offset_right = 238.5
-offset_bottom = 146.0
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhgi5")
+metadata/_edit_use_anchors_ = true
 
 [node name="particles" type="CPUParticles2D" parent="marginMenu/Control/MenuBanner" unique_id=1247162968]
 position = Vector2(426, 249)
@@ -98,9 +100,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -235.0
-offset_top = -213.75
+offset_top = -230.5
 offset_right = 235.0
-offset_bottom = 208.25
+offset_bottom = 220.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -121,9 +123,9 @@ visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
+[node name="imgBanner" type="NinePatchRect" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
 texture_filter = 4
-custom_minimum_size = Vector2(470, 300)
+custom_minimum_size = Vector2(470, 290)
 layout_mode = 2
 texture = ExtResource("1_hsln1")
 region_rect = Rect2(0, 0, 500, 303)
@@ -135,10 +137,23 @@ theme = ExtResource("2_uvj2q")
 theme_override_constants/separation = 50
 
 [node name="btnOnePull" type="Button" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2093886414]
+texture_filter = 4
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = -100
 text = "  Tirar 1  "
+icon = ExtResource("6_krwax")
+icon_alignment = 2
+expand_icon = true
 
 [node name="btnTenPulls" type="Button" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1811901350]
+texture_filter = 4
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
+theme_override_constants/h_separation = -100
 text = "  Tirar 10  "
+icon = ExtResource("6_krwax")
+icon_alignment = 2
+expand_icon = true
