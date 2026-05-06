@@ -7,8 +7,9 @@
 [ext_resource type="Theme" uid="uid://vxim6yi7aqqo" path="res://menus/themes/letters/ThemeLettersTitleGame.tres" id="3_cyny0"]
 [ext_resource type="Texture2D" uid="uid://pb645lb8bmfk" path="res://menus/menu_start/img/exit.png" id="4_28y4e"]
 [ext_resource type="Theme" uid="uid://drsjk77syd12u" path="res://menus/themes/button/ThemeButtonIconExit.tres" id="4_bond3"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_58ttj"]
 [ext_resource type="Theme" uid="uid://cpr44s3wfwfoe" path="res://menus/themes/button/ThemeButtonCreateUser.tres" id="7_bmxmf"]
-[ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="7_jk3n4"]
+[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_y7emq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk3n4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -45,35 +46,33 @@ position = Vector2(579, 324.00003)
 scale = Vector2(0.8238636, 0.84635425)
 texture = ExtResource("1_yddou")
 
-[node name="lblTitulo" type="Label" parent="." unique_id=1830393522]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3347751
-anchor_top = 0.13867489
-anchor_right = 0.6730104
-anchor_bottom = 0.33744222
-grow_horizontal = 2
-theme = ExtResource("3_cyny0")
-text = "Ultimate Ball
-League"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="btnStart" type="Button" parent="." unique_id=1901536556]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1505588723]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -74.0
-offset_top = 34.5
-offset_right = 76.0
-offset_bottom = 106.5
+offset_left = -306.0
+offset_top = -231.5
+offset_right = 306.0
+offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="lblTitulo" type="Label" parent="VBoxContainer" unique_id=1830393522]
+layout_mode = 2
+theme = ExtResource("3_cyny0")
+text = "Ultimate Ball
+League"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="btnStart" type="Button" parent="VBoxContainer" unique_id=1901536556]
+layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
 text = "Start"
 
@@ -89,7 +88,6 @@ icon = ExtResource("4_28y4e")
 icon_alignment = 1
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,6 +100,7 @@ offset_right = 285.0
 offset_bottom = 230.25
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_58ttj")
 theme_override_styles/panel = SubResource("StyleBoxFlat_jk3n4")
 
 [node name="imgLoginUser" type="NinePatchRect" parent="panelLogin" unique_id=300894207]
@@ -142,6 +141,7 @@ size_flags_vertical = 3
 
 [node name="btnLogin" type="Button" parent="panelLogin/VBoxContainer" unique_id=575906891]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
 text = "Iniciar sesión"
@@ -167,7 +167,7 @@ offset_left = 560.0
 offset_top = -14.5
 offset_right = 590.0
 offset_bottom = 12.5
-theme = ExtResource("7_jk3n4")
+theme = ExtResource("10_y7emq")
 text = "X"
 
 [node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
@@ -184,7 +184,6 @@ offset_right = 306.5
 offset_bottom = 231.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_bond3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_bmxmf")
 
 [node name="imgCreateUser" type="NinePatchRect" parent="panelCreateUser" unique_id=1519582642]
@@ -196,6 +195,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a2csu")
 metadata/_edit_use_anchors_ = true
+
+[node name="btnCloseCreateUser" type="Button" parent="panelCreateUser" unique_id=2130809316]
+layout_mode = 0
+offset_left = 601.5
+offset_top = -18.0
+offset_right = 632.5
+offset_bottom = 13.0
+theme = ExtResource("10_y7emq")
+text = "X"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="panelCreateUser" unique_id=1882403099]
 layout_mode = 1
@@ -214,6 +222,7 @@ grow_vertical = 2
 [node name="lblCreateUser" type="Label" parent="panelCreateUser/VBoxContainer" unique_id=1532704003]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("7_58ttj")
 text = "Crear usuario"
 label_settings = SubResource("LabelSettings_a2csu")
 
@@ -225,22 +234,14 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
 text = "     Crear usuario     "
 
-[node name="btnCloseCreateUser" type="Button" parent="panelCreateUser" unique_id=2130809316]
-layout_mode = 0
-offset_left = 601.5
-offset_top = -18.0
-offset_right = 632.5
-offset_bottom = 13.0
-theme = ExtResource("7_jk3n4")
-text = "X"
-
-[connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="panelLogin/VBoxContainer/btnLogin" to="." method="_on_btn_login_pressed"]
 [connection signal="pressed" from="panelLogin/VBoxContainer/HBoxContainer/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
-[connection signal="pressed" from="panelCreateUser/VBoxContainer/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
+[connection signal="pressed" from="panelCreateUser/VBoxContainer/btnCreateUser" to="." method="_on_btn_create_user_pressed"]

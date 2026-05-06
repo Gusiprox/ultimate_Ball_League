@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://b5wsgxe3lirf3" path="res://menus/nav_bar/img/coin8.png" id="3_8xtyc"]
 [ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="4_7n53b"]
 [ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="4_qkb7d"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_hbexq"]
+[ext_resource type="Theme" uid="uid://boj57nrf2jk1c" path="res://menus/themes/button/ThemeButtonSi.tres" id="7_qrvp1"]
+[ext_resource type="Theme" uid="uid://3bshcc57m24a" path="res://menus/themes/button/ThemeButtonNo.tres" id="8_hbexq"]
+[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_f1e2e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.57254905, 0.68235296, 1)
@@ -181,7 +185,6 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="MenuUser" type="Panel" parent="marginMenu/Control" unique_id=71924952]
-visible = false
 layout_mode = 0
 offset_left = 951.0
 offset_top = 9.0
@@ -225,7 +228,6 @@ theme = ExtResource("4_qkb7d")
 text = "Salir"
 
 [node name="MenuExit" type="Panel" parent="marginMenu/Control" unique_id=1987702965]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -241,30 +243,42 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_8xtyc")
 
-[node name="lblExitQuestion" type="Label" parent="marginMenu/Control/MenuExit" unique_id=1021731243]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 27.0
-offset_right = 166.0
-offset_bottom = 50.0
+[node name="VBoxContainer" type="VBoxContainer" parent="marginMenu/Control/MenuExit" unique_id=985553839]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.25
+offset_top = -42.0
+offset_right = 83.25
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="lblExitQuestion" type="Label" parent="marginMenu/Control/MenuExit/VBoxContainer" unique_id=1021731243]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_hbexq")
 text = "¿Salir del juego?"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="marginMenu/Control/MenuExit" unique_id=1628787548]
-layout_mode = 0
-offset_left = 46.0
-offset_top = 73.0
-offset_right = 163.0
-offset_bottom = 105.0
+[node name="HBoxContainer" type="HBoxContainer" parent="marginMenu/Control/MenuExit/VBoxContainer" unique_id=1628787548]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 40
 
-[node name="btnConfExit" type="Button" parent="marginMenu/Control/MenuExit/HBoxContainer" unique_id=851939895]
+[node name="btnConfExit" type="Button" parent="marginMenu/Control/MenuExit/VBoxContainer/HBoxContainer" unique_id=851939895]
 layout_mode = 2
-theme = ExtResource("4_qkb7d")
-text = "   Si   "
+size_flags_horizontal = 4
+theme = ExtResource("7_qrvp1")
+text = "Si"
 
-[node name="btnCancelExit" type="Button" parent="marginMenu/Control/MenuExit/HBoxContainer" unique_id=1671722182]
+[node name="btnCancelExit" type="Button" parent="marginMenu/Control/MenuExit/VBoxContainer/HBoxContainer" unique_id=1671722182]
 layout_mode = 2
-text = " No "
+theme = ExtResource("8_hbexq")
+text = "No"
 
 [node name="MenuOptions" type="Panel" parent="marginMenu/Control" unique_id=314493432]
 visible = false
@@ -290,7 +304,7 @@ offset_left = 464.0
 offset_top = -13.0
 offset_right = 494.0
 offset_bottom = 14.0
-theme = ExtResource("4_qkb7d")
+theme = ExtResource("10_f1e2e")
 text = "X"
 
 [node name="MarginContainer" type="MarginContainer" parent="marginMenu/Control/MenuOptions" unique_id=662009222]
@@ -334,6 +348,6 @@ text = "Controles"
 [connection signal="pressed" from="marginMenu/Control/MenuUser/MarginContainer/VBoxContainer/btnOptions" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/MarginContainer/VBoxContainer/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/MarginContainer/VBoxContainer/btnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuExit/HBoxContainer/btnConfExit" to="." method="_on_btn_conf_exit_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuExit/HBoxContainer/btnCancelExit" to="." method="_on_btn_cancel_exit_pressed"]
+[connection signal="pressed" from="marginMenu/Control/MenuExit/VBoxContainer/HBoxContainer/btnConfExit" to="." method="_on_btn_conf_exit_pressed"]
+[connection signal="pressed" from="marginMenu/Control/MenuExit/VBoxContainer/HBoxContainer/btnCancelExit" to="." method="_on_btn_cancel_exit_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuOptions/btnCloseOptions" to="." method="_on_btn_close_options_pressed"]

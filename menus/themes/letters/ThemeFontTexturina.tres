@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://b2oiv6ec10eev"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_tmfpl"]
+
+[resource]
+Label/fonts/font = ExtResource("1_tmfpl")

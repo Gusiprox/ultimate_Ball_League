@@ -1,13 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://bp8mfjsiwnedp"]
 
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_js7lj"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxqkt"]
 bg_color = Color(0.63529414, 0.039215688, 0.08627451, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+expand_margin_left = 2.0
 expand_margin_top = 3.0
-expand_margin_bottom = 3.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_piu6u"]
 bg_color = Color(0.83137256, 0.07450981, 0.12941177, 1)
@@ -15,8 +18,9 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+expand_margin_left = 2.0
 expand_margin_top = 3.0
-expand_margin_bottom = 3.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgo1k"]
 bg_color = Color(0.70980394, 0.050980393, 0.101960786, 1)
@@ -24,10 +28,12 @@ corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
+expand_margin_left = 2.0
 expand_margin_top = 3.0
-expand_margin_bottom = 3.0
+expand_margin_bottom = 6.0
 
 [resource]
+Button/fonts/font = ExtResource("1_js7lj")
 Button/styles/hover = SubResource("StyleBoxFlat_uxqkt")
 Button/styles/normal = SubResource("StyleBoxFlat_piu6u")
 Button/styles/pressed = SubResource("StyleBoxFlat_kgo1k")

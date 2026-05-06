@@ -1,11 +1,16 @@
 [gd_resource type="Theme" format=3 uid="uid://bip6mg4r1fkba"]
 
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_8wxws"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnbxw"]
 bg_color = Color(0.7539264, 0.11567169, 0.15864533, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j76ru"]
 bg_color = Color(0.8249438, 0.13823897, 0.17977744, 1)
@@ -13,6 +18,9 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn7xs"]
 bg_color = Color(0.8251084, 0.1375989, 0.18048093, 1)
@@ -20,9 +28,14 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 3.0
+expand_margin_bottom = 6.0
 
 [resource]
+Button/constants/outline_size = 5
 Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_8wxws")
 Button/styles/hover = SubResource("StyleBoxFlat_lnbxw")
 Button/styles/normal = SubResource("StyleBoxFlat_j76ru")
 Button/styles/pressed = SubResource("StyleBoxFlat_fn7xs")
