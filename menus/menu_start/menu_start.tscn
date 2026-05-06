@@ -6,17 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://stkxt42wb70w" path="res://menus/menu_start/img/fondoMenuStart.png" id="1_yddou"]
 [ext_resource type="Texture2D" uid="uid://pb645lb8bmfk" path="res://menus/menu_start/img/exit.png" id="4_28y4e"]
 [ext_resource type="Theme" uid="uid://drsjk77syd12u" path="res://menus/themes/button/ThemeButtonIconExit.tres" id="4_bond3"]
+[ext_resource type="Theme" uid="uid://cpr44s3wfwfoe" path="res://menus/themes/button/ThemeButtonCreateUser.tres" id="7_bmxmf"]
 [ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="7_jk3n4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4lyl5"]
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk3n4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_size = 10
+
 [sub_resource type="LabelSettings" id="LabelSettings_lnwt5"]
 font_size = 22
 
 [sub_resource type="LabelSettings" id="LabelSettings_yddou"]
 font_size = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmxmf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+shadow_size = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_a2csu"]
 font_size = 22
@@ -86,11 +95,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -285.0
-offset_top = -225.0
+offset_top = -230.25
 offset_right = 285.0
-offset_bottom = 225.0
+offset_bottom = 230.25
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jk3n4")
 
 [node name="imgLoginUser" type="NinePatchRect" parent="panelLogin" unique_id=300894207]
 layout_mode = 1
@@ -101,48 +111,53 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a2csu")
 
-[node name="lblLogin" type="Label" parent="panelLogin" unique_id=1656458228]
-layout_mode = 0
-offset_left = 209.0
-offset_top = 89.0
-offset_right = 348.0
-offset_bottom = 120.0
+[node name="VBoxContainer" type="VBoxContainer" parent="panelLogin" unique_id=1446213253]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.25
+offset_top = -165.0
+offset_right = 138.25
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 27
+alignment = 1
+
+[node name="lblLogin" type="Label" parent="panelLogin/VBoxContainer" unique_id=1656458228]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Iniciar sesión"
 label_settings = SubResource("LabelSettings_lnwt5")
 
-[node name="btnLogin" type="Button" parent="panelLogin" unique_id=575906891]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.697
-anchor_right = 0.5
-anchor_bottom = 0.697
-offset_left = -51.0
-offset_top = -13.150024
-offset_right = 51.0
-offset_bottom = 12.849976
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Control" type="Control" parent="panelLogin/VBoxContainer" unique_id=1399687050]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="btnLogin" type="Button" parent="panelLogin/VBoxContainer" unique_id=575906891]
+layout_mode = 2
+theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
 text = "Iniciar sesión"
 
-[node name="btnOpenCreateUser" type="Button" parent="panelLogin" unique_id=487387173]
-layout_mode = 0
-offset_left = 306.0
-offset_top = 359.5
-offset_right = 414.0
-offset_bottom = 390.5
-theme_override_font_sizes/font_size = 13
-text = "Crear cuenta"
+[node name="HBoxContainer" type="HBoxContainer" parent="panelLogin/VBoxContainer" unique_id=1275766305]
+layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="lblCreateUser" type="Label" parent="panelLogin" unique_id=1983271161]
-layout_mode = 0
-offset_left = 175.0
-offset_top = 364.5
-offset_right = 297.0
-offset_bottom = 387.5
+[node name="lblCreateUser" type="Label" parent="panelLogin/VBoxContainer/HBoxContainer" unique_id=1983271161]
+layout_mode = 2
 text = "¿No tienes cuenta?"
 label_settings = SubResource("LabelSettings_yddou")
+
+[node name="btnOpenCreateUser" type="Button" parent="panelLogin/VBoxContainer/HBoxContainer" unique_id=487387173]
+layout_mode = 2
+theme = ExtResource("7_bmxmf")
+theme_override_font_sizes/font_size = 13
+text = "Crear cuenta"
 
 [node name="btnCloseLogin" type="Button" parent="panelLogin" unique_id=850601247]
 layout_mode = 0
@@ -166,6 +181,8 @@ offset_right = 306.5
 offset_bottom = 231.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bond3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_bmxmf")
 
 [node name="imgCreateUser" type="NinePatchRect" parent="panelCreateUser" unique_id=1519582642]
 layout_mode = 1
@@ -177,20 +194,36 @@ grow_vertical = 2
 texture = ExtResource("1_a2csu")
 metadata/_edit_use_anchors_ = true
 
-[node name="lblCreateUser" type="Label" parent="panelCreateUser" unique_id=1532704003]
+[node name="VBoxContainer" type="VBoxContainer" parent="panelCreateUser" unique_id=1882403099]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.24100001
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.24100001
-offset_left = -60.0
-offset_top = -15.583008
-offset_right = 63.0
-offset_bottom = 15.416992
+anchor_bottom = 0.5
+offset_left = -234.25
+offset_top = -138.875
+offset_right = 234.25
+offset_bottom = 138.875
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lblCreateUser" type="Label" parent="panelCreateUser/VBoxContainer" unique_id=1532704003]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Crear usuario"
 label_settings = SubResource("LabelSettings_a2csu")
+
+[node name="Control" type="Control" parent="panelCreateUser/VBoxContainer" unique_id=1613917063]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btnCreateUser" type="Button" parent="panelCreateUser/VBoxContainer" unique_id=1549339883]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 13
+text = "     Crear usuario     "
 
 [node name="btnCloseCreateUser" type="Button" parent="panelCreateUser" unique_id=2130809316]
 layout_mode = 0
@@ -201,26 +234,10 @@ offset_bottom = 13.0
 theme = ExtResource("7_jk3n4")
 text = "X"
 
-[node name="btnCreateUser" type="Button" parent="panelCreateUser" unique_id=1549339883]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.76900005
-anchor_right = 0.5
-anchor_bottom = 0.76900005
-offset_left = -47.0
-offset_top = -13.047028
-offset_right = 47.0
-offset_bottom = 12.952972
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 13
-text = "Crear usuario"
-
 [connection signal="pressed" from="btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="panelLogin/btnLogin" to="." method="_on_btn_login_pressed"]
-[connection signal="pressed" from="panelLogin/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
+[connection signal="pressed" from="panelLogin/VBoxContainer/btnLogin" to="." method="_on_btn_login_pressed"]
+[connection signal="pressed" from="panelLogin/VBoxContainer/HBoxContainer/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
+[connection signal="pressed" from="panelCreateUser/VBoxContainer/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
-[connection signal="pressed" from="panelCreateUser/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
