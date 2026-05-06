@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://suhhmco6kwas" path="res://menus/nav_bar/img/usuario.png" id="1_rqlcp"]
 [ext_resource type="Theme" uid="uid://c0jsv3iix0if4" path="res://menus/themes/button/ThemeButtonNav.tres" id="2_btywh"]
 [ext_resource type="Texture2D" uid="uid://b5wsgxe3lirf3" path="res://menus/nav_bar/img/coin8.png" id="3_8xtyc"]
+[ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="4_7n53b"]
 [ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="4_qkb7d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
@@ -144,15 +145,19 @@ layout_mode = 2
 text = "0"
 
 [node name="imgCoin" type="Sprite2D" parent="marginNavBar/HBoxContainer/HBoxContainer" unique_id=370523503]
+texture_filter = 4
 position = Vector2(161, 25.5)
 scale = Vector2(0.65, 0.65)
 texture = ExtResource("3_8xtyc")
 
 [node name="imgPulls" type="Sprite2D" parent="marginNavBar/HBoxContainer/HBoxContainer" unique_id=2089728813]
-position = Vector2(-50, 28.5)
-scale = Vector2(0.07488864, 0.074471034)
+texture_filter = 4
+position = Vector2(-48, 26.5)
+scale = Vector2(0.28, 0.277)
+texture = ExtResource("4_7n53b")
 
 [node name="btnMenuUser" type="Button" parent="." unique_id=1253009537]
+texture_filter = 4
 layout_mode = 0
 offset_left = 1094.0
 offset_top = 14.0

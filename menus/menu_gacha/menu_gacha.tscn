@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1rh5rea5smsf"]
 
+[ext_resource type="Theme" uid="uid://bmlsvo0bf02u5" path="res://menus/themes/panel/ThemePanelGacha.tres" id="1_dhgi5"]
 [ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
-[ext_resource type="Theme" uid="uid://d3b3ik0l8kapl" path="res://menus/themes/panel/ThemePanelGacha.tres" id="1_p5jkf"]
 [ext_resource type="Texture2D" uid="uid://ct6paqmlk6r3" path="res://menus/menu_gacha/img/whiteStar.png" id="2_dhgi5"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="2_uvj2q"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="3_dhgi5"]
@@ -16,7 +16,7 @@ border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.019541433, 0.22378, 0.31913868, 1)
+border_color = Color(0.1758098, 0.6427361, 0.87050086, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -53,12 +53,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -426.0
-offset_top = -248.0
+offset_top = -254.0
 offset_right = 426.0
-offset_bottom = 248.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_p5jkf")
+theme = ExtResource("1_dhgi5")
 
 [node name="borderImg" type="Panel" parent="marginMenu/Control/MenuBanner" unique_id=1708206767]
 z_index = 1
@@ -68,10 +68,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -228.0
-offset_top = -145.0
-offset_right = 228.0
-offset_bottom = 159.0
+offset_left = -237.5
+offset_top = -151.0
+offset_right = 238.5
+offset_bottom = 153.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhgi5")
@@ -97,10 +97,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -219.5625
-offset_top = -181.0
-offset_right = 219.5625
-offset_bottom = 181.0
+offset_left = -235.0
+offset_top = -213.75
+offset_right = 235.0
+offset_bottom = 213.75
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -122,7 +122,8 @@ custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
-custom_minimum_size = Vector2(450, 300)
+texture_filter = 4
+custom_minimum_size = Vector2(470, 300)
 layout_mode = 2
 texture = ExtResource("1_hsln1")
 region_rect = Rect2(0, 0, 500, 303)
