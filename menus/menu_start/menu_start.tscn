@@ -9,7 +9,12 @@
 [ext_resource type="Theme" uid="uid://drsjk77syd12u" path="res://menus/themes/button/ThemeButtonIconExit.tres" id="4_bond3"]
 [ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_58ttj"]
 [ext_resource type="Theme" uid="uid://cpr44s3wfwfoe" path="res://menus/themes/button/ThemeButtonCreateUser.tres" id="7_bmxmf"]
+[ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="7_y7emq"]
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_y7emq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xx02"]
+shader = ExtResource("7_y7emq")
+shader_parameter/lod = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk3n4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -86,6 +91,17 @@ scale = Vector2(0.07, 0.07)
 theme = ExtResource("4_bond3")
 icon = ExtResource("4_28y4e")
 icon_alignment = 1
+
+[node name="backgroundBlur" type="ColorRect" parent="." unique_id=1896907029]
+visible = false
+material = SubResource("ShaderMaterial_7xx02")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
 layout_mode = 1
