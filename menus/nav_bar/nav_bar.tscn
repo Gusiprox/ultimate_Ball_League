@@ -17,8 +17,6 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.57254905, 0.68235296, 1)
 
-[sub_resource type="ButtonGroup" id="ButtonGroup_qkb7d"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nnos"]
 shader = ExtResource("8_ijfog")
 shader_parameter/lod = 2.0
@@ -99,8 +97,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-toggle_mode = true
-button_group = SubResource("ButtonGroup_qkb7d")
 text = "Jugar"
 
 [node name="btnMenuEditPlayer" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=2103016809]
@@ -108,16 +104,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-toggle_mode = true
-button_group = SubResource("ButtonGroup_qkb7d")
 text = "Editar personaje"
 
 [node name="btnMenuEditTeam" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=1697499274]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-toggle_mode = true
-button_group = SubResource("ButtonGroup_qkb7d")
 text = "Editar equipo"
 
 [node name="btnMenuGacha" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=141373700]
@@ -125,24 +117,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-toggle_mode = true
-button_group = SubResource("ButtonGroup_qkb7d")
 text = "Gacha"
 
 [node name="btnMenuStore" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=1926674001]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-toggle_mode = true
-button_group = SubResource("ButtonGroup_qkb7d")
 text = "Tienda"
 
 [node name="btnMenuInventory" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=274448116]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-toggle_mode = true
-button_group = SubResource("ButtonGroup_qkb7d")
 text = "Inventario"
 
 [node name="contRightSide" type="HBoxContainer" parent="marginNavBar/contNavBarElements" unique_id=774483391]
@@ -395,6 +381,7 @@ text = "Controles"
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditTeam" to="." method="_on_btn_menu_edit_team_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuGacha" to="." method="_on_btn_menu_gacha_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuStore" to="." method="_on_btn_menu_store_pressed"]
+[connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuInventory" to="." method="_on_btn_menu_inventory_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contRightSide/contBtnUser/btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
 [connection signal="gui_input" from="marginMenu/Control/backgroundBlur" to="." method="_on_background_blur_gui_input"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnOptions" to="." method="_on_btn_options_pressed"]
