@@ -60,8 +60,8 @@ func cambiar_menu(menu_nuevo: Control):
 	# 3. ANIMAR ENTRADA (0.5s)
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(menu_nuevo, "modulate:a", 1.0, 0.5)
-	tween.tween_property(menu_nuevo, "position:y", pos_final.y, 0.5)
+	tween.tween_property(menu_nuevo, "modulate:a", 1.0, 0.35)
+	tween.tween_property(menu_nuevo, "position:y", pos_final.y, 0.35)
 	
 	# 4. FINALIZACIÓN
 	tween.set_parallel(false)

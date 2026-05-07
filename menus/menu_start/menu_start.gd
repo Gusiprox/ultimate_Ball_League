@@ -66,12 +66,12 @@ func cambiar_menu(menu_nuevo: Control):
 	menu_nuevo.position.y = pos_final.y + 30 # Viene desde abajo
 	menu_nuevo.show()
 	
-	# 3. ANIMACIÓN (0.5s)
+	# 3. ANIMACIÓN
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
-	tween.tween_property(menu_nuevo, "modulate:a", 1.0, 0.5)
-	tween.tween_property(menu_nuevo, "position:y", pos_final.y, 0.5)
+	tween.tween_property(menu_nuevo, "modulate:a", 1.0, 0.2)
+	tween.tween_property(menu_nuevo, "position:y", pos_final.y, 0.2)
 	
 	tween.set_parallel(false)
 	tween.tween_callback(func():
