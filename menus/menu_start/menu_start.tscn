@@ -69,6 +69,7 @@ theme_override_constants/separation = 150
 [node name="lblTitulo" type="Label" parent="VBoxContainer" unique_id=1830393522]
 layout_mode = 2
 theme = ExtResource("3_cyny0")
+theme_override_constants/line_spacing = -31
 text = "Ultimate Ball
 League"
 horizontal_alignment = 1
@@ -104,6 +105,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

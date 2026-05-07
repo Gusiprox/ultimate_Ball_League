@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_arh1h"]
 [ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_sdn1g"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="2_n0moq"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_uh1lp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uk4v"]
 bg_color = Color(0.1330637, 0.41505545, 0.14027178, 1)
@@ -121,4 +122,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4uk4v")
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=136171993]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("4_uh1lp")
 text = "Guardar equipo"
