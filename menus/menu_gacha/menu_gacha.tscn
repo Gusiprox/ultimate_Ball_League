@@ -11,18 +11,6 @@
 background_mode = 3
 glow_enabled = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhgi5"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.1758098, 0.6427361, 0.87050086, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [sub_resource type="Gradient" id="Gradient_dhgi5"]
 colors = PackedColorArray(0.7411765, 0.7529412, 0.7882353, 1, 0.7411765, 0.7529412, 0.7882353, 0)
 
@@ -60,23 +48,6 @@ offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dhgi5")
-
-[node name="borderImg" type="Panel" parent="marginMenu/Control/MenuBanner" unique_id=1708206767]
-z_index = 1
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -237.5
-offset_top = -163.0
-offset_right = 238.5
-offset_bottom = 136.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dhgi5")
-metadata/_edit_use_anchors_ = true
 
 [node name="particles" type="CPUParticles2D" parent="marginMenu/Control/MenuBanner" unique_id=1247162968]
 position = Vector2(426, 249)

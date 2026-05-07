@@ -21,6 +21,7 @@ func _on_btn_menu_user_pressed() -> void:
 
 func _on_btn_exit_pressed() -> void:
 	menuExit.visible = true
+	menuOptions.visible = false
 
 
 func _on_btn_conf_exit_pressed() -> void:
@@ -58,6 +59,7 @@ func _on_btn_menu_store_pressed() -> void:
 
 func _on_btn_options_pressed() -> void:
 	menuOptions.visible = !menuOptions.visible
+	menuExit.visible = false
 
 
 func _on_btn_close_options_pressed() -> void:
