@@ -11,12 +11,17 @@
 [ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_hbexq"]
 [ext_resource type="Theme" uid="uid://boj57nrf2jk1c" path="res://menus/themes/button/ThemeButtonSi.tres" id="7_qrvp1"]
 [ext_resource type="Theme" uid="uid://3bshcc57m24a" path="res://menus/themes/button/ThemeButtonNo.tres" id="8_hbexq"]
+[ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="8_ijfog"]
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_f1e2e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.57254905, 0.68235296, 1)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_qkb7d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nnos"]
+shader = ExtResource("8_ijfog")
+shader_parameter/lod = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btywh"]
 bg_color = Color(0, 0.5735186, 0.6816697, 1)
@@ -145,10 +150,12 @@ theme_override_constants/separation = 40
 
 [node name="contCoinsAndPulls" type="HBoxContainer" parent="marginNavBar/contNavBarElements/contRightSide" unique_id=1223201770]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = -60
 
 [node name="contPulls" type="HBoxContainer" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls" unique_id=656913933]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 5
 
 [node name="imgPulls" type="NinePatchRect" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls" unique_id=1865081921]
@@ -168,6 +175,7 @@ text = "0"
 
 [node name="contCoins" type="HBoxContainer" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls" unique_id=2053905861]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = -81
 
 [node name="imgCoin" type="NinePatchRect" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins" unique_id=567169930]
@@ -186,6 +194,7 @@ text = "0"
 
 [node name="contBtnUser" type="HBoxContainer" parent="marginNavBar/contNavBarElements/contRightSide" unique_id=1255071246]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="btnMenuUser" type="Button" parent="marginNavBar/contNavBarElements/contRightSide/contBtnUser" unique_id=1253009537]
 texture_filter = 4
@@ -209,6 +218,16 @@ mouse_filter = 2
 [node name="Control" type="Control" parent="marginMenu" unique_id=1504740908]
 layout_mode = 2
 mouse_filter = 2
+
+[node name="backgroundBlur" type="ColorRect" parent="marginMenu/Control" unique_id=303274941]
+material = SubResource("ShaderMaterial_1nnos")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
 
 [node name="MenuUser" type="Panel" parent="marginMenu/Control" unique_id=71924952]
 visible = false
@@ -374,6 +393,7 @@ text = "Controles"
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuGacha" to="." method="_on_btn_menu_gacha_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuStore" to="." method="_on_btn_menu_store_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contRightSide/contBtnUser/btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
+[connection signal="gui_input" from="marginMenu/Control/backgroundBlur" to="." method="_on_background_blur_gui_input"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnOptions" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnExit" to="." method="_on_btn_exit_pressed"]

@@ -3,7 +3,7 @@ extends Panel
 @onready var menuUser = $marginMenu/Control/MenuUser
 @onready var menuExit = $marginMenu/Control/MenuExit
 @onready var menuOptions = $marginMenu/Control/MenuOptions
-
+@onready var backgroundBlur = $marginMenu/Control/backgroundBlur
 
 signal menu_requested(menu_name)
 
@@ -12,11 +12,12 @@ func _ready() -> void:
 	menuUser.visible = false
 	menuExit.visible = false
 	menuOptions.visible = false
+	backgroundBlur.hide()
 
 
 func _on_btn_menu_user_pressed() -> void:
 	menuUser.visible = !menuUser.visible
-
+	backgroundBlur.visible = menuUser.visible
 
 func _on_btn_exit_pressed() -> void:
 	menuExit.visible = true
@@ -61,3 +62,18 @@ func _on_btn_options_pressed() -> void:
 
 func _on_btn_close_options_pressed() -> void:
 	menuOptions.visible = false
+
+
+func _on_background_blur_gui_input(event: InputEvent) -> void:
+	
+	if event is InputEventMouseButton and event.is_pressed():
+		
+		if (menuUser.visible == true && menuExit.visible == true):
+			menuExit.visible = false
+			
+		elif (menuUser.visible == true && menuOptions.visible == true):
+			menuOptions.visible = false
+			
+		elif (menuUser.visible == true):
+			menuUser.visible = false
+			backgroundBlur.visible = menuUser.visible

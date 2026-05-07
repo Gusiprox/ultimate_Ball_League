@@ -44,6 +44,7 @@ visible = false
 layout_mode = 1
 
 [node name="MenuGacha" parent="Control" unique_id=2058835036 instance=ExtResource("7_5i7iq")]
+visible = false
 layout_mode = 1
 theme = ExtResource("7_p2kg1")
 

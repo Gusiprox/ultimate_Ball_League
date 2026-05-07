@@ -40,7 +40,6 @@ theme = ExtResource("1_lhwub")
 
 [node name="imgCoins" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=338781156]
 modulate = Color(1, 0.699, 0.13999999, 1)
-z_index = 1
 texture_filter = 4
 layout_mode = 0
 offset_left = -37.5
@@ -52,7 +51,6 @@ texture = ExtResource("1_24c0n")
 
 [node name="imgCart" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=1553500773]
 modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
-z_index = 1
 texture_filter = 4
 layout_mode = 0
 offset_left = 914.49994
