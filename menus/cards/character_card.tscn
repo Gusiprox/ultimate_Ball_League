@@ -1,18 +1,9 @@
 [gd_scene format=3 uid="uid://bd11wy3hwhwo5"]
 
+[ext_resource type="Theme" uid="uid://dfkdedvmnlmh3" path="res://menus/themes/panel/ThemePanelCard.tres" id="1_bubac"]
 [ext_resource type="Script" uid="uid://c47pqx6fl3beu" path="res://menus/cards/character_card.gd" id="1_qcj7k"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcj7k"]
-bg_color = Color(0.20971942, 0.34391144, 0.39657903, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.4392157, 0.63529414, 0.7137255, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="3_syb2r"]
+[ext_resource type="Theme" uid="uid://3ecjr106vte8" path="res://menus/themes/button/ThemeButtonCard.tres" id="4_syb2r"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_aseyu"]
 
@@ -20,7 +11,7 @@ corner_radius_bottom_left = 4
 custom_minimum_size = Vector2(90, 120)
 offset_right = 84.0
 offset_bottom = 131.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qcj7k")
+theme = ExtResource("1_bubac")
 script = ExtResource("1_qcj7k")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1417854103]
@@ -43,6 +34,7 @@ theme_override_constants/separation = 8
 
 [node name="lblName" type="Label" parent="MarginContainer/cardContainter" unique_id=1575995712]
 layout_mode = 2
+theme = ExtResource("3_syb2r")
 theme_override_font_sizes/font_size = 9
 text = "Sombrero"
 horizontal_alignment = 1
@@ -77,5 +69,5 @@ mesh = SubResource("CapsuleMesh_aseyu")
 
 [node name="btnEquip" type="Button" parent="MarginContainer/cardContainter" unique_id=651566328]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+theme = ExtResource("4_syb2r")
 text = "Equipar"

@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://rova0c7npbcs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsqso"]
-bg_color = Color(0.68235296, 0.49019608, 0.05882353, 1)
+bg_color = Color(0.7486675, 0.5392248, 0.0690251, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
