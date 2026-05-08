@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://drcebvuq2lxot"]
 
-[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_463yv"]
 [ext_resource type="Script" uid="uid://2rtap4dp74ut" path="res://menus/menu_edit_character/menu_edit_character.gd" id="1_afq85"]
 [ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/panel/ThemePanel.tres" id="2_lci8i"]
-[ext_resource type="Theme" uid="uid://bo84q6mdsb6cy" path="res://menus/themes/ThemeScrollBar.tres" id="2_y5seb"]
 [ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="3_f7lkf"]
+[ext_resource type="PackedScene" uid="uid://nudjyqgwvnor" path="res://menus/scroll/scroll_list.tscn" id="4_5hpj6"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_7le24"]
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="4_ay4hy"]
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="6_5hpj6"]
@@ -52,60 +51,9 @@ size_flags_horizontal = 4
 theme = ExtResource("3_f7lkf")
 text = "Sombreros"
 
-[node name="List" type="ScrollContainer" parent="MenuHats/VBoxContainer" unique_id=129901680]
-clip_children = 1
+[node name="ScrollList" parent="MenuHats/VBoxContainer" unique_id=124515402 instance=ExtResource("4_5hpj6")]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("2_y5seb")
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="MenuHats/VBoxContainer/List" unique_id=251508510]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 4
-
-[node name="CharacterCard" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=131578327 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard2" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=560873995 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard3" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=1868251955 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard4" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=200853152 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard5" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=1916658321 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard6" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=689413336 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard7" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=1364394447 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard8" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=1546102272 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard9" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=669156094 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard11" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=1628341912 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard13" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=144181854 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard12" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=560439028 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard10" parent="MenuHats/VBoxContainer/List/GridContainer" unique_id=166319448 instance=ExtResource("1_463yv")]
-layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="MenuViewChar" type="Panel" parent="." unique_id=1752587668]
 layout_mode = 0
@@ -191,70 +139,19 @@ offset_bottom = -0.1800003
 theme = ExtResource("4_ay4hy")
 text = "X"
 
-[node name="List" type="ScrollContainer" parent="MenuListChar" unique_id=1619875651]
-clip_children = 1
+[node name="ScrollList" parent="MenuListChar" unique_id=1266496469 instance=ExtResource("4_5hpj6")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = -188.0
-offset_right = 196.0
-offset_bottom = 188.0
+offset_left = -194.0
+offset_top = -190.5
+offset_right = 194.0
+offset_bottom = 190.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_y5seb")
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="MenuListChar/List" unique_id=591929378]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 4
-
-[node name="CharacterCard" parent="MenuListChar/List/GridContainer" unique_id=1730284245 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard2" parent="MenuListChar/List/GridContainer" unique_id=1636983101 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard3" parent="MenuListChar/List/GridContainer" unique_id=1732782208 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard4" parent="MenuListChar/List/GridContainer" unique_id=1122233631 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard5" parent="MenuListChar/List/GridContainer" unique_id=1871050145 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard6" parent="MenuListChar/List/GridContainer" unique_id=36675700 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard7" parent="MenuListChar/List/GridContainer" unique_id=557266991 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard8" parent="MenuListChar/List/GridContainer" unique_id=321557505 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard9" parent="MenuListChar/List/GridContainer" unique_id=1186447586 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard11" parent="MenuListChar/List/GridContainer" unique_id=1404013215 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard13" parent="MenuListChar/List/GridContainer" unique_id=1970717124 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard12" parent="MenuListChar/List/GridContainer" unique_id=193945429 instance=ExtResource("1_463yv")]
-layout_mode = 2
-
-[node name="CharacterCard10" parent="MenuListChar/List/GridContainer" unique_id=979447607 instance=ExtResource("1_463yv")]
-layout_mode = 2
 
 [connection signal="pressed" from="MenuViewChar/btnChangeChar" to="." method="_on_btn_change_char_pressed"]
 [connection signal="pressed" from="MenuListChar/btnCloseMenu" to="." method="_on_btn_close_menu_pressed"]

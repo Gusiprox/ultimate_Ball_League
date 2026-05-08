@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b81rb2678cm8m" path="res://menus/menu_store/img/coins.png" id="1_24c0n"]
 [ext_resource type="Theme" uid="uid://d3b3ik0l8kapl" path="res://menus/themes/panel/ThemePanelStore.tres" id="1_lhwub"]
-[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="1_t0gjc"]
 [ext_resource type="Texture2D" uid="uid://qelhphsxis0g" path="res://menus/menu_store/img/shoppingCart.png" id="2_lhwub"]
 [ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="4_lhwub"]
+[ext_resource type="PackedScene" uid="uid://blmsbn36qp4x0" path="res://menus/scroll/scroll_store/scroll_list_store.tscn" id="5_lhwub"]
 
 [node name="MenuStore" type="Control" unique_id=1067569597]
 layout_mode = 3
@@ -89,55 +89,5 @@ offset_bottom = 129.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="marginMenu/Control/frame/margin" unique_id=1914649652]
-clip_children = 1
-layout_mode = 2
-horizontal_scroll_mode = 0
-
-[node name="GridContainer" type="GridContainer" parent="marginMenu/Control/frame/margin/ScrollContainer" unique_id=757393786]
-clip_contents = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 8
-
-[node name="CharacterCard" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=131578327 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard2" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=526322495 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard3" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=1732916620 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard4" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=322921527 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard5" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=832186607 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard6" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=758575846 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard7" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=760616112 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard8" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=450359447 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard9" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=1939353432 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard11" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=2031973932 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard13" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=1624778138 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard12" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=581396397 instance=ExtResource("1_t0gjc")]
-layout_mode = 2
-
-[node name="CharacterCard10" parent="marginMenu/Control/frame/margin/ScrollContainer/GridContainer" unique_id=273733055 instance=ExtResource("1_t0gjc")]
+[node name="ScrollListStore" parent="marginMenu/Control/frame/margin" unique_id=124515402 instance=ExtResource("5_lhwub")]
 layout_mode = 2
