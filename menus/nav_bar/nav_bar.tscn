@@ -16,6 +16,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.57254905, 0.68235296, 1)
+shadow_color = Color(0, 0, 0, 0.25882354)
+shadow_size = 10
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nnos"]
 shader = ExtResource("8_ijfog")
@@ -374,6 +376,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Controles"
+
+[node name="blocker" type="ColorRect" parent="." unique_id=94079724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuPlay" to="." method="_on_btn_menu_play_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditPlayer" to="." method="_on_btn_menu_edit_player_pressed"]

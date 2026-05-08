@@ -4,6 +4,7 @@ extends Panel
 @onready var menuExit = $marginMenu/Control/MenuExit
 @onready var menuOptions = $marginMenu/Control/MenuOptions
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
+@onready var blocker = $blocker
 
 var color_activo = Color(1, 1, 1, 1)
 var color_inactivo = Color(0.634, 0.634, 0.634, 1.0)
@@ -26,6 +27,7 @@ func _ready() -> void:
 	menuExit.visible = false
 	menuOptions.visible = false
 	backgroundBlur.hide()
+	blocker.hide()
 	
 	call_deferred("_guardar_posiciones_reales")
 
@@ -37,6 +39,9 @@ func _guardar_posiciones_reales():
 
 func _on_btn_menu_user_pressed() -> void:
 	animar_submenu(menuUser)
+	
+	if (blocker.visible == true):
+		blocker.visible = false
 
 func _on_btn_exit_pressed() -> void:
 	animar_submenu(menuExit)
@@ -47,6 +52,7 @@ func _on_btn_conf_exit_pressed() -> void:
 func _on_btn_cancel_exit_pressed() -> void:
 	menuExit.visible = false
 	backgroundBlur.visible = false
+	blocker.visible = false
 
 func _on_btn_sign_out_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
@@ -77,6 +83,7 @@ func _on_btn_options_pressed() -> void:
 func _on_btn_close_options_pressed() -> void:
 	menuOptions.visible = false
 	backgroundBlur.visible = false
+	blocker.visible = false
 
 
 #Fondo difuminado al abrir menuUser
@@ -84,6 +91,8 @@ func _on_btn_close_options_pressed() -> void:
 func _on_background_blur_gui_input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseButton and event.is_pressed():
+		
+		blocker.visible = false
 		
 		if (menuUser.visible == true && menuExit.visible == true):
 			menuExit.visible = false
@@ -118,7 +127,7 @@ func actualizar_botones_visuales(nombre_activo: String):
 #Animación de los submenús de navbar
 
 func animar_submenu(menu_objetivo: Control):
-	# 1. Cerramos otros submenús abiertos al instante (opcional, para que no choquen)
+	# 1. Cerramos otros submenús abiertos al instante
 	for m in [menuUser, menuExit, menuOptions]:
 		if m != menu_objetivo and m.visible:
 			m.hide()
@@ -138,6 +147,7 @@ func animar_submenu(menu_objetivo: Control):
 	menu_objetivo.global_position.y = pos_final.y + 20 
 	menu_objetivo.show()
 	backgroundBlur.show()
+	blocker.show()
 
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
