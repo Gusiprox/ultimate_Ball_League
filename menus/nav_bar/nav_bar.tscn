@@ -263,7 +263,6 @@ theme = ExtResource("4_qkb7d")
 text = "Salir"
 
 [node name="MenuExit" type="Panel" parent="marginMenu/Control" unique_id=1987702965]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

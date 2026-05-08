@@ -16,6 +16,8 @@ var vinculacion_botones = {
 	"btnMenuStore": "store",
 }
 
+var posiciones_submenus = {}
+
 signal menu_requested(menu_name)
 
 # Called when the node enters the scene tree for the first time.
@@ -24,21 +26,27 @@ func _ready() -> void:
 	menuExit.visible = false
 	menuOptions.visible = false
 	backgroundBlur.hide()
+	
+	call_deferred("_guardar_posiciones_reales")
 
+func _guardar_posiciones_reales():
+	for m in [menuUser, menuExit, menuOptions]:
+		# Guardamos la GLOBAL, que es la posición real en pantalla
+		posiciones_submenus[m] = m.global_position
+		m.hide()
 
 func _on_btn_menu_user_pressed() -> void:
-	menuUser.visible = !menuUser.visible
-	backgroundBlur.visible = menuUser.visible
+	animar_submenu(menuUser)
 
 func _on_btn_exit_pressed() -> void:
-	menuExit.visible = true
-	menuOptions.visible = false
+	animar_submenu(menuExit)
 
 func _on_btn_conf_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_btn_cancel_exit_pressed() -> void:
 	menuExit.visible = false
+	backgroundBlur.visible = false
 
 func _on_btn_sign_out_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
@@ -64,11 +72,11 @@ func _on_btn_menu_inventory_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_btn_options_pressed() -> void:
-	menuOptions.visible = !menuOptions.visible
-	menuExit.visible = false
+	animar_submenu(menuOptions)
 
 func _on_btn_close_options_pressed() -> void:
 	menuOptions.visible = false
+	backgroundBlur.visible = false
 
 
 #Fondo difuminado al abrir menuUser
@@ -105,3 +113,35 @@ func actualizar_botones_visuales(nombre_activo: String):
 			else:
 				boton.modulate = color_inactivo
 				boton.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+
+#Animación de los submenús de navbar
+
+func animar_submenu(menu_objetivo: Control):
+	# 1. Cerramos otros submenús abiertos al instante (opcional, para que no choquen)
+	for m in [menuUser, menuExit, menuOptions]:
+		if m != menu_objetivo and m.visible:
+			m.hide()
+			m.position = posiciones_submenus[m]
+
+	# 2. Si el menú ya estaba visible, lo cerramos (comportamiento de "toggle")
+	if menu_objetivo.visible:
+		menu_objetivo.hide()
+		menu_objetivo.position = posiciones_submenus[menu_objetivo]
+		backgroundBlur.hide()
+		return
+
+	# 3. Preparar entrada
+	var pos_final = posiciones_submenus[menu_objetivo]
+	menu_objetivo.modulate.a = 0.0
+	# Aplicamos el desplazamiento a la posición GLOBAL
+	menu_objetivo.global_position.y = pos_final.y + 20 
+	menu_objetivo.show()
+	backgroundBlur.show()
+
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	tween.tween_property(menu_objetivo, "modulate:a", 1.0, 0.2)
+	# IMPORTANTE: Animar global_position
+	tween.tween_property(menu_objetivo, "global_position:y", pos_final.y, 0.2)
