@@ -148,7 +148,7 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 5
 
 [node name="imgPulls" type="NinePatchRect" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls" unique_id=1865081921]
-self_modulate = Color(1.224, 1.224, 1.224, 1)
+self_modulate = Color(1.0627335, 1.0627335, 1.0627335, 1)
 texture_filter = 4
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
