@@ -9,8 +9,8 @@
 
 [node name="CharacterCard" type="Panel" unique_id=131578327]
 custom_minimum_size = Vector2(90, 120)
-offset_right = 84.0
-offset_bottom = 131.0
+offset_right = 90.0
+offset_bottom = 139.0
 theme = ExtResource("1_bubac")
 script = ExtResource("1_qcj7k")
 
@@ -21,10 +21,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -31.5
-offset_right = 27.0
-offset_bottom = 31.5
+offset_left = -28.0
+offset_top = -59.0
+offset_right = 28.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -35,7 +35,7 @@ theme_override_constants/separation = 8
 [node name="lblName" type="Label" parent="MarginContainer/cardContainter" unique_id=1575995712]
 layout_mode = 2
 theme = ExtResource("3_syb2r")
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 11
 text = "Sombrero"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -50,7 +50,7 @@ stretch = true
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(54, 60)
+size = Vector2i(56, 60)
 render_target_update_mode = 4
 
 [node name="camCard" type="Camera3D" parent="MarginContainer/cardContainter/character/SubViewport" unique_id=609083509]
@@ -70,4 +70,5 @@ mesh = SubResource("CapsuleMesh_aseyu")
 [node name="btnEquip" type="Button" parent="MarginContainer/cardContainter" unique_id=651566328]
 layout_mode = 2
 theme = ExtResource("4_syb2r")
+theme_override_font_sizes/font_size = 9
 text = "Equipar"

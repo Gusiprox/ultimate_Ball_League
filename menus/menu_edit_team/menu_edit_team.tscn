@@ -29,32 +29,30 @@ offset_right = 1097.0
 offset_bottom = 614.0
 theme = ExtResource("1_arh1h")
 
-[node name="lblCharacters" type="Label" parent="MenuCharacters" unique_id=1681075565]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -69.0
-offset_top = 24.0
-offset_right = 68.0
-offset_bottom = 60.0
-grow_horizontal = 2
-theme = ExtResource("2_n0moq")
-text = "Personajes"
-
-[node name="ScrollList" parent="MenuCharacters" unique_id=124515402 instance=ExtResource("3_uh1lp")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuCharacters" unique_id=42314412]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -194.0
-offset_top = -170.5
-offset_right = 194.0
-offset_bottom = 210.5
+offset_left = -214.5
+offset_top = -235.5
+offset_right = 214.5
+offset_bottom = 237.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 18
+
+[node name="lblCharacters" type="Label" parent="MenuCharacters/VBoxContainer" unique_id=1681075565]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_n0moq")
+text = "Personajes"
+
+[node name="ScrollList" parent="MenuCharacters/VBoxContainer" unique_id=124515402 instance=ExtResource("3_uh1lp")]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1268207164]
 layout_mode = 0
