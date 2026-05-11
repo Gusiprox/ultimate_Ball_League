@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://5b5ioc53caga"]
+
+[ext_resource type="Script" uid="uid://b4ek1ej8pkd42" path="res://menus/menu_sound/menu_sound.gd" id="1_qcs6s"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="2_45ymv"]
+
+[node name="MenuSound" type="Panel" unique_id=1435186168]
+offset_left = 35.0
+offset_top = 107.0
+offset_right = 446.0
+offset_bottom = 416.89063
+script = ExtResource("1_qcs6s")
+metadata/_edit_use_anchors_ = true
+
+[node name="contMenuSound" type="HBoxContainer" parent="." unique_id=807493387]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.375
+offset_right = 166.375
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_constants/separation = 30
+
+[node name="lblMusica" type="Label" parent="contMenuSound" unique_id=1009383038]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_45ymv")
+theme_override_font_sizes/font_size = 18
+text = "Música"
+
+[node name="contAdjustMusic" type="HBoxContainer" parent="contMenuSound" unique_id=591970221]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="lblNumMin" type="Label" parent="contMenuSound/contAdjustMusic" unique_id=902503630]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_45ymv")
+theme_override_font_sizes/font_size = 20
+text = "0"
+
+[node name="adjustMusic" type="HSlider" parent="contMenuSound/contAdjustMusic" unique_id=272569601]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.8
+tick_count = 3
+ticks_on_borders = true
+ticks_position = 3
+
+[node name="lblNumMax" type="Label" parent="contMenuSound/contAdjustMusic" unique_id=97569444]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_45ymv")
+theme_override_font_sizes/font_size = 20
+text = "1"
+
+[connection signal="value_changed" from="contMenuSound/contAdjustMusic/adjustMusic" to="." method="_on_adjust_music_value_changed"]

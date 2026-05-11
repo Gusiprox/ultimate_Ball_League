@@ -61,4 +61,5 @@ grow_horizontal = 2
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1403059056]
 stream = ExtResource("10_u8fau")
 autoplay = true
+bus = &"Musica"
 parameters/looping = true

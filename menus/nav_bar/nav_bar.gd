@@ -3,7 +3,12 @@ extends Panel
 @onready var menuUser = $marginMenu/Control/MenuUser
 @onready var menuExit = $marginMenu/Control/MenuExit
 @onready var menuOptions = $marginMenu/Control/MenuOptions
+@onready var menuSound = $marginMenu/Control/MenuOptions/MenuSound
+@onready var menuControls = $marginMenu/Control/MenuOptions/MenuControls
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
+@onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
+@onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
+
 @onready var blocker = $blocker
 
 var color_activo = Color(1, 1, 1, 1)
@@ -26,6 +31,8 @@ func _ready() -> void:
 	menuUser.visible = false
 	menuExit.visible = false
 	menuOptions.visible = false
+	menuSound.visible = true
+	menuControls.visible = false
 	backgroundBlur.hide()
 	blocker.hide()
 	
@@ -80,9 +87,20 @@ func _on_btn_menu_inventory_pressed() -> void:
 func _on_btn_options_pressed() -> void:
 	animar_submenu(menuOptions)
 
+func _on_btn_sonido_pressed() -> void:
+	actualizar_visual_opciones(btnSound)
+	menuSound.visible = true
+	menuControls.visible = false
+
+func _on_btn_controls_pressed() -> void:
+	actualizar_visual_opciones(btnControls)
+	menuControls.visible = true
+	menuSound.visible = false
+
 func _on_btn_close_options_pressed() -> void:
 	menuOptions.visible = false
 	backgroundBlur.visible = false
+	menuSound.visible = false
 	blocker.visible = false
 
 
@@ -122,6 +140,20 @@ func actualizar_botones_visuales(nombre_activo: String):
 			else:
 				boton.modulate = color_inactivo
 				boton.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
+
+func actualizar_visual_opciones(boton_activo: Button):
+	# Ponemos ambos en color inactivo primero
+	btnSound.modulate = color_inactivo
+	btnControls.modulate = color_inactivo
+	
+	# Cambiamos el cursor a mano para ambos
+	btnSound.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	btnControls.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	
+	# Ahora activamos solo el que hemos pulsado
+	boton_activo.modulate = color_activo
+	boton_activo.mouse_default_cursor_shape = Control.CURSOR_ARROW
 
 
 #Animación de los submenús de navbar
