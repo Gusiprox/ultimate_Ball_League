@@ -1,12 +1,14 @@
 extends CanvasLayer
 
 @onready var dic_menus = {
-	"play": $Control/MenuPlay,
-	"editCharacter": $Control/MenuEditCharacter,
-	"editTeam": $Control/MenuEditTeam,
-	"gacha": $Control/MenuGacha,
-	"store": $Control/MenuStore
+	"play": $contMenus/MenuPlay,
+	"editCharacter": $contMenus/MenuEditCharacter,
+	"editTeam": $contMenus/MenuEditTeam,
+	"gacha": $contMenus/MenuGacha,
+	"store": $contMenus/MenuStore
 }
+
+@onready var menuStats = $Control/MenuStats
 
 var menu_actual: Control = null
 var transicionando: bool = false
@@ -28,6 +30,13 @@ func _ready() -> void:
 			nodo.modulate.a = 0.0
 		
 	$NavBar.menu_requested.connect(_gestionar_cambio_de_menu)
+	menuStats.cerrar_solicitado.connect(_on_cerrar_ventana_stats)
+
+func _on_cerrar_ventana_stats():
+	# Aquí centralizamos la limpieza
+	menuStats.hide()
+
+
 
 func _gestionar_cambio_de_menu(nombre_menu: String):
 	# Si clicamos mientras hay animación, ignoramos pero refrescamos colores

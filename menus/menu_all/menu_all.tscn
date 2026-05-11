@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c1rh5rea5smsf" path="res://menus/menu_gacha/menu_gacha.tscn" id="7_5i7iq"]
 [ext_resource type="Theme" uid="uid://bmlsvo0bf02u5" path="res://menus/themes/panel/ThemePanelGacha.tres" id="7_p2kg1"]
 [ext_resource type="PackedScene" uid="uid://c2e8560ctbxjd" path="res://menus/menu_store/menu_store.tscn" id="8_ltr18"]
+[ext_resource type="PackedScene" uid="uid://ueg3fquj3uje" path="res://menus/menu_stats/menu_stats.tscn" id="9_d0byx"]
 [ext_resource type="AudioStream" uid="uid://bkyhirkmml6y5" path="res://menus/music/gameMenu.mp3" id="10_u8fau"]
 
 [node name="MenuAll" type="CanvasLayer" unique_id=1653229359]
@@ -24,33 +25,50 @@ texture = ExtResource("1_t2kp5")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="." unique_id=1894885512]
+[node name="contMenus" type="Control" parent="." unique_id=1894885512]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="MenuPlay" parent="Control" unique_id=37333949 instance=ExtResource("3_baml4")]
+[node name="MenuPlay" parent="contMenus" unique_id=37333949 instance=ExtResource("3_baml4")]
 visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="MenuEditCharacter" parent="Control" unique_id=740546051 instance=ExtResource("4_bbx7q")]
+[node name="MenuEditCharacter" parent="contMenus" unique_id=740546051 instance=ExtResource("4_bbx7q")]
 visible = false
 layout_mode = 1
 
-[node name="MenuEditTeam" parent="Control" unique_id=801215074 instance=ExtResource("6_n4ji6")]
+[node name="MenuEditTeam" parent="contMenus" unique_id=801215074 instance=ExtResource("6_n4ji6")]
 visible = false
 layout_mode = 1
 offset_right = 1111.0
 offset_bottom = 608.0
 
-[node name="MenuGacha" parent="Control" unique_id=2058835036 instance=ExtResource("7_5i7iq")]
+[node name="MenuGacha" parent="contMenus" unique_id=2058835036 instance=ExtResource("7_5i7iq")]
 visible = false
 layout_mode = 1
 theme = ExtResource("7_p2kg1")
 
-[node name="MenuStore" parent="Control" unique_id=1067569597 instance=ExtResource("8_ltr18")]
+[node name="MenuStore" parent="contMenus" unique_id=1067569597 instance=ExtResource("8_ltr18")]
 visible = false
+layout_mode = 1
+
+[node name="Control" type="Control" parent="." unique_id=847050385]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -248.0
+offset_right = 575.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuStats" parent="Control" unique_id=254472418 instance=ExtResource("9_d0byx")]
 layout_mode = 1
 
 [node name="NavBar" parent="." unique_id=1305611965 instance=ExtResource("2_0rnwl")]

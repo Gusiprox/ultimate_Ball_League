@@ -1,12 +1,11 @@
 extends Panel
 
-signal info_requested()
-
-var mis_datos: Dictionary = {}
+signal cerrar_solicitado
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _on_btn_info_pressed() -> void:
-	info_requested.emit()
+
+func _on_btn_close_stats_pressed() -> void:
+	cerrar_solicitado.emit()

@@ -23,7 +23,7 @@ expand_margin_left = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dane"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-bg_color = Color(0.8173051, 0.48842663, 0.41304472, 1)
+bg_color = Color(0.42646274, 0.21068335, 0.1634655, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -35,7 +35,7 @@ bg_color = Color(0.24426258, 0.112057544, 0.08071428, 0.5176471)
 
 [resource]
 VScrollBar/constants/padding_left = 4
-VScrollBar/constants/padding_right = 2
+VScrollBar/constants/padding_right = 1
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_3scmv")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_1lree")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_3dane")

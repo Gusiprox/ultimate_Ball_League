@@ -96,3 +96,5 @@ layout_mode = 2
 theme = ExtResource("4_syb2r")
 theme_override_font_sizes/font_size = 9
 text = "Equipar"
+
+[connection signal="pressed" from="MarginContainer/cardContainter/HBoxContainer/btnInfo" to="." method="_on_btn_info_pressed"]
