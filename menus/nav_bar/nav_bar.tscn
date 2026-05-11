@@ -322,6 +322,7 @@ theme = ExtResource("8_hbexq")
 text = "No"
 
 [node name="MenuOptions" type="Panel" parent="marginMenu/Control" unique_id=314493432]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
