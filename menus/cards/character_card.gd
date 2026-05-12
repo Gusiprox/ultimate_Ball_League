@@ -4,7 +4,6 @@ signal info_requested()
 
 var mis_datos: Dictionary = {}
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 

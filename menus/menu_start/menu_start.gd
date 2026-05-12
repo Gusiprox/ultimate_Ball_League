@@ -57,13 +57,13 @@ func cambiar_menu(menu_nuevo: Control):
 	# 1. SALIDA INSTANTÁNEA
 	if menu_actual != null:
 		menu_actual.hide()
-		# Reset de posición para que no se acumulen los -20px o +30px
+		# Reset de posición para que no se acumulen los +20px
 		menu_actual.position = posiciones_iniciales[menu_actual]
 	
 	# 2. PREPARAR ENTRADA
 	var pos_final = posiciones_iniciales[menu_nuevo]
 	menu_nuevo.modulate.a = 0.0
-	menu_nuevo.position.y = pos_final.y + 30 # Viene desde abajo
+	menu_nuevo.position.y = pos_final.y + 20 # Viene desde abajo
 	menu_nuevo.show()
 	
 	# 3. ANIMACIÓN

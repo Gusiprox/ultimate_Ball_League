@@ -1,0 +1,45 @@
+[gd_resource type="Theme" format=3 uid="uid://bb40ti6vvkhrt"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_eiww0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiww0"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6872149, 0.6872149, 0.6872152, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryo5v"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.78352344, 0.78352344, 0.78352326, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr04f"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5729883, 0.5729882, 0.57298845, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+Button/colors/font_color = Color(0, 0.29411766, 0.34901962, 0.9882353)
+Button/colors/font_hover_color = Color(0, 0.29411766, 0.34901962, 0.9882353)
+Button/colors/font_pressed_color = Color(0, 0.29411766, 0.34901962, 0.9882353)
+Button/fonts/font = ExtResource("1_eiww0")
+Button/styles/hover = SubResource("StyleBoxFlat_eiww0")
+Button/styles/normal = SubResource("StyleBoxFlat_ryo5v")
+Button/styles/pressed = SubResource("StyleBoxFlat_qr04f")

@@ -200,5 +200,4 @@ func animar_submenu(menu_objetivo: Control):
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	tween.tween_property(menu_objetivo, "modulate:a", 1.0, 0.2)
-	# IMPORTANTE: Animar global_position
 	tween.tween_property(menu_objetivo, "global_position:y", pos_final.y, 0.2)

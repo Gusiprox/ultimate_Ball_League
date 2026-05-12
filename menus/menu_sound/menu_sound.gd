@@ -3,11 +3,8 @@ extends Panel
 @export var bus_name: String = "Musica"
 var bus_index: int
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
-	
-
 
 func _on_adjust_music_value_changed(new_value: float):
 	# Convertimos el 0.0 - 1.0 del slider a decibelios
