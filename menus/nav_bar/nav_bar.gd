@@ -22,6 +22,7 @@ var vinculacion_botones = {
 	"btnMenuEditTeam": "editTeam",
 	"btnMenuGacha": "gacha",
 	"btnMenuStore": "store",
+	"btnMenuInventory": "inventory"
 }
 
 var posiciones_submenus = {}
@@ -47,6 +48,7 @@ func _guardar_posiciones_reales():
 		posiciones_submenus[m] = m.global_position
 		m.hide()
 
+
 # --- FUNCIONES AÑADIDAS PARA MENU ALL ---
 
 func mostrar_fondo_stats():
@@ -58,6 +60,7 @@ func ocultar_fondo_stats():
 	blockerAll.hide()
 
 # ---------------------------------------
+
 
 func _on_btn_menu_user_pressed() -> void:
 	animar_submenu(menuUser)
@@ -96,8 +99,7 @@ func _on_btn_menu_store_pressed() -> void:
 	menu_requested.emit("store")
 
 func _on_btn_menu_inventory_pressed() -> void:
-	#No se ha creado todavía
-	pass # Replace with function body.
+	menu_requested.emit("inventory")
 
 func _on_btn_options_pressed() -> void:
 	animar_submenu(menuOptions)

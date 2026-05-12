@@ -5,7 +5,8 @@ extends CanvasLayer
 	"editCharacter": $contMenus/MenuEditCharacter,
 	"editTeam": $contMenus/MenuEditTeam,
 	"gacha": $contMenus/MenuGacha,
-	"store": $contMenus/MenuStore
+	"store": $contMenus/MenuStore,
+	"inventory": $contMenus/MenuInventory
 }
 
 @onready var menuStats = $MenuStats
@@ -119,4 +120,4 @@ func actualizar_estado_navbar():
 			nombre_clave = clave
 			break
 	if has_node("NavBar"):
-		$NavBar.actualizar_botones_visuales(nombre_clave)
+		navBar.actualizar_botones_visuales(nombre_clave)
