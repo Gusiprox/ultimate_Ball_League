@@ -417,6 +417,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 
+[node name="blockerAll" type="ColorRect" parent="." unique_id=898000316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuPlay" to="." method="_on_btn_menu_play_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditPlayer" to="." method="_on_btn_menu_edit_player_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditTeam" to="." method="_on_btn_menu_edit_team_pressed"]

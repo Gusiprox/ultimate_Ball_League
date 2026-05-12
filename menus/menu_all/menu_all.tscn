@@ -15,6 +15,12 @@
 [node name="MenuAll" type="CanvasLayer" unique_id=1653229359]
 script = ExtResource("1_7e2v6")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1403059056]
+stream = ExtResource("10_u8fau")
+autoplay = true
+bus = &"Musica"
+parameters/looping = true
+
 [node name="imgFondoAll" type="TextureRect" parent="." unique_id=1187066898]
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,31 +60,14 @@ theme = ExtResource("7_p2kg1")
 visible = false
 layout_mode = 1
 
-[node name="Control" type="Control" parent="." unique_id=847050385]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.0
-offset_top = -248.0
-offset_right = 575.0
-offset_bottom = 323.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MenuStats" parent="Control" unique_id=254472418 instance=ExtResource("9_d0byx")]
-layout_mode = 1
-
 [node name="NavBar" parent="." unique_id=1305611965 instance=ExtResource("2_0rnwl")]
 offset_left = -1.0
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1403059056]
-stream = ExtResource("10_u8fau")
-autoplay = true
-bus = &"Musica"
-parameters/looping = true
+[node name="MenuStats" parent="." unique_id=254472418 instance=ExtResource("9_d0byx")]
+z_index = 1
+offset_top = -154.5
+offset_bottom = 229.5
+metadata/_edit_use_anchors_ = true

@@ -10,6 +10,8 @@ extends Panel
 @onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
 
 @onready var blocker = $blocker
+@onready var blockerAll = $blockerAll
+
 
 var color_activo = Color(1, 1, 1, 1)
 var color_inactivo = Color(0.634, 0.634, 0.634, 1.0)
@@ -35,6 +37,7 @@ func _ready() -> void:
 	menuControls.visible = false
 	backgroundBlur.hide()
 	blocker.hide()
+	blockerAll.hide()
 	
 	call_deferred("_guardar_posiciones_reales")
 
@@ -43,6 +46,18 @@ func _guardar_posiciones_reales():
 		# Guardamos la GLOBAL, que es la posición real en pantalla
 		posiciones_submenus[m] = m.global_position
 		m.hide()
+
+# --- FUNCIONES AÑADIDAS PARA MENU ALL ---
+
+func mostrar_fondo_stats():
+	backgroundBlur.show()
+	blockerAll.show()
+
+func ocultar_fondo_stats():
+	backgroundBlur.hide()
+	blockerAll.hide()
+
+# ---------------------------------------
 
 func _on_btn_menu_user_pressed() -> void:
 	animar_submenu(menuUser)
