@@ -122,20 +122,18 @@ func _on_btn_close_options_pressed() -> void:
 #Fondo difuminado al abrir menuUser
 
 func _on_background_blur_gui_input(event: InputEvent) -> void:
-	
 	if event is InputEventMouseButton and event.is_pressed():
 		
-		blocker.visible = false
+		if menuExit.visible or menuOptions.visible:
+			return
 		
-		if (menuUser.visible == true && menuExit.visible == true):
-			menuExit.visible = false
-			
-		elif (menuUser.visible == true && menuOptions.visible == true):
-			menuOptions.visible = false
-			
-		elif (menuUser.visible == true):
+		if get_parent().has_method("_on_cerrar_ventana_stats"):
+			get_parent()._on_cerrar_ventana_stats()
+		
+		if menuUser.visible:
 			menuUser.visible = false
-			backgroundBlur.visible = menuUser.visible
+			backgroundBlur.visible = false
+			blocker.visible = false
 
 
 #Cambio de foco al hacer clic en un botón

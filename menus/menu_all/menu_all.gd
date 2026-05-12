@@ -52,12 +52,9 @@ func _on_cerrar_ventana_stats():
 
 func _on_abrir_stats():
 	
-	# 2. Mostramos los fondos en la NavBar
 	navBar.mostrar_fondo_stats()
 	
-	# 3. Preparamos la animación (igual que en animar_submenu)
 	menuStats.modulate.a = 0.0
-	# Lo movemos 20 píxeles hacia abajo antes de empezar
 	menuStats.global_position.y = pos_original_stats.y + 20 
 	menuStats.show()
 
