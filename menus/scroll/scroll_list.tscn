@@ -7,6 +7,7 @@
 clip_children = 1
 size_flags_vertical = 3
 theme = ExtResource("1_fm0e1")
+theme_override_constants/scrollbar_h_separation = 3
 horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1444737359]
