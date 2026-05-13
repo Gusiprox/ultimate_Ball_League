@@ -31,7 +31,7 @@ corner_radius_bottom_left = 10
 expand_margin_left = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstlq"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
 
 [resource]
 VScrollBar/constants/padding_left = 4

@@ -6,10 +6,11 @@ extends Control
 @onready var btnHatsPage = $marginMenu/Control/contButtons/btnHatsPage
 
 
-var color_activo = Color(1, 1, 1, 1)
-var color_inactivo = Color(0.634, 0.634, 0.634, 1.0)
+var colorActivo = Color(1, 1, 1, 1)
+var colorInactivo = Color(0.634, 0.634, 0.634, 1.0)
 
 func _ready() -> void:
+	actualizar_botones(btnCharactersPage)
 	charactersPage.visible = true
 	hatsPage.visible = false
 
@@ -24,11 +25,7 @@ func _on_btn_hats_page_pressed() -> void:
 	hatsPage.visible = true
 
 func actualizar_botones(boton_activo: Button):
-	btnCharactersPage.modulate = color_inactivo
-	btnHatsPage.modulate = color_inactivo
+	btnCharactersPage.modulate = colorInactivo
+	btnHatsPage.modulate = colorInactivo
 	
-	btnCharactersPage.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	btnHatsPage.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	
-	boton_activo.modulate = color_activo
-	boton_activo.mouse_default_cursor_shape = Control.CURSOR_ARROW
+	boton_activo.modulate = colorActivo

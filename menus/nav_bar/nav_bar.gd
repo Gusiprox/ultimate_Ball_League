@@ -14,7 +14,7 @@ extends Panel
 
 
 var color_activo = Color(1, 1, 1, 1)
-var color_inactivo = Color(0.634, 0.634, 0.634, 1.0)
+var color_inactivo = Color(0.577, 0.577, 0.577, 1.0)
 
 var vinculacion_botones = {
 	"btnMenuPlay": "play",
@@ -40,6 +40,7 @@ func _ready() -> void:
 	blocker.hide()
 	blockerAll.hide()
 	
+	actualizar_visual_opciones(btnSound, menuSound)
 	call_deferred("_guardar_posiciones_reales")
 
 func _guardar_posiciones_reales():
@@ -105,14 +106,10 @@ func _on_btn_options_pressed() -> void:
 	animar_submenu(menuOptions)
 
 func _on_btn_sonido_pressed() -> void:
-	actualizar_visual_opciones(btnSound)
-	menuSound.visible = true
-	menuControls.visible = false
+	actualizar_visual_opciones(btnSound, menuSound)
 
 func _on_btn_controls_pressed() -> void:
-	actualizar_visual_opciones(btnControls)
-	menuControls.visible = true
-	menuSound.visible = false
+	actualizar_visual_opciones(btnControls, menuControls)
 
 func _on_btn_close_options_pressed() -> void:
 	menuOptions.visible = false
@@ -140,7 +137,7 @@ func _on_background_blur_gui_input(event: InputEvent) -> void:
 
 #Cambio de foco al hacer clic en un botón
 
-func actualizar_botones_visuales(nombre_activo: String):
+func actualizar_botones_visuales(nombreActivo: String):
 	# Buscamos en el contenedor donde están los botones
 	var contenedor = $marginNavBar/contNavBarElements/contNavBarButtons
 	
@@ -149,55 +146,50 @@ func actualizar_botones_visuales(nombre_activo: String):
 			# Miramos en el diccionario qué "clave" tiene este botón
 			var clave_asignada = vinculacion_botones.get(boton.name, "")
 			
-			if clave_asignada == nombre_activo:
+			if clave_asignada == nombreActivo:
 				boton.modulate = color_activo
-				boton.mouse_default_cursor_shape = Control.CURSOR_ARROW
 			else:
 				boton.modulate = color_inactivo
-				boton.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
 
-func actualizar_visual_opciones(boton_activo: Button):
+func actualizar_visual_opciones(botonActivo: Button, paginaActiva: Control):
 	# Ponemos ambos en color inactivo primero
 	btnSound.modulate = color_inactivo
 	btnControls.modulate = color_inactivo
 	
-	# Cambiamos el cursor a mano para ambos
-	btnSound.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-	btnControls.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	botonActivo.modulate = color_activo
+	menuSound.visible = false
+	menuControls.visible = false
+	paginaActiva.visible = true
 	
-	# Ahora activamos solo el que hemos pulsado
-	boton_activo.modulate = color_activo
-	boton_activo.mouse_default_cursor_shape = Control.CURSOR_ARROW
-
 
 #Animación de los submenús de navbar
 
-func animar_submenu(menu_objetivo: Control):
+func animar_submenu(menuObjetivo: Control):
 	# 1. Cerramos otros submenús abiertos al instante
 	for m in [menuUser, menuExit, menuOptions]:
-		if m != menu_objetivo and m.visible:
+		if m != menuObjetivo and m.visible:
 			m.hide()
 			m.position = posiciones_submenus[m]
 
 	# 2. Si el menú ya estaba visible, lo cerramos (comportamiento de "toggle")
-	if menu_objetivo.visible:
-		menu_objetivo.hide()
-		menu_objetivo.position = posiciones_submenus[menu_objetivo]
+	if menuObjetivo.visible:
+		menuObjetivo.hide()
+		menuObjetivo.position = posiciones_submenus[menuObjetivo]
 		backgroundBlur.hide()
 		return
 
 	# 3. Preparar entrada
-	var pos_final = posiciones_submenus[menu_objetivo]
-	menu_objetivo.modulate.a = 0.0
+	var pos_final = posiciones_submenus[menuObjetivo]
+	menuObjetivo.modulate.a = 0.0
 	# Aplicamos el desplazamiento a la posición GLOBAL
-	menu_objetivo.global_position.y = pos_final.y + 20 
-	menu_objetivo.show()
+	menuObjetivo.global_position.y = pos_final.y + 20 
+	menuObjetivo.show()
 	backgroundBlur.show()
 	blocker.show()
 
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
-	tween.tween_property(menu_objetivo, "modulate:a", 1.0, 0.2)
-	tween.tween_property(menu_objetivo, "global_position:y", pos_final.y, 0.2)
+	tween.tween_property(menuObjetivo, "modulate:a", 1.0, 0.2)
+	tween.tween_property(menuObjetivo, "global_position:y", pos_final.y, 0.2)
