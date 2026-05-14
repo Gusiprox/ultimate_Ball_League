@@ -16,7 +16,7 @@
 [node name="MenuAll" type="CanvasLayer" unique_id=1653229359]
 script = ExtResource("1_7e2v6")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1403059056]
+[node name="audioMenus" type="AudioStreamPlayer2D" parent="." unique_id=1403059056]
 stream = ExtResource("10_u8fau")
 autoplay = true
 bus = &"Musica"

@@ -8,14 +8,12 @@ extends Panel
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
 @onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
 @onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
-
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
 
-
 var colorActivo = Color(1, 1, 1, 1)
 var colorInactivo = Color(0.577, 0.577, 0.577, 1.0)
-
+var submenus: Array = []
 var vinculacionBotones = {
 	"btnMenuPlay": "play",
 	"btnMenuEditPlayer": "editCharacter",
@@ -24,23 +22,20 @@ var vinculacionBotones = {
 	"btnMenuStore": "store",
 	"btnMenuInventory": "inventory"
 }
-
 var posicionesSubmenus = {}
 
 signal menuRequested(menuName)
 
 func _ready() -> void:
-	menuUser.visible = false
-	menuExit.visible = false
-	menuOptions.visible = false
-	menuSound.visible = true
-	menuControls.visible = false
-	backgroundBlur.hide()
-	blocker.hide()
-	blockerAll.hide()
+	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
+	_cerrar_menus()
 	
 	actualizar_visual_opciones(btnSound, menuSound)
 	call_deferred("_guardar_posiciones_reales")
+
+func _cerrar_menus():
+	for menu in submenus:
+		menu.visible = false
 
 func _guardar_posiciones_reales():
 	for m in [menuUser, menuExit, menuOptions]:
@@ -75,9 +70,7 @@ func _on_btn_conf_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_btn_cancel_exit_pressed() -> void:
-	menuExit.visible = false
-	backgroundBlur.visible = false
-	blocker.visible = false
+	_cerrar_menus()
 
 func _on_btn_sign_out_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
@@ -111,10 +104,7 @@ func _on_btn_controls_pressed() -> void:
 	actualizar_visual_opciones(btnControls, menuControls)
 
 func _on_btn_close_options_pressed() -> void:
-	menuOptions.visible = false
-	backgroundBlur.visible = false
-	menuSound.visible = false
-	blocker.visible = false
+	_cerrar_menus()
 
 
 #Fondo difuminado al abrir menuUser
@@ -160,7 +150,7 @@ func actualizar_visual_opciones(botonActivo: Button, paginaActiva: Control):
 	menuSound.visible = false
 	menuControls.visible = false
 	paginaActiva.visible = true
-	
+
 
 #Animación de los submenús de navbar
 
@@ -171,7 +161,7 @@ func animar_submenu(menuObjetivo: Control):
 			m.hide()
 			m.position = posicionesSubmenus[m]
 
-	# 2. Si el menú ya estaba visible, lo cerramos (comportamiento de "toggle")
+	# 2. Si el menú ya estaba visible, lo cerramos
 	if menuObjetivo.visible:
 		menuObjetivo.hide()
 		menuObjetivo.position = posicionesSubmenus[menuObjetivo]

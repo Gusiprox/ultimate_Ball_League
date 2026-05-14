@@ -46,6 +46,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28y4e")
 
+[node name="audioMenuStart" type="AudioStreamPlayer2D" parent="." unique_id=438950640]
+stream = ExtResource("12_7xx02")
+autoplay = true
+bus = &"Musica"
+parameters/looping = true
+
 [node name="imgMenuStart" type="Sprite2D" parent="." unique_id=994998472]
 texture_filter = 4
 position = Vector2(579, 324.00003)
@@ -256,12 +262,6 @@ size_flags_vertical = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
 text = "     Crear usuario     "
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=438950640]
-stream = ExtResource("12_7xx02")
-autoplay = true
-bus = &"Musica"
-parameters/looping = true
 
 [connection signal="pressed" from="VBoxContainer/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
