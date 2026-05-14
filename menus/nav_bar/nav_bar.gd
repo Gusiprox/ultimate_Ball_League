@@ -8,19 +8,29 @@ extends Panel
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
 @onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
 @onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
+@onready var contNavBarButtons = $marginNavBar/contNavBarElements/contNavBarButtons
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
 
 var colorActivo = Color(1, 1, 1, 1)
 var colorInactivo = Color(0.577, 0.577, 0.577, 1.0)
 var submenus: Array = []
+var pathMenuStart = "res://menus/menu_start/menu_start.tscn"
+
+var signalMenuPlay = "play"
+var signalMenuEditChar = "editCharacter"
+var signalMenuEditTeam = "editTeam"
+var signalMenuGacha = "gacha"
+var signalMenuStore = "store"
+var signalMenuInventoy = "inventory"
+
 var vinculacionBotones = {
-	"btnMenuPlay": "play",
-	"btnMenuEditPlayer": "editCharacter",
-	"btnMenuEditTeam": "editTeam",
-	"btnMenuGacha": "gacha",
-	"btnMenuStore": "store",
-	"btnMenuInventory": "inventory"
+	"btnMenuPlay": signalMenuPlay,
+	"btnMenuEditPlayer": signalMenuEditChar,
+	"btnMenuEditTeam": signalMenuEditTeam,
+	"btnMenuGacha": signalMenuGacha,
+	"btnMenuStore": signalMenuStore,
+	"btnMenuInventory": signalMenuInventoy
 }
 var posicionesSubmenus = {}
 
@@ -28,83 +38,88 @@ signal menuRequested(menuName)
 
 func _ready() -> void:
 	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
-	_cerrar_menus()
+	cerrarMenus()
 	
-	actualizar_visual_opciones(btnSound, menuSound)
-	call_deferred("_guardar_posiciones_reales")
+	actualizarVisualOpciones(btnSound, menuSound)
+	call_deferred("guardarPosicionesReales")
 
-func _cerrar_menus():
+
+#Cerrar todos los menús (menus menuSound)
+
+func cerrarMenus():
 	for menu in submenus:
 		menu.visible = false
 
-func _guardar_posiciones_reales():
+
+#Guardar posiciones iniciales de los menús para que no se desplacen con el tween
+
+func guardarPosicionesReales():
 	for m in [menuUser, menuExit, menuOptions]:
-		# Guardamos la GLOBAL, que es la posición real en pantalla
 		posicionesSubmenus[m] = m.global_position
 		m.hide()
 
 
-# --- FUNCIONES AÑADIDAS PARA MENU ALL ---
+# Funciones usadas para poner o quitar el blur y block
 
-func mostrar_fondo_stats():
+func mostrarFondoStats():
 	backgroundBlur.show()
 	blockerAll.show()
 
-func ocultar_fondo_stats():
+func ocultarFondoStats():
 	backgroundBlur.hide()
 	blockerAll.hide()
 
-# ---------------------------------------
 
+# --- BOTONES ---
 
 func _on_btn_menu_user_pressed() -> void:
-	animar_submenu(menuUser)
+	animarSubmenu(menuUser)
 	
 	if (blocker.visible == true):
 		blocker.visible = false
 
 func _on_btn_exit_pressed() -> void:
-	animar_submenu(menuExit)
+	animarSubmenu(menuExit)
 
 func _on_btn_conf_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_btn_cancel_exit_pressed() -> void:
-	_cerrar_menus()
+	cerrarMenus()
 
 func _on_btn_sign_out_pressed() -> void:
-	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
+	get_tree().change_scene_to_file(pathMenuStart)
 	#Faltaría que en el servidor se cerrara la sesión actual
 
 func _on_btn_menu_play_pressed() -> void:
-	menuRequested.emit("play")
+	menuRequested.emit(signalMenuPlay)
 
 func _on_btn_menu_edit_player_pressed() -> void:
-	menuRequested.emit("editCharacter")
+	menuRequested.emit(signalMenuEditChar)
 
 func _on_btn_menu_edit_team_pressed() -> void:
-	menuRequested.emit("editTeam")
+	menuRequested.emit(signalMenuEditTeam)
 
 func _on_btn_menu_gacha_pressed() -> void:
-	menuRequested.emit("gacha")
+	menuRequested.emit(signalMenuGacha)
 
 func _on_btn_menu_store_pressed() -> void:
-	menuRequested.emit("store")
+	menuRequested.emit(signalMenuStore)
 
 func _on_btn_menu_inventory_pressed() -> void:
-	menuRequested.emit("inventory")
+	menuRequested.emit(signalMenuInventoy)
 
 func _on_btn_options_pressed() -> void:
-	animar_submenu(menuOptions)
+	animarSubmenu(menuOptions)
 
 func _on_btn_sonido_pressed() -> void:
-	actualizar_visual_opciones(btnSound, menuSound)
+	actualizarVisualOpciones(btnSound, menuSound)
 
 func _on_btn_controls_pressed() -> void:
-	actualizar_visual_opciones(btnControls, menuControls)
+	actualizarVisualOpciones(btnControls, menuControls)
 
 func _on_btn_close_options_pressed() -> void:
-	_cerrar_menus()
+	cerrarMenus()
 
 
 #Fondo difuminado al abrir menuUser
@@ -115,8 +130,8 @@ func _on_background_blur_gui_input(event: InputEvent) -> void:
 		if menuExit.visible or menuOptions.visible:
 			return
 		
-		if get_parent().has_method("_on_cerrar_ventana_stats"):
-			get_parent()._on_cerrar_ventana_stats()
+		if get_parent().has_method("cerrarVentanaStats"):
+			get_parent().cerrarVentanaStats()
 		
 		if menuUser.visible:
 			menuUser.visible = false
@@ -124,11 +139,11 @@ func _on_background_blur_gui_input(event: InputEvent) -> void:
 			blocker.visible = false
 
 
-#Cambio de foco al hacer clic en un botón
+#Cambio de botón marcado en los botones de navBar
 
-func actualizar_botones_visuales(nombreActivo: String):
+func actualizarBotonesVisuales(nombreActivo: String):
 	# Buscamos en el contenedor donde están los botones
-	var contenedor = $marginNavBar/contNavBarElements/contNavBarButtons
+	var contenedor = contNavBarButtons
 	
 	for boton in contenedor.get_children():
 		if boton is Button or boton is TextureButton:
@@ -141,8 +156,9 @@ func actualizar_botones_visuales(nombreActivo: String):
 				boton.modulate = colorInactivo
 
 
-func actualizar_visual_opciones(botonActivo: Button, paginaActiva: Control):
-	# Ponemos ambos en color inactivo primero
+#Cambio de botón marcado en menuOptions
+
+func actualizarVisualOpciones(botonActivo: Button, paginaActiva: Control):
 	btnSound.modulate = colorInactivo
 	btnControls.modulate = colorInactivo
 	
@@ -154,21 +170,18 @@ func actualizar_visual_opciones(botonActivo: Button, paginaActiva: Control):
 
 #Animación de los submenús de navbar
 
-func animar_submenu(menuObjetivo: Control):
-	# 1. Cerramos otros submenús abiertos al instante
+func animarSubmenu(menuObjetivo: Control):
 	for m in [menuUser, menuExit, menuOptions]:
 		if m != menuObjetivo and m.visible:
 			m.hide()
 			m.position = posicionesSubmenus[m]
 
-	# 2. Si el menú ya estaba visible, lo cerramos
 	if menuObjetivo.visible:
 		menuObjetivo.hide()
 		menuObjetivo.position = posicionesSubmenus[menuObjetivo]
 		backgroundBlur.hide()
 		return
 
-	# 3. Preparar entrada
 	var posFinal = posicionesSubmenus[menuObjetivo]
 	menuObjetivo.modulate.a = 0.0
 	# Aplicamos el desplazamiento a la posición GLOBAL

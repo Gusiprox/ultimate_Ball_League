@@ -1,16 +1,17 @@
 extends CanvasLayer
 
+@onready var navBar = $NavBar
+
 @onready var dicMenus = {
-	"play": $contMenus/MenuPlay,
-	"editCharacter": $contMenus/MenuEditCharacter,
-	"editTeam": $contMenus/MenuEditTeam,
-	"gacha": $contMenus/MenuGacha,
-	"store": $contMenus/MenuStore,
-	"inventory": $contMenus/MenuInventory
+	navBar.signalMenuPlay: $contMenus/MenuPlay,
+	navBar.signalMenuEditChar: $contMenus/MenuEditCharacter,
+	navBar.signalMenuEditTeam: $contMenus/MenuEditTeam,
+	navBar.signalMenuGacha: $contMenus/MenuGacha,
+	navBar.signalMenuStore: $contMenus/MenuStore,
+	navBar.signalMenuInventoy: $contMenus/MenuInventory
 }
 
 @onready var menuStats = $MenuStats
-@onready var navBar = $NavBar
 
 var menuActual: Control = null
 var transicionando: bool = false
@@ -19,7 +20,7 @@ var posOriginalStats: Vector2
 
 func _ready() -> void:
 	
-	navBar.actualizar_botones_visuales("play")
+	navBar.actualizarBotonesVisuales(navBar.signalMenuPlay)
 	
 	menuStats.visible = false
 	posOriginalStats = menuStats.global_position
@@ -30,7 +31,7 @@ func _ready() -> void:
 		posicionesIniciales[nodo] = nodo.position
 		
 		# Estado inicial: solo Play se ve
-		if clave == "play":
+		if clave == navBar.signalMenuPlay:
 			nodo.show()
 			nodo.modulate.a = 1.0
 			menuActual = nodo
@@ -38,22 +39,25 @@ func _ready() -> void:
 			nodo.hide()
 			nodo.modulate.a = 0.0
 		
-	navBar.menuRequested.connect(_gestionar_cambio_de_menu)
-	menuStats.cerrarSolicitado.connect(_on_cerrar_ventana_stats)
+	navBar.menuRequested.connect(gestionarCambioMenu)
+	menuStats.cerrarSolicitado.connect(cerrarVentanaStats)
 	
 	for menu in dicMenus.values():
 		# Buscamos las cartas
 		for hijo in menu.find_children("*", "", true): 
 			if hijo.has_signal("infoRequested"):
-				hijo.infoRequested.connect(_on_abrir_stats)
+				hijo.infoRequested.connect(abrirVentanaStats)
 
-func _on_cerrar_ventana_stats():
+
+#Gestionar menuStats
+
+func cerrarVentanaStats():
 	menuStats.hide()
-	navBar.ocultar_fondo_stats()
+	navBar.ocultarFondoStats()
 
-func _on_abrir_stats():
+func abrirVentanaStats():
 	
-	navBar.mostrar_fondo_stats()
+	navBar.mostrarFondoStats()
 	
 	menuStats.modulate.a = 0.0
 	menuStats.global_position.y = posOriginalStats.y + 20 
@@ -67,10 +71,13 @@ func _on_abrir_stats():
 	tween.tween_property(menuStats, "modulate:a", 1.0, 0.15)
 	tween.tween_property(menuStats, "global_position:y", posOriginalStats.y, 0.15)
 
-func _gestionar_cambio_de_menu(nombreMenu: String):
+
+#Cambiar menú desde el navBar
+
+func gestionarCambioMenu(nombreMenu: String):
 	# Si clicamos mientras hay animación, ignoramos pero refrescamos colores
 	if transicionando:
-		actualizar_estado_navbar()
+		actualizarEstadoNavbar()
 		return
 	
 	if dicMenus.has(nombreMenu):
@@ -79,15 +86,15 @@ func _gestionar_cambio_de_menu(nombreMenu: String):
 			return
 		
 		# Actualizamos colores del navbar ANTES de empezar para que se sienta rápido
-		navBar.actualizar_botones_visuales(nombreMenu)
-		cambiar_menu(dicMenus[nombreMenu])
+		navBar.actualizarBotonesVisuales(nombreMenu)
+		cambiarMenu(dicMenus[nombreMenu])
 
-func cambiar_menu(menuNuevo: Control):
+func cambiarMenu(menuNuevo: Control):
 	transicionando = true
 	
 	# 1. SALIDA (Instantánea)
 	if menuActual != null:
-		animar_salida(menuActual)
+		animarSalida(menuActual)
 	
 	# 2. PREPARAR ENTRADA
 	var posFinal = posicionesIniciales[menuNuevo]
@@ -106,18 +113,18 @@ func cambiar_menu(menuNuevo: Control):
 	tween.tween_callback(func():
 		menuActual = menuNuevo
 		transicionando = false
-		actualizar_estado_navbar()
+		actualizarEstadoNavbar()
 	)
 
-func animar_salida(menu: Control):
+func animarSalida(menu: Control):
 	menu.hide()
 	menu.position = posicionesIniciales[menu]
 
-func actualizar_estado_navbar():
+func actualizarEstadoNavbar():
 	var nombreClave = ""
 	for clave in dicMenus.keys():
 		if dicMenus[clave] == menuActual:
 			nombreClave = clave
 			break
 	if has_node("NavBar"):
-		navBar.actualizar_botones_visuales(nombreClave)
+		navBar.actualizarBotonesVisuales(nombreClave)

@@ -7,6 +7,7 @@ extends Control
 var menuActual: Control = null
 var transicionando: bool = false
 var posicionesIniciales = {}
+var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
 
 func _ready() -> void:
 	menuLogin.visible = false
@@ -22,25 +23,25 @@ func _ready() -> void:
 
 func _on_btn_start_pressed() -> void:
 	backgroundBlur.show()
-	cambiar_menu(menuLogin)
+	cambiarMenu(menuLogin)
 
 func _on_btn_open_create_user_pressed() -> void:
-	cambiar_menu(menuCreate)
+	cambiarMenu(menuCreate)
 
 func _on_btn_create_user_pressed() -> void:
 	#Gestionar que se hayan metido todos los datos
 	#Falta que se cree de verdad la cuenta
-	cambiar_menu(menuLogin)
+	cambiarMenu(menuLogin)
 
 func _on_btn_close_login_pressed() -> void:
-	cerrar_todo()
+	cerrarTodo()
 
 func _on_btn_close_create_user_pressed() -> void:
-	cerrar_todo()
+	cerrarTodo()
 
 func _on_btn_login_pressed() -> void:
 	#Gestionar que el usuario exista antes de cambiar de escena
-	get_tree().change_scene_to_file("res://menus/menu_all/menu_all.tscn")
+	get_tree().change_scene_to_file(pathMenuAll)
 
 func _on_btn_exit_pressed() -> void:
 	get_tree().quit()
@@ -48,7 +49,7 @@ func _on_btn_exit_pressed() -> void:
 
 # --- LÓGICA DE ANIMACIÓN ---
 
-func cambiar_menu(menuNuevo: Control):
+func cambiarMenu(menuNuevo: Control):
 	if transicionando or menuActual == menuNuevo:
 		return
 	
@@ -79,7 +80,10 @@ func cambiar_menu(menuNuevo: Control):
 		transicionando = false
 	)
 
-func cerrar_todo():
+
+#Cerrar los menús login y create user
+
+func cerrarTodo():
 	if menuActual:
 		menuActual.hide()
 		menuActual.position = posicionesIniciales[menuActual]
