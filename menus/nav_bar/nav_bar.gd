@@ -13,10 +13,10 @@ extends Panel
 @onready var blockerAll = $blockerAll
 
 
-var color_activo = Color(1, 1, 1, 1)
-var color_inactivo = Color(0.577, 0.577, 0.577, 1.0)
+var colorActivo = Color(1, 1, 1, 1)
+var colorInactivo = Color(0.577, 0.577, 0.577, 1.0)
 
-var vinculacion_botones = {
+var vinculacionBotones = {
 	"btnMenuPlay": "play",
 	"btnMenuEditPlayer": "editCharacter",
 	"btnMenuEditTeam": "editTeam",
@@ -25,11 +25,10 @@ var vinculacion_botones = {
 	"btnMenuInventory": "inventory"
 }
 
-var posiciones_submenus = {}
+var posicionesSubmenus = {}
 
-signal menu_requested(menu_name)
+signal menuRequested(menuName)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	menuUser.visible = false
 	menuExit.visible = false
@@ -46,7 +45,7 @@ func _ready() -> void:
 func _guardar_posiciones_reales():
 	for m in [menuUser, menuExit, menuOptions]:
 		# Guardamos la GLOBAL, que es la posición real en pantalla
-		posiciones_submenus[m] = m.global_position
+		posicionesSubmenus[m] = m.global_position
 		m.hide()
 
 
@@ -85,22 +84,22 @@ func _on_btn_sign_out_pressed() -> void:
 	#Faltaría que en el servidor se cerrara la sesión actual
 
 func _on_btn_menu_play_pressed() -> void:
-	menu_requested.emit("play")
+	menuRequested.emit("play")
 
 func _on_btn_menu_edit_player_pressed() -> void:
-	menu_requested.emit("editCharacter")
+	menuRequested.emit("editCharacter")
 
 func _on_btn_menu_edit_team_pressed() -> void:
-	menu_requested.emit("editTeam")
+	menuRequested.emit("editTeam")
 
 func _on_btn_menu_gacha_pressed() -> void:
-	menu_requested.emit("gacha")
+	menuRequested.emit("gacha")
 
 func _on_btn_menu_store_pressed() -> void:
-	menu_requested.emit("store")
+	menuRequested.emit("store")
 
 func _on_btn_menu_inventory_pressed() -> void:
-	menu_requested.emit("inventory")
+	menuRequested.emit("inventory")
 
 func _on_btn_options_pressed() -> void:
 	animar_submenu(menuOptions)
@@ -144,20 +143,20 @@ func actualizar_botones_visuales(nombreActivo: String):
 	for boton in contenedor.get_children():
 		if boton is Button or boton is TextureButton:
 			# Miramos en el diccionario qué "clave" tiene este botón
-			var clave_asignada = vinculacion_botones.get(boton.name, "")
+			var claveAsignada = vinculacionBotones.get(boton.name, "")
 			
-			if clave_asignada == nombreActivo:
-				boton.modulate = color_activo
+			if claveAsignada == nombreActivo:
+				boton.modulate = colorActivo
 			else:
-				boton.modulate = color_inactivo
+				boton.modulate = colorInactivo
 
 
 func actualizar_visual_opciones(botonActivo: Button, paginaActiva: Control):
 	# Ponemos ambos en color inactivo primero
-	btnSound.modulate = color_inactivo
-	btnControls.modulate = color_inactivo
+	btnSound.modulate = colorInactivo
+	btnControls.modulate = colorInactivo
 	
-	botonActivo.modulate = color_activo
+	botonActivo.modulate = colorActivo
 	menuSound.visible = false
 	menuControls.visible = false
 	paginaActiva.visible = true
@@ -170,20 +169,20 @@ func animar_submenu(menuObjetivo: Control):
 	for m in [menuUser, menuExit, menuOptions]:
 		if m != menuObjetivo and m.visible:
 			m.hide()
-			m.position = posiciones_submenus[m]
+			m.position = posicionesSubmenus[m]
 
 	# 2. Si el menú ya estaba visible, lo cerramos (comportamiento de "toggle")
 	if menuObjetivo.visible:
 		menuObjetivo.hide()
-		menuObjetivo.position = posiciones_submenus[menuObjetivo]
+		menuObjetivo.position = posicionesSubmenus[menuObjetivo]
 		backgroundBlur.hide()
 		return
 
 	# 3. Preparar entrada
-	var pos_final = posiciones_submenus[menuObjetivo]
+	var posFinal = posicionesSubmenus[menuObjetivo]
 	menuObjetivo.modulate.a = 0.0
 	# Aplicamos el desplazamiento a la posición GLOBAL
-	menuObjetivo.global_position.y = pos_final.y + 20 
+	menuObjetivo.global_position.y = posFinal.y + 20 
 	menuObjetivo.show()
 	backgroundBlur.show()
 	blocker.show()
@@ -192,4 +191,4 @@ func animar_submenu(menuObjetivo: Control):
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	tween.tween_property(menuObjetivo, "modulate:a", 1.0, 0.2)
-	tween.tween_property(menuObjetivo, "global_position:y", pos_final.y, 0.2)
+	tween.tween_property(menuObjetivo, "global_position:y", posFinal.y, 0.2)

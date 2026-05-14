@@ -38,14 +38,14 @@ func _ready() -> void:
 			nodo.hide()
 			nodo.modulate.a = 0.0
 		
-	navBar.menu_requested.connect(_gestionar_cambio_de_menu)
-	menuStats.cerrar_solicitado.connect(_on_cerrar_ventana_stats)
+	navBar.menuRequested.connect(_gestionar_cambio_de_menu)
+	menuStats.cerrarSolicitado.connect(_on_cerrar_ventana_stats)
 	
 	for menu in dicMenus.values():
 		# Buscamos las cartas
 		for hijo in menu.find_children("*", "", true): 
-			if hijo.has_signal("info_requested"):
-				hijo.info_requested.connect(_on_abrir_stats)
+			if hijo.has_signal("infoRequested"):
+				hijo.infoRequested.connect(_on_abrir_stats)
 
 func _on_cerrar_ventana_stats():
 	menuStats.hide()
@@ -90,16 +90,16 @@ func cambiar_menu(menuNuevo: Control):
 		animar_salida(menuActual)
 	
 	# 2. PREPARAR ENTRADA
-	var pos_final = posicionesIniciales[menuNuevo]
+	var posFinal = posicionesIniciales[menuNuevo]
 	menuNuevo.modulate.a = 0.0
-	menuNuevo.position.y = pos_final.y + 20
+	menuNuevo.position.y = posFinal.y + 20
 	menuNuevo.show()
 	
 	# 3. ANIMAR ENTRADA
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(menuNuevo, "modulate:a", 1.0, 0.3)
-	tween.tween_property(menuNuevo, "position:y", pos_final.y, 0.3)
+	tween.tween_property(menuNuevo, "position:y", posFinal.y, 0.3)
 	
 	# 4. FINALIZACIÓN
 	tween.set_parallel(false)
