@@ -26,6 +26,7 @@ func guardarPosicionesReales():
 
 func _on_btn_resume_pressed() -> void:
 	panelMenuInGame.visible = false
+	backgroundBlur.visible = false
 
 func _on_btn_options_pressed() -> void:
 	animarSubmenu(menuOptions)
