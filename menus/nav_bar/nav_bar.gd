@@ -142,10 +142,7 @@ func _on_background_blur_gui_input(event: InputEvent) -> void:
 #Cambio de botón marcado en los botones de navBar
 
 func actualizarBotonesVisuales(nombreActivo: String):
-	# Buscamos en el contenedor donde están los botones
-	var contenedor = contNavBarButtons
-	
-	for boton in contenedor.get_children():
+	for boton in contNavBarButtons.get_children():
 		if boton is Button or boton is TextureButton:
 			# Miramos en el diccionario qué "clave" tiene este botón
 			var claveAsignada = vinculacionBotones.get(boton.name, "")

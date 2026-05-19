@@ -223,7 +223,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="MenuUser" type="Panel" parent="marginMenu/Control" unique_id=71924952]
-visible = false
 layout_mode = 0
 offset_left = 951.0
 offset_top = 9.0
