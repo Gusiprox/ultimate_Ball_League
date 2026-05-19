@@ -40,7 +40,7 @@ func _ready() -> void:
 	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
 	cerrarMenus()
 	
-	actualizarVisualOpciones(btnSound, menuSound)
+	actualizarBotonesOptions(btnSound, menuSound)
 	call_deferred("guardarPosicionesReales")
 
 
@@ -113,16 +113,16 @@ func _on_btn_options_pressed() -> void:
 	animarSubmenu(menuOptions)
 
 func _on_btn_sonido_pressed() -> void:
-	actualizarVisualOpciones(btnSound, menuSound)
+	actualizarBotonesOptions(btnSound, menuSound)
 
 func _on_btn_controls_pressed() -> void:
-	actualizarVisualOpciones(btnControls, menuControls)
+	actualizarBotonesOptions(btnControls, menuControls)
 
 func _on_btn_close_options_pressed() -> void:
 	cerrarMenus()
 
 
-#Fondo difuminado al abrir menuUser
+#Al hacer clic en el fondo difuminado se cierra menuUser
 
 func _on_background_blur_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
@@ -141,9 +141,9 @@ func _on_background_blur_gui_input(event: InputEvent) -> void:
 
 #Cambio de botón marcado en los botones de navBar
 
-func actualizarBotonesVisuales(nombreActivo: String):
+func actualizarBotonesNavBar(nombreActivo: String):
 	for boton in contNavBarButtons.get_children():
-		if boton is Button or boton is TextureButton:
+		if boton is Button:
 			# Miramos en el diccionario qué "clave" tiene este botón
 			var claveAsignada = vinculacionBotones.get(boton.name, "")
 			
@@ -155,7 +155,7 @@ func actualizarBotonesVisuales(nombreActivo: String):
 
 #Cambio de botón marcado en menuOptions
 
-func actualizarVisualOpciones(botonActivo: Button, paginaActiva: Control):
+func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
 	btnSound.modulate = colorInactivo
 	btnControls.modulate = colorInactivo
 	

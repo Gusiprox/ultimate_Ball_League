@@ -48,10 +48,10 @@ func _on_btn_close_options_pressed() -> void:
 	animarSubmenu(panelMenuInGame)
 
 func _on_btn_sonido_pressed() -> void:
-	actualizarVisualOpciones(btnSound, menuSound)
+	actualizarBotonesOptions(btnSound, menuSound)
 
 func _on_btn_controls_pressed() -> void:
-	actualizarVisualOpciones(btnControls, menuControls)
+	actualizarBotonesOptions(btnControls, menuControls)
 
 
 #Animación de los submenús de MenuInGame
@@ -84,7 +84,7 @@ func animarSubmenu(menuObjetivo: Control):
 
 #Cambio de botón marcado en menuOptions
 
-func actualizarVisualOpciones(botonActivo: Button, paginaActiva: Control):
+func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
 	btnSound.modulate = colorInactivo
 	btnControls.modulate = colorInactivo
 	

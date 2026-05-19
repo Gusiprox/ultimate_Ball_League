@@ -20,12 +20,12 @@ var posOriginalStats: Vector2
 
 func _ready() -> void:
 	
-	navBar.actualizarBotonesVisuales(navBar.signalMenuPlay)
+	navBar.actualizarBotonesNavBar(navBar.signalMenuPlay)
 	
 	menuStats.visible = false
 	posOriginalStats = menuStats.global_position
 	
-	# 1. Guardamos las posiciones originales de TODO antes de mover nada
+	# 1. Guardamos las posiciones originales de todo antes de mover nada
 	for clave in dicMenus.keys():
 		var nodo = dicMenus[clave]
 		posicionesIniciales[nodo] = nodo.position
@@ -43,7 +43,7 @@ func _ready() -> void:
 	menuStats.cerrarSolicitado.connect(cerrarVentanaStats)
 	
 	for menu in dicMenus.values():
-		# Buscamos las cartas
+		# Buscamos las cartas dentro de los menús
 		for hijo in menu.find_children("*", "", true): 
 			if hijo.has_signal("infoRequested"):
 				hijo.infoRequested.connect(abrirVentanaStats)
@@ -86,7 +86,7 @@ func gestionarCambioMenu(nombreMenu: String):
 			return
 		
 		# Actualizamos colores del navbar ANTES de empezar para que se sienta rápido
-		navBar.actualizarBotonesVisuales(nombreMenu)
+		navBar.actualizarBotonesNavBar(nombreMenu)
 		cambiarMenu(dicMenus[nombreMenu])
 
 func cambiarMenu(menuNuevo: Control):
@@ -127,4 +127,4 @@ func actualizarEstadoNavbar():
 			nombreClave = clave
 			break
 	if has_node("NavBar"):
-		navBar.actualizarBotonesVisuales(nombreClave)
+		navBar.actualizarBotonesNavBar(nombreClave)
