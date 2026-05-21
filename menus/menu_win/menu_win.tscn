@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://dlolmdsoww0ig" path="res://menus/menu_start/img/marco.png" id="2_3tq0i"]
 [ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="2_pisar"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_pisar"]
+[ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="5_egoew"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="5_q5bth"]
+[ext_resource type="Texture2D" uid="uid://b5wsgxe3lirf3" path="res://menus/nav_bar/img/coin8.png" id="6_q5bth"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x3jkg"]
 shader = ExtResource("2_pisar")
@@ -36,9 +39,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -365.0
+offset_left = -380.5
 offset_top = -243.0
-offset_right = 365.0
+offset_right = 380.5
 offset_bottom = 243.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -63,12 +66,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -156.0
-offset_right = 105.0
-offset_bottom = 156.0
+offset_left = -250.0
+offset_top = -146.5
+offset_right = 250.0
+offset_bottom = 146.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 40
 
 [node name="lblWin" type="Label" parent="panelMenuWin/contMenuWinElem" unique_id=1395578904]
 layout_mode = 2
@@ -79,9 +83,44 @@ text = "¡Victoria!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="space" type="Control" parent="panelMenuWin/contMenuWinElem" unique_id=2045632276]
-custom_minimum_size = Vector2(0, 200)
+[node name="contPullsCoinsWon" type="HBoxContainer" parent="panelMenuWin/contMenuWinElem" unique_id=2019314664]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="contPulls" type="HBoxContainer" parent="panelMenuWin/contMenuWinElem/contPullsCoinsWon" unique_id=216939973]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="lblPulls" type="Label" parent="panelMenuWin/contMenuWinElem/contPullsCoinsWon/contPulls" unique_id=946604073]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("5_q5bth")
+theme_override_font_sizes/font_size = 20
+text = "Tiradas ganadas:"
+
+[node name="imgPulls" type="NinePatchRect" parent="panelMenuWin/contMenuWinElem/contPullsCoinsWon/contPulls" unique_id=1413022028]
+texture_filter = 4
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_egoew")
+
+[node name="contCoins" type="HBoxContainer" parent="panelMenuWin/contMenuWinElem/contPullsCoinsWon" unique_id=1057800519]
+layout_mode = 2
+
+[node name="lblCoins" type="Label" parent="panelMenuWin/contMenuWinElem/contPullsCoinsWon/contCoins" unique_id=498096332]
+layout_mode = 2
+theme = ExtResource("5_q5bth")
+theme_override_font_sizes/font_size = 20
+text = "Monedas ganadas:"
+
+[node name="imgCoins" type="NinePatchRect" parent="panelMenuWin/contMenuWinElem/contPullsCoinsWon/contCoins" unique_id=643592070]
+texture_filter = 4
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("6_q5bth")
 
 [node name="btnReturnMenu" type="Button" parent="panelMenuWin/contMenuWinElem" unique_id=2128353838]
 layout_mode = 2
