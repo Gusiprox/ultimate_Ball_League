@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="2_uvj2q"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="3_dhgi5"]
 [ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="6_krwax"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="6_l5osx"]
 
 [sub_resource type="Gradient" id="Gradient_dhgi5"]
 colors = PackedColorArray(0.7411765, 0.7529412, 0.7882353, 1, 0.7411765, 0.7529412, 0.7882353, 0)
@@ -43,13 +44,13 @@ grow_vertical = 2
 theme = ExtResource("1_dhgi5")
 
 [node name="particles" type="CPUParticles2D" parent="marginMenu/Control/MenuBanner" unique_id=1247162968]
-position = Vector2(426, 249)
+position = Vector2(426.5, 257)
 texture = ExtResource("2_dhgi5")
 lifetime = 2.0
 randomness = 0.73
 lifetime_randomness = 0.3
 emission_shape = 3
-emission_rect_extents = Vector2(400, 230)
+emission_rect_extents = Vector2(400, 240)
 gravity = Vector2(0, 0)
 scale_amount_min = 0.02
 scale_amount_max = 0.02
@@ -82,11 +83,6 @@ text = "Permanente"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="space" type="Control" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=408222127]
-visible = false
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 2
-
 [node name="imgBanner" type="NinePatchRect" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer" unique_id=313693178]
 texture_filter = 4
 custom_minimum_size = Vector2(470, 290)
@@ -107,10 +103,52 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/h_separation = -100
-text = "Tirar 1"
-icon = ExtResource("6_krwax")
 icon_alignment = 2
 expand_icon = true
+
+[node name="contButtonElem" type="HBoxContainer" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer/btnOnePull" unique_id=373191704]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -29.947815
+offset_right = 67.0
+offset_bottom = 29.947815
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0258418, 1.0017419)
+theme = ExtResource("6_l5osx")
+theme_override_constants/separation = 15
+
+[node name="lblPullOne" type="Label" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer/btnOnePull/contButtonElem" unique_id=297858648]
+layout_mode = 2
+theme_override_constants/outline_size = 10
+text = "1  Tirada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="contPullNum" type="HBoxContainer" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer/btnOnePull/contButtonElem" unique_id=1401961515]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="imgPull" type="NinePatchRect" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer/btnOnePull/contButtonElem/contPullNum" unique_id=495224245]
+texture_filter = 4
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_krwax")
+
+[node name="lblPullOneNum" type="Label" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer/btnOnePull/contButtonElem/contPullNum" unique_id=203888783]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
+text = "x 5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btnTenPulls" type="Button" parent="marginMenu/Control/MenuBanner/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1811901350]
 texture_filter = 4
