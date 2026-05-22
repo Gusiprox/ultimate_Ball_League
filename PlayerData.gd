@@ -1,0 +1,45 @@
+extends Node
+
+# Señales para avisar a la interfaz cuando cambie el dinero
+signal gold_changed(new_amount: int)
+signal gacha_tokens_changed(new_amount: int)
+
+const DIC_CODE_USERNAME: String = "DisplayName"
+const DIC_CODE_GOLD: String = "OR"
+const DIC_CODE_GACHATOKEN: String = "GP"
+
+# Las variables donde guardamos los datos en RAM
+var playfab_id: String = ""
+var username: String = ""
+
+func _ready() -> void:
+	pass
+
+func _setData(data: LoginResult):
+	var usernameDic: Dictionary = data.InfoResultPayload.PlayerProfile
+	var currencyDic: Dictionary = data.InfoResultPayload.UserVirtualCurrency
+	
+	username = usernameDic.get(DIC_CODE_USERNAME)
+	gold = currencyDic.get(DIC_CODE_GOLD)
+	gacha_tokens = currencyDic.get(DIC_CODE_GACHATOKEN)
+	
+func _delData():
+	pass
+
+var gold: int = 0:
+	set(value):
+		gold = value
+		gold_changed.emit(gold) # Emite automáticamente al cambiar
+
+var gacha_tokens: int = 0:
+	set(value):
+		gacha_tokens = value
+		gacha_tokens_changed.emit(gacha_tokens)
+
+func stringToInt(value: String) -> int:
+	var texto_limpio = value.strip_edges()
+	
+	if texto_limpio.is_valid_int():
+		return texto_limpio.to_int()
+	
+	return 0

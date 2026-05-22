@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayFabManager="*uid://cweb6sfc0rrca"
+PlayerData="*uid://cxps6o6f21yd6"
 
 [editor_plugins]
 

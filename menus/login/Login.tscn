@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://1po63b1fpubw"]
 
 [ext_resource type="Script" uid="uid://b4hk03ox1hgh8" path="res://menus/login/login.gd" id="1_73cux"]
+[ext_resource type="PackedScene" uid="uid://7bl1e760bt7h" path="res://menus/login/texts_boxes/TextBoxEmail.tscn" id="2_8b4be"]
+[ext_resource type="PackedScene" uid="uid://b0w8kcruhj85p" path="res://menus/login/texts_boxes/TextBoxPassword.tscn" id="3_7s0xx"]
 
 [node name="Login" type="Control" unique_id=1365454647]
 layout_mode = 3
@@ -11,33 +13,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_73cux")
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1385749352]
-layout_mode = 0
-offset_left = 43.0
-offset_top = 133.0
-offset_right = 1049.0
-offset_bottom = 281.0
-placeholder_text = "User"
-context_menu_enabled = false
-emoji_menu_enabled = false
-structured_text_bidi_override = 3
+[node name="TextBoxEmail" parent="." unique_id=1474601160 instance=ExtResource("2_8b4be")]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 72.0
+offset_right = -81.0
+offset_bottom = -414.0
+placeholder_text = "Email"
 
-[node name="TextEdit2" type="TextEdit" parent="." unique_id=1677061385]
+[node name="TextBoxPassword" parent="." unique_id=1746355214 instance=ExtResource("3_7s0xx")]
 layout_mode = 0
-offset_left = 47.0
-offset_top = 338.0
-offset_right = 1053.0
-offset_bottom = 486.0
+offset_left = 76.0
+offset_top = 286.0
+offset_right = 1074.0
+offset_bottom = 448.0
 placeholder_text = "Password"
-context_menu_enabled = false
-emoji_menu_enabled = false
 
 [node name="Button" type="Button" parent="." unique_id=360777239]
 layout_mode = 0
-offset_left = 238.0
-offset_top = 530.0
-offset_right = 781.0
-offset_bottom = 617.0
+offset_left = 257.0
+offset_top = 534.0
+offset_right = 800.0
+offset_bottom = 621.0
+theme_override_font_sizes/font_size = 40
 text = "Entrar"
 
 [connection signal="button_down" from="Button" to="." method="_onButtonDown"]

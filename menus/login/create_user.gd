@@ -1,8 +1,8 @@
 extends Control
 
-@onready var email = $TextEdit
-@onready var password = $TextEdit2
-@onready var username = $TextEdit3
+@onready var email = $email
+@onready var password = $password
+@onready var username = $username
 
 
 func _onButtonDown() -> void:
@@ -16,3 +16,9 @@ func _onButtonDown() -> void:
 		passwordText,
 		null
 	)
+
+func _onSuccessfull(result) -> void:
+	print("Correcto")
+	
+func _onError(result) -> void:
+	print("Fallo")
