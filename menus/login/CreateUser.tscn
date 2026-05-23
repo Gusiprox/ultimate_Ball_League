@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dtfol")
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1398633855]
+[node name="username" type="TextEdit" parent="." unique_id=1398633855]
 layout_mode = 0
 offset_left = 263.0
 offset_top = 179.0
@@ -19,7 +19,7 @@ offset_right = 834.0
 offset_bottom = 311.0
 placeholder_text = "Email"
 
-[node name="TextEdit2" type="TextEdit" parent="." unique_id=154255501]
+[node name="email" type="TextEdit" parent="." unique_id=154255501]
 layout_mode = 0
 offset_left = 267.0
 offset_top = 357.0
@@ -27,13 +27,14 @@ offset_right = 836.0
 offset_bottom = 470.0
 placeholder_text = "Password"
 
-[node name="TextEdit3" type="TextEdit" parent="." unique_id=165110031]
+[node name="password" type="TextEdit" parent="." unique_id=165110031]
 layout_mode = 0
 offset_left = 265.0
 offset_top = 54.0
 offset_right = 840.0
 offset_bottom = 152.0
 placeholder_text = "Username"
+context_menu_enabled = false
 
 [node name="Button" type="Button" parent="." unique_id=36293053]
 layout_mode = 0

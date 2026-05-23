@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://blmsbn36qp4x0"]
+
+[ext_resource type="Theme" uid="uid://bo84q6mdsb6cy" path="res://menus/themes/ThemeScrollBar.tres" id="1_a1lcx"]
+[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="2_4oq23"]
+
+[node name="ScrollListStore" type="ScrollContainer" unique_id=124515402]
+clip_children = 1
+size_flags_vertical = 3
+theme = ExtResource("1_a1lcx")
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1444737359]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 9
+
+[node name="CharacterCard" parent="GridContainer" unique_id=131578327 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard2" parent="GridContainer" unique_id=1407492811 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard3" parent="GridContainer" unique_id=1425850550 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard4" parent="GridContainer" unique_id=480620242 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard5" parent="GridContainer" unique_id=498986832 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard6" parent="GridContainer" unique_id=2118060431 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard7" parent="GridContainer" unique_id=1264183243 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard8" parent="GridContainer" unique_id=1440026641 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard9" parent="GridContainer" unique_id=962322448 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2
+
+[node name="CharacterCard10" parent="GridContainer" unique_id=1478268870 instance=ExtResource("2_4oq23")]
+custom_minimum_size = Vector2(90, 130)
+layout_mode = 2

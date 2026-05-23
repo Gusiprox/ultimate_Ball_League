@@ -1,0 +1,43 @@
+[gd_resource type="Theme" format=3 uid="uid://boj57nrf2jk1c"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_3pv3u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhpox"]
+content_margin_left = 15.0
+content_margin_top = 3.0
+content_margin_right = 15.0
+content_margin_bottom = 6.0
+bg_color = Color(0.63529414, 0.039215688, 0.08627451, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pv3u"]
+content_margin_left = 15.0
+content_margin_top = 3.0
+content_margin_right = 15.0
+content_margin_bottom = 6.0
+bg_color = Color(0.83137256, 0.07450981, 0.12941177, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyydd"]
+content_margin_left = 15.0
+content_margin_top = 3.0
+content_margin_right = 15.0
+content_margin_bottom = 6.0
+bg_color = Color(0.70980394, 0.050980393, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+Button/constants/align_to_largest_stylebox = 0
+Button/fonts/font = ExtResource("1_3pv3u")
+Button/styles/hover = SubResource("StyleBoxFlat_bhpox")
+Button/styles/normal = SubResource("StyleBoxFlat_3pv3u")
+Button/styles/pressed = SubResource("StyleBoxFlat_kyydd")

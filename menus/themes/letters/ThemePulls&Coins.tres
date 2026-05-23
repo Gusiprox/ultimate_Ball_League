@@ -1,0 +1,19 @@
+[gd_resource type="Theme" format=3 uid="uid://d2b1d6mxolc60"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_ok82h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6r8ie"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
+bg_color = Color(0, 0.34117648, 0.4117647, 0.6156863)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+Label/font_sizes/font_size = 19
+Label/fonts/font = ExtResource("1_ok82h")
+Label/styles/normal = SubResource("StyleBoxFlat_6r8ie")

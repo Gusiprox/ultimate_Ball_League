@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="ultimate ball league"
+run/main_scene="uid://doa74lhr2ny0i"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayFabManager="*uid://cweb6sfc0rrca"
+PlayerData="*uid://cxps6o6f21yd6"
 
 [editor_plugins]
 

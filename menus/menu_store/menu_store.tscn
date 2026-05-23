@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c2e8560ctbxjd"]
+
+[ext_resource type="Texture2D" uid="uid://b81rb2678cm8m" path="res://menus/menu_store/img/coins.png" id="1_24c0n"]
+[ext_resource type="Theme" uid="uid://d3b3ik0l8kapl" path="res://menus/themes/panel/ThemePanelStore.tres" id="1_lhwub"]
+[ext_resource type="Texture2D" uid="uid://qelhphsxis0g" path="res://menus/menu_store/img/shoppingCart.png" id="2_lhwub"]
+[ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="4_lhwub"]
+[ext_resource type="PackedScene" uid="uid://blmsbn36qp4x0" path="res://menus/scroll/scroll_store/scroll_list_store.tscn" id="5_lhwub"]
+
+[node name="MenuStore" type="Control" unique_id=1067569597]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="marginMenu" type="MarginContainer" parent="." unique_id=313458676]
+layout_mode = 0
+offset_top = 71.0
+offset_right = 1153.0
+offset_bottom = 647.0
+
+[node name="Control" type="Control" parent="marginMenu" unique_id=155260095]
+layout_mode = 2
+
+[node name="frame" type="Panel" parent="marginMenu/Control" unique_id=775027296]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -237.5
+offset_right = 476.0
+offset_bottom = 237.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lhwub")
+
+[node name="imgCoins" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=338781156]
+modulate = Color(1, 0.699, 0.13999999, 1)
+texture_filter = 4
+layout_mode = 0
+offset_left = -32.5
+offset_top = -28.5
+offset_right = 42.307327
+offset_bottom = 47.00402
+rotation = -0.1737908
+texture = ExtResource("1_24c0n")
+
+[node name="imgCart" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=1553500773]
+modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
+texture_filter = 4
+layout_mode = 0
+offset_left = 921.5
+offset_top = 412.5
+offset_right = 996.17175
+offset_bottom = 492.48132
+rotation = 0.26169088
+texture = ExtResource("2_lhwub")
+
+[node name="lblStore" type="Label" parent="marginMenu/Control/frame" unique_id=962807460]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 41.0
+offset_right = 74.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme = ExtResource("4_lhwub")
+text = "Tienda"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="margin" type="MarginContainer" parent="marginMenu/Control/frame" unique_id=174345837]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.0
+offset_top = -128.5
+offset_right = 437.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollListStore" parent="marginMenu/Control/frame/margin" unique_id=124515402 instance=ExtResource("5_lhwub")]
+layout_mode = 2

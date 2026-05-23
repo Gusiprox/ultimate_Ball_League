@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bb70usrep3pyw"]
+
+[ext_resource type="Script" uid="uid://ct1s45ohmm2my" path="res://menus/menu_all/menu_all.gd" id="1_7e2v6"]
+[ext_resource type="Texture2D" uid="uid://bfdp2hae1u1ru" path="res://menus/menu_all/img/FondoCon5.png" id="1_t2kp5"]
+[ext_resource type="PackedScene" uid="uid://dfda6fgmlw17f" path="res://menus/nav_bar/nav_bar.tscn" id="2_0rnwl"]
+[ext_resource type="PackedScene" uid="uid://dbwdtcbpwg82v" path="res://menus/menu_play/menuPlay.tscn" id="3_baml4"]
+[ext_resource type="PackedScene" uid="uid://drcebvuq2lxot" path="res://menus/menu_edit_character/menu_edit_character.tscn" id="4_bbx7q"]
+[ext_resource type="PackedScene" uid="uid://cfnoay1blshlx" path="res://menus/menu_edit_team/menu_edit_team.tscn" id="6_n4ji6"]
+[ext_resource type="PackedScene" uid="uid://c1rh5rea5smsf" path="res://menus/menu_gacha/menu_gacha.tscn" id="7_5i7iq"]
+[ext_resource type="PackedScene" uid="uid://c2e8560ctbxjd" path="res://menus/menu_store/menu_store.tscn" id="8_ltr18"]
+
+[node name="MenuAll" type="CanvasLayer" unique_id=1653229359]
+script = ExtResource("1_7e2v6")
+
+[node name="imgFondoAll" type="TextureRect" parent="." unique_id=1187066898]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t2kp5")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="marginMenu" type="MarginContainer" parent="." unique_id=550254004]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="marginMenu" unique_id=1894885512]
+layout_mode = 2
+
+[node name="NavBar" parent="marginMenu/Control" unique_id=1305611965 instance=ExtResource("2_0rnwl")]
+layout_mode = 1
+offset_left = -1.0
+offset_right = 0.0
+grow_horizontal = 2
+
+[node name="MenuStore" parent="marginMenu/Control" unique_id=1067569597 instance=ExtResource("8_ltr18")]
+visible = false
+layout_mode = 1
+
+[node name="MenuPlay" parent="marginMenu/Control" unique_id=37333949 instance=ExtResource("3_baml4")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="MenuGacha" parent="marginMenu/Control" unique_id=2058835036 instance=ExtResource("7_5i7iq")]
+visible = false
+layout_mode = 1
+
+[node name="MenuEditTeam" parent="marginMenu/Control" unique_id=801215074 instance=ExtResource("6_n4ji6")]
+visible = false
+layout_mode = 1
+
+[node name="MenuEditCharacter" parent="marginMenu/Control" unique_id=740546051 instance=ExtResource("4_bbx7q")]
+visible = false
+layout_mode = 1

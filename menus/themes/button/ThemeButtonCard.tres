@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://3ecjr106vte8"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_qopod"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amkv0"]
+content_margin_top = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.11194307, 0.20174369, 0.23767775, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aiomv"]
+content_margin_top = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12508628, 0.22095004, 0.25727975, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qopod"]
+content_margin_top = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.090690635, 0.16720518, 0.19906583, 1)
+
+[resource]
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_qopod")
+Button/styles/hover = SubResource("StyleBoxFlat_amkv0")
+Button/styles/normal = SubResource("StyleBoxFlat_aiomv")
+Button/styles/pressed = SubResource("StyleBoxFlat_qopod")
