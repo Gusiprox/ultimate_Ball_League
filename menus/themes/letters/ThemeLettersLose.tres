@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://bc16ksnin02rv"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_hdtwm"]
+
+[resource]
+Label/colors/font_color = Color(0.9999997, 0.09091929, 0.059700392, 1)
+Label/colors/font_outline_color = Color(0.2946377, 1.2453831e-06, 6.9789587e-07, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 34
+Label/fonts/font = ExtResource("1_hdtwm")

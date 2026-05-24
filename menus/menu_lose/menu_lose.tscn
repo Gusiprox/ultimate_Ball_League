@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://pve6b50wlln1"]
+
+[ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="1_15myf"]
+[ext_resource type="Script" uid="uid://b2cgpjjcb7mqr" path="res://menus/menu_lose/menu_lose.gd" id="1_tgva0"]
+[ext_resource type="Texture2D" uid="uid://dlolmdsoww0ig" path="res://menus/menu_start/img/marco.png" id="2_tgva0"]
+[ext_resource type="Theme" uid="uid://bc16ksnin02rv" path="res://menus/themes/letters/ThemeLettersLose.tres" id="3_15myf"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_pt46n"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="5_pt46n"]
+[ext_resource type="Texture2D" uid="uid://b5wsgxe3lirf3" path="res://menus/nav_bar/img/coin8.png" id="6_8plcb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8plcb"]
+shader = ExtResource("1_15myf")
+shader_parameter/lod = 2.0
+
+[node name="MenuLose" type="Control" unique_id=208178146]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tgva0")
+
+[node name="backgroundBlur" type="ColorRect" parent="." unique_id=1264471876]
+material = SubResource("ShaderMaterial_8plcb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="panelMenuLose" type="Panel" parent="." unique_id=1073305068]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.0
+offset_top = -243.0
+offset_right = 365.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="imgPanel" type="NinePatchRect" parent="panelMenuLose" unique_id=1783100053]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tgva0")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="contMenuLoseElem" type="VBoxContainer" parent="panelMenuLose" unique_id=586105000]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -148.0
+offset_right = 126.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="lblLose" type="Label" parent="panelMenuLose/contMenuLoseElem" unique_id=1140096297]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_15myf")
+theme_override_font_sizes/font_size = 35
+text = "¡Derrota!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="contPullsCoinsWon" type="HBoxContainer" parent="panelMenuLose/contMenuLoseElem" unique_id=498146622]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="contCoins" type="HBoxContainer" parent="panelMenuLose/contMenuLoseElem/contPullsCoinsWon" unique_id=658747898]
+layout_mode = 2
+
+[node name="lblCoins" type="Label" parent="panelMenuLose/contMenuLoseElem/contPullsCoinsWon/contCoins" unique_id=482272882]
+layout_mode = 2
+theme = ExtResource("5_pt46n")
+theme_override_font_sizes/font_size = 20
+text = "Monedas ganadas:"
+
+[node name="imgCoins" type="NinePatchRect" parent="panelMenuLose/contMenuLoseElem/contPullsCoinsWon/contCoins" unique_id=1474385774]
+texture_filter = 4
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("6_8plcb")
+
+[node name="btnReturnMenu" type="Button" parent="panelMenuLose/contMenuLoseElem" unique_id=718354060]
+layout_mode = 2
+theme = ExtResource("4_pt46n")
+theme_override_constants/h_separation = 10
+text = "Volver"
+
+[connection signal="pressed" from="panelMenuLose/contMenuLoseElem/btnReturnMenu" to="." method="_on_btn_return_menu_pressed"]

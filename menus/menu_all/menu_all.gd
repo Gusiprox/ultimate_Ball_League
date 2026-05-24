@@ -1,85 +1,130 @@
 extends CanvasLayer
 
-@onready var dic_menus = {
-	"play": $Control/MenuPlay,
-	"editCharacter": $Control/MenuEditCharacter,
-	"editTeam": $Control/MenuEditTeam,
-	"gacha": $Control/MenuGacha,
-	"store": $Control/MenuStore
+@onready var navBar = $NavBar
+
+@onready var dicMenus = {
+	navBar.signalMenuPlay: $contMenus/MenuPlay,
+	navBar.signalMenuEditChar: $contMenus/MenuEditCharacter,
+	navBar.signalMenuEditTeam: $contMenus/MenuEditTeam,
+	navBar.signalMenuGacha: $contMenus/MenuGacha,
+	navBar.signalMenuStore: $contMenus/MenuStore,
+	navBar.signalMenuInventoy: $contMenus/MenuInventory
 }
 
-var menu_actual: Control = null
+@onready var menuStats = $MenuStats
+
+var menuActual: Control = null
 var transicionando: bool = false
-var posiciones_iniciales = {}
+var posicionesIniciales = {}
+var posOriginalStats: Vector2
 
 func _ready() -> void:
-	# 1. Guardamos las posiciones originales de TODO antes de mover nada
-	for clave in dic_menus.keys():
-		var nodo = dic_menus[clave]
-		posiciones_iniciales[nodo] = nodo.position
+	
+	navBar.actualizarBotonesNavBar(navBar.signalMenuPlay)
+	
+	menuStats.visible = false
+	posOriginalStats = menuStats.global_position
+	
+	# 1. Guardamos las posiciones originales de todo antes de mover nada
+	for clave in dicMenus.keys():
+		var nodo = dicMenus[clave]
+		posicionesIniciales[nodo] = nodo.position
 		
 		# Estado inicial: solo Play se ve
-		if clave == "play":
+		if clave == navBar.signalMenuPlay:
 			nodo.show()
 			nodo.modulate.a = 1.0
-			menu_actual = nodo
+			menuActual = nodo
 		else:
 			nodo.hide()
 			nodo.modulate.a = 0.0
 		
-	$NavBar.menu_requested.connect(_gestionar_cambio_de_menu)
+	navBar.menuRequested.connect(gestionarCambioMenu)
+	menuStats.cerrarSolicitado.connect(cerrarVentanaStats)
+	
+	for menu in dicMenus.values():
+		# Buscamos las cartas dentro de los menús
+		for hijo in menu.find_children("*", "", true): 
+			if hijo.has_signal("infoRequested"):
+				hijo.infoRequested.connect(abrirVentanaStats)
 
-func _gestionar_cambio_de_menu(nombre_menu: String):
+
+#Gestionar menuStats
+
+func cerrarVentanaStats():
+	menuStats.hide()
+	navBar.ocultarFondoStats()
+
+func abrirVentanaStats():
+	
+	navBar.mostrarFondoStats()
+	
+	menuStats.modulate.a = 0.0
+	menuStats.global_position.y = posOriginalStats.y + 20 
+	menuStats.show()
+
+	# 4. Creamos el Tween
+	var tween = create_tween().set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	# Animamos opacidad y posición al mismo tiempo
+	tween.tween_property(menuStats, "modulate:a", 1.0, 0.15)
+	tween.tween_property(menuStats, "global_position:y", posOriginalStats.y, 0.15)
+
+
+#Cambiar menú desde el navBar
+
+func gestionarCambioMenu(nombreMenu: String):
 	# Si clicamos mientras hay animación, ignoramos pero refrescamos colores
 	if transicionando:
-		actualizar_estado_navbar()
+		actualizarEstadoNavbar()
 		return
 	
-	if dic_menus.has(nombre_menu):
+	if dicMenus.has(nombreMenu):
 		# Si clicamos en el menú que ya está abierto, no hacemos nada
-		if menu_actual == dic_menus[nombre_menu]:
+		if menuActual == dicMenus[nombreMenu]:
 			return
 		
 		# Actualizamos colores del navbar ANTES de empezar para que se sienta rápido
-		$NavBar.actualizar_botones_visuales(nombre_menu)
-		cambiar_menu(dic_menus[nombre_menu])
+		navBar.actualizarBotonesNavBar(nombreMenu)
+		cambiarMenu(dicMenus[nombreMenu])
 
-func cambiar_menu(menu_nuevo: Control):
+func cambiarMenu(menuNuevo: Control):
 	transicionando = true
 	
 	# 1. SALIDA (Instantánea)
-	if menu_actual != null:
-		animar_salida(menu_actual)
+	if menuActual != null:
+		animarSalida(menuActual)
 	
 	# 2. PREPARAR ENTRADA
-	var pos_final = posiciones_iniciales[menu_nuevo]
-	menu_nuevo.modulate.a = 0.0
-	menu_nuevo.position.y = pos_final.y + 30 
-	menu_nuevo.show()
+	var posFinal = posicionesIniciales[menuNuevo]
+	menuNuevo.modulate.a = 0.0
+	menuNuevo.position.y = posFinal.y + 20
+	menuNuevo.show()
 	
-	# 3. ANIMAR ENTRADA (0.5s)
+	# 3. ANIMAR ENTRADA
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(menu_nuevo, "modulate:a", 1.0, 0.35)
-	tween.tween_property(menu_nuevo, "position:y", pos_final.y, 0.35)
+	tween.tween_property(menuNuevo, "modulate:a", 1.0, 0.3)
+	tween.tween_property(menuNuevo, "position:y", posFinal.y, 0.3)
 	
 	# 4. FINALIZACIÓN
 	tween.set_parallel(false)
 	tween.tween_callback(func():
-		menu_actual = menu_nuevo
+		menuActual = menuNuevo
 		transicionando = false
-		actualizar_estado_navbar()
+		actualizarEstadoNavbar()
 	)
 
-func animar_salida(menu: Control):
+func animarSalida(menu: Control):
 	menu.hide()
-	menu.position = posiciones_iniciales[menu]
+	menu.position = posicionesIniciales[menu]
 
-func actualizar_estado_navbar():
-	var nombre_clave = ""
-	for clave in dic_menus.keys():
-		if dic_menus[clave] == menu_actual:
-			nombre_clave = clave
+func actualizarEstadoNavbar():
+	var nombreClave = ""
+	for clave in dicMenus.keys():
+		if dicMenus[clave] == menuActual:
+			nombreClave = clave
 			break
 	if has_node("NavBar"):
-		$NavBar.actualizar_botones_visuales(nombre_clave)
+		navBar.actualizarBotonesNavBar(nombreClave)

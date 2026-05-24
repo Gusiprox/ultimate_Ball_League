@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dh5onnggax8ar"]
+
+[node name="MenuControls" type="Panel" unique_id=134436808]
+offset_left = 35.0
+offset_top = 107.0
+offset_right = 446.0
+offset_bottom = 416.89063
+metadata/_edit_use_anchors_ = true
