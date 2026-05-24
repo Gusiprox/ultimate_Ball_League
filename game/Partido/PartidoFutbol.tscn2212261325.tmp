@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c57r2va5vl816"]
+
+[ext_resource type="PackedScene" uid="uid://cgfne3s5nst5w" path="res://escenario/NivelFutbol.tscn" id="1_1hui0"]
+[ext_resource type="Script" uid="uid://c0verr52ew6bb" path="res://Partido/PartidoFutbol.gd" id="1_tli7d"]
+[ext_resource type="PackedScene" uid="uid://b51sjj5jkl7iq" path="res://Personajes/Tropas/Capsula.tscn" id="3_j6k77"]
+[ext_resource type="PackedScene" uid="uid://dmn6srg8hopja" path="res://Personajes/Tropas/Cubo.tscn" id="4_j6k77"]
+
+[node name="PartidoFutbol" type="Node3D" unique_id=1011656755]
+script = ExtResource("1_tli7d")
+nivel_scene = ExtResource("1_1hui0")
+personajes_scene = Array[PackedScene]([ExtResource("3_j6k77"), ExtResource("4_j6k77")])
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1396634179]
+transform = Transform3D(-0.0070335725, -0.6185714, 0.7856971, 0, 0.78571653, 0.61858666, -0.99997526, 0.004350874, -0.0055263937, 10.207226, 6.247028, 7.264998)

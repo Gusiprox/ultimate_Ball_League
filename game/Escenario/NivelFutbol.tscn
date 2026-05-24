@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cgfne3s5nst5w"]
+
+[ext_resource type="Script" uid="uid://dfrrwnbnvslhf" path="res://Escenario/TerrenoFutbol.gd" id="1_6kbye"]
+[ext_resource type="PackedScene" uid="uid://yjx0xqc6hgaw" path="res://Escenario/Casilla.tscn" id="2_yb40q"]
+
+[node name="NivelFutbol" type="Node3D" unique_id=1037220339]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=925412328]
+transform = Transform3D(1, 0, 0, 0, -0.007923683, 0.9999686, 0, -0.9999686, -0.007923683, 0, 2.3247502, 0.44167578)
+
+[node name="Terreno" type="Node3D" parent="." unique_id=1371481517]
+script = ExtResource("1_6kbye")
+escenaCasilla = ExtResource("2_yb40q")
