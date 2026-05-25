@@ -171,7 +171,7 @@ theme_override_constants/separation = -12
 
 [node name="imgCoin" type="NinePatchRect" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins" unique_id=567169930]
 texture_filter = 4
-custom_minimum_size = Vector2(110, 110)
+custom_minimum_size = Vector2(105, 105)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
