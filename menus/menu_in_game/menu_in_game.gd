@@ -1,5 +1,12 @@
 extends Control
 
+const GUARDAR_POSICIONES_REALES = "guardarPosicionesReales"
+const TIEMPO_ANIMACION : float = 0.15
+const DISTANCIA_ANIMACION: int = 20
+const OPACIDAD_ANIMACION: float = 1.0
+const COLOR_ACTIVO = Color(1, 1, 1, 1)
+const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
+
 @onready var panelMenuInGame = $panelMenuInGame
 @onready var backgroundBlur = $backgroundBlur
 @onready var menuOptions = $MenuOptions
@@ -10,14 +17,12 @@ extends Control
 @onready var menuExit = $MenuExit
 
 var posicionesSubmenus = {}
-var colorActivo = Color(1, 1, 1, 1)
-var colorInactivo = Color(0.577, 0.577, 0.577, 1.0)
 
 func _ready() -> void:
 	backgroundBlur.visible = true
 	menuSound.visible = true
 	menuControls.visible = false
-	call_deferred("guardarPosicionesReales")
+	call_deferred(GUARDAR_POSICIONES_REALES)
 
 func guardarPosicionesReales():
 	for m in [panelMenuInGame, menuExit, menuOptions]:
@@ -59,36 +64,25 @@ func _on_btn_controls_pressed() -> void:
 func animarSubmenu(menuObjetivo: Control):
 	for m in [panelMenuInGame, menuExit, menuOptions]:
 		if m != menuObjetivo and m.visible:
-			m.hide()
-			m.position = posicionesSubmenus[m]
+			GlobalMenus.resetearSalidaMenu(m, posicionesSubmenus[m], true)
 
 	if menuObjetivo.visible:
-		menuObjetivo.hide()
-		menuObjetivo.position = posicionesSubmenus[menuObjetivo]
+		GlobalMenus.resetearSalidaMenu(menuObjetivo, posicionesSubmenus[menuObjetivo], true)
 		backgroundBlur.hide()
 		return
 
-	var posFinal = posicionesSubmenus[menuObjetivo]
-	menuObjetivo.modulate.a = 0.0
-	# Aplicamos el desplazamiento a la posición GLOBAL
-	menuObjetivo.global_position.y = posFinal.y + 20 
-	menuObjetivo.show()
 	backgroundBlur.show()
 
-	var tween = create_tween().set_parallel(true)
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	tween.tween_property(menuObjetivo, "modulate:a", 1.0, 0.15)
-	tween.tween_property(menuObjetivo, "global_position:y", posFinal.y, 0.15)
+	GlobalMenus.animar_entrada(menuObjetivo, posicionesSubmenus[menuObjetivo], true, TIEMPO_ANIMACION, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION)
 
 
 #Cambio de botón marcado en menuOptions
 
 func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
-	btnSound.modulate = colorInactivo
-	btnControls.modulate = colorInactivo
+	btnSound.modulate = COLOR_INACTIVO
+	btnControls.modulate = COLOR_INACTIVO
 	
-	botonActivo.modulate = colorActivo
+	botonActivo.modulate = COLOR_ACTIVO
 	menuSound.visible = false
 	menuControls.visible = false
 	paginaActiva.visible = true

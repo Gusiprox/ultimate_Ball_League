@@ -1,17 +1,22 @@
 extends CanvasLayer
 
+const NAV_BAR = "NavBar"
+const CHAR_CARD_SIGNAL = "infoRequested"
+const TIEMPO_ANIMACION_STATS : float = 0.15
+const TIEMPO_ANIMACION_MENUS : float = 0.3
+const DISTANCIA_ANIMACION: int = 20
+const OPACIDAD_ANIMACION: float = 1.0
+
 @onready var navBar = $NavBar
-
-@onready var dicMenus = {
-	navBar.signalMenuPlay: $contMenus/MenuPlay,
-	navBar.signalMenuEditChar: $contMenus/MenuEditCharacter,
-	navBar.signalMenuEditTeam: $contMenus/MenuEditTeam,
-	navBar.signalMenuGacha: $contMenus/MenuGacha,
-	navBar.signalMenuStore: $contMenus/MenuStore,
-	navBar.signalMenuInventoy: $contMenus/MenuInventory
-}
-
 @onready var menuStats = $MenuStats
+@onready var dicMenus = {
+	navBar.SIGNAL_MENU_PLAY: $contMenus/MenuPlay,
+	navBar.SIGNAL_MENU_EDIT_CHAR: $contMenus/MenuEditCharacter,
+	navBar.SIGNAL_MENU_EDIT_TEAM: $contMenus/MenuEditTeam,
+	navBar.SIGNAL_MENU_GACHA: $contMenus/MenuGacha,
+	navBar.SIGNAL_MENU_STORE: $contMenus/MenuStore,
+	navBar.SIGNAL_MENU_INVENTORY: $contMenus/MenuInventory
+}
 
 var menuActual: Control = null
 var transicionando: bool = false
@@ -20,7 +25,7 @@ var posOriginalStats: Vector2
 
 func _ready() -> void:
 	
-	navBar.actualizarBotonesNavBar(navBar.signalMenuPlay)
+	navBar.actualizarBotonesNavBar(navBar.SIGNAL_MENU_PLAY)
 	
 	menuStats.visible = false
 	posOriginalStats = menuStats.global_position
@@ -31,7 +36,7 @@ func _ready() -> void:
 		posicionesIniciales[nodo] = nodo.position
 		
 		# Estado inicial: solo Play se ve
-		if clave == navBar.signalMenuPlay:
+		if clave == navBar.SIGNAL_MENU_PLAY:
 			nodo.show()
 			nodo.modulate.a = 1.0
 			menuActual = nodo
@@ -45,7 +50,7 @@ func _ready() -> void:
 	for menu in dicMenus.values():
 		# Buscamos las cartas dentro de los menús
 		for hijo in menu.find_children("*", "", true): 
-			if hijo.has_signal("infoRequested"):
+			if hijo.has_signal(CHAR_CARD_SIGNAL):
 				hijo.infoRequested.connect(abrirVentanaStats)
 
 
@@ -56,32 +61,20 @@ func cerrarVentanaStats():
 	navBar.ocultarFondoStats()
 
 func abrirVentanaStats():
-	
 	navBar.mostrarFondoStats()
-	
-	menuStats.modulate.a = 0.0
-	menuStats.global_position.y = posOriginalStats.y + 20 
-	menuStats.show()
-
-	# 4. Creamos el Tween
-	var tween = create_tween().set_parallel(true)
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	# Animamos opacidad y posición al mismo tiempo
-	tween.tween_property(menuStats, "modulate:a", 1.0, 0.15)
-	tween.tween_property(menuStats, "global_position:y", posOriginalStats.y, 0.15)
+	GlobalMenus.animarEntrada(menuStats, posOriginalStats, true, TIEMPO_ANIMACION_STATS, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION)
 
 
 #Cambiar menú desde el navBar
 
 func gestionarCambioMenu(nombreMenu: String):
-	# Si clicamos mientras hay animación, ignoramos pero refrescamos colores
+	# Si hacemos clic mientras hay animación, ignoramos pero refrescamos colores
 	if transicionando:
 		actualizarEstadoNavbar()
 		return
 	
 	if dicMenus.has(nombreMenu):
-		# Si clicamos en el menú que ya está abierto, no hacemos nada
+		# Si hacemos clic en el menú que ya está abierto, no pasa nada
 		if menuActual == dicMenus[nombreMenu]:
 			return
 		
@@ -90,35 +83,22 @@ func gestionarCambioMenu(nombreMenu: String):
 		cambiarMenu(dicMenus[nombreMenu])
 
 func cambiarMenu(menuNuevo: Control):
+	if not menuNuevo.visible:
+		posicionesIniciales[menuNuevo] = menuNuevo.global_position
+	
 	transicionando = true
 	
-	# 1. SALIDA (Instantánea)
 	if menuActual != null:
-		animarSalida(menuActual)
+		GlobalMenus.resetearSalidaMenu(menuActual, posicionesIniciales[menuActual])
 	
-	# 2. PREPARAR ENTRADA
-	var posFinal = posicionesIniciales[menuNuevo]
-	menuNuevo.modulate.a = 0.0
-	menuNuevo.position.y = posFinal.y + 20
-	menuNuevo.show()
-	
-	# 3. ANIMAR ENTRADA
-	var tween = create_tween().set_parallel(true)
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(menuNuevo, "modulate:a", 1.0, 0.3)
-	tween.tween_property(menuNuevo, "position:y", posFinal.y, 0.3)
-	
-	# 4. FINALIZACIÓN
-	tween.set_parallel(false)
-	tween.tween_callback(func():
-		menuActual = menuNuevo
-		transicionando = false
-		actualizarEstadoNavbar()
-	)
+	await GlobalMenus.animarEntrada(menuNuevo, posicionesIniciales[menuNuevo], false, TIEMPO_ANIMACION_MENUS, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION).finished
+		
+	menuActual = menuNuevo
+	transicionando = false
+	actualizarEstadoNavbar()
 
 func animarSalida(menu: Control):
-	menu.hide()
-	menu.position = posicionesIniciales[menu]
+	GlobalMenus.resetearSalidaMenu(menu, posicionesIniciales[menu])
 
 func actualizarEstadoNavbar():
 	var nombreClave = ""
@@ -126,5 +106,5 @@ func actualizarEstadoNavbar():
 		if dicMenus[clave] == menuActual:
 			nombreClave = clave
 			break
-	if has_node("NavBar"):
+	if has_node(NAV_BAR):
 		navBar.actualizarBotonesNavBar(nombreClave)
