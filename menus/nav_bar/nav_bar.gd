@@ -26,6 +26,9 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var contNavBarButtons = $marginNavBar/contNavBarElements/contNavBarButtons
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
+@onready var lblPulls = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls/lblPulls
+@onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
+@onready var lblUserName = $marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/lblUserName
 
 var submenus: Array = []
 var posicionesSubmenus = {}
@@ -41,11 +44,27 @@ var vinculacionBotones = {
 signal menuRequested(menuName)
 
 func _ready() -> void:
+	lblPulls.text = str(PlayerData.gacha_tokens)
+	lblCoins.text = str(PlayerData.gold)
+	lblUserName.text = str(PlayerData.username)
+	
+	PlayerData.gacha_tokens_changed.connect(onPullsCambiadas)
+	PlayerData.gold_changed.connect(onCoinsCambiadas)
+	
 	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
 	cerrarMenus()
 	
 	actualizarBotonesOptions(btnSound, menuSound)
 	call_deferred(GUARDAR_POSICIONES_REALES)
+
+
+#Cambiar valor de tiradas y monedas
+
+func onPullsCambiadas(nuevasPulls: int) -> void:
+	lblPulls.text = str(nuevasPulls)
+
+func onCoinsCambiadas(nuevasCoins: int) -> void:
+	lblCoins.text = str(nuevasCoins)
 
 
 #Cerrar todos los menús (menus menuSound)

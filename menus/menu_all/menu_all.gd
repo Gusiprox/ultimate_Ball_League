@@ -53,7 +53,6 @@ func _ready() -> void:
 			if hijo.has_signal(CHAR_CARD_SIGNAL):
 				hijo.infoRequested.connect(abrirVentanaStats)
 
-
 #Gestionar menuStats
 
 func cerrarVentanaStats():

@@ -162,7 +162,6 @@ texture = ExtResource("4_7n53b")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme = ExtResource("4_707ga")
-text = "0"
 
 [node name="contCoins" type="HBoxContainer" parent="marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls" unique_id=2053905861]
 layout_mode = 2
@@ -182,7 +181,6 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_707ga")
-text = "0"
 
 [node name="contBtnUser" type="HBoxContainer" parent="marginNavBar/contNavBarElements/contRightSide" unique_id=1255071246]
 layout_mode = 2
@@ -251,6 +249,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 10
+
+[node name="lblUserName" type="Label" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=1213828685]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_hbexq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="space" type="Control" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=232226824]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
 
 [node name="btnOptions" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=884390658]
 layout_mode = 2
