@@ -10,6 +10,7 @@
 [ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_58ttj"]
 [ext_resource type="Theme" uid="uid://cpr44s3wfwfoe" path="res://menus/themes/button/ThemeButtonCreateUser.tres" id="7_bmxmf"]
 [ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="7_y7emq"]
+[ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="10_uv0w5"]
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_y7emq"]
 [ext_resource type="AudioStream" uid="uid://2hum2kl2mcha" path="res://menus/music/mainMenu.mp3" id="12_7xx02"]
 
@@ -58,7 +59,7 @@ position = Vector2(579, 324.00003)
 scale = Vector2(0.8238636, 0.84635425)
 texture = ExtResource("1_yddou")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1505588723]
+[node name="contGameTitleAndBtn" type="VBoxContainer" parent="." unique_id=1505588723]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 150
 
-[node name="lblTitulo" type="Label" parent="VBoxContainer" unique_id=1830393522]
+[node name="lblTitulo" type="Label" parent="contGameTitleAndBtn" unique_id=1830393522]
 layout_mode = 2
 theme = ExtResource("3_cyny0")
 theme_override_constants/line_spacing = -35
@@ -83,7 +84,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="btnStart" type="Button" parent="VBoxContainer" unique_id=1901536556]
+[node name="btnStart" type="Button" parent="contGameTitleAndBtn" unique_id=1901536556]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
@@ -124,7 +125,6 @@ offset_right = 285.0
 offset_bottom = 230.25
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("7_58ttj")
 theme_override_styles/panel = SubResource("StyleBoxFlat_jk3n4")
 
 [node name="imgLoginUser" type="NinePatchRect" parent="panelLogin" unique_id=300894207]
@@ -136,7 +136,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a2csu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="panelLogin" unique_id=1446213253]
+[node name="contLoginElem" type="VBoxContainer" parent="panelLogin" unique_id=1446213253]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -149,37 +149,45 @@ offset_right = 138.25
 offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 27
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="lblLogin" type="Label" parent="panelLogin/VBoxContainer" unique_id=1656458228]
+[node name="contTitle" type="VBoxContainer" parent="panelLogin/contLoginElem" unique_id=1864759380]
+layout_mode = 2
+
+[node name="lblLogin" type="Label" parent="panelLogin/contLoginElem/contTitle" unique_id=1656458228]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("10_uv0w5")
 text = "Iniciar sesión"
 label_settings = SubResource("LabelSettings_lnwt5")
 
-[node name="Control" type="Control" parent="panelLogin/VBoxContainer" unique_id=1399687050]
+[node name="space" type="Control" parent="panelLogin/contLoginElem/contTitle" unique_id=929053642]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
 
-[node name="btnLogin" type="Button" parent="panelLogin/VBoxContainer" unique_id=575906891]
+[node name="contTextboxAndBtn" type="VBoxContainer" parent="panelLogin/contLoginElem" unique_id=1988472727]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="btnLogin" type="Button" parent="panelLogin/contLoginElem/contTextboxAndBtn" unique_id=575906891]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
 text = "Iniciar sesión"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="panelLogin/VBoxContainer" unique_id=1275766305]
+[node name="contCreateUser" type="HBoxContainer" parent="panelLogin/contLoginElem" unique_id=1275766305]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="lblCreateUser" type="Label" parent="panelLogin/VBoxContainer/HBoxContainer" unique_id=1983271161]
+[node name="lblCreateUser" type="Label" parent="panelLogin/contLoginElem/contCreateUser" unique_id=1983271161]
 layout_mode = 2
+theme = ExtResource("7_58ttj")
 text = "¿No tienes cuenta?"
 label_settings = SubResource("LabelSettings_yddou")
 
-[node name="btnOpenCreateUser" type="Button" parent="panelLogin/VBoxContainer/HBoxContainer" unique_id=487387173]
+[node name="btnOpenCreateUser" type="Button" parent="panelLogin/contLoginElem/contCreateUser" unique_id=487387173]
 layout_mode = 2
 theme = ExtResource("7_bmxmf")
 theme_override_font_sizes/font_size = 13
@@ -229,7 +237,7 @@ offset_bottom = 13.0
 theme = ExtResource("10_y7emq")
 text = "X"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="panelCreateUser" unique_id=1882403099]
+[node name="contCreateUserElem" type="VBoxContainer" parent="panelCreateUser" unique_id=1882403099]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -237,24 +245,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -234.25
-offset_top = -138.875
+offset_top = -146.5
 offset_right = 234.25
-offset_bottom = 138.875
+offset_bottom = 146.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 35
 
-[node name="lblCreateUser" type="Label" parent="panelCreateUser/VBoxContainer" unique_id=1532704003]
+[node name="contTitle" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=1264613460]
+layout_mode = 2
+
+[node name="lblCreateUser" type="Label" parent="panelCreateUser/contCreateUserElem/contTitle" unique_id=1532704003]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("7_58ttj")
 text = "Crear usuario"
 label_settings = SubResource("LabelSettings_a2csu")
 
-[node name="Control" type="Control" parent="panelCreateUser/VBoxContainer" unique_id=1613917063]
+[node name="conTextboxAndBtn" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=615740308]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 20
 
-[node name="btnCreateUser" type="Button" parent="panelCreateUser/VBoxContainer" unique_id=1549339883]
+[node name="btnCreateUser" type="Button" parent="panelCreateUser/contCreateUserElem/conTextboxAndBtn" unique_id=1549339883]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -262,10 +274,10 @@ theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
 text = "     Crear usuario     "
 
-[connection signal="pressed" from="VBoxContainer/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="contGameTitleAndBtn/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="panelLogin/VBoxContainer/btnLogin" to="." method="_on_btn_login_pressed"]
-[connection signal="pressed" from="panelLogin/VBoxContainer/HBoxContainer/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
+[connection signal="pressed" from="panelLogin/contLoginElem/contTextboxAndBtn/btnLogin" to="." method="_on_btn_login_pressed"]
+[connection signal="pressed" from="panelLogin/contLoginElem/contCreateUser/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
-[connection signal="pressed" from="panelCreateUser/VBoxContainer/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
+[connection signal="pressed" from="panelCreateUser/contCreateUserElem/conTextboxAndBtn/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
