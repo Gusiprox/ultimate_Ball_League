@@ -37,7 +37,6 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="MenuPlay" parent="contMenus" unique_id=37333949 instance=ExtResource("3_baml4")]
-visible = false
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0

@@ -198,6 +198,7 @@ func animarSubmenu(menuObjetivo: Control):
 	if menuObjetivo.visible:
 		GlobalMenus.resetearSalidaMenu(menuObjetivo, posicionesSubmenus[menuObjetivo], true)
 		backgroundBlur.hide()
+		blocker.hide()
 		return
 
 	backgroundBlur.show()

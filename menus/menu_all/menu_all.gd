@@ -9,6 +9,7 @@ const OPACIDAD_ANIMACION: float = 1.0
 
 @onready var navBar = $NavBar
 @onready var menuStats = $MenuStats
+@onready var conMenus = $contMenus
 @onready var dicMenus = {
 	navBar.SIGNAL_MENU_PLAY: $contMenus/MenuPlay,
 	navBar.SIGNAL_MENU_EDIT_CHAR: $contMenus/MenuEditCharacter,
@@ -30,28 +31,13 @@ func _ready() -> void:
 	menuStats.visible = false
 	posOriginalStats = menuStats.global_position
 	
-	# 1. Guardamos las posiciones originales de todo antes de mover nada
-	for clave in dicMenus.keys():
-		var nodo = dicMenus[clave]
-		posicionesIniciales[nodo] = nodo.position
-		
-		# Estado inicial: solo Play se ve
-		if clave == navBar.SIGNAL_MENU_PLAY:
-			nodo.show()
-			nodo.modulate.a = 1.0
-			menuActual = nodo
-		else:
-			nodo.hide()
-			nodo.modulate.a = 0.0
-		
+	cerrarMenus()
+	
 	navBar.menuRequested.connect(gestionarCambioMenu)
 	menuStats.cerrarSolicitado.connect(cerrarVentanaStats)
 	
-	for menu in dicMenus.values():
-		# Buscamos las cartas dentro de los menús
-		for hijo in menu.find_children("*", "", true): 
-			if hijo.has_signal(CHAR_CARD_SIGNAL):
-				hijo.infoRequested.connect(abrirVentanaStats)
+	buscarCartasEnMenus()
+
 
 #Gestionar menuStats
 
@@ -91,7 +77,7 @@ func cambiarMenu(menuNuevo: Control):
 		GlobalMenus.resetearSalidaMenu(menuActual, posicionesIniciales[menuActual])
 	
 	await GlobalMenus.animarEntrada(menuNuevo, posicionesIniciales[menuNuevo], false, TIEMPO_ANIMACION_MENUS, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION).finished
-		
+	
 	menuActual = menuNuevo
 	transicionando = false
 	actualizarEstadoNavbar()
@@ -107,3 +93,24 @@ func actualizarEstadoNavbar():
 			break
 	if has_node(NAV_BAR):
 		navBar.actualizarBotonesNavBar(nombreClave)
+
+func cerrarMenus():
+	for clave in dicMenus.keys():
+		var nodo = dicMenus[clave]
+		posicionesIniciales[nodo] = nodo.position
+		
+		# Estado inicial: solo Play se ve
+		if clave == navBar.SIGNAL_MENU_PLAY:
+			nodo.show()
+			nodo.modulate.a = 1.0
+			menuActual = nodo
+		else:
+			nodo.hide()
+			nodo.modulate.a = 0.0
+
+func buscarCartasEnMenus():
+	for menu in dicMenus.values():
+		# Buscamos las cartas dentro de los menús
+		for hijo in menu.find_children("*", "", true): 
+			if hijo.has_signal(CHAR_CARD_SIGNAL):
+				hijo.infoRequested.connect(abrirVentanaStats)
