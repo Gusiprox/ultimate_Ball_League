@@ -20,9 +20,11 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var menuOptions = $marginMenu/Control/MenuOptions
 @onready var menuSound = $marginMenu/Control/MenuOptions/MenuSound
 @onready var menuControls = $marginMenu/Control/MenuOptions/MenuControls
+@onready var menuLanguages = $marginMenu/Control/MenuOptions/MenuLanguages
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
 @onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
 @onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
+@onready var btnLanguages = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages
 @onready var contNavBarButtons = $marginNavBar/contNavBarElements/contNavBarButtons
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
@@ -47,7 +49,7 @@ func _ready() -> void:
 	
 	traerDatos()
 	
-	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
+	submenus = [menuUser, menuExit, menuOptions, menuControls, menuLanguages, backgroundBlur, blocker, blockerAll]
 	cerrarMenus()
 	
 	actualizarBotonesOptions(btnSound, menuSound)
@@ -127,6 +129,9 @@ func _on_btn_sonido_pressed() -> void:
 func _on_btn_controls_pressed() -> void:
 	actualizarBotonesOptions(btnControls, menuControls)
 
+func _on_btn_languages_pressed() -> void:
+	actualizarBotonesOptions(btnLanguages, menuLanguages)
+
 func _on_btn_close_options_pressed() -> void:
 	cerrarMenus()
 
@@ -188,10 +193,12 @@ func actualizarBotonesNavBar(nombreActivo: String):
 func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
 	btnSound.modulate = COLOR_INACTIVO
 	btnControls.modulate = COLOR_INACTIVO
+	btnLanguages.modulate = COLOR_INACTIVO
 	
 	botonActivo.modulate = COLOR_ACTIVO
 	menuSound.visible = false
 	menuControls.visible = false
+	menuLanguages.visible = false
 	paginaActiva.visible = true
 
 

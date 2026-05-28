@@ -15,6 +15,7 @@
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_f1e2e"]
 [ext_resource type="PackedScene" uid="uid://5b5ioc53caga" path="res://menus/menu_sound/menu_sound.tscn" id="14_1nnos"]
 [ext_resource type="PackedScene" uid="uid://dh5onnggax8ar" path="res://menus/menu_controls/menu_controls.tscn" id="14_b4dpc"]
+[ext_resource type="PackedScene" uid="uid://by66aptryaod3" path="res://menus/menu_languages/menu_languages.tscn" id="16_w0fg3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.57254905, 0.68235296, 1)
@@ -335,7 +336,6 @@ theme = ExtResource("8_hbexq")
 text = "No"
 
 [node name="MenuOptions" type="Panel" parent="marginMenu/Control" unique_id=314493432]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -379,7 +379,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 
 [node name="btnSonido" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1416498175]
 layout_mode = 2
@@ -392,6 +392,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Controles"
+
+[node name="btnLanguages" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1615357564]
+layout_mode = 2
+text = "Idiomas"
 
 [node name="MenuControls" parent="marginMenu/Control/MenuOptions" unique_id=134436808 instance=ExtResource("14_b4dpc")]
 visible = false
@@ -419,6 +423,21 @@ offset_left = -0.11300278
 offset_top = -0.042503357
 offset_right = 0.112976074
 offset_bottom = 0.10812378
+
+[node name="MenuLanguages" parent="marginMenu/Control/MenuOptions" unique_id=1726208309 instance=ExtResource("16_w0fg3")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -120.75
+offset_right = 205.5
+offset_bottom = 189.14099
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="blocker" type="ColorRect" parent="." unique_id=94079724]
 layout_mode = 1
@@ -458,3 +477,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="marginMenu/Control/MenuOptions/btnCloseOptions" to="." method="_on_btn_close_options_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido" to="." method="_on_btn_sonido_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls" to="." method="_on_btn_controls_pressed"]
+[connection signal="pressed" from="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages" to="." method="_on_btn_languages_pressed"]

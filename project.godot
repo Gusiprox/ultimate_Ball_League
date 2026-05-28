@@ -29,6 +29,10 @@ GlobalMenus="*uid://dwyk0utyjyxie"
 
 enabled=PackedStringArray("res://addons/godot-playfab/plugin.cfg")
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://menus/common/languages/traducciones.en.translation", "res://menus/common/languages/traducciones.es.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

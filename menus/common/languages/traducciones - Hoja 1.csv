@@ -1,0 +1,30 @@
+keys,es,en
+KEY_PLAY,Jugar,Play
+KEY_LOGIN,Iniciar sesión,Login
+KEY_CREATE_ACCOUNT,Crear cuenta,Create account
+KEY_QUEST_ACCOUNT,¿No tienes cuenta?,Don't have an account?
+KEY_EDIT_CHAR,Editar personaje,Edit character
+KEY_EDIT_TEAM,Editar equipo,Edit team
+KEY_GACHA,Gacha,Gacha
+KEY_STORE,Tienda,Store
+KEY_INVENTORY,Inventario,Inventory
+KEY_OPTIONS,Opciones,Options
+KEY_LOG_OUT,Cerrar sesión,Log out
+KEY_EXIT,Salir,Exit
+KEY_EXIT_QUEST,¿Salir del juego?,¿Close de game?
+KEY_YES,Sí,Yes
+KEY_NO,No,No
+KEY_HATS,Sombreros,Hats
+KEY_EQUIP,Equipar,Equip
+KEY_CHARACTERS,Personajes,Characters
+KEY_SAVE_TEAM,Guardar equipo,Save team
+KEY_BANNER_NAME,Permanente,Permanent
+KEY_PULLS,Tirada,Pull
+KEY_BUY,Comprar,Buy
+KEY_MUSIC,Música,Music
+KEY_STATS,Estadísticas,Stats
+KEY_PUSH_STRENGTH,Fuerza de empuje,Push strength
+KEY_PUSH_RESISTANCE,Resistencia de empuje,Push resistance
+KEY_SPEED,Velocidad,Speed
+KEY_ABILITY,Habilidad,Ability
+KEY_TALENT,Talento,Talent

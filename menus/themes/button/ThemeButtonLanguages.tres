@@ -1,0 +1,42 @@
+[gd_resource type="Theme" format=3 uid="uid://dqp7tmam5v5ld"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_jeai0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tb7hl"]
+bg_color = Color(0.06469653, 0.064696535, 0.06469648, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 6.0
+expand_margin_right = 10.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jeai0"]
+bg_color = Color(0.08468992, 0.08468994, 0.08468989, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 6.0
+expand_margin_right = 10.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_502ec"]
+bg_color = Color(0.011087579, 0.011087579, 0.011087577, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 10.0
+expand_margin_top = 6.0
+expand_margin_right = 10.0
+expand_margin_bottom = 8.0
+
+[resource]
+Button/fonts/font = ExtResource("1_jeai0")
+Button/styles/hover = SubResource("StyleBoxFlat_tb7hl")
+Button/styles/normal = SubResource("StyleBoxFlat_jeai0")
+Button/styles/pressed = SubResource("StyleBoxFlat_502ec")
