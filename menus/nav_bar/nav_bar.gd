@@ -44,18 +44,25 @@ var vinculacionBotones = {
 signal menuRequested(menuName)
 
 func _ready() -> void:
-	lblPulls.text = str(PlayerData.gacha_tokens)
-	lblCoins.text = str(PlayerData.gold)
-	lblUserName.text = str(PlayerData.username)
 	
-	PlayerData.gacha_tokens_changed.connect(onPullsCambiadas)
-	PlayerData.gold_changed.connect(onCoinsCambiadas)
+	traerDatos()
 	
 	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
 	cerrarMenus()
 	
 	actualizarBotonesOptions(btnSound, menuSound)
 	call_deferred(GUARDAR_POSICIONES_REALES)
+
+
+#Traer las tiradas, monedas y el nombre del usuario
+
+func traerDatos():
+	lblPulls.text = str(PlayerData.gacha_tokens)
+	lblCoins.text = str(PlayerData.gold)
+	lblUserName.text = str(PlayerData.username)
+	
+	PlayerData.gacha_tokens_changed.connect(onPullsCambiadas)
+	PlayerData.gold_changed.connect(onCoinsCambiadas)
 
 
 #Cambiar valor de tiradas y monedas
@@ -146,6 +153,9 @@ func _on_btn_menu_inventory_pressed() -> void:
 
 func _on_background_blur_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
+		
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP or event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			return
 		
 		if menuExit.visible or menuOptions.visible:
 			return

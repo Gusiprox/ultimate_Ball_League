@@ -40,6 +40,7 @@ offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dhgi5")
+metadata/_edit_use_anchors_ = true
 
 [node name="imgMarcoGacha" type="NinePatchRect" parent="marginMenuGacha/MenuBanner" unique_id=1349735778]
 layout_mode = 1

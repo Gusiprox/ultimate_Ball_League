@@ -29,6 +29,7 @@ offset_top = 105.0
 offset_right = 1097.0
 offset_bottom = 614.0
 theme = ExtResource("1_arh1h")
+metadata/_edit_use_anchors_ = true
 
 [node name="imgMarcoCharacters" type="NinePatchRect" parent="MenuCharacters" unique_id=118550483]
 modulate = Color(1.326, 1.326, 1.326, 1)
@@ -74,6 +75,7 @@ offset_top = 110.0
 offset_right = 552.0
 offset_bottom = 604.0
 theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuField" type="Panel" parent="contMenuField" unique_id=730481447]
 layout_mode = 2

@@ -70,6 +70,7 @@ offset_bottom = -0.22400665
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_qkb7d")
 script = ExtResource("1_q0cxf")
+metadata/_edit_use_anchors_ = true
 
 [node name="marginNavBar" type="MarginContainer" parent="." unique_id=576141330]
 layout_mode = 1
@@ -84,6 +85,7 @@ offset_right = 560.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="contNavBarElements" type="HBoxContainer" parent="marginNavBar" unique_id=1816500458]
 custom_minimum_size = Vector2(0, 50)
@@ -204,6 +206,7 @@ offset_top = 75.0
 offset_right = 1153.0
 offset_bottom = 652.0
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="marginMenu" unique_id=1504740908]
 layout_mode = 2
@@ -219,6 +222,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
+metadata/_edit_use_anchors_ = true
 
 [node name="MenuUser" type="Panel" parent="marginMenu/Control" unique_id=71924952]
 layout_mode = 0
@@ -229,6 +233,7 @@ offset_bottom = 455.0
 mouse_filter = 1
 theme = ExtResource("2_btywh")
 theme_override_styles/panel = SubResource("StyleBoxFlat_btywh")
+metadata/_edit_use_anchors_ = true
 
 [node name="marginMenuUser" type="MarginContainer" parent="marginMenu/Control/MenuUser" unique_id=496627084]
 layout_mode = 1
@@ -424,6 +429,7 @@ offset_right = -96.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="blockerAll" type="ColorRect" parent="." unique_id=898000316]
 layout_mode = 1
@@ -434,6 +440,7 @@ offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuPlay" to="." method="_on_btn_menu_play_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditPlayer" to="." method="_on_btn_menu_edit_player_pressed"]
