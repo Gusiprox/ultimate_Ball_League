@@ -63,7 +63,7 @@ theme_override_constants/separation = 18
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_f7lkf")
-text = "Sombreros"
+text = "KEY_HATS"
 
 [node name="ScrollList" parent="MenuHats/VBoxContainer" unique_id=124515402 instance=ExtResource("4_5hpj6")]
 layout_mode = 2
@@ -92,7 +92,7 @@ offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_7le24")
-text = "  Cambiar personaje  "
+text = "KEY_EDIT_CHAR"
 
 [node name="character" type="SubViewportContainer" parent="MenuViewChar" unique_id=1867937938]
 custom_minimum_size = Vector2(20, 60)
@@ -133,6 +133,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_afq85")
 
 [node name="MenuListChar" type="Panel" parent="." unique_id=1717209840]
+visible = false
 layout_mode = 0
 offset_left = 55.0
 offset_top = 115.0

@@ -86,7 +86,7 @@ theme_override_constants/separation = 20
 [node name="lblBannerName" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem" unique_id=179555522]
 layout_mode = 2
 theme = ExtResource("3_dhgi5")
-text = "Permanente"
+text = "KEY_BANNER_NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -133,7 +133,7 @@ theme_override_constants/separation = 15
 [node name="lblPullOne" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer/btnOnePull/contButtonElem" unique_id=297858648]
 layout_mode = 2
 theme_override_constants/outline_size = 10
-text = "1  Tirada"
+text = "KEY_ONE_PULL"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -89,7 +89,7 @@ uppercase = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
-text = "Start"
+text = "KEY_START"
 
 [node name="btnExit" type="Button" parent="." unique_id=1809097881]
 layout_mode = 0
@@ -115,6 +115,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -178,7 +179,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
-text = "Iniciar sesión"
+text = "KEY_LOGIN"
 
 [node name="contCreateUser" type="HBoxContainer" parent="panelLogin/contLoginElem" unique_id=1275766305]
 layout_mode = 2
@@ -187,14 +188,14 @@ size_flags_horizontal = 4
 [node name="lblCreateUser" type="Label" parent="panelLogin/contLoginElem/contCreateUser" unique_id=1983271161]
 layout_mode = 2
 theme = ExtResource("7_58ttj")
-text = "¿No tienes cuenta?"
+text = "KEY_QUEST_ACCOUNT"
 label_settings = SubResource("LabelSettings_yddou")
 
 [node name="btnOpenCreateUser" type="Button" parent="panelLogin/contLoginElem/contCreateUser" unique_id=487387173]
 layout_mode = 2
 theme = ExtResource("7_bmxmf")
 theme_override_font_sizes/font_size = 13
-text = "Crear cuenta"
+text = "KEY_CREATE_ACCOUNT"
 
 [node name="btnCloseLogin" type="Button" parent="panelLogin" unique_id=850601247]
 layout_mode = 0
@@ -262,7 +263,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("7_58ttj")
-text = "Crear usuario"
+text = "KEY_CREATE_ACCOUNT"
 label_settings = SubResource("LabelSettings_a2csu")
 
 [node name="conTextboxAndBtn" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=615740308]
@@ -275,7 +276,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
-text = "     Crear usuario     "
+text = "KEY_CREATE_ACCOUNT"
 
 [connection signal="pressed" from="contGameTitleAndBtn/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]

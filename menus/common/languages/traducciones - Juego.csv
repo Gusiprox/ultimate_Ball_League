@@ -11,7 +11,7 @@ KEY_INVENTORY,Inventario,Inventory
 KEY_OPTIONS,Opciones,Options
 KEY_LOG_OUT,Cerrar sesión,Log out
 KEY_EXIT,Salir,Exit
-KEY_EXIT_QUEST,¿Salir del juego?,¿Close de game?
+KEY_EXIT_QUEST,¿Salir del juego?,¿Close the game?
 KEY_YES,Sí,Yes
 KEY_NO,No,No
 KEY_HATS,Sombreros,Hats
@@ -19,7 +19,8 @@ KEY_EQUIP,Equipar,Equip
 KEY_CHARACTERS,Personajes,Characters
 KEY_SAVE_TEAM,Guardar equipo,Save team
 KEY_BANNER_NAME,Permanente,Permanent
-KEY_PULLS,Tirada,Pull
+KEY_ONE_PULL,1 Tirada,1 Pull
+KEY_TEN_PULLS,10 Tiradas,10 Pulls
 KEY_BUY,Comprar,Buy
 KEY_MUSIC,Música,Music
 KEY_STATS,Estadísticas,Stats
@@ -28,3 +29,16 @@ KEY_PUSH_RESISTANCE,Resistencia de empuje,Push resistance
 KEY_SPEED,Velocidad,Speed
 KEY_ABILITY,Habilidad,Ability
 KEY_TALENT,Talento,Talent
+KEY_SOUND,Sonido,Sound
+KEY_ES,Español,Spanish
+KEY_EN,Inglés,English
+KEY_LANGUAGES,Idiomas,Languages
+KEY_MENU,Menú,Menu
+KEY_RESUME,Reanudar,Resume
+KEY_WIN,Victoria,Victory
+KEY_LOSE,Derrota,Defeat
+KEY_PULLS_EARNED,Tiradas ganadas:,Pulls earned:
+KEY_COINS_EARNED,Monedas ganadas:,Coins earned:
+KEY_RETURN,Volver,Return
+KEY_CONTROLS,Controles,Controls
+KEY_START,Empezar,Start

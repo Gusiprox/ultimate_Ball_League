@@ -31,7 +31,7 @@ enabled=PackedStringArray("res://addons/godot-playfab/plugin.cfg")
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://menus/common/languages/traducciones.en.translation", "res://menus/common/languages/traducciones.es.translation")
+locale/translations=PackedStringArray("res://menus/common/languages/traducciones - Juego.en.translation", "res://menus/common/languages/traducciones - Juego.es.translation")
 
 [physics]
 

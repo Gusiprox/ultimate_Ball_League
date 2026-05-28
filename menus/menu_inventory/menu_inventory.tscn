@@ -41,14 +41,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="btnCharactersPage" type="Button" parent="marginMenu/Control/contButtons" unique_id=1029764140]
 layout_mode = 2
-text = "Personajes"
+text = "KEY_CHARACTERS"
 
 [node name="btnHatsPage" type="Button" parent="marginMenu/Control/contButtons" unique_id=2125124230]
 layout_mode = 2
-text = "Sombreros"
+text = "KEY_HATS"
 
 [node name="charactersPage" type="Panel" parent="marginMenu/Control" unique_id=932165774]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,7 +80,7 @@ theme_override_constants/separation = 20
 [node name="lblCharacters" type="Label" parent="marginMenu/Control/charactersPage/VBoxContainer" unique_id=589437685]
 layout_mode = 2
 theme = ExtResource("2_ohiwt")
-text = "Personajes"
+text = "KEY_CHARACTERS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -89,6 +88,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="hatsPage" type="Panel" parent="marginMenu/Control" unique_id=859758016]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -121,7 +121,7 @@ theme_override_constants/separation = 20
 [node name="lblHats" type="Label" parent="marginMenu/Control/hatsPage/VBoxContainer" unique_id=2054768463]
 layout_mode = 2
 theme = ExtResource("2_ohiwt")
-text = "Sombreros"
+text = "KEY_HATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
