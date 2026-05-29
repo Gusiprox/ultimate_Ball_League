@@ -40,12 +40,16 @@ theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
 [node name="btnCharactersPage" type="Button" parent="marginMenu/Control/contButtons" unique_id=1029764140]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "KEY_CHARACTERS"
+autowrap_mode = 2
 
 [node name="btnHatsPage" type="Button" parent="marginMenu/Control/contButtons" unique_id=2125124230]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "KEY_HATS"
+autowrap_mode = 2
 
 [node name="charactersPage" type="Panel" parent="marginMenu/Control" unique_id=932165774]
 layout_mode = 1

@@ -82,6 +82,10 @@ func cerrarMenus():
 	for menu in submenus:
 		menu.visible = false
 
+func cerrarMenuOpciones():
+	menuOptions.visible = false
+	blocker.visible = false
+	backgroundBlur.visible = false
 
 #Guardar posiciones iniciales de los menús para que no se desplacen con el tween
 
@@ -133,7 +137,7 @@ func _on_btn_languages_pressed() -> void:
 	actualizarBotonesOptions(btnLanguages, menuLanguages)
 
 func _on_btn_close_options_pressed() -> void:
-	cerrarMenus()
+	cerrarMenuOpciones()
 
 func _on_btn_menu_play_pressed() -> void:
 	menuRequested.emit(SIGNAL_MENU_PLAY)

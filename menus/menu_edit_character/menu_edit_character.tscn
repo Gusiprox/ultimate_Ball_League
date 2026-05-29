@@ -79,6 +79,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_afq85")
 metadata/_edit_use_anchors_ = true
 
 [node name="btnChangeChar" type="Button" parent="MenuViewChar" unique_id=1153891938]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -93,6 +94,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_7le24")
 text = "KEY_EDIT_CHAR"
+autowrap_mode = 2
 
 [node name="character" type="SubViewportContainer" parent="MenuViewChar" unique_id=1867937938]
 custom_minimum_size = Vector2(20, 60)
