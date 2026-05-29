@@ -115,7 +115,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -207,6 +206,7 @@ theme = ExtResource("10_y7emq")
 text = "X"
 
 [node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

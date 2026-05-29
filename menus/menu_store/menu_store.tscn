@@ -14,16 +14,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="marginMenu" type="MarginContainer" parent="." unique_id=313458676]
-layout_mode = 0
+[node name="marginMenuStore" type="Control" parent="." unique_id=155260095]
+anchors_preset = 0
 offset_top = 71.0
 offset_right = 1153.0
 offset_bottom = 647.0
 
-[node name="Control" type="Control" parent="marginMenu" unique_id=155260095]
-layout_mode = 2
-
-[node name="frame" type="Panel" parent="marginMenu/Control" unique_id=775027296]
+[node name="frame" type="Panel" parent="marginMenuStore" unique_id=775027296]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -38,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lhwub")
 
-[node name="imgCoins" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=338781156]
+[node name="imgCoins" type="NinePatchRect" parent="marginMenuStore/frame" unique_id=338781156]
 modulate = Color(1, 0.699, 0.13999999, 1)
 texture_filter = 4
 layout_mode = 0
@@ -49,7 +46,7 @@ offset_bottom = 47.00402
 rotation = -0.1737908
 texture = ExtResource("1_24c0n")
 
-[node name="imgCart" type="NinePatchRect" parent="marginMenu/Control/frame" unique_id=1553500773]
+[node name="imgCart" type="NinePatchRect" parent="marginMenuStore/frame" unique_id=1553500773]
 modulate = Color(0.57700837, 0.5770084, 0.57700837, 1)
 texture_filter = 4
 layout_mode = 0
@@ -60,7 +57,7 @@ offset_bottom = 492.48132
 rotation = 0.26169088
 texture = ExtResource("2_lhwub")
 
-[node name="lblStore" type="Label" parent="marginMenu/Control/frame" unique_id=962807460]
+[node name="lblStore" type="Label" parent="marginMenuStore/frame" unique_id=962807460]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -75,7 +72,7 @@ text = "Tienda"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="margin" type="MarginContainer" parent="marginMenu/Control/frame" unique_id=174345837]
+[node name="marginStore" type="MarginContainer" parent="marginMenuStore/frame" unique_id=174345837]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,5 +86,5 @@ offset_bottom = 193.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScrollListStore" parent="marginMenu/Control/frame/margin" unique_id=124515402 instance=ExtResource("5_lhwub")]
+[node name="scrollStoreList" parent="marginMenuStore/frame/marginStore" unique_id=124515402 instance=ExtResource("5_lhwub")]
 layout_mode = 2

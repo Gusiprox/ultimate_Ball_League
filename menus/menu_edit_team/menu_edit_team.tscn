@@ -82,7 +82,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4uk4v")
 
-[node name="Button" type="Button" parent="contMenuField" unique_id=136171993]
+[node name="btnSaveTeam" type="Button" parent="contMenuField" unique_id=136171993]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_uh1lp")

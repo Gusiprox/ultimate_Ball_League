@@ -263,6 +263,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="contMenuUserBtn" type="VBoxContainer" parent="marginMenu/Control/MenuUser/marginMenuUser" unique_id=998717814]
+custom_minimum_size = Vector2(120, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -276,21 +277,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="space" type="Control" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=232226824]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 
 [node name="btnOptions" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=884390658]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Opciones"
+autowrap_mode = 2
 
 [node name="btnSignOut" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=279281857]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Cerrar sesión"
+autowrap_mode = 2
 
 [node name="btnExit" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=867858406]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 theme = ExtResource("4_qkb7d")
 text = "Salir"
+autowrap_mode = 2
 
 [node name="MenuExit" type="Panel" parent="marginMenu/Control" unique_id=1987702965]
 layout_mode = 1
@@ -335,16 +342,20 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 15
 
 [node name="btnConfExit" type="Button" parent="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont" unique_id=851939895]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_qrvp1")
 text = "Sí"
+autowrap_mode = 2
 
 [node name="btnCancelExit" type="Button" parent="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont" unique_id=1671722182]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("8_hbexq")
 text = "No"
+autowrap_mode = 2
 
 [node name="MenuOptions" type="Panel" parent="marginMenu/Control" unique_id=314493432]
 visible = false

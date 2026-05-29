@@ -40,7 +40,6 @@ offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dhgi5")
-metadata/_edit_use_anchors_ = true
 
 [node name="imgMarcoGacha" type="NinePatchRect" parent="marginMenuGacha/MenuBanner" unique_id=1349735778]
 layout_mode = 1
@@ -97,13 +96,13 @@ layout_mode = 2
 texture = ExtResource("1_hsln1")
 region_rect = Rect2(0, 0, 500, 303)
 
-[node name="VBoxContainer" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem" unique_id=1308673948]
+[node name="contBtnPulls" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem" unique_id=1308673948]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_uvj2q")
 theme_override_constants/separation = 50
 
-[node name="btnOnePull" type="Button" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer" unique_id=2093886414]
+[node name="btnOnePull" type="Button" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls" unique_id=2093886414]
 texture_filter = 4
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
@@ -113,7 +112,8 @@ theme_override_constants/h_separation = -100
 icon_alignment = 2
 expand_icon = true
 
-[node name="contButtonElem" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer/btnOnePull" unique_id=373191704]
+[node name="contButtonElem" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull" unique_id=373191704]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,8 +129,9 @@ grow_vertical = 2
 scale = Vector2(1.0258418, 1.0017419)
 theme = ExtResource("6_l5osx")
 theme_override_constants/separation = 15
+metadata/_edit_use_anchors_ = true
 
-[node name="lblPullOne" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer/btnOnePull/contButtonElem" unique_id=297858648]
+[node name="lblPullOne" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull/contButtonElem" unique_id=297858648]
 custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 10
@@ -139,11 +140,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
 
-[node name="contPullNum" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer/btnOnePull/contButtonElem" unique_id=1401961515]
+[node name="contPullNum" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull/contButtonElem" unique_id=1401961515]
 layout_mode = 2
 theme_override_constants/separation = -1
 
-[node name="imgPull" type="NinePatchRect" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer/btnOnePull/contButtonElem/contPullNum" unique_id=495224245]
+[node name="imgPull" type="NinePatchRect" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull/contButtonElem/contPullNum" unique_id=495224245]
 texture_filter = 4
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -151,7 +152,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_krwax")
 
-[node name="lblPullOneNum" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer/btnOnePull/contButtonElem/contPullNum" unique_id=203888783]
+[node name="lblPullOneNum" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull/contButtonElem/contPullNum" unique_id=203888783]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/outline_size = 10
@@ -159,7 +160,7 @@ text = "x 5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="btnTenPulls" type="Button" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/VBoxContainer" unique_id=1811901350]
+[node name="btnTenPulls" type="Button" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls" unique_id=1811901350]
 texture_filter = 4
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2

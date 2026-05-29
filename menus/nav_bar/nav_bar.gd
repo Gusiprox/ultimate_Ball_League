@@ -33,6 +33,9 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var lblUserName = $marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/lblUserName
 
 var submenus: Array = []
+var submenusMenuUser: Array = []
+var submenusOptions: Array = []
+var botonesMenuOptions: Array = []
 var posicionesSubmenus = {}
 var vinculacionBotones = {
 	"btnMenuPlay": SIGNAL_MENU_PLAY,
@@ -50,6 +53,9 @@ func _ready() -> void:
 	traerDatos()
 	
 	submenus = [menuUser, menuExit, menuOptions, menuControls, menuLanguages, backgroundBlur, blocker, blockerAll]
+	submenusMenuUser = [menuUser, menuExit, menuOptions]
+	botonesMenuOptions = [btnSound, btnControls, btnLanguages]
+	submenusOptions = [menuSound, menuControls, menuLanguages]
 	cerrarMenus()
 	
 	actualizarBotonesOptions(btnSound, menuSound)
@@ -82,15 +88,27 @@ func cerrarMenus():
 	for menu in submenus:
 		menu.visible = false
 
+
+# Cerrar el menú de opciones
+
 func cerrarMenuOpciones():
 	menuOptions.visible = false
 	blocker.visible = false
 	backgroundBlur.visible = false
 
+
+#Cerrar el menú user
+
+func cerrarMenuUser():
+	menuUser.visible = false
+	backgroundBlur.visible = false
+	blocker.visible = false
+
+
 #Guardar posiciones iniciales de los menús para que no se desplacen con el tween
 
 func guardarPosicionesReales():
-	for m in [menuUser, menuExit, menuOptions]:
+	for m in submenusMenuUser:
 		posicionesSubmenus[m] = m.global_position
 		m.hide()
 
@@ -173,9 +191,7 @@ func _on_background_blur_gui_input(event: InputEvent) -> void:
 			get_parent().cerrarVentanaStats()
 		
 		if menuUser.visible:
-			menuUser.visible = false
-			backgroundBlur.visible = false
-			blocker.visible = false
+			cerrarMenuUser()
 
 
 #Cambio de botón marcado en los botones de navBar
@@ -195,14 +211,14 @@ func actualizarBotonesNavBar(nombreActivo: String):
 #Cambio de botón marcado en menuOptions
 
 func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
-	btnSound.modulate = COLOR_INACTIVO
-	btnControls.modulate = COLOR_INACTIVO
-	btnLanguages.modulate = COLOR_INACTIVO
+	for boton in botonesMenuOptions:
+		boton.modulate = COLOR_INACTIVO
 	
 	botonActivo.modulate = COLOR_ACTIVO
-	menuSound.visible = false
-	menuControls.visible = false
-	menuLanguages.visible = false
+	
+	for menu in submenusOptions:
+		menu.visible = false
+	
 	paginaActiva.visible = true
 
 
@@ -212,7 +228,7 @@ func animarSubmenu(menuObjetivo: Control):
 	if not menuObjetivo.visible:
 		posicionesSubmenus[menuObjetivo] = menuObjetivo.global_position
 	
-	for m in [menuUser, menuExit, menuOptions]:
+	for m in submenusMenuUser:
 		if m != menuObjetivo and m.visible:
 			GlobalMenus.resetearSalidaMenu(m, posicionesSubmenus[m], true)
 
