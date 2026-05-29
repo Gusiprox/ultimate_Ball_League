@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://cpr44s3wfwfoe" path="res://menus/themes/button/ThemeButtonCreateUser.tres" id="7_bmxmf"]
 [ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="7_y7emq"]
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_y7emq"]
+[ext_resource type="PackedScene" uid="uid://1po63b1fpubw" path="res://menus/login/Login.tscn" id="11_vn0s5"]
 [ext_resource type="AudioStream" uid="uid://2hum2kl2mcha" path="res://menus/music/mainMenu.mp3" id="12_7xx02"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7xx02"]
@@ -49,7 +50,6 @@ script = ExtResource("1_28y4e")
 [node name="audioMenuStart" type="AudioStreamPlayer2D" parent="." unique_id=438950640]
 stream = ExtResource("12_7xx02")
 autoplay = true
-bus = &"Musica"
 parameters/looping = true
 
 [node name="imgMenuStart" type="Sprite2D" parent="." unique_id=994998472]
@@ -112,7 +112,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -144,10 +143,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -138.25
-offset_top = -165.0
-offset_right = 138.25
-offset_bottom = 165.0
+offset_left = -142.0
+offset_top = -166.5
+offset_right = 134.5
+offset_bottom = 163.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 27
@@ -164,13 +163,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="btnLogin" type="Button" parent="panelLogin/VBoxContainer" unique_id=575906891]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("1_bond3")
-theme_override_font_sizes/font_size = 13
-text = "Iniciar sesión"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="panelLogin/VBoxContainer" unique_id=1275766305]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -185,6 +177,20 @@ layout_mode = 2
 theme = ExtResource("7_bmxmf")
 theme_override_font_sizes/font_size = 13
 text = "Crear cuenta"
+
+[node name="Login" parent="panelLogin" unique_id=1365454647 instance=ExtResource("11_vn0s5")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 21.0
+offset_top = 104.75
+offset_right = 1073.0
+offset_bottom = 632.75
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 8
 
 [node name="btnCloseLogin" type="Button" parent="panelLogin" unique_id=850601247]
 layout_mode = 0
@@ -265,8 +271,6 @@ text = "     Crear usuario     "
 
 [connection signal="pressed" from="VBoxContainer/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="panelLogin/VBoxContainer/btnLogin" to="." method="_on_btn_login_pressed"]
 [connection signal="pressed" from="panelLogin/VBoxContainer/HBoxContainer/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
-[connection signal="pressed" from="panelCreateUser/VBoxContainer/btnCreateUser" to="." method="_on_btn_create_user_pressed"]

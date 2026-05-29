@@ -1,7 +1,8 @@
 extends Control
 
-@onready var email = $TextBoxEmail
-@onready var password = $TextBoxPassword
+var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
+@onready var email = $VBoxContainer/TextBoxEmail
+@onready var password = $VBoxContainer/TextBoxPassword
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,7 +30,7 @@ func _on_playfab_logged_in(data: LoginResult) -> void:
 	email.text = ""
 	password.text = ""
 	PlayerData._setData(data)
-	get_tree().change_scene_to_file("res://test/CargarDatos.tscn")
+	get_tree().change_scene_to_file(pathMenuAll)
 
 func _on_login_error(data) -> void:
 	push_warning(data)

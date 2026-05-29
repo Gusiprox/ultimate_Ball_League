@@ -9,6 +9,8 @@ extends Panel
 @onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
 @onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
 @onready var contNavBarButtons = $marginNavBar/contNavBarElements/contNavBarButtons
+@onready var lblPulls = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls/lblPulls
+@onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
 
@@ -39,6 +41,9 @@ signal menuRequested(menuName)
 func _ready() -> void:
 	submenus = [menuUser, menuExit, menuOptions, menuControls, backgroundBlur, blocker, blockerAll]
 	cerrarMenus()
+	
+	lblPulls.text = str(PlayerData.gacha_tokens)
+	lblCoins.text = str(PlayerData.gold)
 	
 	actualizarBotonesOptions(btnSound, menuSound)
 	call_deferred("guardarPosicionesReales")
