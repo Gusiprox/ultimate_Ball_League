@@ -115,6 +115,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 
 [node name="panelLogin" type="Panel" parent="." unique_id=43315237]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -198,10 +199,10 @@ text = "Crear cuenta"
 
 [node name="btnCloseLogin" type="Button" parent="panelLogin" unique_id=850601247]
 layout_mode = 0
-offset_left = 560.0
-offset_top = -14.5
-offset_right = 590.0
-offset_bottom = 12.5
+offset_left = 557.0
+offset_top = -21.25
+offset_right = 587.0
+offset_bottom = 16.75
 theme = ExtResource("10_y7emq")
 text = "X"
 
@@ -233,10 +234,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="btnCloseCreateUser" type="Button" parent="panelCreateUser" unique_id=2130809316]
 layout_mode = 0
-offset_left = 601.5
-offset_top = -18.0
-offset_right = 632.5
-offset_bottom = 13.0
+offset_left = 599.5
+offset_top = -21.0
+offset_right = 630.5
+offset_bottom = 17.0
 theme = ExtResource("10_y7emq")
 text = "X"
 

@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 	navBar.actualizarBotonesNavBar(navBar.SIGNAL_MENU_PLAY)
 	
-	menuStats.visible = false
+	menuStats.hide()
 	posOriginalStats = menuStats.global_position
 	
 	cerrarMenus()

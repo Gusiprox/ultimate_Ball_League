@@ -6,9 +6,10 @@ func _ready() -> void:
 	menuListChar.visible = false
 
 
+# --- BOTONES ---
+
 func _on_btn_change_char_pressed() -> void:
 	menuListChar.visible = true
-
 
 func _on_btn_close_menu_pressed() -> void:
 	menuListChar.visible = false

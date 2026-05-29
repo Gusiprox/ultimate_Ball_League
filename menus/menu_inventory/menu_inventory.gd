@@ -8,8 +8,13 @@ const COLOR_INACTIVO = Color(0.634, 0.634, 0.634, 1.0)
 @onready var btnCharactersPage = $marginMenuInventory/contButtons/btnCharactersPage
 @onready var btnHatsPage = $marginMenuInventory/contButtons/btnHatsPage
 
+var botonesInventario: Array = []
+var pagesInventario: Array = []
+
 func _ready() -> void:
 	actualizarBotones(btnCharactersPage, charactersPage)
+	botonesInventario = [btnCharactersPage, btnHatsPage]
+	pagesInventario = [charactersPage, hatsPage]
 
 
 # --- BOTONES ---
@@ -24,10 +29,12 @@ func _on_btn_hats_page_pressed() -> void:
 # Cambiar el botón del menú actual
 
 func actualizarBotones(botonActivo: Button, pagActiva: Control):
-	btnCharactersPage.modulate = COLOR_INACTIVO
-	btnHatsPage.modulate = COLOR_INACTIVO
+	for boton in botonesInventario:
+		boton.modulate = COLOR_INACTIVO
 	
 	botonActivo.modulate = COLOR_ACTIVO
-	charactersPage.visible = false
-	hatsPage.visible = false
+	
+	for page in pagesInventario:
+		page.hide()
+	
 	pagActiva.visible = true

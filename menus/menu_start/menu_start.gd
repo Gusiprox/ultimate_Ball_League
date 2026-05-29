@@ -14,8 +14,8 @@ var transicionando: bool = false
 var posicionesIniciales = {}
 
 func _ready() -> void:
-	menuLogin.visible = false
-	menuCreate.visible = false
+	menuLogin.hide()
+	menuCreate.hide()
 	backgroundBlur.hide()
 	
 	# Guardamos el centro real

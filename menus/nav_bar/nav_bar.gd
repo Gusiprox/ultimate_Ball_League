@@ -62,7 +62,7 @@ func _ready() -> void:
 	call_deferred(GUARDAR_POSICIONES_REALES)
 
 
-#Traer las tiradas, monedas y el nombre del usuario
+#Traer del servidor las tiradas, monedas y el nombre del usuario
 
 func traerDatos():
 	lblPulls.text = str(PlayerData.gacha_tokens)
@@ -86,23 +86,23 @@ func onCoinsCambiadas(nuevasCoins: int) -> void:
 
 func cerrarMenus():
 	for menu in submenus:
-		menu.visible = false
+		menu.hide()
 
 
 # Cerrar el menú de opciones
 
 func cerrarMenuOpciones():
-	menuOptions.visible = false
-	blocker.visible = false
-	backgroundBlur.visible = false
+	menuOptions.hide()
+	blocker.hide()
+	backgroundBlur.hide()
 
 
 #Cerrar el menú user
 
 func cerrarMenuUser():
-	menuUser.visible = false
-	backgroundBlur.visible = false
-	blocker.visible = false
+	menuUser.hide()
+	backgroundBlur.hide()
+	blocker.hide()
 
 
 #Guardar posiciones iniciales de los menús para que no se desplacen con el tween
@@ -217,9 +217,9 @@ func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
 	botonActivo.modulate = COLOR_ACTIVO
 	
 	for menu in submenusOptions:
-		menu.visible = false
+		menu.hide()
 	
-	paginaActiva.visible = true
+	paginaActiva.show()
 
 
 #Animación de los submenús de navbar

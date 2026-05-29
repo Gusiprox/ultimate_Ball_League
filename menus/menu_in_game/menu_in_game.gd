@@ -1,7 +1,7 @@
 extends Control
 
 const GUARDAR_POSICIONES_REALES = "guardarPosicionesReales"
-const TIEMPO_ANIMACION : float = 0.15
+const TIEMPO_ANIMACION: float = 0.15
 const DISTANCIA_ANIMACION: int = 20
 const OPACIDAD_ANIMACION: float = 1.0
 const COLOR_ACTIVO = Color(1, 1, 1, 1)
@@ -12,20 +12,34 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var menuOptions = $MenuOptions
 @onready var menuControls = $MenuOptions/MenuControls
 @onready var menuSound = $MenuOptions/MenuSound
+@onready var menuLanguages = $MenuOptions/MenuLanguages
 @onready var btnSound = $MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
 @onready var btnControls = $MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
+@onready var btnLanguages = $MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages
 @onready var menuExit = $MenuExit
 
 var posicionesSubmenus = {}
+var submenusOptions: Array = []
+var botonesMenuOptions: Array = []
+var menus: Array = []
 
 func _ready() -> void:
-	backgroundBlur.visible = true
-	menuSound.visible = true
-	menuControls.visible = false
+	
+	menus = [panelMenuInGame, menuExit, menuOptions]
+	submenusOptions = [menuSound, menuControls, menuLanguages]
+	botonesMenuOptions = [btnSound, btnControls, btnLanguages]
+	
+	abrirMenuInGame()
+	
 	call_deferred(GUARDAR_POSICIONES_REALES)
 
+func abrirMenuInGame():
+	backgroundBlur.show()
+	menuSound.show()
+	menuControls.hide()
+
 func guardarPosicionesReales():
-	for m in [panelMenuInGame, menuExit, menuOptions]:
+	for m in menus:
 		posicionesSubmenus[m] = m.global_position
 		if m != panelMenuInGame:
 			m.hide()
@@ -34,8 +48,8 @@ func guardarPosicionesReales():
 # --- BOTONES ---
 
 func _on_btn_resume_pressed() -> void:
-	panelMenuInGame.visible = false
-	backgroundBlur.visible = false
+	panelMenuInGame.hide()
+	backgroundBlur.hide()
 
 func _on_btn_options_pressed() -> void:
 	animarSubmenu(menuOptions)
@@ -58,6 +72,9 @@ func _on_btn_sonido_pressed() -> void:
 func _on_btn_controls_pressed() -> void:
 	actualizarBotonesOptions(btnControls, menuControls)
 
+func _on_btn_languages_pressed() -> void:
+	actualizarBotonesOptions(btnLanguages, menuLanguages)
+
 
 #Animación de los submenús de MenuInGame
 
@@ -79,10 +96,12 @@ func animarSubmenu(menuObjetivo: Control):
 #Cambio de botón marcado en menuOptions
 
 func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
-	btnSound.modulate = COLOR_INACTIVO
-	btnControls.modulate = COLOR_INACTIVO
+	for boton in botonesMenuOptions:
+		boton.modulate = COLOR_INACTIVO
 	
 	botonActivo.modulate = COLOR_ACTIVO
-	menuSound.visible = false
-	menuControls.visible = false
-	paginaActiva.visible = true
+	
+	for submenu in submenusOptions:
+		submenu.hide()
+	
+	paginaActiva.show()
