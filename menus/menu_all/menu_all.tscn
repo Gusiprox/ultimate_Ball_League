@@ -62,7 +62,12 @@ layout_mode = 1
 
 [node name="MenuInventory" parent="contMenus" unique_id=199060036 instance=ExtResource("10_hqlig")]
 visible = false
-layout_mode = 1
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="NavBar" parent="." unique_id=1305611965 instance=ExtResource("2_0rnwl")]
 offset_left = -1.0

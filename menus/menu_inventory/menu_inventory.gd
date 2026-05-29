@@ -3,10 +3,10 @@ extends Control
 const COLOR_ACTIVO = Color(1, 1, 1, 1)
 const COLOR_INACTIVO = Color(0.634, 0.634, 0.634, 1.0)
 
-@onready var charactersPage = $marginMenu/Control/charactersPage
-@onready var hatsPage = $marginMenu/Control/hatsPage
-@onready var btnCharactersPage = $marginMenu/Control/contButtons/btnCharactersPage
-@onready var btnHatsPage = $marginMenu/Control/contButtons/btnHatsPage
+@onready var charactersPage = $marginMenuInventory/charactersPage
+@onready var hatsPage = $marginMenuInventory/hatsPage
+@onready var btnCharactersPage = $marginMenuInventory/contButtons/btnCharactersPage
+@onready var btnHatsPage = $marginMenuInventory/contButtons/btnHatsPage
 
 func _ready() -> void:
 	actualizarBotones(btnCharactersPage, charactersPage)
