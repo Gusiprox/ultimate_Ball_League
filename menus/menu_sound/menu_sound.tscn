@@ -27,7 +27,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_45ymv")
 theme_override_font_sizes/font_size = 18
-text = "KEY_MUSIC"
+text = "Música"
 
 [node name="contAdjustMusic" type="HBoxContainer" parent="contMenuSound" unique_id=591970221]
 layout_mode = 2

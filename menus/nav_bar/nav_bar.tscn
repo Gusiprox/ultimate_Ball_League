@@ -105,7 +105,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "KEY_PLAY"
+text = "Jugar"
 autowrap_mode = 2
 
 [node name="btnMenuEditPlayer" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=2103016809]
@@ -114,7 +114,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "KEY_EDIT_CHAR"
+text = "Editar personaje"
 autowrap_mode = 2
 
 [node name="btnMenuEditTeam" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=1697499274]
@@ -122,7 +122,7 @@ custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "KEY_EDIT_TEAM"
+text = "Editar equipo"
 autowrap_mode = 2
 
 [node name="btnMenuGacha" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=141373700]
@@ -131,7 +131,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "KEY_GACHA"
+text = "Gacha"
 autowrap_mode = 2
 
 [node name="btnMenuStore" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=1926674001]
@@ -139,7 +139,7 @@ custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "KEY_STORE"
+text = "Tienda"
 autowrap_mode = 2
 
 [node name="btnMenuInventory" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=274448116]
@@ -147,7 +147,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
-text = "KEY_INVENTORY"
+text = "Inventario"
 autowrap_mode = 2
 
 [node name="contRightSide" type="HBoxContainer" parent="marginNavBar/contNavBarElements" unique_id=774483391]
@@ -281,19 +281,18 @@ layout_mode = 2
 
 [node name="btnOptions" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=884390658]
 layout_mode = 2
-text = "KEY_OPTIONS"
+text = "Opciones"
 
 [node name="btnSignOut" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=279281857]
 layout_mode = 2
-text = "KEY_LOG_OUT"
+text = "Cerrar sesión"
 
 [node name="btnExit" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=867858406]
 layout_mode = 2
 theme = ExtResource("4_qkb7d")
-text = "KEY_EXIT"
+text = "Salir"
 
 [node name="MenuExit" type="Panel" parent="marginMenu/Control" unique_id=1987702965]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -328,7 +327,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("7_hbexq")
-text = "KEY_EXIT_QUEST"
+text = "¿Salir del juego?"
 
 [node name="menuExitBtnCont" type="HBoxContainer" parent="marginMenu/Control/MenuExit/contMenuExitElem" unique_id=1628787548]
 layout_mode = 2
@@ -339,15 +338,16 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("7_qrvp1")
-text = "KEY_YES"
+text = "Sí"
 
 [node name="btnCancelExit" type="Button" parent="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont" unique_id=1671722182]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("8_hbexq")
-text = "KEY_NO"
+text = "No"
 
 [node name="MenuOptions" type="Panel" parent="marginMenu/Control" unique_id=314493432]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -398,7 +398,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "KEY_SOUND"
+text = "Sonido"
 autowrap_mode = 2
 
 [node name="btnControls" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1712988703]
@@ -406,13 +406,13 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "KEY_CONTROLS"
+text = "Controles"
 autowrap_mode = 2
 
 [node name="btnLanguages" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1615357564]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "KEY_LANGUAGES"
+text = "Idiomas"
 autowrap_mode = 2
 
 [node name="MenuControls" parent="marginMenu/Control/MenuOptions" unique_id=134436808 instance=ExtResource("14_b4dpc")]

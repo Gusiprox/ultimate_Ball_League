@@ -1,44 +1,44 @@
 keys,es,en
-KEY_PLAY,Jugar,Play
-KEY_LOGIN,Iniciar sesión,Login
-KEY_CREATE_ACCOUNT,Crear cuenta,Create account
-KEY_QUEST_ACCOUNT,¿No tienes cuenta?,Don't have an account?
-KEY_EDIT_CHAR,Editar personaje,Edit character
-KEY_EDIT_TEAM,Editar equipo,Edit team
-KEY_GACHA,Gacha,Gacha
-KEY_STORE,Tienda,Store
-KEY_INVENTORY,Inventario,Inventory
-KEY_OPTIONS,Opciones,Options
-KEY_LOG_OUT,Cerrar sesión,Log out
-KEY_EXIT,Salir,Exit
-KEY_EXIT_QUEST,¿Salir del juego?,¿Close the game?
-KEY_YES,Sí,Yes
-KEY_NO,No,No
-KEY_HATS,Sombreros,Hats
-KEY_EQUIP,Equipar,Equip
-KEY_CHARACTERS,Personajes,Characters
-KEY_SAVE_TEAM,Guardar equipo,Save team
-KEY_BANNER_NAME,Permanente,Permanent
-KEY_ONE_PULL,1 Tirada,1 Pull
-KEY_TEN_PULLS,10 Tiradas,10 Pulls
-KEY_BUY,Comprar,Buy
-KEY_MUSIC,Música,Music
-KEY_STATS,Estadísticas,Stats
-KEY_PUSH_STRENGTH,Fuerza de empuje,Push strength
-KEY_PUSH_RESISTANCE,Resistencia de empuje,Push resistance
-KEY_SPEED,Velocidad,Speed
-KEY_ABILITY,Habilidad,Ability
-KEY_TALENT,Talento,Talent
-KEY_SOUND,Sonido,Sound
-KEY_ES,Español,Spanish
-KEY_EN,Inglés,English
-KEY_LANGUAGES,Idiomas,Languages
-KEY_MENU,Menú,Menu
-KEY_RESUME,Reanudar,Resume
-KEY_WIN,Victoria,Victory
-KEY_LOSE,Derrota,Defeat
-KEY_PULLS_EARNED,Tiradas ganadas:,Pulls earned:
-KEY_COINS_EARNED,Monedas ganadas:,Coins earned:
-KEY_RETURN,Volver,Return
-KEY_CONTROLS,Controles,Controls
-KEY_START,Empezar,Start
+Jugar,Jugar,Play
+Iniciar sesión,Iniciar sesión,Login
+Crear cuenta,Crear cuenta,Create account
+¿No tienes cuenta?,¿No tienes cuenta?,Don't have an account?
+Editar personaje,Editar personaje,Edit character
+Editar equipo,Editar equipo,Edit team
+Gacha,Gacha,Gacha
+Tienda,Tienda,Store
+Inventario,Inventario,Inventory
+Opciones,Opciones,Options
+Cerrar sesión,Cerrar sesión,Log out
+Salir,Salir,Exit
+¿Salir del juego?,¿Salir del juego?,¿Close the game?
+Sí,Sí,Yes
+No,No,No
+Sombreros,Sombreros,Hats
+Equipar,Equipar,Equip
+Personajes,Personajes,Characters
+Guardar equipo,Guardar equipo,Save team
+Permanente,Permanente,Permanent
+1 Tirada,1 Tirada,1 Pull
+10 Tiradas,10 Tiradas,10 Pulls
+Comprar,Comprar,Buy
+Música,Música,Music
+Estadísticas,Estadísticas,Stats
+Fuerza de empuje,Fuerza de empuje,Push strength
+Resistencia de empuje,Resistencia de empuje,Push resistance
+Velocidad,Velocidad,Speed
+Habilidad,Habilidad,Ability
+Talento,Talento,Talent
+Sonido,Sonido,Sound
+Español,Español,Spanish
+Inglés,Inglés,English
+Idiomas,Idiomas,Languages
+Menú,Menú,Menu
+Reanudar,Reanudar,Resume
+Victoria,Victoria,Victory
+Derrota,Derrota,Defeat
+Tiradas ganadas:,Tiradas ganadas:,Pulls earned:
+Monedas ganadas:,Monedas ganadas:,Coins earned:
+Volver,Volver,Return
+Controles,Controles,Controls
+Empezar,Empezar,Start

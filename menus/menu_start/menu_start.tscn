@@ -89,7 +89,7 @@ uppercase = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
-text = "KEY_START"
+text = "Empezar"
 
 [node name="btnExit" type="Button" parent="." unique_id=1809097881]
 layout_mode = 0
@@ -163,7 +163,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("10_uv0w5")
-text = "KEY_LOGIN"
+text = "Iniciar sesión"
 label_settings = SubResource("LabelSettings_lnwt5")
 
 [node name="space" type="Control" parent="panelLogin/contLoginElem/contTitle" unique_id=929053642]
@@ -179,7 +179,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
-text = "KEY_LOGIN"
+text = "Iniciar sesión"
 
 [node name="contCreateUser" type="HBoxContainer" parent="panelLogin/contLoginElem" unique_id=1275766305]
 layout_mode = 2
@@ -188,14 +188,14 @@ size_flags_horizontal = 4
 [node name="lblCreateUser" type="Label" parent="panelLogin/contLoginElem/contCreateUser" unique_id=1983271161]
 layout_mode = 2
 theme = ExtResource("7_58ttj")
-text = "KEY_QUEST_ACCOUNT"
+text = "¿No tienes cuenta?"
 label_settings = SubResource("LabelSettings_yddou")
 
 [node name="btnOpenCreateUser" type="Button" parent="panelLogin/contLoginElem/contCreateUser" unique_id=487387173]
 layout_mode = 2
 theme = ExtResource("7_bmxmf")
 theme_override_font_sizes/font_size = 13
-text = "KEY_CREATE_ACCOUNT"
+text = "Crear cuenta"
 
 [node name="btnCloseLogin" type="Button" parent="panelLogin" unique_id=850601247]
 layout_mode = 0
@@ -207,7 +207,6 @@ theme = ExtResource("10_y7emq")
 text = "X"
 
 [node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -263,7 +262,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("7_58ttj")
-text = "KEY_CREATE_ACCOUNT"
+text = "Crear cuenta"
 label_settings = SubResource("LabelSettings_a2csu")
 
 [node name="conTextboxAndBtn" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=615740308]
@@ -276,7 +275,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_bond3")
 theme_override_font_sizes/font_size = 13
-text = "KEY_CREATE_ACCOUNT"
+text = "Crear cuenta"
 
 [connection signal="pressed" from="contGameTitleAndBtn/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]

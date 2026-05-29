@@ -62,7 +62,7 @@ theme_override_constants/separation = 18
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_n0moq")
-text = "KEY_CHARACTERS"
+text = "Personajes"
 
 [node name="ScrollList" parent="MenuCharacters/contListCharacters" unique_id=124515402 instance=ExtResource("3_uh1lp")]
 layout_mode = 2
@@ -86,4 +86,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_4uk4v")
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_uh1lp")
-text = "KEY_SAVE_TEAM"
+text = "Guardar equipo"

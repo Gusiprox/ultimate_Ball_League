@@ -63,7 +63,7 @@ theme_override_constants/separation = 18
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_f7lkf")
-text = "KEY_HATS"
+text = "Sombreros"
 
 [node name="ScrollList" parent="MenuHats/VBoxContainer" unique_id=124515402 instance=ExtResource("4_5hpj6")]
 layout_mode = 2
@@ -93,7 +93,7 @@ offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_7le24")
-text = "KEY_EDIT_CHAR"
+text = "Editar personaje"
 autowrap_mode = 2
 
 [node name="character" type="SubViewportContainer" parent="MenuViewChar" unique_id=1867937938]

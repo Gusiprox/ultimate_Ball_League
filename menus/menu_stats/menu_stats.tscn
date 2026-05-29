@@ -76,7 +76,7 @@ layout_mode = 2
 theme = ExtResource("1_j2m48")
 theme_override_colors/font_color = Color(0.892893, 0.8327691, 0.28392035, 1)
 theme_override_font_sizes/font_size = 20
-text = "KEY_STATS"
+text = "Estadísticas"
 
 [node name="contStatsElem" type="HBoxContainer" parent="contStats" unique_id=1320226506]
 layout_mode = 2
@@ -88,27 +88,27 @@ layout_mode = 2
 [node name="lblPushStrength" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=1334296817]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
-text = "KEY_PUSH_STRENGTH"
+text = "Fuerza de empuje"
 
 [node name="lblPushResistence" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=996710402]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
-text = "KEY_PUSH_RESISTANCE"
+text = "Resistencia de empuje"
 
 [node name="lblSpeed" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=1840554877]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
-text = "KEY_SPEED"
+text = "Velocidad"
 
 [node name="lblSkill" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=2022971807]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
-text = "KEY_ABILITY"
+text = "Habilidad"
 
 [node name="lblTalent" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=1402295341]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
-text = "KEY_TALENT"
+text = "Talento"
 
 [node name="contNumStats" type="VBoxContainer" parent="contStats/contStatsElem" unique_id=1470486185]
 layout_mode = 2

@@ -26,12 +26,12 @@ theme_override_constants/separation = 20
 [node name="btnEs" type="Button" parent="contBtnLanguages" unique_id=510516409]
 layout_mode = 2
 theme = ExtResource("1_wftcm")
-text = "KEY_ES"
+text = "Español"
 
 [node name="btnEn" type="Button" parent="contBtnLanguages" unique_id=1858723271]
 layout_mode = 2
 theme = ExtResource("1_wftcm")
-text = "KEY_EN"
+text = "Inglés"
 
 [connection signal="pressed" from="contBtnLanguages/btnEs" to="." method="_on_btn_es_pressed"]
 [connection signal="pressed" from="contBtnLanguages/btnEn" to="." method="_on_btn_en_pressed"]
