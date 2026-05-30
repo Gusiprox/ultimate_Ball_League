@@ -16,7 +16,7 @@ offset_bottom = 142.0
 theme = ExtResource("1_bubac")
 script = ExtResource("1_qcj7k")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1417854103]
+[node name="contCharacterCard" type="VBoxContainer" parent="." unique_id=1678937318]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,19 +30,15 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="cardContainter" type="VBoxContainer" parent="MarginContainer" unique_id=1678937318]
-layout_mode = 2
-mouse_filter = 2
 theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/cardContainter" unique_id=1521894613]
+[node name="contCardElem" type="HBoxContainer" parent="contCharacterCard" unique_id=1521894613]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 1
 alignment = 1
 
-[node name="lblName" type="Label" parent="MarginContainer/cardContainter/HBoxContainer" unique_id=1575995712]
+[node name="lblName" type="Label" parent="contCharacterCard/contCardElem" unique_id=1575995712]
 custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -56,7 +52,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 max_lines_visible = 2
 
-[node name="btnInfo" type="Button" parent="MarginContainer/cardContainter/HBoxContainer" unique_id=1282074362]
+[node name="btnInfo" type="Button" parent="contCharacterCard/contCardElem" unique_id=1282074362]
 visible = false
 texture_filter = 4
 custom_minimum_size = Vector2(17, 20)
@@ -69,40 +65,42 @@ icon = ExtResource("5_77pla")
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="character" type="SubViewportContainer" parent="MarginContainer/cardContainter" unique_id=1325129908]
+[node name="character" type="SubViewportContainer" parent="contCharacterCard" unique_id=1325129908]
 custom_minimum_size = Vector2(20, 60)
 layout_mode = 2
 mouse_filter = 2
 stretch = true
 
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/cardContainter/character" unique_id=546870979]
+[node name="SubViewport" type="SubViewport" parent="contCharacterCard/character" unique_id=546870979]
 own_world_3d = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(56, 60)
 render_target_update_mode = 4
 
-[node name="camCard" type="Camera3D" parent="MarginContainer/cardContainter/character/SubViewport" unique_id=609083509]
+[node name="camCard" type="Camera3D" parent="contCharacterCard/character/SubViewport" unique_id=609083509]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
 projection = 1
 
-[node name="light" type="DirectionalLight3D" parent="MarginContainer/cardContainter/character/SubViewport" unique_id=251512817]
+[node name="light" type="DirectionalLight3D" parent="contCharacterCard/character/SubViewport" unique_id=251512817]
 transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.7071068, 0.7071068, -0.5, 0.5, 0, 0, 0)
 light_energy = 1.5
 
-[node name="anchor" type="Marker3D" parent="MarginContainer/cardContainter/character/SubViewport" unique_id=1001169964]
+[node name="anchor" type="Marker3D" parent="contCharacterCard/character/SubViewport" unique_id=1001169964]
 
-[node name="modeloPrueba" type="MeshInstance3D" parent="MarginContainer/cardContainter/character/SubViewport/anchor" unique_id=1871552549]
+[node name="modeloPrueba" type="MeshInstance3D" parent="contCharacterCard/character/SubViewport/anchor" unique_id=1871552549]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_aseyu")
 
-[node name="btnEquip" type="Button" parent="MarginContainer/cardContainter" unique_id=651566328]
+[node name="btnEquip" type="Button" parent="contCharacterCard" unique_id=651566328]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme = ExtResource("4_syb2r")
 theme_override_font_sizes/font_size = 9
 text = "Equipar"
+autowrap_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="pressed" from="MarginContainer/cardContainter/HBoxContainer/btnInfo" to="." method="_on_btn_info_pressed"]
+[connection signal="pressed" from="contCharacterCard/contCardElem/btnInfo" to="." method="_on_btn_info_pressed"]

@@ -58,7 +58,7 @@ custom_minimum_size = Vector2(0, 220)
 layout_mode = 2
 texture = ExtResource("3_d8snh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=74989540]
+[node name="contStats" type="VBoxContainer" parent="." unique_id=74989540]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.51600003
@@ -71,69 +71,69 @@ offset_right = 0.31347656
 offset_bottom = -3.0517578e-05
 theme_override_constants/separation = 10
 
-[node name="lblStats" type="Label" parent="VBoxContainer" unique_id=1388891491]
+[node name="lblStats" type="Label" parent="contStats" unique_id=1388891491]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 theme_override_colors/font_color = Color(0.892893, 0.8327691, 0.28392035, 1)
 theme_override_font_sizes/font_size = 20
 text = "Estadísticas"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1320226506]
+[node name="contStatsElem" type="HBoxContainer" parent="contStats" unique_id=1320226506]
 layout_mode = 2
 theme_override_constants/separation = 23
 
-[node name="contNameStats" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1886543289]
+[node name="contNameStats" type="VBoxContainer" parent="contStats/contStatsElem" unique_id=1886543289]
 layout_mode = 2
 
-[node name="lblPushStrength" type="Label" parent="VBoxContainer/HBoxContainer/contNameStats" unique_id=1334296817]
+[node name="lblPushStrength" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=1334296817]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Fuerza de empuje"
 
-[node name="lblPushResistence" type="Label" parent="VBoxContainer/HBoxContainer/contNameStats" unique_id=996710402]
+[node name="lblPushResistence" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=996710402]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Resistencia de empuje"
 
-[node name="lblSpeed" type="Label" parent="VBoxContainer/HBoxContainer/contNameStats" unique_id=1840554877]
+[node name="lblSpeed" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=1840554877]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Velocidad"
 
-[node name="lblSkill" type="Label" parent="VBoxContainer/HBoxContainer/contNameStats" unique_id=2022971807]
+[node name="lblSkill" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=2022971807]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Habilidad"
 
-[node name="lblTalent" type="Label" parent="VBoxContainer/HBoxContainer/contNameStats" unique_id=1402295341]
+[node name="lblTalent" type="Label" parent="contStats/contStatsElem/contNameStats" unique_id=1402295341]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Talento"
 
-[node name="contNumbStats" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1470486185]
+[node name="contNumStats" type="VBoxContainer" parent="contStats/contStatsElem" unique_id=1470486185]
 layout_mode = 2
 
-[node name="lblPushStrengthStat" type="Label" parent="VBoxContainer/HBoxContainer/contNumbStats" unique_id=1441559655]
-layout_mode = 2
-theme = ExtResource("1_j2m48")
-text = "0"
-
-[node name="lblPushResistenceStat" type="Label" parent="VBoxContainer/HBoxContainer/contNumbStats" unique_id=1570811280]
+[node name="lblPushStrengthStat" type="Label" parent="contStats/contStatsElem/contNumStats" unique_id=1441559655]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "0"
 
-[node name="lblSpeedStat" type="Label" parent="VBoxContainer/HBoxContainer/contNumbStats" unique_id=80853779]
+[node name="lblPushResistenceStat" type="Label" parent="contStats/contStatsElem/contNumStats" unique_id=1570811280]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "0"
 
-[node name="lblSkillStat" type="Label" parent="VBoxContainer/HBoxContainer/contNumbStats" unique_id=122797269]
+[node name="lblSpeedStat" type="Label" parent="contStats/contStatsElem/contNumStats" unique_id=80853779]
+layout_mode = 2
+theme = ExtResource("1_j2m48")
+text = "0"
+
+[node name="lblSkillStat" type="Label" parent="contStats/contStatsElem/contNumStats" unique_id=122797269]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Salto"
 
-[node name="lblTalentStat" type="Label" parent="VBoxContainer/HBoxContainer/contNumbStats" unique_id=1527839774]
+[node name="lblTalentStat" type="Label" parent="contStats/contStatsElem/contNumStats" unique_id=1527839774]
 layout_mode = 2
 theme = ExtResource("1_j2m48")
 text = "Rebote "

@@ -1,5 +1,10 @@
 extends Control
 
+const PATH_MENU_ALL = "res://menus/menu_all/menu_all.tscn"
+const TIEMPO_ANIMACION : float = 0.2
+const DISTANCIA_ANIMACION: int = 20
+const OPACIDAD_ANIMACION: float = 1.0
+
 @onready var menuLogin = $panelLogin
 @onready var menuCreate = $panelCreateUser
 @onready var backgroundBlur = $backgroundBlur
@@ -7,11 +12,10 @@ extends Control
 var menuActual: Control = null
 var transicionando: bool = false
 var posicionesIniciales = {}
-var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
 
 func _ready() -> void:
-	menuLogin.visible = false
-	menuCreate.visible = false
+	menuLogin.hide()
+	menuCreate.hide()
 	backgroundBlur.hide()
 	
 	# Guardamos el centro real
@@ -41,7 +45,7 @@ func _on_btn_close_create_user_pressed() -> void:
 
 func _on_btn_login_pressed() -> void:
 	#Gestionar que el usuario exista antes de cambiar de escena
-	get_tree().change_scene_to_file(pathMenuAll)
+	get_tree().change_scene_to_file(PATH_MENU_ALL)
 
 func _on_btn_exit_pressed() -> void:
 	get_tree().quit()
@@ -55,38 +59,20 @@ func cambiarMenu(menuNuevo: Control):
 	
 	transicionando = true
 	
-	# 1. SALIDA INSTANTÁNEA
 	if menuActual != null:
-		menuActual.hide()
-		# Reset de posición para que no se acumulen los +20px
-		menuActual.position = posicionesIniciales[menuActual]
+		GlobalMenus.resetearSalidaMenu(menuActual, posicionesIniciales[menuActual])
 	
-	# 2. PREPARAR ENTRADA
-	var posFinal = posicionesIniciales[menuNuevo]
-	menuNuevo.modulate.a = 0.0
-	menuNuevo.position.y = posFinal.y + 20 # Viene desde abajo
-	menuNuevo.show()
+	await GlobalMenus.animarEntrada(menuNuevo, posicionesIniciales[menuNuevo], false, TIEMPO_ANIMACION, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION).finished
 	
-	# 3. ANIMACIÓN
-	var tween = create_tween().set_parallel(true)
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	tween.tween_property(menuNuevo, "modulate:a", 1.0, 0.2)
-	tween.tween_property(menuNuevo, "position:y", posFinal.y, 0.2)
-	
-	tween.set_parallel(false)
-	tween.tween_callback(func():
-		menuActual = menuNuevo
-		transicionando = false
-	)
+	menuActual = menuNuevo
+	transicionando = false
 
 
 #Cerrar los menús login y create user
 
 func cerrarTodo():
 	if menuActual:
-		menuActual.hide()
-		menuActual.position = posicionesIniciales[menuActual]
+		GlobalMenus.resetearSalidaMenu(menuActual, posicionesIniciales[menuActual])
 	
 	menuActual = null
 	backgroundBlur.hide()

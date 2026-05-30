@@ -23,10 +23,15 @@ buses/default_bus_layout="uid://chkungmqewabk"
 
 PlayFabManager="*uid://cweb6sfc0rrca"
 PlayerData="*uid://cxps6o6f21yd6"
+GlobalMenus="*uid://dwyk0utyjyxie"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-playfab/plugin.cfg")
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://menus/common/languages/traducciones - Juego.en.translation", "res://menus/common/languages/traducciones - Juego.es.translation")
 
 [physics]
 

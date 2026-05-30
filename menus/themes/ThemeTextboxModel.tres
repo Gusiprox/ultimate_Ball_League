@@ -1,0 +1,26 @@
+[gd_resource type="Theme" format=3 uid="uid://ckyf5msryuj37"]
+
+[ext_resource type="FontFile" uid="uid://carx305sytmh" path="res://menus/fonts/Texturina12pt-ExtraBold.ttf" id="1_axov1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axov1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21de6"]
+bg_color = Color(0.70503664, 0.6897235, 0.5007539, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_color = Color(0.13319641, 0.13319641, 0.13319638, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(3, 3)
+
+[resource]
+LineEdit/colors/caret_color = Color(0.31061712, 0.31061712, 0.3106171, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+LineEdit/fonts/font = ExtResource("1_axov1")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_axov1")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_21de6")
