@@ -30,8 +30,6 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
-@onready var lblPulls = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls/lblPulls
-@onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
 @onready var lblUserName = $marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/lblUserName
 
 var submenus: Array = []
