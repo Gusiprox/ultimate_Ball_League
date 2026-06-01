@@ -3,9 +3,11 @@ extends Control
 var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
 @onready var email = $VBoxContainer/TextBoxEmail
 @onready var password = $VBoxContainer/TextBoxPassword
+@onready var contError = $VBoxContainer/contError
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	contError.hide()
 	PlayFabManager.client.logged_in.connect(_on_playfab_logged_in)
 	PlayFabManager.client.api_error.connect(_on_login_error)
 	
@@ -25,7 +27,7 @@ func _onButtonDown() -> void:
 		dictionary,
 		info_params
 	)
-	
+
 func _on_playfab_logged_in(data: LoginResult) -> void:
 	email.text = ""
 	password.text = ""
@@ -33,4 +35,12 @@ func _on_playfab_logged_in(data: LoginResult) -> void:
 	get_tree().change_scene_to_file(pathMenuAll)
 
 func _on_login_error(data) -> void:
+	if contError.visible:
+		contError.hide()
+		await get_tree().create_timer(0.07).timeout
+		contError.show()
+	else:
+		contError.show()
+	
 	push_warning(data)
+	

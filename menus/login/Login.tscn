@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://ckyf5msryuj37" path="res://menus/themes/ThemeTextboxModel.tres" id="3_3tut4"]
 [ext_resource type="PackedScene" uid="uid://b0w8kcruhj85p" path="res://menus/login/texts_boxes/TextBoxPassword.tscn" id="3_7s0xx"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_7s0xx"]
+[ext_resource type="Texture2D" uid="uid://fgh02wq8xier" path="res://menus/login/img/exclamation.png" id="5_0sfog"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="6_yrpmp"]
 
 [node name="Login" type="Control" unique_id=1365454647]
 layout_mode = 3
@@ -40,13 +42,32 @@ placeholder_text = "Email"
 [node name="TextBoxPassword" parent="VBoxContainer" unique_id=1746355214 instance=ExtResource("3_7s0xx")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-placeholder_text = "Password"
+placeholder_text = "Contraseña"
+
+[node name="contError" type="HBoxContainer" parent="VBoxContainer" unique_id=1289834192]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="imgExclamation" type="NinePatchRect" parent="VBoxContainer/contError" unique_id=340686327]
+texture_filter = 4
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("5_0sfog")
+
+[node name="lblError" type="Label" parent="VBoxContainer/contError" unique_id=527842825]
+layout_mode = 2
+theme = ExtResource("6_yrpmp")
+theme_override_colors/font_color = Color(0.9817845, 0.16471437, 0.08975806, 1)
+theme_override_font_sizes/font_size = 13
+text = "El email o la contraseña son incorrectos."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=360777239]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_7s0xx")
 theme_override_font_sizes/font_size = 20
-text = "Entrar"
+text = "Iniciar sesión"
 
 [connection signal="button_down" from="VBoxContainer/Button" to="." method="_onButtonDown"]
