@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ca7dby62rvtkh"]
 
 [ext_resource type="Script" uid="uid://dpbeu1k4c6bxu" path="res://menus/login/create_user.gd" id="1_dtfol"]
-[ext_resource type="Theme" uid="uid://cpr44s3wfwfoe" path="res://menus/themes/button/ThemeButtonCreateUser.tres" id="2_yy2fk"]
+[ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="2_yy2fk"]
 
 [node name="CreateUser" type="Control" unique_id=927097092]
 layout_mode = 3
@@ -42,7 +42,7 @@ layout_mode = 0
 offset_left = 448.0
 offset_top = 519.0
 offset_right = 688.0
-offset_bottom = 620.0
+offset_bottom = 581.0
 theme = ExtResource("2_yy2fk")
 text = "Crear Cuenta"
 

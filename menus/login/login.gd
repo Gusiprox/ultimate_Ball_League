@@ -1,16 +1,30 @@
 extends Control
 
+const EYE_ICON_PATH = "res://menus/login/img/eye.png"
+const EYE_SLASH_ICON_PATH = "res://menus/login/img/eyeSlash.png"
+
 var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
 @onready var email = $VBoxContainer/TextBoxEmail
 @onready var password = $VBoxContainer/TextBoxPassword
 @onready var contError = $VBoxContainer/contError
+@onready var btnSeePassword = $VBoxContainer/TextBoxPassword/btnSeePassword
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	contError.hide()
+	btnSeePassword.icon = load(EYE_SLASH_ICON_PATH)
 	PlayFabManager.client.logged_in.connect(_on_playfab_logged_in)
 	PlayFabManager.client.api_error.connect(_on_login_error)
+
+func _on_btn_see_password_pressed() -> void:
+	password.secret = not password.secret
 	
+	if password.secret:
+		btnSeePassword.icon = load(EYE_SLASH_ICON_PATH)
+	else:
+		btnSeePassword.icon = load(EYE_ICON_PATH)
+
+
 func _onButtonDown() -> void:
 	
 	var emailString = email.text
@@ -43,4 +57,3 @@ func _on_login_error(data) -> void:
 		contError.show()
 	
 	push_warning(data)
-	
