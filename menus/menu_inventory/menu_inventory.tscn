@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ewmtt1hctdk1" path="res://menus/menu_inventory/menu_inventory.gd" id="1_6srfk"]
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_ohiwt"]
-[ext_resource type="Theme" uid="uid://bb40ti6vvkhrt" path="res://menus/themes/button/ThemeButtonInventory.tres" id="2_ijq7e"]
+[ext_resource type="Theme" uid="uid://candvwnbnsi4a" path="res://menus/themes/button/ThemeButtonInventory.tres" id="2_ijq7e"]
 [ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="2_ohiwt"]
 [ext_resource type="PackedScene" uid="uid://blmsbn36qp4x0" path="res://menus/scroll/scroll_store/scroll_list_store.tscn" id="3_6srfk"]
 [ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/panel/ThemePanel.tres" id="4_6srfk"]
@@ -92,6 +92,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="hatsPage" type="Panel" parent="marginMenuInventory" unique_id=859758016]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

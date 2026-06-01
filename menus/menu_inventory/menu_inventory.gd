@@ -12,9 +12,12 @@ var botonesInventario: Array = []
 var pagesInventario: Array = []
 
 func _ready() -> void:
-	actualizarBotones(btnCharactersPage, charactersPage)
+	charactersPage.show()
+	
 	botonesInventario = [btnCharactersPage, btnHatsPage]
 	pagesInventario = [charactersPage, hatsPage]
+	
+	actualizarBotones(btnCharactersPage, charactersPage)
 
 
 # --- BOTONES ---
