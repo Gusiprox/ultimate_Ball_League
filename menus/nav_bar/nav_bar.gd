@@ -58,9 +58,6 @@ func _ready() -> void:
 	submenusOptions = [menuSound, menuControls, menuLanguages]
 	cerrarMenus()
 	
-	lblPulls.text = str(PlayerData.gacha_tokens)
-	lblCoins.text = str(PlayerData.gold)
-	
 	actualizarBotonesOptions(btnSound, menuSound)
 	call_deferred(GUARDAR_POSICIONES_REALES)
 

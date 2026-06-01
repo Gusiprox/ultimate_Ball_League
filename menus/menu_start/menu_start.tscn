@@ -139,69 +139,57 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_a2csu")
 
-[node name="contTitle" type="VBoxContainer" parent="panelLogin" unique_id=1864759380]
-layout_mode = 0
-offset_left = 145.0
-offset_top = 105.75
-offset_right = 421.0
-offset_bottom = 164.75
-
-[node name="lblLogin" type="Label" parent="panelLogin/contTitle" unique_id=1656458228]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("10_uv0w5")
-text = "Iniciar sesión"
-label_settings = SubResource("LabelSettings_lnwt5")
-
-[node name="space" type="Control" parent="panelLogin/contTitle" unique_id=929053642]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="contLoginElem" type="VBoxContainer" parent="panelLogin" unique_id=1446213253]
+[node name="VBoxContainer" type="VBoxContainer" parent="panelLogin" unique_id=1913976322]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 218.0
-offset_top = -31.5
-offset_right = 494.5
-offset_bottom = 298.5
+offset_left = -261.0
+offset_top = -147.5
+offset_right = 261.0
+offset_bottom = 156.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = -16384
+
+[node name="contTitle" type="VBoxContainer" parent="panelLogin/VBoxContainer" unique_id=1864759380]
+layout_mode = 2
+
+[node name="lblLogin" type="Label" parent="panelLogin/VBoxContainer/contTitle" unique_id=1656458228]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("10_uv0w5")
+text = "Iniciar sesión"
+label_settings = SubResource("LabelSettings_lnwt5")
+
+[node name="Control" type="Control" parent="panelLogin/VBoxContainer/contTitle" unique_id=1619058514]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="contLoginElem" type="VBoxContainer" parent="panelLogin/VBoxContainer" unique_id=1446213253]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 alignment = 1
 
-[node name="Login" parent="panelLogin" unique_id=1365454647 instance=ExtResource("11_vn0s5")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 24.0
-offset_top = 113.75
-offset_right = 1076.0
-offset_bottom = 641.75
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.5, 0.5)
-size_flags_vertical = 8
+[node name="Login" parent="panelLogin/VBoxContainer/contLoginElem" unique_id=1365454647 instance=ExtResource("11_vn0s5")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="panelLogin_VBoxContainer#HBoxContainer" type="HBoxContainer" parent="panelLogin" unique_id=1275766305]
-layout_mode = 0
-offset_left = 183.0
-offset_top = 358.75
-offset_right = 378.0
-offset_bottom = 406.75
+[node name="contCreateUser" type="HBoxContainer" parent="panelLogin/VBoxContainer" unique_id=1275766305]
+layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="panelLogin_contLoginElem_contCreateUser#lblCreateUser" type="Label" parent="panelLogin/panelLogin_VBoxContainer#HBoxContainer" unique_id=1983271161]
+[node name="lblCreateUser" type="Label" parent="panelLogin/VBoxContainer/contCreateUser" unique_id=1983271161]
 layout_mode = 2
 theme = ExtResource("7_58ttj")
 text = "¿No tienes cuenta?"
 label_settings = SubResource("LabelSettings_yddou")
 
-[node name="panelLogin_contLoginElem_contCreateUser#btnOpenCreateUser" type="Button" parent="panelLogin/panelLogin_VBoxContainer#HBoxContainer" unique_id=487387173]
+[node name="btnOpenCreateUser" type="Button" parent="panelLogin/VBoxContainer/contCreateUser" unique_id=487387173]
 layout_mode = 2
 theme = ExtResource("7_bmxmf")
 theme_override_font_sizes/font_size = 13
@@ -290,6 +278,7 @@ text = "Crear cuenta"
 
 [connection signal="pressed" from="contGameTitleAndBtn/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="panelLogin/VBoxContainer/contCreateUser/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
 [connection signal="pressed" from="panelCreateUser/contCreateUserElem/conTextboxAndBtn/btnCreateUser" to="." method="_on_btn_create_user_pressed"]

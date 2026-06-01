@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4hk03ox1hgh8" path="res://menus/login/login.gd" id="1_73cux"]
 [ext_resource type="PackedScene" uid="uid://7bl1e760bt7h" path="res://menus/login/texts_boxes/TextBoxEmail.tscn" id="2_8b4be"]
+[ext_resource type="Theme" uid="uid://ckyf5msryuj37" path="res://menus/themes/ThemeTextboxModel.tres" id="3_3tut4"]
 [ext_resource type="PackedScene" uid="uid://b0w8kcruhj85p" path="res://menus/login/texts_boxes/TextBoxPassword.tscn" id="3_7s0xx"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_7s0xx"]
 
@@ -16,32 +17,36 @@ script = ExtResource("1_73cux")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1795720074]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.24700001
-anchor_top = 0.20500001
-anchor_right = 0.753
-anchor_bottom = 0.68500006
-offset_left = 0.45599365
-offset_top = 0.1599884
-offset_right = -0.4560547
-offset_bottom = 0.1199646
-theme_override_constants/separation = 50
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -94.0
+offset_right = 181.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_3tut4")
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="TextBoxEmail" parent="VBoxContainer" unique_id=1474601160 instance=ExtResource("2_8b4be")]
-clip_contents = true
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 placeholder_text = "Email"
 
 [node name="TextBoxPassword" parent="VBoxContainer" unique_id=1746355214 instance=ExtResource("3_7s0xx")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 placeholder_text = "Password"
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=360777239]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("4_7s0xx")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 text = "Entrar"
 
 [connection signal="button_down" from="VBoxContainer/Button" to="." method="_onButtonDown"]
