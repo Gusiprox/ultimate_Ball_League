@@ -8,6 +8,7 @@ var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
 @onready var password = $VBoxContainer/TextBoxPassword
 @onready var contError = $VBoxContainer/contError
 @onready var btnSeePassword = $VBoxContainer/TextBoxPassword/btnSeePassword
+@onready var btnLogin = $VBoxContainer/Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,8 @@ func _on_btn_see_password_pressed() -> void:
 
 
 func _onButtonDown() -> void:
+	
+	btnLogin.disabled = true
 	
 	var emailString = email.text
 	var passwordString = password.text
@@ -55,5 +58,7 @@ func _on_login_error(data) -> void:
 		contError.show()
 	else:
 		contError.show()
+	
+	btnLogin.disabled = false
 	
 	push_warning(data)
