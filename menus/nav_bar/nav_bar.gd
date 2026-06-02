@@ -49,24 +49,14 @@ func _ready() -> void:
 	submenus = [menuUser, menuExit, menuOptions, backgroundBlur, blocker, blockerAll]
 	submenusMenuUser = [menuUser, menuExit, menuOptions]
 	
+	menuUser.abrirOpcionesSolicitado.connect(func(): animarSubmenu(menuOptions))
+	menuUser.abrirSalirSolicitado.connect(func(): animarSubmenu(menuExit))
+	
 	menuOptions.cerradoSolicitado.connect(onMenuOptionsCerradoSolicitado)
 	menuExit.salidaCancelada.connect(menuExitCancelada)
 	
 	cerrarMenus()
 	call_deferred(GUARDAR_POSICIONES_REALES)
-
-
-func menuExitCancelada() -> void:
-	cerrarMenuExit()
-
-func cerrarMenuExit():
-	if menuExit.visible:
-		GlobalMenus.resetearSalidaMenu(menuExit, posicionesSubmenus[menuExit], true)
-		backgroundBlur.hide()
-		blocker.hide()
-
-func onMenuOptionsCerradoSolicitado() -> void:
-	cerrarMenuOpciones()
 
 
 #Traer del servidor las tiradas, monedas y el nombre del usuario
@@ -88,6 +78,18 @@ func onPullsCambiadas(nuevasPulls: int) -> void:
 func onCoinsCambiadas(nuevasCoins: int) -> void:
 	lblCoins.text = str(nuevasCoins)
 
+
+func menuExitCancelada() -> void:
+	cerrarMenuExit()
+
+func onMenuOptionsCerradoSolicitado() -> void:
+	cerrarMenuOpciones()
+
+func cerrarMenuExit():
+	if menuExit.visible:
+		GlobalMenus.resetearSalidaMenu(menuExit, posicionesSubmenus[menuExit], true)
+		backgroundBlur.hide()
+		blocker.hide()
 
 #Cerrar todos los menús (menus menuSound)
 
@@ -199,20 +201,6 @@ func actualizarBotonesNavBar(nombreActivo: String):
 				boton.modulate = COLOR_ACTIVO
 			else:
 				boton.modulate = COLOR_INACTIVO
-
-
-#Cambio de botón marcado en menuOptions
-
-func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
-	for boton in botonesMenuOptions:
-		boton.modulate = COLOR_INACTIVO
-	
-	botonActivo.modulate = COLOR_ACTIVO
-	
-	for menu in submenusOptions:
-		menu.hide()
-	
-	paginaActiva.show()
 
 
 #Animación de los submenús de navbar

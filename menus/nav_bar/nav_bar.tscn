@@ -6,10 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b5wsgxe3lirf3" path="res://menus/nav_bar/img/coin8.png" id="3_8xtyc"]
 [ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="4_7n53b"]
 [ext_resource type="Theme" uid="uid://d2b1d6mxolc60" path="res://menus/themes/letters/ThemePulls&Coins.tres" id="4_707ga"]
-[ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="4_qkb7d"]
 [ext_resource type="Theme" uid="uid://cbvnh2h6soglp" path="res://menus/themes/button/ThemeButtonUser.tres" id="5_7jpp7"]
-[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_hbexq"]
 [ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="8_ijfog"]
+[ext_resource type="PackedScene" uid="uid://brdcdhms2crqq" path="res://menus/menu_user/menu_user.tscn" id="9_7jpp7"]
 [ext_resource type="PackedScene" uid="uid://bnr4jowtaxyss" path="res://menus/menu_exit/menu_exit.tscn" id="11_707ga"]
 [ext_resource type="PackedScene" uid="uid://c8x74np5wlfvo" path="res://menus/menu_options/menu_options.tscn" id="13_ijfog"]
 
@@ -21,18 +20,6 @@ shadow_size = 10
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nnos"]
 shader = ExtResource("8_ijfog")
 shader_parameter/lod = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btywh"]
-bg_color = Color(0, 0.5735186, 0.6816697, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.6508853, 0.53544635, 0.2107302, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
 
 [node name="NavBar" type="Panel" unique_id=1305611965]
 anchors_preset = -1
@@ -209,68 +196,20 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.39215687)
 metadata/_edit_use_anchors_ = true
 
-[node name="MenuUser" type="Panel" parent="marginMenu/Control" unique_id=71924952]
-visible = false
-layout_mode = 0
-offset_left = 951.0
-offset_top = 9.0
-offset_right = 1147.0
-offset_bottom = 455.0
-mouse_filter = 1
-theme = ExtResource("2_btywh")
-theme_override_styles/panel = SubResource("StyleBoxFlat_btywh")
-metadata/_edit_use_anchors_ = true
-
-[node name="marginMenuUser" type="MarginContainer" parent="marginMenu/Control/MenuUser" unique_id=496627084]
+[node name="MenuUser" parent="marginMenu/Control" unique_id=1217168892 instance=ExtResource("9_7jpp7")]
+visible = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -55.5
-offset_top = -194.965
-offset_right = 55.5
-offset_bottom = 194.965
-grow_horizontal = 2
+offset_left = -196.0
+offset_top = -279.5
+offset_right = 0.0
+offset_bottom = 166.5
+grow_horizontal = 0
 grow_vertical = 2
-
-[node name="contMenuUserBtn" type="VBoxContainer" parent="marginMenu/Control/MenuUser/marginMenuUser" unique_id=998717814]
-custom_minimum_size = Vector2(120, 200)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_constants/separation = 10
-
-[node name="lblUserName" type="Label" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=1213828685]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("7_hbexq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="space" type="Control" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=232226824]
-custom_minimum_size = Vector2(100, 200)
-layout_mode = 2
-
-[node name="btnOptions" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=884390658]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-text = "Opciones"
-autowrap_mode = 2
-
-[node name="btnSignOut" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=279281857]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-text = "Cerrar sesión"
-autowrap_mode = 2
-
-[node name="btnExit" type="Button" parent="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn" unique_id=867858406]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 2
-theme = ExtResource("4_qkb7d")
-text = "Salir"
-autowrap_mode = 2
 
 [node name="MenuExit" parent="marginMenu/Control" unique_id=1918944567 instance=ExtResource("11_707ga")]
 layout_mode = 1
@@ -313,6 +252,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuInventory" to="." method="_on_btn_menu_inventory_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contRightSide/contBtnUser/btnMenuUser" to="." method="_on_btn_menu_user_pressed"]
 [connection signal="gui_input" from="marginMenu/Control/backgroundBlur" to="." method="_on_background_blur_gui_input"]
-[connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnOptions" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnExit" to="." method="_on_btn_exit_pressed"]
