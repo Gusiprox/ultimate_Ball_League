@@ -9,6 +9,5 @@ func _ready() -> void:
 func _on_btn_es_pressed() -> void:
 	TranslationServer.set_locale("es")
 
-
 func _on_btn_en_pressed() -> void:
 	TranslationServer.set_locale("en")

@@ -23,18 +23,12 @@ shader_parameter/lod = 2.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 shadow_size = 10
 
-[sub_resource type="LabelSettings" id="LabelSettings_lnwt5"]
-font_size = 22
-
 [sub_resource type="LabelSettings" id="LabelSettings_yddou"]
 font_size = 13
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmxmf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 shadow_size = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_a2csu"]
-font_size = 22
 
 [node name="MenuStart" type="Control" unique_id=1081471218]
 layout_mode = 3
@@ -161,8 +155,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("10_uv0w5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Iniciar sesión"
-label_settings = SubResource("LabelSettings_lnwt5")
 
 [node name="Control" type="Control" parent="panelLogin/VBoxContainer/contTitle" unique_id=1619058514]
 custom_minimum_size = Vector2(0, 10)
@@ -260,9 +254,9 @@ layout_mode = 2
 [node name="lblCreateUser" type="Label" parent="panelCreateUser/contCreateUserElem/contTitle" unique_id=1532704003]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("7_58ttj")
+theme = ExtResource("10_uv0w5")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Crear cuenta"
-label_settings = SubResource("LabelSettings_a2csu")
 
 [node name="conTextboxAndBtn" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=615740308]
 layout_mode = 2

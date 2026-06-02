@@ -114,3 +114,7 @@ func buscarCartasEnMenus():
 		for hijo in menu.find_children("*", "", true): 
 			if hijo.has_signal(CHAR_CARD_SIGNAL):
 				hijo.infoRequested.connect(abrirVentanaStats)
+
+func gestionarEscPulsado() -> void:
+	if has_node(NAV_BAR):
+		get_node(NAV_BAR).escPresionado()

@@ -176,6 +176,9 @@ func _on_btn_menu_inventory_pressed() -> void:
 	menuRequested.emit(SIGNAL_MENU_INVENTORY)
 
 
+func escPresionado():
+	animarSubmenu(menuUser)
+
 #Al hacer clic en el fondo difuminado se cierra menuUser
 
 func _on_background_blur_gui_input(event: InputEvent) -> void:

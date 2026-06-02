@@ -124,6 +124,7 @@ theme = ExtResource("4_7le24")
 text = "Cambiar personaje"
 
 [node name="MenuListChar" type="Panel" parent="." unique_id=1717209840]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0034722222

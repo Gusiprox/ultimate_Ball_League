@@ -1,6 +1,8 @@
 # res://menus/GlobalMenus.gd
 extends Node
 
+const MENU_ESC = "menuEsc"
+const METODO_GESTIONAR_ESC = "gestionarEscPulsado"
 # El tiempo estándar para todo el juego si no se especifica otra cosa
 const TIEMPO_ESTANDAR : float = 0.2
 const DISTANCIA_ESTANDAR: int = 20
@@ -46,3 +48,10 @@ func resetearSalidaMenu(nodo: Control, posicion_original: Vector2, es_global: bo
 		nodo.global_position = posicion_original
 	else:
 		nodo.position = posicion_original
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(MENU_ESC):
+		var escenaActual = get_tree().current_scene
+		
+		if escenaActual.has_method(METODO_GESTIONAR_ESC):
+			escenaActual.gestionarEscPulsado()

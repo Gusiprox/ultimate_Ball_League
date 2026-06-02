@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://by66aptryaod3"]
 
 [ext_resource type="Script" uid="uid://cus3noe4f3c7y" path="res://menus/menu_languages/menu_languages.gd" id="1_oao0d"]
-[ext_resource type="Theme" uid="uid://dqp7tmam5v5ld" path="res://menus/themes/button/ThemeButtonLanguages.tres" id="1_wftcm"]
+[ext_resource type="Theme" uid="uid://co7q0c7ltbkj2" path="res://menus/themes/button/ThemeButtonLanguages.tres" id="1_wftcm"]
 
 [node name="MenuLanguages" type="Panel" unique_id=1726208309]
 offset_right = 411.0
