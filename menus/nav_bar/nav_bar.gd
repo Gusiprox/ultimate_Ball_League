@@ -8,7 +8,6 @@ const SIGNAL_MENU_EDIT_TEAM = "editTeam"
 const SIGNAL_MENU_GACHA = "gacha"
 const SIGNAL_MENU_STORE = "store"
 const SIGNAL_MENU_INVENTORY = "inventory"
-const PATH_MENU_START = "res://menus/menu_start/menu_start.tscn"
 const TIEMPO_ANIMACION : float = 0.2
 const DISTANCIA_ANIMACION: int = 20
 const OPACIDAD_ANIMACION: float = 1.0
@@ -24,12 +23,9 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
 @onready var blocker = $blocker
 @onready var blockerAll = $blockerAll
-@onready var lblUserName = $marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/lblUserName
 
 var submenus: Array = []
 var submenusMenuUser: Array = []
-var submenusOptions: Array = []
-var botonesMenuOptions: Array = []
 var posicionesSubmenus = {}
 var vinculacionBotones = {
 	"btnMenuPlay": SIGNAL_MENU_PLAY,
@@ -64,7 +60,6 @@ func _ready() -> void:
 func traerDatos():
 	lblPulls.text = str(PlayerData.gacha_tokens)
 	lblCoins.text = str(PlayerData.gold)
-	lblUserName.text = str(PlayerData.username)
 	
 	PlayerData.gacha_tokens_changed.connect(onPullsCambiadas)
 	PlayerData.gold_changed.connect(onCoinsCambiadas)
@@ -91,14 +86,15 @@ func cerrarMenuExit():
 		backgroundBlur.hide()
 		blocker.hide()
 
-#Cerrar todos los menús (menus menuSound)
+
+#Cerrar todos los menús
 
 func cerrarMenus():
 	for menu in submenus:
 		menu.hide()
 
 
-# Cerrar el menú de opciones
+#Cerrar el menú de opciones
 
 func cerrarMenuOpciones():
 	menuOptions.hide()
@@ -137,16 +133,6 @@ func ocultarFondoStats():
 
 func _on_btn_menu_user_pressed() -> void:
 	animarSubmenu(menuUser)
-
-func _on_btn_exit_pressed() -> void:
-	animarSubmenu(menuExit)
-
-func _on_btn_sign_out_pressed() -> void:
-	get_tree().change_scene_to_file(PATH_MENU_START)
-	#Faltaría que en el servidor se cerrara la sesión actual
-
-func _on_btn_options_pressed() -> void:
-	animarSubmenu(menuOptions)
 
 func _on_btn_menu_play_pressed() -> void:
 	menuRequested.emit(SIGNAL_MENU_PLAY)
