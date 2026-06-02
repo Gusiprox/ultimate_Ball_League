@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bnr4jowtaxyss"]
+
+[ext_resource type="Script" uid="uid://c5p123irrc67k" path="res://menus/menu_exit/menu_exit.gd" id="1_85n5i"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="2_8e3n1"]
+[ext_resource type="Theme" uid="uid://boj57nrf2jk1c" path="res://menus/themes/button/ThemeButtonSi.tres" id="3_352kk"]
+[ext_resource type="Theme" uid="uid://3bshcc57m24a" path="res://menus/themes/button/ThemeButtonNo.tres" id="4_6lixq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xtyc"]
+bg_color = Color(2.117753e-06, 0.48270786, 0.5767922, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.6509804, 0.5372549, 0.21176471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MenuExit" type="Panel" unique_id=1918944567]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -64.5
+offset_right = 103.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_8xtyc")
+script = ExtResource("1_85n5i")
+
+[node name="contMenuExitElem" type="VBoxContainer" parent="." unique_id=1609747831]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.25
+offset_top = -42.0
+offset_right = 83.25
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="lblExitQuestion" type="Label" parent="contMenuExitElem" unique_id=960550259]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_8e3n1")
+text = "¿Salir del juego?"
+
+[node name="menuExitBtnCont" type="HBoxContainer" parent="contMenuExitElem" unique_id=1303519690]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="btnConfExit" type="Button" parent="contMenuExitElem/menuExitBtnCont" unique_id=1741614252]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_352kk")
+text = "Sí"
+autowrap_mode = 2
+
+[node name="btnCancelExit" type="Button" parent="contMenuExitElem/menuExitBtnCont" unique_id=951462634]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_6lixq")
+text = "No"
+autowrap_mode = 2
+
+[connection signal="pressed" from="contMenuExitElem/menuExitBtnCont/btnConfExit" to="." method="_on_btn_conf_exit_pressed"]
+[connection signal="pressed" from="contMenuExitElem/menuExitBtnCont/btnCancelExit" to="." method="_on_btn_cancel_exit_pressed"]

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://c8x74np5wlfvo"]
+
+[ext_resource type="Theme" uid="uid://c0jsv3iix0if4" path="res://menus/themes/button/ThemeButtonNav.tres" id="1_ddxig"]
+[ext_resource type="Script" uid="uid://dwr4iqafa3ile" path="res://menus/menu_options/menu_options.gd" id="2_6kjwe"]
+[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="2_yvhbw"]
+[ext_resource type="PackedScene" uid="uid://dh5onnggax8ar" path="res://menus/menu_controls/menu_controls.tscn" id="3_6kjwe"]
+[ext_resource type="PackedScene" uid="uid://5b5ioc53caga" path="res://menus/menu_sound/menu_sound.tscn" id="4_dp6ja"]
+[ext_resource type="PackedScene" uid="uid://by66aptryaod3" path="res://menus/menu_languages/menu_languages.tscn" id="5_4kaj2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n53b"]
+bg_color = Color(0, 0.57254905, 0.68235296, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.6509804, 0.5372549, 0.21176471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="MenuOptions" type="Panel" unique_id=1184830049]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.5
+offset_top = -232.5
+offset_right = 242.5
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_ddxig")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7n53b")
+script = ExtResource("2_6kjwe")
+
+[node name="btnCloseOptions" type="Button" parent="." unique_id=1091997450]
+layout_mode = 0
+offset_left = 460.0
+offset_top = -15.0
+offset_right = 490.0
+offset_bottom = 23.0
+theme = ExtResource("2_yvhbw")
+text = "X"
+
+[node name="marginMenuOpt" type="MarginContainer" parent="." unique_id=1671632474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.5
+offset_top = -189.85938
+offset_right = 249.5
+offset_bottom = 189.85938
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="contMenuOptBtn" type="HBoxContainer" parent="marginMenuOpt" unique_id=463393195]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="btnSonido" type="Button" parent="marginMenuOpt/contMenuOptBtn" unique_id=968695659]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Sonido"
+autowrap_mode = 2
+
+[node name="btnControls" type="Button" parent="marginMenuOpt/contMenuOptBtn" unique_id=863075394]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Controles"
+autowrap_mode = 2
+
+[node name="btnLanguages" type="Button" parent="marginMenuOpt/contMenuOptBtn" unique_id=644594521]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Idiomas"
+autowrap_mode = 2
+
+[node name="MenuControls" parent="." unique_id=134436808 instance=ExtResource("3_6kjwe")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07300001
+anchor_top = 0.23500001
+anchor_right = 0.92700005
+anchor_bottom = 0.915
+offset_left = -0.11300278
+offset_top = -0.042503357
+offset_right = 0.112976074
+offset_bottom = 0.10812378
+
+[node name="MenuSound" parent="." unique_id=1435186168 instance=ExtResource("4_dp6ja")]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07300001
+anchor_top = 0.23500001
+anchor_right = 0.92700005
+anchor_bottom = 0.915
+offset_left = -0.11300278
+offset_top = -0.042503357
+offset_right = 0.112976074
+offset_bottom = 0.10812378
+
+[node name="MenuLanguages" parent="." unique_id=1726208309 instance=ExtResource("5_4kaj2")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -120.75
+offset_right = 205.5
+offset_bottom = 189.14099
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="btnCloseOptions" to="." method="_on_btn_close_options_pressed"]
+[connection signal="pressed" from="marginMenuOpt/contMenuOptBtn/btnSonido" to="." method="_on_btn_sonido_pressed"]
+[connection signal="pressed" from="marginMenuOpt/contMenuOptBtn/btnControls" to="." method="_on_btn_controls_pressed"]
+[connection signal="pressed" from="marginMenuOpt/contMenuOptBtn/btnLanguages" to="." method="_on_btn_languages_pressed"]

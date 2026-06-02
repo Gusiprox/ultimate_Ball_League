@@ -9,13 +9,9 @@
 [ext_resource type="Theme" uid="uid://bp8mfjsiwnedp" path="res://menus/themes/button/ThemeButtonExit.tres" id="4_qkb7d"]
 [ext_resource type="Theme" uid="uid://cbvnh2h6soglp" path="res://menus/themes/button/ThemeButtonUser.tres" id="5_7jpp7"]
 [ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="7_hbexq"]
-[ext_resource type="Theme" uid="uid://boj57nrf2jk1c" path="res://menus/themes/button/ThemeButtonSi.tres" id="7_qrvp1"]
-[ext_resource type="Theme" uid="uid://3bshcc57m24a" path="res://menus/themes/button/ThemeButtonNo.tres" id="8_hbexq"]
 [ext_resource type="Shader" uid="uid://poxtqgiglwoi" path="res://menus/nav_bar/nav_bar.gdshader" id="8_ijfog"]
-[ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_f1e2e"]
-[ext_resource type="PackedScene" uid="uid://5b5ioc53caga" path="res://menus/menu_sound/menu_sound.tscn" id="14_1nnos"]
-[ext_resource type="PackedScene" uid="uid://dh5onnggax8ar" path="res://menus/menu_controls/menu_controls.tscn" id="14_b4dpc"]
-[ext_resource type="PackedScene" uid="uid://by66aptryaod3" path="res://menus/menu_languages/menu_languages.tscn" id="16_w0fg3"]
+[ext_resource type="PackedScene" uid="uid://bnr4jowtaxyss" path="res://menus/menu_exit/menu_exit.tscn" id="11_707ga"]
+[ext_resource type="PackedScene" uid="uid://c8x74np5wlfvo" path="res://menus/menu_options/menu_options.tscn" id="13_ijfog"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb7d"]
 bg_color = Color(0, 0.57254905, 0.68235296, 1)
@@ -33,30 +29,6 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.6508853, 0.53544635, 0.2107302, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xtyc"]
-bg_color = Color(2.117753e-06, 0.48270786, 0.5767922, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.6509804, 0.5372549, 0.21176471, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n53b"]
-bg_color = Color(0, 0.57254905, 0.68235296, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.6509804, 0.5372549, 0.21176471, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -300,175 +272,16 @@ theme = ExtResource("4_qkb7d")
 text = "Salir"
 autowrap_mode = 2
 
-[node name="MenuExit" type="Panel" parent="marginMenu/Control" unique_id=1987702965]
-visible = false
+[node name="MenuExit" parent="marginMenu/Control" unique_id=1918944567 instance=ExtResource("11_707ga")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = -64.5
-offset_right = 103.0
-offset_bottom = 64.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_8xtyc")
+metadata/_edit_use_anchors_ = true
 
-[node name="contMenuExitElem" type="VBoxContainer" parent="marginMenu/Control/MenuExit" unique_id=985553839]
+[node name="MenuOptions" parent="marginMenu/Control" unique_id=1184830049 instance=ExtResource("13_ijfog")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -83.25
-offset_top = -42.0
-offset_right = 83.25
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="lblExitQuestion" type="Label" parent="marginMenu/Control/MenuExit/contMenuExitElem" unique_id=1021731243]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("7_hbexq")
-text = "¿Salir del juego?"
-
-[node name="menuExitBtnCont" type="HBoxContainer" parent="marginMenu/Control/MenuExit/contMenuExitElem" unique_id=1628787548]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 15
-
-[node name="btnConfExit" type="Button" parent="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont" unique_id=851939895]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("7_qrvp1")
-text = "Sí"
-autowrap_mode = 2
-
-[node name="btnCancelExit" type="Button" parent="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont" unique_id=1671722182]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("8_hbexq")
-text = "No"
-autowrap_mode = 2
-
-[node name="MenuOptions" type="Panel" parent="marginMenu/Control" unique_id=314493432]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -238.5
-offset_top = -232.5
-offset_right = 242.5
-offset_bottom = 223.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme = ExtResource("2_btywh")
-theme_override_styles/panel = SubResource("StyleBoxFlat_7n53b")
-
-[node name="btnCloseOptions" type="Button" parent="marginMenu/Control/MenuOptions" unique_id=490192038]
-layout_mode = 0
-offset_left = 460.0
-offset_top = -15.0
-offset_right = 490.0
-offset_bottom = 23.0
-theme = ExtResource("10_f1e2e")
-text = "X"
-
-[node name="marginMenuOpt" type="MarginContainer" parent="marginMenu/Control/MenuOptions" unique_id=662009222]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -249.5
-offset_top = -189.85938
-offset_right = 249.5
-offset_bottom = 189.85938
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="contMenuOptBtn" type="HBoxContainer" parent="marginMenu/Control/MenuOptions/marginMenuOpt" unique_id=208082251]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/separation = 20
-
-[node name="btnSonido" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1416498175]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Sonido"
-autowrap_mode = 2
-
-[node name="btnControls" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1712988703]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Controles"
-autowrap_mode = 2
-
-[node name="btnLanguages" type="Button" parent="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn" unique_id=1615357564]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-text = "Idiomas"
-autowrap_mode = 2
-
-[node name="MenuControls" parent="marginMenu/Control/MenuOptions" unique_id=134436808 instance=ExtResource("14_b4dpc")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07300001
-anchor_top = 0.23500001
-anchor_right = 0.92700005
-anchor_bottom = 0.915
-offset_left = -0.11300278
-offset_top = -0.042503357
-offset_right = 0.112976074
-offset_bottom = 0.10812378
-
-[node name="MenuSound" parent="marginMenu/Control/MenuOptions" unique_id=1435186168 instance=ExtResource("14_1nnos")]
-visible = false
-z_index = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.07300001
-anchor_top = 0.23500001
-anchor_right = 0.92700005
-anchor_bottom = 0.915
-offset_left = -0.11300278
-offset_top = -0.042503357
-offset_right = 0.112976074
-offset_bottom = 0.10812378
-
-[node name="MenuLanguages" parent="marginMenu/Control/MenuOptions" unique_id=1726208309 instance=ExtResource("16_w0fg3")]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -205.5
-offset_top = -120.75
-offset_right = 205.5
-offset_bottom = 189.14099
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -240.5
+offset_top = -227.75
+offset_right = 240.5
+offset_bottom = 227.75
 
 [node name="blocker" type="ColorRect" parent="." unique_id=94079724]
 layout_mode = 1
@@ -503,9 +316,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnOptions" to="." method="_on_btn_options_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnSignOut" to="." method="_on_btn_sign_out_pressed"]
 [connection signal="pressed" from="marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/btnExit" to="." method="_on_btn_exit_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont/btnConfExit" to="." method="_on_btn_conf_exit_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuExit/contMenuExitElem/menuExitBtnCont/btnCancelExit" to="." method="_on_btn_cancel_exit_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuOptions/btnCloseOptions" to="." method="_on_btn_close_options_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido" to="." method="_on_btn_sonido_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls" to="." method="_on_btn_controls_pressed"]
-[connection signal="pressed" from="marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages" to="." method="_on_btn_languages_pressed"]

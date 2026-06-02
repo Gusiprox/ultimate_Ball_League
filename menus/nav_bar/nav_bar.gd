@@ -18,13 +18,7 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var menuUser = $marginMenu/Control/MenuUser
 @onready var menuExit = $marginMenu/Control/MenuExit
 @onready var menuOptions = $marginMenu/Control/MenuOptions
-@onready var menuSound = $marginMenu/Control/MenuOptions/MenuSound
-@onready var menuControls = $marginMenu/Control/MenuOptions/MenuControls
-@onready var menuLanguages = $marginMenu/Control/MenuOptions/MenuLanguages
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
-@onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
-@onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
-@onready var btnLanguages = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages
 @onready var contNavBarButtons = $marginNavBar/contNavBarElements/contNavBarButtons
 @onready var lblPulls = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls/lblPulls
 @onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
@@ -52,14 +46,27 @@ func _ready() -> void:
 	
 	traerDatos()
 	
-	submenus = [menuUser, menuExit, menuOptions, menuControls, menuLanguages, backgroundBlur, blocker, blockerAll]
+	submenus = [menuUser, menuExit, menuOptions, backgroundBlur, blocker, blockerAll]
 	submenusMenuUser = [menuUser, menuExit, menuOptions]
-	botonesMenuOptions = [btnSound, btnControls, btnLanguages]
-	submenusOptions = [menuSound, menuControls, menuLanguages]
-	cerrarMenus()
 	
-	actualizarBotonesOptions(btnSound, menuSound)
+	menuOptions.cerradoSolicitado.connect(onMenuOptionsCerradoSolicitado)
+	menuExit.salidaCancelada.connect(menuExitCancelada)
+	
+	cerrarMenus()
 	call_deferred(GUARDAR_POSICIONES_REALES)
+
+
+func menuExitCancelada() -> void:
+	cerrarMenuExit()
+
+func cerrarMenuExit():
+	if menuExit.visible:
+		GlobalMenus.resetearSalidaMenu(menuExit, posicionesSubmenus[menuExit], true)
+		backgroundBlur.hide()
+		blocker.hide()
+
+func onMenuOptionsCerradoSolicitado() -> void:
+	cerrarMenuOpciones()
 
 
 #Traer del servidor las tiradas, monedas y el nombre del usuario
@@ -132,30 +139,12 @@ func _on_btn_menu_user_pressed() -> void:
 func _on_btn_exit_pressed() -> void:
 	animarSubmenu(menuExit)
 
-func _on_btn_conf_exit_pressed() -> void:
-	get_tree().quit()
-
-func _on_btn_cancel_exit_pressed() -> void:
-	cerrarMenus()
-
 func _on_btn_sign_out_pressed() -> void:
 	get_tree().change_scene_to_file(PATH_MENU_START)
 	#Faltaría que en el servidor se cerrara la sesión actual
 
 func _on_btn_options_pressed() -> void:
 	animarSubmenu(menuOptions)
-
-func _on_btn_sonido_pressed() -> void:
-	actualizarBotonesOptions(btnSound, menuSound)
-
-func _on_btn_controls_pressed() -> void:
-	actualizarBotonesOptions(btnControls, menuControls)
-
-func _on_btn_languages_pressed() -> void:
-	actualizarBotonesOptions(btnLanguages, menuLanguages)
-
-func _on_btn_close_options_pressed() -> void:
-	cerrarMenuOpciones()
 
 func _on_btn_menu_play_pressed() -> void:
 	menuRequested.emit(SIGNAL_MENU_PLAY)
@@ -178,6 +167,7 @@ func _on_btn_menu_inventory_pressed() -> void:
 
 func escPresionado():
 	animarSubmenu(menuUser)
+
 
 #Al hacer clic en el fondo difuminado se cierra menuUser
 

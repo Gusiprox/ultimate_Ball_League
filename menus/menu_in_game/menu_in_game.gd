@@ -10,12 +10,6 @@ const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
 @onready var panelMenuInGame = $panelMenuInGame
 @onready var backgroundBlur = $backgroundBlur
 @onready var menuOptions = $MenuOptions
-@onready var menuControls = $MenuOptions/MenuControls
-@onready var menuSound = $MenuOptions/MenuSound
-@onready var menuLanguages = $MenuOptions/MenuLanguages
-@onready var btnSound = $MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
-@onready var btnControls = $MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
-@onready var btnLanguages = $MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages
 @onready var menuExit = $MenuExit
 
 var posicionesSubmenus = {}
@@ -26,17 +20,19 @@ var menus: Array = []
 func _ready() -> void:
 	
 	menus = [panelMenuInGame, menuExit, menuOptions]
-	submenusOptions = [menuSound, menuControls, menuLanguages]
-	botonesMenuOptions = [btnSound, btnControls, btnLanguages]
 	
+	menuOptions.cerradoSolicitado.connect(onMenuOptionsCerradoSolicitado)
+
 	abrirMenuInGame()
-	
 	call_deferred(GUARDAR_POSICIONES_REALES)
+
 
 func abrirMenuInGame():
 	backgroundBlur.show()
-	menuSound.show()
-	menuControls.hide()
+	panelMenuInGame.show()
+
+func onMenuOptionsCerradoSolicitado() -> void:
+	animarSubmenu(panelMenuInGame)
 
 func guardarPosicionesReales():
 	for m in menus:
@@ -63,18 +59,6 @@ func _on_btn_conf_exit_pressed() -> void:
 func _on_btn_cancel_exit_pressed() -> void:
 	animarSubmenu(panelMenuInGame)
 
-func _on_btn_close_options_pressed() -> void:
-	animarSubmenu(panelMenuInGame)
-
-func _on_btn_sonido_pressed() -> void:
-	actualizarBotonesOptions(btnSound, menuSound)
-
-func _on_btn_controls_pressed() -> void:
-	actualizarBotonesOptions(btnControls, menuControls)
-
-func _on_btn_languages_pressed() -> void:
-	actualizarBotonesOptions(btnLanguages, menuLanguages)
-
 
 #Animación de los submenús de MenuInGame
 
@@ -90,7 +74,7 @@ func animarSubmenu(menuObjetivo: Control):
 
 	backgroundBlur.show()
 
-	GlobalMenus.animar_entrada(menuObjetivo, posicionesSubmenus[menuObjetivo], true, TIEMPO_ANIMACION, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION)
+	GlobalMenus.animarEntrada(menuObjetivo, posicionesSubmenus[menuObjetivo], true, TIEMPO_ANIMACION, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION)
 
 
 #Cambio de botón marcado en menuOptions
