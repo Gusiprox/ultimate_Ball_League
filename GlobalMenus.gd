@@ -11,43 +11,43 @@ const OPACIDAD_ESTANDAR: float = 1.0
 # Anima la entrada de un menú controlando tiempo, distancia de desplazamiento y opacidad máxima.
 func animarEntrada(
 	nodo: Control, 
-	posicion_original: Vector2, 
-	es_global: bool = false, 
+	posicionOriginal: Vector2, 
+	esGlobal: bool = false, 
 	tiempo: float = TIEMPO_ESTANDAR, 
 	distancia: int = DISTANCIA_ESTANDAR, 
-	opacidad_maxima: float = OPACIDAD_ESTANDAR
+	opacidadMaxima: float = OPACIDAD_ESTANDAR
 ) -> Tween:
 	
 	nodo.modulate.a = 0.0
 	nodo.show()
 	
 	# Aplicamos el desplazamiento dinámico
-	if es_global:
-		nodo.global_position.y = posicion_original.y + distancia
+	if esGlobal:
+		nodo.global_position.y = posicionOriginal.y + distancia
 	else:
-		nodo.position.y = posicion_original.y + distancia
+		nodo.position.y = posicionOriginal.y + distancia
 		
 	var tween = create_tween().set_parallel(true)
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	
 	# Animamos la opacidad hacia el valor objetivo
-	tween.tween_property(nodo, "modulate:a", opacidad_maxima, tiempo)
+	tween.tween_property(nodo, "modulate:a", opacidadMaxima, tiempo)
 	
 	# Animamos la posición de vuelta a su origen
-	if es_global:
-		tween.tween_property(nodo, "global_position:y", posicion_original.y, tiempo)
+	if esGlobal:
+		tween.tween_property(nodo, "global_position:y", posicionOriginal.y, tiempo)
 	else:
-		tween.tween_property(nodo, "position:y", posicion_original.y, tiempo)
+		tween.tween_property(nodo, "position:y", posicionOriginal.y, tiempo)
 	
 	return tween
 
 # Resetea un menú a su estado oculto e inicial
-func resetearSalidaMenu(nodo: Control, posicion_original: Vector2, es_global: bool = false) -> void:
+func resetearSalidaMenu(nodo: Control, posicionOriginal: Vector2, esGlobal: bool = false) -> void:
 	nodo.hide()
-	if es_global:
-		nodo.global_position = posicion_original
+	if esGlobal:
+		nodo.global_position = posicionOriginal
 	else:
-		nodo.position = posicion_original
+		nodo.position = posicionOriginal
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(MENU_ESC):
