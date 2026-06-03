@@ -1,157 +1,247 @@
 extends Panel
 
+const CERRAR_VENTANA_STATS = "cerrarVentanaStats"
+const GUARDAR_POSICIONES_REALES = "guardarPosicionesReales"
+const SIGNAL_MENU_PLAY = "play"
+const SIGNAL_MENU_EDIT_CHAR = "editCharacter"
+const SIGNAL_MENU_EDIT_TEAM = "editTeam"
+const SIGNAL_MENU_GACHA = "gacha"
+const SIGNAL_MENU_STORE = "store"
+const SIGNAL_MENU_INVENTORY = "inventory"
+const PATH_MENU_START = "res://menus/menu_start/menu_start.tscn"
+const TIEMPO_ANIMACION : float = 0.2
+const DISTANCIA_ANIMACION: int = 20
+const OPACIDAD_ANIMACION: float = 1.0
+const COLOR_ACTIVO = Color(1, 1, 1, 1)
+const COLOR_INACTIVO = Color(0.577, 0.577, 0.577, 1.0)
+
 @onready var menuUser = $marginMenu/Control/MenuUser
 @onready var menuExit = $marginMenu/Control/MenuExit
 @onready var menuOptions = $marginMenu/Control/MenuOptions
+@onready var menuSound = $marginMenu/Control/MenuOptions/MenuSound
+@onready var menuControls = $marginMenu/Control/MenuOptions/MenuControls
+@onready var menuLanguages = $marginMenu/Control/MenuOptions/MenuLanguages
 @onready var backgroundBlur = $marginMenu/Control/backgroundBlur
+@onready var btnSound = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnSonido
+@onready var btnControls = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnControls
+@onready var btnLanguages = $marginMenu/Control/MenuOptions/marginMenuOpt/contMenuOptBtn/btnLanguages
+@onready var contNavBarButtons = $marginNavBar/contNavBarElements/contNavBarButtons
+@onready var lblPulls = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contPulls/lblPulls
+@onready var lblCoins = $marginNavBar/contNavBarElements/contRightSide/contCoinsAndPulls/contCoins/lblCoins
 @onready var blocker = $blocker
+@onready var blockerAll = $blockerAll
+@onready var lblUserName = $marginMenu/Control/MenuUser/marginMenuUser/contMenuUserBtn/lblUserName
 
-var color_activo = Color(1, 1, 1, 1)
-var color_inactivo = Color(0.634, 0.634, 0.634, 1.0)
-
-var vinculacion_botones = {
-	"btnMenuPlay": "play",
-	"btnMenuEditPlayer": "editCharacter",
-	"btnMenuEditTeam": "editTeam",
-	"btnMenuGacha": "gacha",
-	"btnMenuStore": "store",
+var submenus: Array = []
+var submenusMenuUser: Array = []
+var submenusOptions: Array = []
+var botonesMenuOptions: Array = []
+var posicionesSubmenus = {}
+var vinculacionBotones = {
+	"btnMenuPlay": SIGNAL_MENU_PLAY,
+	"btnMenuEditPlayer": SIGNAL_MENU_EDIT_CHAR,
+	"btnMenuEditTeam": SIGNAL_MENU_EDIT_TEAM,
+	"btnMenuGacha": SIGNAL_MENU_GACHA,
+	"btnMenuStore": SIGNAL_MENU_STORE,
+	"btnMenuInventory": SIGNAL_MENU_INVENTORY
 }
 
-var posiciones_submenus = {}
+signal menuRequested(menuName)
 
-signal menu_requested(menu_name)
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	menuUser.visible = false
-	menuExit.visible = false
-	menuOptions.visible = false
+	
+	traerDatos()
+	
+	submenus = [menuUser, menuExit, menuOptions, menuControls, menuLanguages, backgroundBlur, blocker, blockerAll]
+	submenusMenuUser = [menuUser, menuExit, menuOptions]
+	botonesMenuOptions = [btnSound, btnControls, btnLanguages]
+	submenusOptions = [menuSound, menuControls, menuLanguages]
+	cerrarMenus()
+	
+	lblPulls.text = str(PlayerData.gacha_tokens)
+	lblCoins.text = str(PlayerData.gold)
+	
+	actualizarBotonesOptions(btnSound, menuSound)
+	call_deferred(GUARDAR_POSICIONES_REALES)
+
+
+#Traer del servidor las tiradas, monedas y el nombre del usuario
+
+func traerDatos():
+	lblPulls.text = str(PlayerData.gacha_tokens)
+	lblCoins.text = str(PlayerData.gold)
+	lblUserName.text = str(PlayerData.username)
+	
+	PlayerData.gacha_tokens_changed.connect(onPullsCambiadas)
+	PlayerData.gold_changed.connect(onCoinsCambiadas)
+
+
+#Cambiar valor de tiradas y monedas
+
+func onPullsCambiadas(nuevasPulls: int) -> void:
+	lblPulls.text = str(nuevasPulls)
+
+func onCoinsCambiadas(nuevasCoins: int) -> void:
+	lblCoins.text = str(nuevasCoins)
+
+
+#Cerrar todos los menús (menus menuSound)
+
+func cerrarMenus():
+	for menu in submenus:
+		menu.hide()
+
+
+# Cerrar el menú de opciones
+
+func cerrarMenuOpciones():
+	menuOptions.hide()
+	blocker.hide()
+	backgroundBlur.hide()
+
+
+#Cerrar el menú user
+
+func cerrarMenuUser():
+	menuUser.hide()
 	backgroundBlur.hide()
 	blocker.hide()
-	
-	call_deferred("_guardar_posiciones_reales")
 
-func _guardar_posiciones_reales():
-	for m in [menuUser, menuExit, menuOptions]:
-		# Guardamos la GLOBAL, que es la posición real en pantalla
-		posiciones_submenus[m] = m.global_position
+
+#Guardar posiciones iniciales de los menús para que no se desplacen con el tween
+
+func guardarPosicionesReales():
+	for m in submenusMenuUser:
+		posicionesSubmenus[m] = m.global_position
 		m.hide()
 
+
+# Funciones usadas para poner o quitar el blur y block
+
+func mostrarFondoStats():
+	backgroundBlur.show()
+	blockerAll.show()
+
+func ocultarFondoStats():
+	backgroundBlur.hide()
+	blockerAll.hide()
+
+
+# --- BOTONES ---
+
 func _on_btn_menu_user_pressed() -> void:
-	animar_submenu(menuUser)
-	
-	if (blocker.visible == true):
-		blocker.visible = false
+	animarSubmenu(menuUser)
 
 func _on_btn_exit_pressed() -> void:
-	animar_submenu(menuExit)
+	animarSubmenu(menuExit)
 
 func _on_btn_conf_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_btn_cancel_exit_pressed() -> void:
-	menuExit.visible = false
-	backgroundBlur.visible = false
-	blocker.visible = false
+	cerrarMenus()
 
 func _on_btn_sign_out_pressed() -> void:
-	get_tree().change_scene_to_file("res://menus/menu_start/menu_start.tscn")
+	get_tree().change_scene_to_file(PATH_MENU_START)
 	#Faltaría que en el servidor se cerrara la sesión actual
 
-func _on_btn_menu_play_pressed() -> void:
-	menu_requested.emit("play")
-
-func _on_btn_menu_edit_player_pressed() -> void:
-	menu_requested.emit("editCharacter")
-
-func _on_btn_menu_edit_team_pressed() -> void:
-	menu_requested.emit("editTeam")
-
-func _on_btn_menu_gacha_pressed() -> void:
-	menu_requested.emit("gacha")
-
-func _on_btn_menu_store_pressed() -> void:
-	menu_requested.emit("store")
-
-func _on_btn_menu_inventory_pressed() -> void:
-	#No se ha creado todavía
-	pass # Replace with function body.
-
 func _on_btn_options_pressed() -> void:
-	animar_submenu(menuOptions)
+	animarSubmenu(menuOptions)
+
+func _on_btn_sonido_pressed() -> void:
+	actualizarBotonesOptions(btnSound, menuSound)
+
+func _on_btn_controls_pressed() -> void:
+	actualizarBotonesOptions(btnControls, menuControls)
+
+func _on_btn_languages_pressed() -> void:
+	actualizarBotonesOptions(btnLanguages, menuLanguages)
 
 func _on_btn_close_options_pressed() -> void:
-	menuOptions.visible = false
-	backgroundBlur.visible = false
-	blocker.visible = false
+	cerrarMenuOpciones()
+
+func _on_btn_menu_play_pressed() -> void:
+	menuRequested.emit(SIGNAL_MENU_PLAY)
+
+func _on_btn_menu_edit_player_pressed() -> void:
+	menuRequested.emit(SIGNAL_MENU_EDIT_CHAR)
+
+func _on_btn_menu_edit_team_pressed() -> void:
+	menuRequested.emit(SIGNAL_MENU_EDIT_TEAM)
+
+func _on_btn_menu_gacha_pressed() -> void:
+	menuRequested.emit(SIGNAL_MENU_GACHA)
+
+func _on_btn_menu_store_pressed() -> void:
+	menuRequested.emit(SIGNAL_MENU_STORE)
+
+func _on_btn_menu_inventory_pressed() -> void:
+	menuRequested.emit(SIGNAL_MENU_INVENTORY)
 
 
-#Fondo difuminado al abrir menuUser
+#Al hacer clic en el fondo difuminado se cierra menuUser
 
 func _on_background_blur_gui_input(event: InputEvent) -> void:
-	
 	if event is InputEventMouseButton and event.is_pressed():
 		
-		blocker.visible = false
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP or event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			return
 		
-		if (menuUser.visible == true && menuExit.visible == true):
-			menuExit.visible = false
-			
-		elif (menuUser.visible == true && menuOptions.visible == true):
-			menuOptions.visible = false
-			
-		elif (menuUser.visible == true):
-			menuUser.visible = false
-			backgroundBlur.visible = menuUser.visible
+		if menuExit.visible or menuOptions.visible:
+			return
+		
+		if get_parent().has_method(CERRAR_VENTANA_STATS):
+			get_parent().cerrarVentanaStats()
+		
+		if menuUser.visible:
+			cerrarMenuUser()
 
 
-#Cambio de foco al hacer clic en un botón
+#Cambio de botón marcado en los botones de navBar
 
-func actualizar_botones_visuales(nombre_activo: String):
-	# Buscamos en el contenedor donde están los botones
-	var contenedor = $marginNavBar/contNavBarElements/contNavBarButtons
-	
-	for boton in contenedor.get_children():
-		if boton is Button or boton is TextureButton:
+func actualizarBotonesNavBar(nombreActivo: String):
+	for boton in contNavBarButtons.get_children():
+		if boton is Button:
 			# Miramos en el diccionario qué "clave" tiene este botón
-			var clave_asignada = vinculacion_botones.get(boton.name, "")
+			var claveAsignada = vinculacionBotones.get(boton.name, "")
 			
-			if clave_asignada == nombre_activo:
-				boton.modulate = color_activo
-				boton.mouse_default_cursor_shape = Control.CURSOR_ARROW
+			if claveAsignada == nombreActivo:
+				boton.modulate = COLOR_ACTIVO
 			else:
-				boton.modulate = color_inactivo
-				boton.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+				boton.modulate = COLOR_INACTIVO
+
+
+#Cambio de botón marcado en menuOptions
+
+func actualizarBotonesOptions(botonActivo: Button, paginaActiva: Control):
+	for boton in botonesMenuOptions:
+		boton.modulate = COLOR_INACTIVO
+	
+	botonActivo.modulate = COLOR_ACTIVO
+	
+	for menu in submenusOptions:
+		menu.hide()
+	
+	paginaActiva.show()
 
 
 #Animación de los submenús de navbar
 
-func animar_submenu(menu_objetivo: Control):
-	# 1. Cerramos otros submenús abiertos al instante
-	for m in [menuUser, menuExit, menuOptions]:
-		if m != menu_objetivo and m.visible:
-			m.hide()
-			m.position = posiciones_submenus[m]
+func animarSubmenu(menuObjetivo: Control):
+	if not menuObjetivo.visible:
+		posicionesSubmenus[menuObjetivo] = menuObjetivo.global_position
+	
+	for m in submenusMenuUser:
+		if m != menuObjetivo and m.visible:
+			GlobalMenus.resetearSalidaMenu(m, posicionesSubmenus[m], true)
 
-	# 2. Si el menú ya estaba visible, lo cerramos (comportamiento de "toggle")
-	if menu_objetivo.visible:
-		menu_objetivo.hide()
-		menu_objetivo.position = posiciones_submenus[menu_objetivo]
+	if menuObjetivo.visible:
+		GlobalMenus.resetearSalidaMenu(menuObjetivo, posicionesSubmenus[menuObjetivo], true)
 		backgroundBlur.hide()
+		blocker.hide()
 		return
 
-	# 3. Preparar entrada
-	var pos_final = posiciones_submenus[menu_objetivo]
-	menu_objetivo.modulate.a = 0.0
-	# Aplicamos el desplazamiento a la posición GLOBAL
-	menu_objetivo.global_position.y = pos_final.y + 20 
-	menu_objetivo.show()
 	backgroundBlur.show()
 	blocker.show()
 
-	var tween = create_tween().set_parallel(true)
-	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	
-	tween.tween_property(menu_objetivo, "modulate:a", 1.0, 0.2)
-	# IMPORTANTE: Animar global_position
-	tween.tween_property(menu_objetivo, "global_position:y", pos_final.y, 0.2)
+	GlobalMenus.animarEntrada(menuObjetivo, posicionesSubmenus[menuObjetivo], true, TIEMPO_ANIMACION, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION)

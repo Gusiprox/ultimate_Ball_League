@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cfnoay1blshlx"]
 
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_arh1h"]
+[ext_resource type="Texture2D" uid="uid://dl5vbtj2nuy1u" path="res://menus/menu_edit_character/img/MarcoAmarilloVertical.png" id="2_dpqnr"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="2_n0moq"]
 [ext_resource type="PackedScene" uid="uid://nudjyqgwvnor" path="res://menus/scroll/scroll_list.tscn" id="3_uh1lp"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_uh1lp"]
@@ -28,8 +29,21 @@ offset_top = 105.0
 offset_right = 1097.0
 offset_bottom = 614.0
 theme = ExtResource("1_arh1h")
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuCharacters" unique_id=42314412]
+[node name="imgMarcoCharacters" type="NinePatchRect" parent="MenuCharacters" unique_id=118550483]
+modulate = Color(1.326, 1.326, 1.326, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dpqnr")
+patch_margin_top = 20
+patch_margin_bottom = 20
+
+[node name="contListCharacters" type="VBoxContainer" parent="MenuCharacters" unique_id=42314412]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,37 +51,38 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -214.5
-offset_top = -235.5
+offset_top = -222.5
 offset_right = 214.5
-offset_bottom = 237.5
+offset_bottom = 220.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 18
 
-[node name="lblCharacters" type="Label" parent="MenuCharacters/VBoxContainer" unique_id=1681075565]
+[node name="lblCharacters" type="Label" parent="MenuCharacters/contListCharacters" unique_id=1681075565]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_n0moq")
 text = "Personajes"
 
-[node name="ScrollList" parent="MenuCharacters/VBoxContainer" unique_id=124515402 instance=ExtResource("3_uh1lp")]
+[node name="ScrollList" parent="MenuCharacters/contListCharacters" unique_id=124515402 instance=ExtResource("3_uh1lp")]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1268207164]
+[node name="contMenuField" type="VBoxContainer" parent="." unique_id=1268207164]
 layout_mode = 0
 offset_left = 76.0
 offset_top = 110.0
 offset_right = 552.0
 offset_bottom = 604.0
 theme_override_constants/separation = 20
+metadata/_edit_use_anchors_ = true
 
-[node name="MenuField" type="Panel" parent="VBoxContainer" unique_id=730481447]
+[node name="MenuField" type="Panel" parent="contMenuField" unique_id=730481447]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4uk4v")
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=136171993]
+[node name="btnSaveTeam" type="Button" parent="contMenuField" unique_id=136171993]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_uh1lp")

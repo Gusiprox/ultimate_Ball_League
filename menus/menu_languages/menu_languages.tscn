@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://by66aptryaod3"]
+
+[ext_resource type="Script" uid="uid://cus3noe4f3c7y" path="res://menus/menu_languages/menu_languages.gd" id="1_oao0d"]
+[ext_resource type="Theme" uid="uid://dqp7tmam5v5ld" path="res://menus/themes/button/ThemeButtonLanguages.tres" id="1_wftcm"]
+
+[node name="MenuLanguages" type="Panel" unique_id=1726208309]
+offset_right = 411.0
+offset_bottom = 309.891
+script = ExtResource("1_oao0d")
+
+[node name="contBtnLanguages" type="VBoxContainer" parent="." unique_id=1148536453]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -106.5
+offset_right = 71.0
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="btnEs" type="Button" parent="contBtnLanguages" unique_id=510516409]
+layout_mode = 2
+theme = ExtResource("1_wftcm")
+text = "Español"
+
+[node name="btnEn" type="Button" parent="contBtnLanguages" unique_id=1858723271]
+layout_mode = 2
+theme = ExtResource("1_wftcm")
+text = "Inglés"
+
+[connection signal="pressed" from="contBtnLanguages/btnEs" to="." method="_on_btn_es_pressed"]
+[connection signal="pressed" from="contBtnLanguages/btnEn" to="." method="_on_btn_en_pressed"]

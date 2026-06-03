@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c57r2va5vl816"]
+
+[ext_resource type="Script" uid="uid://c0verr52ew6bb" path="res://Partido/PartidoFutbol.gd" id="1_tli7d"]
+
+[node name="PartidoFutbol" type="Node3D" unique_id=1011656755]
+script = ExtResource("1_tli7d")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1396634179]
+transform = Transform3D(-4.371139e-08, 0.34857205, -0.93728197, 0, 0.93728197, 0.34857205, 1, 1.5236568e-08, -4.0969898e-08, -5.3329134, 6.08492, 7.106271)

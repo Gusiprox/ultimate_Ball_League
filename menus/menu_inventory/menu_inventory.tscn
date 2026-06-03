@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cjn40miftpvyu"]
+
+[ext_resource type="Script" uid="uid://ewmtt1hctdk1" path="res://menus/menu_inventory/menu_inventory.gd" id="1_6srfk"]
+[ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_ohiwt"]
+[ext_resource type="Theme" uid="uid://bb40ti6vvkhrt" path="res://menus/themes/button/ThemeButtonInventory.tres" id="2_ijq7e"]
+[ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="2_ohiwt"]
+[ext_resource type="PackedScene" uid="uid://blmsbn36qp4x0" path="res://menus/scroll/scroll_store/scroll_list_store.tscn" id="3_6srfk"]
+[ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/panel/ThemePanel.tres" id="4_6srfk"]
+
+[node name="MenuInventory" type="Control" unique_id=199060036]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6srfk")
+
+[node name="marginMenuInventory" type="Control" parent="." unique_id=1097905523]
+layout_mode = 1
+anchor_top = 0.11000001
+anchor_right = 1.001
+anchor_bottom = 1.0
+offset_top = -0.2800064
+offset_right = -0.15209961
+offset_bottom = -1.0
+
+[node name="contButtons" type="HBoxContainer" parent="marginMenuInventory" unique_id=614173837]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_top = 26.0
+offset_right = 125.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme = ExtResource("2_ijq7e")
+theme_override_constants/separation = 10
+
+[node name="btnCharactersPage" type="Button" parent="marginMenuInventory/contButtons" unique_id=1029764140]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Personajes"
+autowrap_mode = 2
+
+[node name="btnHatsPage" type="Button" parent="marginMenuInventory/contButtons" unique_id=2125124230]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Sombreros"
+autowrap_mode = 2
+
+[node name="charactersPage" type="Panel" parent="marginMenuInventory" unique_id=932165774]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -195.0
+offset_right = 476.0
+offset_bottom = 237.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ohiwt")
+
+[node name="contCharactersPage" type="VBoxContainer" parent="marginMenuInventory/charactersPage" unique_id=1174893787]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -439.5
+offset_top = -177.0
+offset_right = 439.5
+offset_bottom = 175.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="lblCharacters" type="Label" parent="marginMenuInventory/charactersPage/contCharactersPage" unique_id=589437685]
+layout_mode = 2
+theme = ExtResource("2_ohiwt")
+text = "Personajes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrollCharList" parent="marginMenuInventory/charactersPage/contCharactersPage" unique_id=124515402 instance=ExtResource("3_6srfk")]
+layout_mode = 2
+
+[node name="hatsPage" type="Panel" parent="marginMenuInventory" unique_id=859758016]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -195.0
+offset_right = 476.0
+offset_bottom = 237.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_6srfk")
+
+[node name="contHatsPageElements" type="VBoxContainer" parent="marginMenuInventory/hatsPage" unique_id=1307366732]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -439.5
+offset_top = -177.0
+offset_right = 439.5
+offset_bottom = 175.75
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="lblHats" type="Label" parent="marginMenuInventory/hatsPage/contHatsPageElements" unique_id=2054768463]
+layout_mode = 2
+theme = ExtResource("2_ohiwt")
+text = "Sombreros"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scrollHatsList" parent="marginMenuInventory/hatsPage/contHatsPageElements" unique_id=1613991704 instance=ExtResource("3_6srfk")]
+layout_mode = 2
+
+[connection signal="pressed" from="marginMenuInventory/contButtons/btnCharactersPage" to="." method="_on_btn_characters_page_pressed"]
+[connection signal="pressed" from="marginMenuInventory/contButtons/btnHatsPage" to="." method="_on_btn_hats_page_pressed"]

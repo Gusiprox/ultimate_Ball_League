@@ -3,7 +3,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3scmv"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-bg_color = Color(0.78431374, 0.45882353, 0.38039216, 1)
+bg_color = Color(0.5489626, 0.5489626, 0.54896253, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -13,7 +13,7 @@ expand_margin_left = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lree"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-bg_color = Color(0.8658748, 0.57362187, 0.5013299, 1)
+bg_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -23,7 +23,7 @@ expand_margin_left = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dane"]
 content_margin_left = 5.0
 content_margin_right = 5.0
-bg_color = Color(0.8505627, 0.5425961, 0.4690894, 1)
+bg_color = Color(0.36078432, 0.36078432, 0.36078432, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -31,11 +31,11 @@ corner_radius_bottom_left = 10
 expand_margin_left = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstlq"]
-bg_color = Color(0.78431374, 0.45882353, 0.38039216, 0.5176471)
+bg_color = Color(0.06879827, 0.06879828, 0.06879828, 1)
 
 [resource]
-VScrollBar/constants/padding_left = 3
-VScrollBar/constants/padding_right = 1
+VScrollBar/constants/padding_left = 4
+VScrollBar/constants/padding_right = 2
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_3scmv")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_1lree")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_3dane")
