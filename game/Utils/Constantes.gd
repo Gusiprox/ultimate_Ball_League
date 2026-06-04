@@ -34,3 +34,12 @@ const DIRECCIONES_CARDINALES: Array[Vector2i] = [
 	Vector2i(-1, 0),
 	Vector2i(1, 0)
 ]
+
+const SENSIBILIDAD_CAMARA: float = 0.005
+const DISTANCIA_MINIMA_CAMARA: float = 5.0
+const DISTANCIA_MAXIMA_CAMARA: float = 25.0
+const VELOCIDAD_ZOOM_CAMARA: float = 1.0
+const ALTURA_MINIMA_CAMARA: float = 2.0
+const ANGULO_VERTICAL_MINIMO_CAMARA: float = deg_to_rad(15.0)
+const ANGULO_VERTICAL_MAXIMO_CAMARA: float = deg_to_rad(80.0)
+const DISTANCIA_INICIAL_CAMARA: float = 12.0
