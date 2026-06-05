@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cgfne3s5nst5w" path="res://game/Escenario/NivelFutbol.tscn" id="1_1hui0"]
 [ext_resource type="Script" uid="uid://c0verr52ew6bb" path="res://game/Partido/PartidoFutbol.gd" id="1_tli7d"]
-[ext_resource type="Script" uid="uid://cu2bsdahy4th3" path="res://game/Partido/ControladorCamara.gd" id="3_pisxw"]
+[ext_resource type="Script" path="res://game/Partido/ControladorCamara.gd" id="3_pisxw"]
 
 [node name="PartidoFutbol" type="Node3D" unique_id=1011656755]
 script = ExtResource("1_tli7d")

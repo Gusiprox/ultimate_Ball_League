@@ -36,10 +36,12 @@ var gacha_tokens: int = 0:
 		gacha_tokens = value
 		gacha_tokens_changed.emit(gacha_tokens)
 
+var equipo: Array[CharacterBody3D] = []
+
+
 func stringToInt(value: String) -> int:
 	var texto_limpio = value.strip_edges()
 	
 	if texto_limpio.is_valid_int():
 		return texto_limpio.to_int()
-	
 	return 0

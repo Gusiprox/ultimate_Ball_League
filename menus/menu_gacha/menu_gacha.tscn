@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c1rh5rea5smsf"]
 
+[ext_resource type="Script" uid="uid://p5wbm8wmiyhv" path="res://menus/menu_gacha/menu_gacha.gd" id="1_1ebiu"]
 [ext_resource type="Theme" uid="uid://bmlsvo0bf02u5" path="res://menus/themes/panel/ThemePanelGacha.tres" id="1_dhgi5"]
 [ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
 [ext_resource type="Texture2D" uid="uid://ct6paqmlk6r3" path="res://menus/menu_gacha/img/whiteStar.png" id="2_dhgi5"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1ebiu")
 
 [node name="marginMenuGacha" type="Control" parent="." unique_id=572560301]
 anchors_preset = 0
@@ -169,3 +171,6 @@ text = "Tirar 10"
 icon = ExtResource("6_krwax")
 icon_alignment = 2
 expand_icon = true
+
+[connection signal="button_down" from="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull" to="." method="_on_btn_one_pull_button_down"]
+[connection signal="button_down" from="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls" to="." method="_on_btn_ten_pulls_button_down"]
