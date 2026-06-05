@@ -6,6 +6,7 @@ signal casillaClickeada(posicion: Vector2i)
 @export var posicionCuadricula: Vector2i = Vector2i.ZERO
 
 var mesh: MeshInstance3D
+var bloqueada: bool = false
 var hover: bool = false
 var estaDisponible: bool = false
 
@@ -19,17 +20,18 @@ func _inicializarSeñales() -> void:
 	mouse_exited.connect(_onMouseExited)
 	input_event.connect(_onInputEvent)
 
-func _onInputEvent(
-	_camera: Camera3D,
-	event: InputEvent,
-	_world_position: Vector3,
-	_world_normal: Vector3,
-	_shape_index: int
-) -> void:
+func _onInputEvent(_camera: Camera3D, event: InputEvent, _world_position: Vector3, _world_normal: Vector3, _shape_index: int) -> void:
+
+	if bloqueada:
+		return
+
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		casillaClickeada.emit(posicionCuadricula)
 
 func _onMouseEntered() -> void:
+	if bloqueada:
+		return
+
 	hover = true
 	_actualizarColor()
 
@@ -56,3 +58,11 @@ func _actualizarColor() -> void:
 		material.albedo_color = Constantes.COLOR_DISPONIBLE
 	else:
 		material.albedo_color = Constantes.COLOR_NORMAL
+
+func setBloqueada(valor: bool) -> void:
+	bloqueada = valor
+
+	if bloqueada:
+		hover = false
+
+	_actualizarColor()

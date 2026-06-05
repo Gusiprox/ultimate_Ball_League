@@ -8,10 +8,7 @@ func iniciar(personajes: Array[CharacterBody3D]) -> void:
 	cola.clear()
 
 	for p: CharacterBody3D in personajes:
-		cola.append({
-			"personaje": p,
-			"valorAccion": Constantes.VALOR_UNIVERSAL_TURNO / float(p.stats.velocidad)
-		})
+		cola.append({"personaje": p, "valorAccion": Constantes.VALOR_UNIVERSAL_TURNO / float(p.stats.velocidad)})
 
 	_ordenarCola()
 	call_deferred("_notificarTurnoActual")
