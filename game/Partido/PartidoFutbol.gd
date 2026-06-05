@@ -9,10 +9,13 @@ const POSICIONES_INICIALES: Array[Vector2i] = [
 	Vector2i(6, 10)
 ]
 
+@export var test: bool = true
 @export var partidoIA: bool = true
 @export var escenaNivel: PackedScene
 @export var escenasPersonajes: Array[PackedScene]
 
+var personajesJugador: Array[CharacterBody3D]
+var personajesRival: Array[CharacterBody3D]
 
 var nivel: Node3D
 var terreno: Node3D
@@ -35,6 +38,28 @@ func _ready() -> void:
 	call_deferred("_iniciarPartida")
 
 func _instanciarPersonajes() -> void:
+	if test:
+		_instanciarPersonajesTest()
+		return
+	
+	personajesJugador = PlayerData.equipo
+	personajesRival = 
+	
+	for personaje in personajesJugador:
+		personaje.stats.equipo = Constantes.EQUIPO_AZUL.capitalize()
+		
+		add_child(personaje)
+		#personaje.actualizarColorEquipo()
+		personajes.append(personaje)
+	
+	for personaje in personajesRival:
+		personaje.stats.equipo = Constantes.EQUIPO_ROJO.capitalize()
+		
+		add_child(personaje)
+		#personaje.actualizarColorEquipo()
+		personajes.append(personaje)
+	
+func _instanciarPersonajesTest() -> void:
 	var mitad: int = escenasPersonajes.size() / 2
 
 	for i: int in range(escenasPersonajes.size()):

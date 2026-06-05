@@ -12,6 +12,18 @@ const DIC_CODE_GACHATOKEN: String = "GP"
 var playfab_id: String = ""
 var username: String = ""
 
+var equipo: Array[CharacterBody3D] = []
+
+var gold: int = 0:
+	set(value):
+		gold = value
+		gold_changed.emit(gold) # Emite automáticamente al cambiar
+
+var gacha_tokens: int = 0:
+	set(value):
+		gacha_tokens = value
+		gacha_tokens_changed.emit(gacha_tokens)
+
 func _ready() -> void:
 	pass
 
@@ -26,18 +38,8 @@ func _setData(data: LoginResult):
 func _delData():
 	pass
 
-var gold: int = 0:
-	set(value):
-		gold = value
-		gold_changed.emit(gold) # Emite automáticamente al cambiar
-
-var gacha_tokens: int = 0:
-	set(value):
-		gacha_tokens = value
-		gacha_tokens_changed.emit(gacha_tokens)
-
-var equipo: Array[CharacterBody3D] = []
-
+func _setTeam():
+	pass
 
 func stringToInt(value: String) -> int:
 	var texto_limpio = value.strip_edges()
