@@ -9,8 +9,10 @@ const POSICIONES_INICIALES: Array[Vector2i] = [
 	Vector2i(6, 10)
 ]
 
+@export var partidoIA: bool = true
 @export var escenaNivel: PackedScene
 @export var escenasPersonajes: Array[PackedScene]
+
 
 var nivel: Node3D
 var terreno: Node3D
@@ -20,6 +22,7 @@ var gestorTurnos: GestorTurnos
 var gestorMovimiento: GestorMovimiento
 var gestorCombate: GestorCombate
 var gestorPuntuacion: GestorPuntuacion
+var gestorIA: GestorIA
 
 func _ready() -> void:
 	nivel = escenaNivel.instantiate()
@@ -54,6 +57,7 @@ func _iniciarPartida() -> void:
 	gestorMovimiento = GestorMovimiento.new(terreno)
 	gestorCombate = GestorCombate.new(terreno, gestorMovimiento)
 	gestorPuntuacion = GestorPuntuacion.new(terreno)
+	gestorIA = GestorIA.new(self, terreno, gestorMovimiento, gestorCombate, gestorTurnos)
 
 	gestorCombate.empujeResuelto.connect(_gestionarEmpuje)
 	gestorPuntuacion.golMarcado.connect(_actualizarGolMarcado)
@@ -71,20 +75,38 @@ func _iniciarPartida() -> void:
 	gestorTurnos.turnoCambiado.connect(_gestionarCambioTurno)
 
 	for casilla: Casilla in terreno.casillas.values():
-		casilla.casillaClickeada.connect(_gestionarCasillaSelecionada)
+		casilla.casillaClickeada.connect(_gestionarCasillaSeleccionada)
 
 func _gestionarCambioTurno(personaje: CharacterBody3D) -> void:
 	if personaje == null or gestorPuntuacion.terminado:
 		return
+
+	var bloquear: bool = esTurnoIA()
+
+	for casilla: Casilla in terreno.casillas.values():
+		casilla.setBloqueada(bloquear)
 
 	gestorPuntuacion.incrementarTurno()
 
 	if gestorPuntuacion.comprobarFinPartido():
 		return
 
-	terreno.mostrarMovimiento(personaje.posicionCuadricula, personaje.stats.fuerzaEmpuje)
+	if not esTurnoIA():
+		terreno.mostrarMovimiento(personaje.posicionCuadricula, personaje.stats.fuerzaEmpuje)
+	else:
+		terreno.limpiarMovimiento()
 
-func _gestionarCasillaSelecionada(pos: Vector2i) -> void:
+	if partidoIA and personaje.stats.equipo.to_lower() == Constantes.EQUIPO_ROJO:
+		var personajeTurno := personaje
+
+		await get_tree().create_timer(0.5).timeout
+
+		if gestorTurnos.getPersonajeActual() != personajeTurno:
+			return
+
+		gestorIA.jugarTurno(personajeTurno)
+
+func _gestionarCasillaSeleccionada(pos: Vector2i) -> void:
 	if gestorPuntuacion.terminado:
 		return
 
@@ -109,30 +131,49 @@ func _gestionarCasillaSelecionada(pos: Vector2i) -> void:
 		if terreno.comprobarCasillaOcupada(pos):
 			return
 
-		gestorMovimiento.ejecutarMovimiento(personaje, pos)
-		gestorPuntuacion.comprobarPunto(personaje)
+		ejecutarMovimientoConPuntuacion(personaje, pos)
 		gestorTurnos.terminarTurno()
-	else:
-		var fuerza: int = personaje.stats.fuerzaEmpuje - colision.casillasHasta
-		var resistencia: int = colision.enemigo.stats.resistenciaEmpuje
+		return
 
-		if fuerza > resistencia:
-			gestorCombate.iniciarSeleccionEmpuje(personaje, colision.enemigo, pos)
+	var fuerza: int = personaje.stats.fuerzaEmpuje - colision.casillasHasta
+	var resistencia: int = colision.enemigo.stats.resistenciaEmpuje
+
+	if fuerza <= resistencia:
+		return
+
+	var esIA: bool = partidoIA and personaje.stats.equipo.to_lower() == Constantes.EQUIPO_ROJO
+
+	gestorCombate.iniciarSeleccionEmpuje(personaje, colision.enemigo, pos, not esIA)
+
+	if esIA:
+		await get_tree().create_timer(0.3).timeout
+
+		if gestorTurnos.getPersonajeActual() != personaje:
+			return
+
+		var empuje: Vector2i = gestorIA.elegirEmpuje()
+
+		if empuje != Vector2i.ZERO and gestorCombate.estaEnCombate():
+			gestorCombate.resolverEmpuje(empuje)
 
 func _gestionarEmpuje(atacante: CharacterBody3D, _destino: Vector2i) -> void:
 	gestorPuntuacion.comprobarPunto(atacante)
 	gestorTurnos.terminarTurno()
 
 func _actualizarGolMarcado(equipo: String, azules: int, rojos: int) -> void:
-	print(Constantes.MSG_GOL.format({
-		"equipo": equipo.to_upper(),
-		"azules": azules,
-		"rojos": rojos
-	}))
+	print(Constantes.MSG_GOL.format({"equipo": equipo.to_upper(), "azules": azules, "rojos": rojos}))
 
 func _anunciarFinPartido(resultado: String, azules: int, rojos: int) -> void:
-	print(Constantes.MSG_FINAL.format({
-		"resultado": resultado.to_upper(),
-		"azules": azules,
-		"rojos": rojos
-	}))
+	print(Constantes.MSG_FINAL.format({"resultado": resultado.to_upper(), "azules": azules, "rojos": rojos}))
+
+func esTurnoIA() -> bool:
+	var personaje: CharacterBody3D = gestorTurnos.getPersonajeActual()
+
+	if personaje == null:
+		return false
+
+	return partidoIA and personaje.stats.equipo.to_lower() == Constantes.EQUIPO_ROJO
+
+func ejecutarMovimientoConPuntuacion(personaje: CharacterBody3D, destino: Vector2i) -> void:
+	gestorMovimiento.ejecutarMovimiento(personaje, destino)
+	gestorPuntuacion.comprobarPunto(personaje)
