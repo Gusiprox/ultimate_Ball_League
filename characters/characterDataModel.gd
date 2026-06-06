@@ -29,14 +29,13 @@ var skinHat: String
 var skinMouth: String
 
 func _init(data: Dictionary) -> void:
-	var eatDataDir: Dictionary = data.data.FunctionResult
-	
-	name = eatDataDir.get(nameDicDir)
-	knokForce = eatDataDir.get(kForceDicDir)
-	knokResistance = eatDataDir.get(kResistanceDicDir)
-	speed = eatDataDir.get(speedDicDir)
-	skinBody = eatDataDir.get(bodyDicDir)
-	skinFoots = eatDataDir.get(FootsDicDir)
-	skinEyes = eatDataDir.get(eyesDicDir)
-	skinHat = eatDataDir.get(hatDicDir)
-	skinMouth = eatDataDir.get(MouthDicDir)
+
+	name = data.get(nameDicDir)
+	knokForce = data.get(kForceDicDir)
+	knokResistance = data.get(kResistanceDicDir)
+	speed = data.get(speedDicDir)
+	skinBody = data.get(bodyDicDir)
+	skinFoots = data.get(FootsDicDir)
+	skinEyes = data.get(eyesDicDir)
+	skinHat = data.get(hatDicDir)
+	skinMouth = data.get(MouthDicDir)
