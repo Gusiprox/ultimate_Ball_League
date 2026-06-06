@@ -1,5 +1,7 @@
 extends Panel
 
+@onready var charModel = $contCharacterCard/character/SubViewport/CharacterPlaceholder
+
 const COLOR_MOUSE_ENTER = Color(1.2, 1.2, 1.2)
 const COLOR_MOUSE_EXIT = Color(1, 1, 1)
 
@@ -9,6 +11,9 @@ var misDatos: Dictionary = {}
 
 func _ready() -> void:
 	pass
+
+func _setData(data: ModelData):
+	charModel._setData(data)
 
 func _on_btn_info_pressed() -> void:
 	infoRequested.emit()

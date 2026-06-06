@@ -5,9 +5,8 @@
 [ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="3_syb2r"]
 [ext_resource type="Theme" uid="uid://3ecjr106vte8" path="res://menus/themes/button/ThemeButtonCard.tres" id="4_syb2r"]
 [ext_resource type="Texture2D" uid="uid://bvmp1oef0ncng" path="res://menus/cards/img/info.png" id="5_77pla"]
-[ext_resource type="Theme" uid="uid://b665vmw28pii3" path="res://menus/themes/button/ThemeButtonInfo.tres" id="5_hskc2"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_aseyu"]
+[ext_resource type="Theme" uid="uid://ceg2gyug7on21" path="res://menus/themes/button/ThemeButtonInfo.tres" id="5_hskc2"]
+[ext_resource type="PackedScene" uid="uid://4jjsvdrfigjb" path="res://characters/models/CharacterPlaceholderModel.tscn" id="6_wcjlm"]
 
 [node name="CharacterCard" type="Panel" unique_id=131578327]
 custom_minimum_size = Vector2(95, 120)
@@ -69,7 +68,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(20, 60)
 layout_mode = 2
 mouse_filter = 2
-stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="contCharacterCard/character" unique_id=546870979]
 own_world_3d = true
@@ -86,11 +84,8 @@ projection = 1
 transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.7071068, 0.7071068, -0.5, 0.5, 0, 0, 0)
 light_energy = 1.5
 
-[node name="anchor" type="Marker3D" parent="contCharacterCard/character/SubViewport" unique_id=1001169964]
-
-[node name="modeloPrueba" type="MeshInstance3D" parent="contCharacterCard/character/SubViewport/anchor" unique_id=1871552549]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_aseyu")
+[node name="CharacterPlaceholder" parent="contCharacterCard/character/SubViewport" unique_id=1215470140 instance=ExtResource("6_wcjlm")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.1, -0.28, 0)
 
 [node name="btnEquip" type="Button" parent="contCharacterCard" unique_id=651566328]
 custom_minimum_size = Vector2(50, 0)
