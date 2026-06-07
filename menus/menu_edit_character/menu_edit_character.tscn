@@ -67,7 +67,9 @@ text = "Sombreros"
 
 [node name="scrollHatsList" parent="MenuHats/contHats" unique_id=124515402 instance=ExtResource("4_5hpj6")]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+columns = 2
+modoActual = 1
 
 [node name="MenuViewChar" type="Panel" parent="." unique_id=1752587668]
 layout_mode = 0

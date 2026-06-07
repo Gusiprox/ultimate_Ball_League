@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfnoay1blshlx"]
 
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_arh1h"]
-[ext_resource type="Script" uid="uid://cywm3r7o4hhnq" path="res://menus/menu_edit_team/menu_edit_team.gd" id="1_y0m7y"]
+[ext_resource type="Script" path="res://menus/menu_edit_team/menu_edit_team.gd" id="1_y0m7y"]
 [ext_resource type="Texture2D" uid="uid://dl5vbtj2nuy1u" path="res://menus/menu_edit_character/img/MarcoAmarilloVertical.png" id="2_dpqnr"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="2_n0moq"]
 [ext_resource type="PackedScene" uid="uid://nudjyqgwvnor" path="res://menus/scroll/scroll_list.tscn" id="3_uh1lp"]
@@ -69,6 +69,8 @@ text = "Personajes"
 [node name="ScrollList" parent="MenuCharacters/contListCharacters" unique_id=124515402 instance=ExtResource("3_uh1lp")]
 layout_mode = 2
 size_flags_horizontal = 4
+columns = 2
+modoActual = 2
 
 [node name="contMenuField" type="VBoxContainer" parent="." unique_id=1268207164]
 layout_mode = 0

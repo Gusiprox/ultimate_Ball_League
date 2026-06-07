@@ -9,14 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://tue8s8mkq2f" path="res://menus/cards/character_model.tscn" id="6_wcjlm"]
 
 [node name="CharacterCard" type="Panel" unique_id=131578327]
-custom_minimum_size = Vector2(95, 120)
+custom_minimum_size = Vector2(140, 200)
 anchors_preset = -1
-anchor_right = 0.082
-anchor_bottom = 0.26500002
-offset_right = 0.5359955
-offset_bottom = 0.27998352
+anchor_right = 0.12200001
+anchor_bottom = 0.30900002
+offset_right = -15.544006
+offset_bottom = -4.23201
 theme = ExtResource("1_bubac")
 script = ExtResource("1_qcj7k")
+metadata/_edit_use_anchors_ = true
 
 [node name="contCharacterCard" type="VBoxContainer" parent="." unique_id=1678937318]
 layout_mode = 1
@@ -41,9 +42,9 @@ theme_override_constants/separation = 1
 alignment = 1
 
 [node name="lblName" type="Label" parent="contCharacterCard/contCardElem" unique_id=1575995712]
-custom_minimum_size = Vector2(55, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 1
 theme = ExtResource("3_syb2r")
 theme_override_constants/line_spacing = -6
@@ -68,14 +69,25 @@ metadata/_edit_use_anchors_ = true
 
 [node name="character" parent="contCharacterCard" unique_id=1976900408 instance=ExtResource("6_wcjlm")]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="btnEquip" type="Button" parent="contCharacterCard" unique_id=651566328]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(50, 20)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("4_syb2r")
 theme_override_font_sizes/font_size = 9
 text = "Equipar"
 autowrap_mode = 2
+
+[node name="btnBuy" type="Button" parent="contCharacterCard" unique_id=1285473928]
+visible = false
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_syb2r")
+theme_override_font_sizes/font_size = 9
+text = "Comprar"
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

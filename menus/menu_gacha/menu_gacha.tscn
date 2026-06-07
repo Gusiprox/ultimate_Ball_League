@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1rh5rea5smsf"]
 
-[ext_resource type="Script" uid="uid://p5wbm8wmiyhv" path="res://menus/menu_gacha/menu_gacha.gd" id="1_1ebiu"]
+[ext_resource type="Script" path="res://menus/menu_gacha/menu_gacha.gd" id="1_1ebiu"]
 [ext_resource type="Theme" uid="uid://bmlsvo0bf02u5" path="res://menus/themes/panel/ThemePanelGacha.tres" id="1_dhgi5"]
 [ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
 [ext_resource type="Texture2D" uid="uid://ct6paqmlk6r3" path="res://menus/menu_gacha/img/whiteStar.png" id="2_dhgi5"]
@@ -827,13 +827,60 @@ texture_filter = 4
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 theme_override_constants/h_separation = -100
-text = "Tirar 10"
-icon = ExtResource("6_krwax")
 icon_alignment = 2
 expand_icon = true
 
+[node name="contButtonElem" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls" unique_id=286775352]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -29.947815
+offset_right = 67.0
+offset_bottom = 29.947815
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0258418, 1.0017419)
+theme = ExtResource("6_l5osx")
+theme_override_constants/separation = 15
+metadata/_edit_use_anchors_ = true
+
+[node name="lblPullTen" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls/contButtonElem" unique_id=302417020]
+custom_minimum_size = Vector2(79, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 10
+text = "10 Tiradas"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="contPullNum" type="HBoxContainer" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls/contButtonElem" unique_id=345097364]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="imgPull" type="NinePatchRect" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls/contButtonElem/contPullNum" unique_id=1741516061]
+texture_filter = 4
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_krwax")
+
+[node name="lblPullOneNum" type="Label" parent="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls/contButtonElem/contPullNum" unique_id=1400058630]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 10
+text = "x 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=339540147]
 layer = 10
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=698598366]
 offset_left = -4.0
@@ -850,7 +897,7 @@ scale = Vector2(1.4, 1.4)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=2102808196]
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1859925003]
 transform = Transform3D(-0.06805013, 0.19561148, 0.97831756, -1.9192786e-10, 0.98059064, -0.19606598, -0.9976819, -0.013342315, -0.06672932, -1.108417, -0.22275794, -1.8481662)

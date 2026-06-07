@@ -2,6 +2,17 @@ extends Panel
 
 @onready var charModel = $contCharacterCard/character
 @onready var nameText = $contCharacterCard/contCardElem/lblName
+@onready var btnEquip = $contCharacterCard/btnEquip
+@onready var btnBuy = $contCharacterCard/btnBuy
+
+var modoActual: ModoCarta = ModoCarta.SIN_BTN:
+	set(nuevoModo):
+		modoActual = nuevoModo
+		if is_inside_tree(): 
+			actualizarBotones()
+
+# 1. Definimos los estados posibles de la carta
+enum ModoCarta { SIN_BTN, BUY, EQUIP }
 
 var dataSave: CharacterDataModel
 
@@ -15,6 +26,7 @@ func _ready() -> void:
 		charModel._setData(ModelData.new(dataSave))
 		nameText.text = dataSave.name
 	
+	actualizarBotones()
 
 func _setData(data: CharacterDataModel):
 	dataSave = data
@@ -38,3 +50,17 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	modulate = COLOR_MOUSE_EXIT
+
+func actualizarBotones():
+	match modoActual:
+		ModoCarta.SIN_BTN:
+			btnBuy.visible = false
+			btnEquip.visible = false
+			
+		ModoCarta.BUY:
+			btnBuy.visible = true
+			btnEquip.visible = false
+			
+		ModoCarta.EQUIP:
+			btnBuy.visible = false
+			btnEquip.visible = true
