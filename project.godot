@@ -24,6 +24,8 @@ buses/default_bus_layout="uid://chkungmqewabk"
 PlayFabManager="*uid://cweb6sfc0rrca"
 PlayerData="*uid://cxps6o6f21yd6"
 GlobalMenus="*uid://dwyk0utyjyxie"
+ModelsManager="*uid://dagdtr0y5n5vo"
+IaDataManager="*uid://0t37aa884m54"
 
 [editor_plugins]
 

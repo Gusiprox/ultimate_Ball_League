@@ -1,5 +1,10 @@
 extends Panel
 
+@onready var charModel = $contCharacterCard/character/SubViewport/CharacterPlaceholder
+@onready var nameText = $contCharacterCard/contCardElem/lblName
+
+var dataSave: CharacterDataModel
+
 const COLOR_MOUSE_ENTER = Color(1.2, 1.2, 1.2)
 const COLOR_MOUSE_EXIT = Color(1, 1, 1)
 
@@ -8,7 +13,17 @@ signal infoRequested()
 var misDatos: Dictionary = {}
 
 func _ready() -> void:
-	pass
+	if dataSave != null:
+		charModel._setData(ModelData.new(dataSave))
+		nameText.text = dataSave.name
+	
+
+func _setData(data: CharacterDataModel):
+	dataSave = data
+	if charModel != null:
+		charModel._setData(ModelData.new(data))
+	if nameText != null:
+		nameText.text = dataSave.name
 
 func _on_btn_info_pressed() -> void:
 	infoRequested.emit()

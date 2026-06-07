@@ -16,11 +16,7 @@ func _generarTerreno() -> void:
 
 			var posicion: Vector2i = Vector2i(x, y)
 			casilla.posicionCuadricula = posicion
-			casilla.position = Vector3(
-				x * Constantes.TAMANO_CASILLA,
-				0,
-				y * Constantes.TAMANO_CASILLA
-			)
+			casilla.position = Vector3(x * Constantes.TAMANO_CASILLA, 0, y * Constantes.TAMANO_CASILLA)
 
 			casillas[posicion] = casilla
 

@@ -5,9 +5,8 @@
 [ext_resource type="Theme" uid="uid://candvwnbnsi4a" path="res://menus/themes/button/ThemeButtonInventory.tres" id="2_ijq7e"]
 [ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="2_ohiwt"]
 [ext_resource type="PackedScene" uid="uid://blmsbn36qp4x0" path="res://menus/scroll/scroll_store/scroll_list_store.tscn" id="3_6srfk"]
-[ext_resource type="Texture2D" uid="uid://bd4xjwmwfd6sa" path="res://menus/menu_inventory/img/MarcoAmarillo.png" id="4_2r33d"]
 [ext_resource type="Theme" uid="uid://c06mp1pba7iev" path="res://menus/themes/panel/ThemePanel.tres" id="4_6srfk"]
-[ext_resource type="Texture2D" uid="uid://l7deepipwrfk" path="res://menus/menu_inventory/img/MarcoMarron.png" id="8_8fl6o"]
+[ext_resource type="PackedScene" uid="uid://nudjyqgwvnor" path="res://menus/scroll/scroll_list.tscn" id="5_2r33d"]
 
 [node name="MenuInventory" type="Control" unique_id=199060036]
 layout_mode = 3
@@ -67,16 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ohiwt")
 
-[node name="imgMarcoCharacters" type="NinePatchRect" parent="marginMenuInventory/charactersPage" unique_id=1295742444]
-modulate = Color(1.3258688, 1.3258688, 1.3258688, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_2r33d")
-
 [node name="contCharactersPage" type="VBoxContainer" parent="marginMenuInventory/charactersPage" unique_id=1174893787]
 layout_mode = 1
 anchors_preset = 8
@@ -84,10 +73,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -392.5
-offset_top = -168.5625
-offset_right = 392.5
-offset_bottom = 162.75
+offset_left = -439.5
+offset_top = -177.0
+offset_right = 439.5
+offset_bottom = 175.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -99,10 +88,14 @@ text = "Personajes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="scrollCharList" parent="marginMenuInventory/charactersPage/contCharactersPage" unique_id=124515402 instance=ExtResource("3_6srfk")]
+[node name="contScroll" parent="marginMenuInventory/charactersPage/contCharactersPage" unique_id=124515402 instance=ExtResource("5_2r33d")]
 layout_mode = 2
+follow_focus = true
+draw_focus_border = true
+columns = 9
 
 [node name="hatsPage" type="Panel" parent="marginMenuInventory" unique_id=859758016]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -117,15 +110,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_6srfk")
 
-[node name="imgMarcoHats" type="NinePatchRect" parent="marginMenuInventory/hatsPage" unique_id=1969716289]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("8_8fl6o")
-
 [node name="contHatsPageElements" type="VBoxContainer" parent="marginMenuInventory/hatsPage" unique_id=1307366732]
 layout_mode = 1
 anchors_preset = 8
@@ -133,10 +117,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -392.5
-offset_top = -168.5625
-offset_right = 392.5
-offset_bottom = 162.75049
+offset_left = -439.5
+offset_top = -177.0
+offset_right = 439.5
+offset_bottom = 175.75
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20

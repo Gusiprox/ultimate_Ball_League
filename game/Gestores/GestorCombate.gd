@@ -16,7 +16,7 @@ func _init(t: Node3D, gm: GestorMovimiento) -> void:
 	terreno = t
 	gestorMovimiento = gm
 
-func iniciarSeleccionEmpuje(a: CharacterBody3D, d: CharacterBody3D, destino: Vector2i) -> void:
+func iniciarSeleccionEmpuje(a: CharacterBody3D, d: CharacterBody3D, destino: Vector2i, mostrarUI: bool = true) -> void:
 	enCombate = true
 	atacante = a
 	defensor = d
@@ -43,7 +43,9 @@ func iniciarSeleccionEmpuje(a: CharacterBody3D, d: CharacterBody3D, destino: Vec
 			continue
 
 		casillasValidas.append(posicionEmpuje)
-		terreno.casillas[posicionEmpuje].setDisponible(true)
+
+		if mostrarUI:
+			terreno.casillas[posicionEmpuje].setDisponible(true)
 
 	if casillasValidas.is_empty():
 		_finalizarSinEmpuje()
@@ -64,17 +66,13 @@ func resolverEmpuje(pos: Vector2i) -> bool:
 	return true
 
 func _finalizarSinEmpuje() -> void:
-	var destino: Vector2i = destinoAtacante
-
-	var paso: Vector2i = gestorMovimiento._obtenerPaso(atacante.posicionCuadricula, destinoAtacante)
-	destino = defensor.posicionCuadricula - paso
-
-	if terreno.estaOcupada(destino) or not terreno.comprobarDentroDelMapa(destino):
+	if terreno.comprobarCasillaOcupada(destinoAtacante):
 		_limpiar()
 		return
 
-	gestorMovimiento.ejecutarMovimiento(atacante, destino)
-	empujeResuelto.emit(atacante, destino)
+	gestorMovimiento.ejecutarMovimiento(atacante, destinoAtacante)
+
+	empujeResuelto.emit(atacante, destinoAtacante)
 
 	_limpiar()
 

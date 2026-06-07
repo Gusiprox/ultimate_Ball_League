@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c1rh5rea5smsf"]
 
+[ext_resource type="Script" uid="uid://p5wbm8wmiyhv" path="res://menus/menu_gacha/menu_gacha.gd" id="1_1ebiu"]
 [ext_resource type="Theme" uid="uid://bmlsvo0bf02u5" path="res://menus/themes/panel/ThemePanelGacha.tres" id="1_dhgi5"]
 [ext_resource type="Texture2D" uid="uid://jvvhvbultky2" path="res://menus/menu_gacha/img/banner.png" id="1_hsln1"]
 [ext_resource type="Texture2D" uid="uid://ct6paqmlk6r3" path="res://menus/menu_gacha/img/whiteStar.png" id="2_dhgi5"]
@@ -8,9 +9,669 @@
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="3_dhgi5"]
 [ext_resource type="Texture2D" uid="uid://ccjlsf0tlfkxf" path="res://menus/nav_bar/img/tirada.png" id="6_krwax"]
 [ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="6_l5osx"]
+[ext_resource type="PackedScene" uid="uid://4jjsvdrfigjb" path="res://characters/models/CharacterPlaceholderModel.tscn" id="10_2kbqm"]
+[ext_resource type="Theme" uid="uid://m6r31t07ecjh" path="res://menus/themes/letters/ThemeLettersLight.tres" id="11_378r1"]
+[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="12_2kbqm"]
 
 [sub_resource type="Gradient" id="Gradient_dhgi5"]
 colors = PackedColorArray(0.7411765, 0.7529412, 0.7882353, 1, 0.7411765, 0.7529412, 0.7882353, 0)
+
+[sub_resource type="Environment" id="Environment_378r1"]
+background_mode = 2
+background_energy_multiplier = 8.81
+background_canvas_max_layer = 11
+
+[sub_resource type="Animation" id="Animation_2kbqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxResistencia:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxFuerza:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxVelocidad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxFuerza:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(848, 470)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.99999905, -35)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxResistencia:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(68, 44)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HBoxVelocidad:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(190, 512)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/Camera3D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.108417, -0.22275794, -1.8481662)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.19734442, 1.6388991, -1.9572678e-10)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SubViewportContainer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HBoxCharacters:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_378r1"]
+resource_name = "final"
+length = 8.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxResistencia:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxFuerza:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxVelocidad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxFuerza:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 8.066667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(848, 470), Vector2(848, 470), Vector2(817, 68)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxResistencia:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(-0.1, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(68, 44), Vector2(55, 468)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HBoxVelocidad:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(190, 512), Vector2(670, 509)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/Camera3D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.8094046, 2.46141), Vector3(0, -0.3, 2.461)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.53745663, 0, 0), Vector3(0.124250054, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SubViewportContainer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HBoxCharacters:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tuqio"]
+resource_name = "mostrarFuerza"
+length = 8.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxResistencia:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxFuerza:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxVelocidad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxFuerza:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 8.066667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(848, 470), Vector2(848, 470), Vector2(817, 68)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SubViewportContainer/SubViewport/Camera3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.40231323, 0.055669785, -1.61235), Vector3(0.8903017, -0.22275794, -1.8481662)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 2.6734953, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HBoxCharacters:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_q105l"]
+resource_name = "mostrarResistencia"
+length = 8.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxResistencia:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxFuerza:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxVelocidad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxFuerza:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 8.066667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(848, 470), Vector2(848, 470), Vector2(817, 68)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(431.99997, -48)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxResistencia:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.06666667, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(68, 44), Vector2(55, 468)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubViewportContainer/SubViewport/Camera3D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.1860814, -0.15384138, 1.1101413), Vector3(2.0176234, -0.15384138, -1.3509629)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.06),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.19734442, 1.6388991, -1.9572678e-10), Vector3(0.19734442, 1.9741244, -2.0908368e-09)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SubViewportContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HBoxCharacters:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_6cpy7"]
+resource_name = "mostrarVelocidad"
+length = 8.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxResistencia:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxFuerza:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxVelocidad:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxFuerza:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 8.066667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(848, 470), Vector2(848, 470), Vector2(817, 68)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewportContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxResistencia:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.06666667, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(68, 44), Vector2(55, 468)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HBoxVelocidad:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(190, 512), Vector2(670, 509)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewportContainer/SubViewport/Camera3D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.8094046, 2.46141), Vector3(0, -0.3, 2.461)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SubViewportContainer/SubViewport/Camera3D:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 8.066667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.53745663, 0, 0), Vector3(0.124250054, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("SubViewportContainer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HBoxCharacters:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ymxt"]
+_data = {
+&"RESET": SubResource("Animation_2kbqm"),
+&"final": SubResource("Animation_378r1"),
+&"mostrarFuerza": SubResource("Animation_tuqio"),
+&"mostrarResistencia": SubResource("Animation_q105l"),
+&"mostrarVelocidad": SubResource("Animation_6cpy7")
+}
 
 [node name="MenuGacha" type="Control" unique_id=2058835036]
 layout_mode = 3
@@ -19,6 +680,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1ebiu")
 
 [node name="marginMenuGacha" type="Control" parent="." unique_id=572560301]
 anchors_preset = 0
@@ -169,3 +831,145 @@ text = "Tirar 10"
 icon = ExtResource("6_krwax")
 icon_alignment = 2
 expand_icon = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=339540147]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=698598366]
+offset_left = -4.0
+offset_right = 1153.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1948058654]
+offset_left = -0.99999905
+offset_top = -35.0
+offset_right = 511.0
+offset_bottom = 477.0
+scale = Vector2(1.4, 1.4)
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=2102808196]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1859925003]
+transform = Transform3D(-0.06805013, 0.19561148, 0.97831756, -1.9192786e-10, 0.98059064, -0.19606598, -0.9976819, -0.013342315, -0.06672932, -1.108417, -0.22275794, -1.8481662)
+keep_aspect = 0
+environment = SubResource("Environment_378r1")
+fov = 92.03834
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CanvasLayer/SubViewportContainer/SubViewport/Camera3D" unique_id=1735198615]
+transform = Transform3D(1, 0, 0, 0, 0.89943576, 0.43705297, 0, -0.43705297, 0.89943576, 0, 0.93473685, 1.4305496)
+
+[node name="CharacterPlaceholder2" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1215470140 instance=ExtResource("10_2kbqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27362466, 0)
+
+[node name="btnOutGacha" type="Button" parent="CanvasLayer" unique_id=1327750390]
+visible = false
+offset_left = 832.0
+offset_top = 608.0
+offset_right = 1138.0
+offset_bottom = 641.0
+text = "Salir"
+
+[node name="HBoxResistencia" type="HBoxContainer" parent="CanvasLayer" unique_id=359402227]
+offset_left = 68.0
+offset_top = 44.0
+offset_right = 237.0
+offset_bottom = 161.99377
+alignment = 1
+
+[node name="txtIdent" type="Label" parent="CanvasLayer/HBoxResistencia" unique_id=550687520]
+layout_mode = 2
+theme = ExtResource("11_378r1")
+text = "Resistencia: "
+
+[node name="txtContent" type="Label" parent="CanvasLayer/HBoxResistencia" unique_id=1174583168]
+layout_mode = 2
+theme = ExtResource("11_378r1")
+text = "0"
+
+[node name="HBoxFuerza" type="HBoxContainer" parent="CanvasLayer" unique_id=864689523]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 848.0
+offset_top = 470.0
+offset_right = -19.247437
+offset_bottom = -60.030273
+alignment = 1
+
+[node name="txtIdent" type="Label" parent="CanvasLayer/HBoxFuerza" unique_id=1659807763]
+layout_mode = 2
+theme = ExtResource("11_378r1")
+text = "Fuerza: "
+
+[node name="txtContent" type="Label" parent="CanvasLayer/HBoxFuerza" unique_id=1969412440]
+layout_mode = 2
+theme = ExtResource("11_378r1")
+text = "0"
+
+[node name="HBoxVelocidad" type="HBoxContainer" parent="CanvasLayer" unique_id=914268399]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 190.0
+offset_top = 512.0
+offset_right = -677.00024
+offset_bottom = -17.966187
+alignment = 1
+
+[node name="txtIdent" type="Label" parent="CanvasLayer/HBoxVelocidad" unique_id=416172798]
+layout_mode = 2
+theme = ExtResource("11_378r1")
+text = "Velocidad: "
+
+[node name="txtContent" type="Label" parent="CanvasLayer/HBoxVelocidad" unique_id=695150706]
+layout_mode = 2
+theme = ExtResource("11_378r1")
+text = "0"
+
+[node name="HBoxCharacters" type="HBoxContainer" parent="CanvasLayer" unique_id=571765748]
+visible = false
+offset_left = 39.0
+offset_top = 197.0
+offset_right = 491.0
+offset_bottom = 317.0
+scale = Vector2(2.4, 2.4)
+theme_override_constants/separation = 24
+
+[node name="CharacterCard" parent="CanvasLayer/HBoxCharacters" unique_id=131578327 instance=ExtResource("12_2kbqm")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterCard2" parent="CanvasLayer/HBoxCharacters" unique_id=1099923290 instance=ExtResource("12_2kbqm")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterCard3" parent="CanvasLayer/HBoxCharacters" unique_id=1359974704 instance=ExtResource("12_2kbqm")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterCard4" parent="CanvasLayer/HBoxCharacters" unique_id=796289141 instance=ExtResource("12_2kbqm")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=524557454]
+libraries/ = SubResource("AnimationLibrary_6ymxt")
+
+[node name="btnNext" type="Button" parent="CanvasLayer" unique_id=63601490]
+offset_left = 994.0
+offset_top = 14.0
+offset_right = 1134.0
+offset_bottom = 45.0
+text = "Saltar Animacion"
+
+[connection signal="button_down" from="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnOnePull" to="." method="_on_btn_one_pull_button_down"]
+[connection signal="button_down" from="marginMenuGacha/MenuBanner/contMenuGachaELem/contBtnPulls/btnTenPulls" to="." method="_on_btn_ten_pulls_button_down"]
+[connection signal="button_down" from="CanvasLayer/btnOutGacha" to="." method="_on_out_gacha_button_button_down"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="button_down" from="CanvasLayer/btnNext" to="." method="_on_btn_next_button_down"]

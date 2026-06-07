@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cemxfearat73h"]
+
+[ext_resource type="Script" uid="uid://cewsycf5hufrq" path="res://characters/character_placeholder.gd" id="1_4blpk"]
+[ext_resource type="PackedScene" uid="uid://4jjsvdrfigjb" path="res://characters/models/CharacterPlaceholderModel.tscn" id="2_bv1t1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bv1t1"]
+
+[node name="CharacterPlaceholder" type="CharacterBody3D" unique_id=2070135270]
+script = ExtResource("1_4blpk")
+
+[node name="CharacterPlaceholder" parent="." unique_id=1215470140 instance=ExtResource("2_bv1t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22926128, -0.38423145, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1736242005]
+shape = SubResource("CapsuleShape3D_bv1t1")

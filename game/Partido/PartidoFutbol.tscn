@@ -2,10 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://cgfne3s5nst5w" path="res://game/Escenario/NivelFutbol.tscn" id="1_1hui0"]
 [ext_resource type="Script" uid="uid://c0verr52ew6bb" path="res://game/Partido/PartidoFutbol.gd" id="1_tli7d"]
+[ext_resource type="Script" path="res://game/Partido/ControladorCamara.gd" id="3_pisxw"]
 
 [node name="PartidoFutbol" type="Node3D" unique_id=1011656755]
 script = ExtResource("1_tli7d")
+test = null
+partidoIA = null
 escenaNivel = ExtResource("1_1hui0")
+escenasPersonajes = null
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1396634179]
-transform = Transform3D(-4.371139e-08, 0.34857205, -0.93728197, 0, 0.93728197, 0.34857205, 1, 1.5236568e-08, -4.0969898e-08, -5.3329134, 6.08492, 7.106271)
+[node name="ControladorCamara" type="Node3D" parent="." unique_id=312725152]
+script = ExtResource("3_pisxw")
+
+[node name="Camera3D" type="Camera3D" parent="ControladorCamara" unique_id=1396634179]
+transform = Transform3D(-4.371139e-08, 0.34857208, -0.937282, 0, 0.937282, 0.34857208, 1, 1.523657e-08, -4.09699e-08, -5.3329134, 6.08492, 7.106271)
