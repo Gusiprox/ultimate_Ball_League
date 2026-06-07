@@ -2,8 +2,21 @@ extends Node3D
 
 @export var escenaCasilla: PackedScene
 
+var diferenciaX: int
+var diferenciaY: int
+var distanciaManhattan: int
+
+var posicion: Vector2i
+var actual: Vector2i
+var nueva: Vector2i
+
 var casillas: Dictionary = {}
 var ocupacion: Dictionary = {}
+var visitadas: Dictionary = {}
+
+var cola: Array[Vector2i]
+
+var casilla: Casilla
 
 func _ready() -> void:
 	_generarTerreno()
@@ -11,10 +24,10 @@ func _ready() -> void:
 func _generarTerreno() -> void:
 	for x: int in range(Constantes.ANCHO_MAPA):
 		for y: int in range(Constantes.LARGO_MAPA):
-			var casilla: Casilla = escenaCasilla.instantiate()
+			casilla = escenaCasilla.instantiate()
 			add_child(casilla)
 
-			var posicion: Vector2i = Vector2i(x, y)
+			posicion = Vector2i(x, y)
 			casilla.posicionCuadricula = posicion
 			casilla.position = Vector3(x * Constantes.TAMANO_CASILLA, 0, y * Constantes.TAMANO_CASILLA)
 
@@ -29,24 +42,21 @@ func liberarCasilla(pos: Vector2i) -> void:
 func comprobarCasillaOcupada(pos: Vector2i) -> bool:
 	return ocupacion.has(pos)
 
-func getOcupante(pos: Vector2i) -> CharacterBody3D:
-	return ocupacion.get(pos, null)
-
 func limpiarMovimiento() -> void:
-	for casilla: Casilla in casillas.values():
-		casilla.setDisponible(false)
+	for c: Casilla in casillas.values():
+		c.setDisponible(false)
 
 func mostrarMovimiento(origen: Vector2i, alcance: int) -> void:
 	limpiarMovimiento()
 
 	for posicionDestino: Vector2i in casillas.keys():
-		var diferenciaX: int = abs(posicionDestino.x - origen.x)
-		var diferenciaY: int = abs(posicionDestino.y - origen.y)
+		diferenciaX = abs(posicionDestino.x - origen.x)
+		diferenciaY = abs(posicionDestino.y - origen.y)
 
 		if diferenciaX != 0 and diferenciaY != 0:
 			continue
 
-		var distanciaManhattan: int = diferenciaX + diferenciaY
+		distanciaManhattan = diferenciaX + diferenciaY
 
 		if distanciaManhattan > 0 and distanciaManhattan <= alcance:
 			casillas[posicionDestino].setDisponible(true)
@@ -58,27 +68,24 @@ func buscarCasillaLibreCercana(origen: Vector2i) -> Vector2i:
 	if comprobarDentroDelMapa(origen) and not comprobarCasillaOcupada(origen):
 		return origen
 
-	var visitadas: Dictionary = {}
-	var cola: Array[Vector2i] = [origen]
+	cola = [origen]
 	visitadas[origen] = true
 
 	while cola.size() > 0:
-		var actual: Vector2i = cola.pop_front()
-
+		actual = cola.pop_front()
+		
 		for dir: Vector2i in Constantes.DIRECCIONES_CARDINALES:
-			var nueva: Vector2i = actual + dir
+			nueva = actual + dir
 
 			if visitadas.has(nueva):
 				continue
-
 			visitadas[nueva] = true
-
 			if not comprobarDentroDelMapa(nueva):
 				continue
-
 			if not comprobarCasillaOcupada(nueva):
 				return nueva
-
 			cola.append(nueva)
-
 	return origen
+
+func getOcupante(pos: Vector2i) -> CharacterBody3D:
+	return ocupacion.get(pos, null)

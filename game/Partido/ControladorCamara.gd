@@ -1,42 +1,52 @@
 extends Node3D
 
+@onready var camara: Camera3D = $Camera3D
+
+var centroX: float
+var centroZ: float
+var x: float
+var y: float
+var z: float
+
 var rotacionHorizontal: float = 0.0
 var rotacionVertical: float = 0.0
 var distanciaActual: float = Constantes.DISTANCIA_INICIAL_CAMARA
+
 var arrastrandoRaton: bool = false
 
-@onready var camara: Camera3D = $Camera3D
+var desplazamiento: Vector3
+var nuevaPosicion: Vector3
 
 func _ready() -> void:
 	_centrarMapa()
 	_inicializarDesdeCamara()
 	_actualizarPosicionCamara()
 
-func _input(evento: InputEvent) -> void:
-	if evento is InputEventMouseButton:
-		_procesarEntradaRaton(evento)
-	elif evento is InputEventMouseMotion and arrastrandoRaton:
-		_procesarMovimientoRaton(evento)
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		_procesarEntradaRaton(event)
+	elif event is InputEventMouseMotion and arrastrandoRaton:
+		_procesarMovimientoRaton(event)
 
 func _centrarMapa() -> void:
-	var centroX: float = (Constantes.ANCHO_MAPA - 1) * Constantes.TAMANO_CASILLA / 2.0
-	var centroZ: float = (Constantes.LARGO_MAPA - 1) * Constantes.TAMANO_CASILLA / 2.0
-	global_position = Vector3(centroX, 0.0, centroZ)
+	centroX = (Constantes.ANCHO_MAPA - 1) * Constantes.TAMANO_CASILLA / 2
+	centroZ = (Constantes.LARGO_MAPA - 1) * Constantes.TAMANO_CASILLA / 2
+	global_position = Vector3(centroX, 0, centroZ)
 
-func _procesarEntradaRaton(evento: InputEventMouseButton) -> void:
-	match evento.button_index:
+func _procesarEntradaRaton(event: InputEventMouseButton) -> void:
+	match event.button_index:
 		MOUSE_BUTTON_RIGHT:
-			arrastrandoRaton = evento.pressed
+			arrastrandoRaton = event.pressed
 		MOUSE_BUTTON_WHEEL_UP:
-			if evento.pressed:
+			if event.pressed:
 				_ajustarZoom(-Constantes.VELOCIDAD_ZOOM_CAMARA)
 		MOUSE_BUTTON_WHEEL_DOWN:
-			if evento.pressed:
+			if event.pressed:
 				_ajustarZoom(Constantes.VELOCIDAD_ZOOM_CAMARA)
 
-func _procesarMovimientoRaton(evento: InputEventMouseMotion) -> void:
-	rotacionHorizontal -= evento.relative.x * Constantes.SENSIBILIDAD_CAMARA
-	rotacionVertical += evento.relative.y * Constantes.SENSIBILIDAD_CAMARA
+func _procesarMovimientoRaton(event: InputEventMouseMotion) -> void:
+	rotacionHorizontal -= event.relative.x * Constantes.SENSIBILIDAD_CAMARA
+	rotacionVertical += event.relative.y * Constantes.SENSIBILIDAD_CAMARA
 	rotacionVertical = clamp(rotacionVertical, Constantes.ANGULO_VERTICAL_MINIMO_CAMARA, Constantes.ANGULO_VERTICAL_MAXIMO_CAMARA)
 	_actualizarPosicionCamara()
 
@@ -45,20 +55,23 @@ func _ajustarZoom(delta: float) -> void:
 	_actualizarPosicionCamara()
 
 func _actualizarPosicionCamara() -> void:
-	var desplazamiento: Vector3 = _calcularDesplazamientoCamara()
-	var nuevaPosicion: Vector3 = global_position + desplazamiento
+	desplazamiento = _calcularDesplazamientoCamara()
+	nuevaPosicion = global_position + desplazamiento
+	
 	nuevaPosicion.y = max(nuevaPosicion.y, Constantes.ALTURA_MINIMA_CAMARA)
 	camara.global_position = nuevaPosicion
 	camara.look_at(global_position, Vector3.UP)
 
 func _calcularDesplazamientoCamara() -> Vector3:
-	var x: float = cos(rotacionVertical) * sin(rotacionHorizontal)
-	var y: float = sin(rotacionVertical)
-	var z: float = cos(rotacionVertical) * cos(rotacionHorizontal)
+	x = cos(rotacionVertical) * sin(rotacionHorizontal)
+	y = sin(rotacionVertical)
+	z = cos(rotacionVertical) * cos(rotacionHorizontal)
+	
 	return Vector3(x, y, z) * distanciaActual
 
 func _inicializarDesdeCamara() -> void:
-	var desplazamiento: Vector3 = camara.global_position - global_position
+	desplazamiento = camara.global_position - global_position
+	
 	distanciaActual = desplazamiento.length()
 	rotacionHorizontal = atan2(desplazamiento.x, 0)
 	rotacionVertical = asin(clamp(desplazamiento.y / distanciaActual, -1.0, 1.0))

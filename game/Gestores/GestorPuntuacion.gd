@@ -3,13 +3,20 @@ class_name GestorPuntuacion
 signal golMarcado(equipo: String, azules: int, rojos: int)
 signal partidoFinalizado(resultado: String, azules: int, rojos: int)
 
-var terreno: Node3D
+var equipoJugador: String
+var res: String
 
 var puntosAzul: int = 0
 var puntosRojo: int = 0
 var turnos: int = 0
+
 var prorroga: bool = false
 var terminado: bool = false
+
+var posicionJugador: Vector2i
+var destino: Vector2i
+
+var terreno: Node3D
 
 func _init(t: Node3D) -> void:
 	terreno = t
@@ -18,8 +25,8 @@ func comprobarPunto(personaje: CharacterBody3D) -> void:
 	if personaje == null or personaje.stats == null:
 		return
 
-	var equipoJugador: String = personaje.stats.equipo.to_lower()
-	var posicionJugador: Vector2i = personaje.posicionCuadricula
+	equipoJugador = personaje.stats.equipo.to_lower()
+	posicionJugador = personaje.posicionCuadricula
 
 	if equipoJugador == Constantes.EQUIPO_AZUL and posicionJugador.y == Constantes.LINEA_GOL_AZUL:
 		puntosAzul += 1
@@ -33,9 +40,9 @@ func comprobarPunto(personaje: CharacterBody3D) -> void:
 
 func _reiniciar(personaje: CharacterBody3D) -> void:
 	terreno.liberarCasilla(personaje.posicionCuadricula)
-	var dest: Vector2i = terreno.buscarCasillaLibreCercana(personaje.posicionInicial)
-	personaje.teletransportarACuadricula(dest)
-	terreno.ocuparCasilla(dest, personaje)
+	destino = terreno.buscarCasillaLibreCercana(personaje.posicionInicial)
+	personaje.teletransportarACuadricula(destino)
+	terreno.ocuparCasilla(destino, personaje)
 
 func incrementarTurno() -> void:
 	turnos += 1
@@ -62,7 +69,7 @@ func _finalizar(azulGana: bool) -> void:
 	terminado = true
 	terreno.limpiarMovimiento()
 
-	var res: String = Constantes.EQUIPO_AZUL if azulGana else Constantes.EQUIPO_ROJO
+	res = Constantes.EQUIPO_AZUL if azulGana else Constantes.EQUIPO_ROJO
 	partidoFinalizado.emit(res, puntosAzul, puntosRojo)
 
 func _declararEmpate() -> void:
