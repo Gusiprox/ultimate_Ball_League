@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://3ecjr106vte8" path="res://menus/themes/button/ThemeButtonCard.tres" id="4_syb2r"]
 [ext_resource type="Texture2D" uid="uid://bvmp1oef0ncng" path="res://menus/cards/img/info.png" id="5_77pla"]
 [ext_resource type="Theme" uid="uid://ceg2gyug7on21" path="res://menus/themes/button/ThemeButtonInfo.tres" id="5_hskc2"]
-[ext_resource type="PackedScene" uid="uid://4jjsvdrfigjb" path="res://characters/models/CharacterPlaceholderModel.tscn" id="6_wcjlm"]
+[ext_resource type="PackedScene" uid="uid://tue8s8mkq2f" path="res://menus/cards/character_model.tscn" id="6_wcjlm"]
 
 [node name="CharacterCard" type="Panel" unique_id=131578327]
 custom_minimum_size = Vector2(95, 120)
@@ -25,14 +25,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = -59.0
-offset_right = 28.0
-offset_bottom = 59.0
+offset_left = -27.5
+offset_top = -81.0
+offset_right = 28.5
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 26
 
 [node name="contCardElem" type="HBoxContainer" parent="contCharacterCard" unique_id=1521894613]
 layout_mode = 2
@@ -66,28 +66,8 @@ icon = ExtResource("5_77pla")
 expand_icon = true
 metadata/_edit_use_anchors_ = true
 
-[node name="character" type="SubViewportContainer" parent="contCharacterCard" unique_id=1325129908]
-custom_minimum_size = Vector2(20, 60)
+[node name="character" parent="contCharacterCard" unique_id=1976900408 instance=ExtResource("6_wcjlm")]
 layout_mode = 2
-mouse_filter = 2
-
-[node name="SubViewport" type="SubViewport" parent="contCharacterCard/character" unique_id=546870979]
-own_world_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(56, 60)
-render_target_update_mode = 4
-
-[node name="camCard" type="Camera3D" parent="contCharacterCard/character/SubViewport" unique_id=609083509]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
-projection = 1
-
-[node name="light" type="DirectionalLight3D" parent="contCharacterCard/character/SubViewport" unique_id=251512817]
-transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.7071068, 0.7071068, -0.5, 0.5, 0, 0, 0)
-light_energy = 1.5
-
-[node name="CharacterPlaceholder" parent="contCharacterCard/character/SubViewport" unique_id=1215470140 instance=ExtResource("6_wcjlm")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.1, -0.28, 0)
 
 [node name="btnEquip" type="Button" parent="contCharacterCard" unique_id=651566328]
 custom_minimum_size = Vector2(50, 0)

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://tue8s8mkq2f"]
+
+[ext_resource type="Script" uid="uid://mby7m4a50cbi" path="res://menus/cards/character_model.gd" id="1_p5swr"]
+[ext_resource type="PackedScene" uid="uid://4jjsvdrfigjb" path="res://characters/models/CharacterPlaceholderModel.tscn" id="1_v4lc5"]
+
+[node name="character" type="SubViewportContainer" unique_id=1976900408]
+custom_minimum_size = Vector2(20, 60)
+mouse_filter = 2
+script = ExtResource("1_p5swr")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=885974759]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(56, 60)
+render_target_update_mode = 4
+
+[node name="camCard" type="Camera3D" parent="SubViewport" unique_id=1243220810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+projection = 1
+
+[node name="light" type="DirectionalLight3D" parent="SubViewport" unique_id=1111118965]
+transform = Transform3D(0.7071068, 0.5, -0.5, 0, 0.7071068, 0.7071068, 0.7071068, -0.5, 0.5, 0, 0, 0)
+light_energy = 1.5
+
+[node name="CharacterPlaceholder" parent="SubViewport" unique_id=1215470140 instance=ExtResource("1_v4lc5")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.1, -0.28, 0)

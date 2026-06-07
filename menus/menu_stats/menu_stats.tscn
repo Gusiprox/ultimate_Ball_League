@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://dfkdedvmnlmh3" path="res://menus/themes/panel/ThemePanelCard.tres" id="1_o64wn"]
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="2_dqmid"]
 [ext_resource type="Script" uid="uid://dyclr8c08dijg" path="res://menus/menu_stats/menu_stats.gd" id="2_fvq55"]
-[ext_resource type="Texture2D" uid="uid://6kv7c16d80dy" path="res://icon.svg" id="3_d8snh"]
+[ext_resource type="PackedScene" uid="uid://tue8s8mkq2f" path="res://menus/cards/character_model.tscn" id="5_fvq55"]
 
 [node name="MenuStats" type="Panel" unique_id=254472418]
 anchors_preset = 8
@@ -52,11 +52,13 @@ theme_override_font_sizes/font_size = 24
 text = "Personaje"
 horizontal_alignment = 1
 
-[node name="imgCharacter" type="NinePatchRect" parent="contObject" unique_id=167407270]
-texture_filter = 4
-custom_minimum_size = Vector2(0, 220)
-layout_mode = 2
-texture = ExtResource("3_d8snh")
+[node name="character" parent="." unique_id=1976900408 instance=ExtResource("5_fvq55")]
+layout_mode = 0
+offset_left = 47.250008
+offset_top = 103.00001
+offset_right = 103.25001
+offset_bottom = 163.0
+scale = Vector2(4, 4)
 
 [node name="contStats" type="VBoxContainer" parent="." unique_id=74989540]
 layout_mode = 1

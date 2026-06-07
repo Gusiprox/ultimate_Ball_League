@@ -12,7 +12,6 @@ horizontal_scroll_mode = 0
 script = ExtResource("2_fm0e1")
 
 [node name="contListElem" type="GridContainer" parent="." unique_id=1444737359]
-clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3

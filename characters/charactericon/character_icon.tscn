@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d4lf7sdxjia2b"]
+
+[ext_resource type="Script" uid="uid://vp34ibvvdwe1" path="res://characters/charactericon/character_icon.gd" id="1_ddqg3"]
+[ext_resource type="PackedScene" uid="uid://4jjsvdrfigjb" path="res://characters/models/CharacterPlaceholderModel.tscn" id="2_7p4ep"]
+
+[sub_resource type="Environment" id="Environment_ddqg3"]
+ambient_light_source = 2
+ambient_light_color = Color(0.66245234, 0.66245234, 0.6624523, 1)
+
+[node name="CharacterIcon" type="SubViewportContainer" unique_id=994923605]
+offset_left = -2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 2.0
+stretch = true
+script = ExtResource("1_ddqg3")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=415866861]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="CharacterPlaceholder" parent="SubViewport" unique_id=1215470140 instance=ExtResource("2_7p4ep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5219969)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=3822078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47161865, 0.40150023, 5.52551)
+environment = SubResource("Environment_ddqg3")

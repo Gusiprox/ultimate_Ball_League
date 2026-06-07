@@ -45,8 +45,9 @@ func cerrarVentanaStats():
 	menuStats.hide()
 	navBar.ocultarFondoStats()
 
-func abrirVentanaStats():
+func abrirVentanaStats(data: CharacterDataModel):
 	navBar.mostrarFondoStats()
+	menuStats._setData(data)
 	GlobalMenus.animarEntrada(menuStats, posOriginalStats, true, TIEMPO_ANIMACION_STATS, DISTANCIA_ANIMACION, OPACIDAD_ANIMACION)
 
 
@@ -109,12 +110,14 @@ func cerrarMenus():
 			nodo.modulate.a = 0.0
 
 func buscarCartasEnMenus():
-	for menu in dicMenus.values():
-		# Buscamos las cartas dentro de los menús
-		for hijo in menu.find_children("*", "", true): 
-			if hijo.has_signal(CHAR_CARD_SIGNAL):
-				hijo.infoRequested.connect(abrirVentanaStats)
-
+#	for menu in dicMenus.values():
+#		# Buscamos las cartas dentro de los menús
+#		for hijo in menu.find_children("*", "", true): 
+#			if hijo.has_signal(CHAR_CARD_SIGNAL):
+#				hijo.infoRequested.connect(abrirVentanaStats)
+	EventBus.infoRequested.connect(abrirVentanaStats)
+	
+	
 func gestionarEscPulsado() -> void:
 	if has_node(NAV_BAR):
 		get_node(NAV_BAR).escPresionado()
