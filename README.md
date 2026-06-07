@@ -19,6 +19,91 @@
 
 ## Conceptualización
 
+### Historia **No sé que poner**
+
+### Juego
+
+#### Interfaz **Esto es la última entrega, cambiadlo como veais conveniente**
+Al abrir el juego el usuario se encuentra con un menú inicial en el que hay que darle a un botón start para empezar. Si no se ha iniciado sesión aparece una ventana por encima que pide iniciar sesión (o crear una cuenta si no tiene). Tiene el nombre del juego y un dibujo que tenga que ver con él
+
+Una vez se haya iniciado sesión se accede al juego. En la parte superior de la pantalla hay una barra de menús, de izquierda a derecha: Menú principal (donde está el botón para empezar a jugar), editor de personaje, editor de equipo, gacha, tienda, inventario para ver todos los personajes y gorros que tiene.
+
+En la misma barra, a la derecha, se muestran las tiradas que tenga el usuario, el dinero y el usuario que haya iniciado sesión.
+
+Al hacer clic en el icono del usuario (o con el esc) se despliega un menú lateral con varias opciones que permiten al usuario ver:
+
+- Los controles del juego. 
+- Opciones. 
+- Cerrar sesión. 
+- Salir del juego. 
+
+#### Partidas 
+
+Una partida cuenta con 2 jugadores (O un jugador y una IA), cada uno con un equipo de 5 personajes. Gana aquel jugador que tenga más puntos al acabar la partida. Si los jugadores empatan se continuará jugando hasta que uno de los jugadores desempate y si este periodo se alarga demasiado se terminará en empate.
+
+Se obtienen puntos al hacer que tus personajes, que serán pelotas con brazos y piernas, lleguen al final del campo enemigo que sería donde se encuentra su portería, al llegar a la portería el personaje volverá al inicio de su campo y el jugador obtendrá un punto.
+
+Se va a utilizar un sistema de turnos en el que, mediante la estadística de velocidad de los jugadores, se decidirá a quién le ha llegado el turno para poder actuar y el final del partido.
+
+El escenario del juego es un campo de fútbol con 14 casillas de alto y 7 de ancho, con dos porterías, una a cada extremo del campo.
+
+#### Estadísticas de personajes 
+  
+Cada personaje contará con las siguientes estadísticas, que influirán en su utilización en el 
+juego:
+
+- Fuerza de empuje: Indica las casillas que se puede mover cada personaje en su turno. 
+
+- Resistencia de empuje: Para evitar el avance de los atacantes. 
+
+- Velocidad: Decide cuándo obtiene el turno un personaje, a mayor velocidad antes podrá volver a actuar ese personaje. 
+
+- Habilidad: Se activará en el turno del personaje pulsando la tecla **E** y tras usarla se terminará el turno del personaje y se deberá esperar una cantidad establecida de turnos para volver a utilizarla, algunos personajes pueden no llevar habilidad.
+
+- Talento: Se activará automáticamente o al cumplir una condición, algunos personajes pueden no llevar talento.
+
+#### Mecánica principal 
+
+La mecánica principal del juego está basada en empujes.
+
+- Los jugadores se moverán usando su fuerza de empuje (Si un jugador tiene 3 de fuerza de empuje, este se podrá mover hasta 3 casillas). 
+
+- Si un jugador colisiona con un personaje del equipo opuesto se empezará un duelo para decidir si este podrá seguir avanzando, solo se puede realizar un duelo por turno. 
+
+- Si el atacante gana el duelo podrá seguir avanzando y empujará al defensor al lado o detrás de él. 
+
+- Si el defensor gana el atacante no podrá avanzar. 
+
+- Para calcular quién gana el duelo se calculará cual es mayor entre la resistencia de empuje del defensor y la fuerza de empuje del atacante menos las casillas que se tiene que mover para alcanzar al defensor, para que el atacante gane su valor tiene que ser estrictamente mayor.
+
+*Ejemplo explicativo*: Se tiene un jugador atacante con 6 puntos en fuerza de empuje y otro en el equipo contrario con 4 de resistencia de empuje. El atacante tras moverse 2 casillas, colisiona con el defensor e iniciarán un duelo en el que el defensor ganaría debido a que su resistencia de empuje (4) es mayor o igual a la fuerza de empuje restante del atacante (6 - 2 = 4).  
+
+#### Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**
+
+Para conseguir personajes habrá un menú en el que de manera aleatoria te genera un 
+personaje con estadísticas aleatorias a cambio de una moneda dentro del juego.
+
+Esta parte la maneja el servidor para evitar la generación de personajes con métodos 
+ilícitos, y así generar personajes garantizando que sean raros y valiosos.
+
+Ejemplo explicativo:  
+Gastas X monedas y te dan a un jugador con:
+- Fuerza de empuje: 10.
+- Resistencia de empuje: 5.
+- Velocidad: 11.
+- Habilidad: “Aumento de resistencia de empuje +2”.
+- Talento:  “Aumenta la fuerza de empuje si tiene un compañero al lado”.
+
+Y así tendrías tu nuevo personaje listo para usar.
+
+#### Controles
+
+- Cuando sea el turno de un personaje las casillas que se encuentren en su fuerza de empuje resaltarán de color amarillo y para moverse a esa casilla solo se necesita pasar el cursor del ratón y hacer click izquierdo, al ganar un duelo se resaltarán las casillas a las que puedes empujar al adversario.
+
+- Para mover la camara se tiene que mantener click izquierdo y mover el ratón y con la rueda del ratón se puede hacer zoom
+
+- Para activar una habilidad se tiene que pulsar la tecla **E** para que te muestre el rango de tus habilidades y luego seleccionar al objetivo de tu habilidad con el click izquierdo, en caso de no querer usar habilidad se puede volver a pulsar la **E** para moverse
+
 ## Arte
 
 A continuación se proporciona información sobre dónde se han obtenido los elementos artísticos utilizados en el juego:
@@ -44,6 +129,7 @@ A continuación se proporciona información sobre dónde se han obtenido los ele
   - [Música de MenuAll.](https://pixabay.com/music/video-games-game-176807/)
 
 ## Programación
+El videojuego será hecho con el sistema de escenas y nodos de Godot con código escrito en GDScript, el servidor usado será Playfab y los modelos 3D serán creados con Blender
 
 ### Menús
 
@@ -71,4 +157,27 @@ Al iniciar una partida, el usuario tiene acceso a los siguientes menús:
 - **Menú de victoria:** en caso de que el usuario gane la partida le aparecerá un menú de victoria en el que podrá observar las tiradas y monedas que ha ganado. También podrá elegir si volver a los menús o buscar una partida nueva (NO IMPLEMENTADO).
 - **Menú de derrota:** en caso de que el usuario pierda la partida, le aparecerá un menú de derrota en el que podrá observar las monedas que ha obtenido. También podrá elegir si volver a los menús o buscar una partida nueva (NO IMPLEMENTADO).
 
+
+### Creación de escenarios
+
+Se cuenta con una escena que consta de la creación de una casilla y luego con otra escena que será el terreno de fútbol, donde se jugarán las partidas de fútbol, que contendrá la cantidad de casillas que nosotros indiquemos (En este caso sería un estadio de 14x7 casillas) el motivo de crear los escenarios de esta forma es para cuando, en un futuro, se quiera crear un escenario de otro deporte se pueda reutilizar la escena de la casilla y solamente se tenga que crear el escenario del nuevo deporte con las dimensiones que se necesite. 
+
+### Personajes **Tenemos que mirar como hacer esto y si eso hablar de las habilidades y pasivas aquí**
+
+Tendremos un código base que será el que tenga la lógica de todos los personajes (Moverse, asignarse equipos, etc) para evitar duplicar código, luego el resto de personajes extenderán de ese código base y tendrán sus propias estadísticas que serán asignadas dependiendo de sus caracteristicas.
+
+### Partida
+
+Una vez se ha elegido qué personajes se usarán antes de empezar el partido, este empezará en una escena que contendrá la escena del terreno y se colocarán a los personajes en unas posiciones fijas al inicio de la partida, para saber quien actúa se usará un sistema por turnos y para decidir quien obtendrá su turno se usará la estadística de velocidad de los personajes, haciendo que los personajes más rápidos actúen más frecuentemente. 
+
+### Inteligencia artificial
+
+Si se decide jugar una partida con una IA como oponente este realizará movimientos para marcar gol y también será capaz de realizar duelos y seguir las reglas del sistema de empujes
+
 ## Elementos destacables
+
+## Fuentes
+
+- [Godot Docs](https://docs.godotengine.org/en/stable/index.html)
+- [Godot Tactical RPG](https://github.com/ramaureirac/godot-tactical-rpg)
+
