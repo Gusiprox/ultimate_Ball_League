@@ -66,7 +66,7 @@ func _instanciarPersonajes() -> void:
 		return
 	
 	personajesJugador = PlayerData.equipo
-	personajesRival = 
+	personajesRival = IaDataManager._getIaTeam()
 	
 	for personaje in personajesJugador:
 		personaje.stats.equipo = Constantes.EQUIPO_AZUL.capitalize()
