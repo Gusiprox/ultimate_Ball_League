@@ -6,9 +6,16 @@ var terreno: Node3D
 var gestorMovimiento: GestorMovimiento
 
 var enCombate: bool = false
+var mostrarUI: bool
 
 var atacante: CharacterBody3D
 var defensor: CharacterBody3D
+var ocupante: CharacterBody3D
+
+var posicionDefensor: Vector2i
+var direccionImpacto: Vector2i
+var posicionEmpuje: Vector2i
+
 var destinoAtacante: Vector2i
 var casillasValidas: Array[Vector2i] = []
 
@@ -16,14 +23,15 @@ func _init(t: Node3D, gm: GestorMovimiento) -> void:
 	terreno = t
 	gestorMovimiento = gm
 
-func iniciarSeleccionEmpuje(a: CharacterBody3D, d: CharacterBody3D, destino: Vector2i, mostrarUI: bool = true) -> void:
+func iniciarSeleccionEmpuje(a: CharacterBody3D, d: CharacterBody3D, destino: Vector2i, esIA: bool) -> void:
 	enCombate = true
 	atacante = a
 	defensor = d
 	destinoAtacante = destino
+	mostrarUI = esIA
 
-	var posicionDefensor: Vector2i = defensor.posicionCuadricula
-	var direccionImpacto: Vector2i = gestorMovimiento._obtenerPaso(atacante.posicionCuadricula, posicionDefensor)
+	posicionDefensor = defensor.posicionCuadricula
+	direccionImpacto = gestorMovimiento._obtenerPaso(atacante.posicionCuadricula, posicionDefensor)
 
 	casillasValidas.clear()
 	terreno.limpiarMovimiento()
@@ -32,12 +40,12 @@ func iniciarSeleccionEmpuje(a: CharacterBody3D, d: CharacterBody3D, destino: Vec
 		if dir == direccionImpacto:
 			continue
 
-		var posicionEmpuje: Vector2i = posicionDefensor + dir
+		posicionEmpuje = posicionDefensor + dir
 
 		if not terreno.comprobarDentroDelMapa(posicionEmpuje):
 			continue
 
-		var ocupante: CharacterBody3D = terreno.getOcupante(posicionEmpuje)
+		ocupante = terreno.getOcupante(posicionEmpuje)
 
 		if ocupante != null and ocupante != atacante:
 			continue
@@ -83,5 +91,5 @@ func _limpiar() -> void:
 	destinoAtacante = Vector2i.ZERO
 	casillasValidas.clear()
 
-func estaEnCombate() -> bool:
+func estarEnCombate() -> bool:
 	return enCombate

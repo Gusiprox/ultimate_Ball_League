@@ -21,7 +21,7 @@ const LINEA_GOL_ROJO: int = 0
 const EQUIPO_AZUL: String = "azul"
 const EQUIPO_ROJO: String = "rojo"
 
-const COLOR_HOVER: Color = Color(0, 1, 0)
+const COLOR_CURSOR_ENCIMA: Color = Color(0, 1, 0)
 const COLOR_DISPONIBLE: Color = Color(1, 1, 0)
 const COLOR_NORMAL: Color = Color(1, 1, 1)
 
@@ -34,6 +34,24 @@ const DIRECCIONES_CARDINALES: Array[Vector2i] = [
 	Vector2i(-1, 0),
 	Vector2i(1, 0)
 ]
+
+const COOLDOWN_DOS_TURNOS: int = 2
+const COOLDOWN_TRES_TURNOS: int = 3
+
+const STATS_FUERZA_EMPUJE: String = "fuerzaEmpuje"
+const STATS_RESISTENCIA_EMPUJE: String = "resistenciaEmpuje"
+
+const DICTIONARY_KEY_BLOQUEADO: String = "Bloqueado"
+const DICTIONARY_KEY_ENEMIGO: String = "Enemigo"
+const DICTIONARY_KEY_POSICION: String = "Posicion"
+const DICTIONARY_KEY_DISTANCIA: String = "Distancia"
+const DICTIONARY_KEY_CASILLAS: String = "Casillas"
+const DICTIONARY_KEY_POSICION_ENEMIGO: String = "Posicion enemigo"
+const DICTIONARY_KEY_PERSONAJE: String = "Personaje"
+const DICTIONARY_KEY_VALOR_ACCION: String = "Valor accion"
+const DICTIONARY_KEY_STAT: String = "Stat"
+const DICTIONARY_KEY_VALOR: String = "Valor"
+const DICTIONARY_KEY_DURACION: String = "Duracion"
 
 const SENSIBILIDAD_CAMARA: float = 0.005
 const DISTANCIA_MINIMA_CAMARA: float = 5.0
