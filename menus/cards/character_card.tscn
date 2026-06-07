@@ -10,8 +10,11 @@
 
 [node name="CharacterCard" type="Panel" unique_id=131578327]
 custom_minimum_size = Vector2(95, 120)
-offset_right = 94.0
-offset_bottom = 142.0
+anchors_preset = -1
+anchor_right = 0.082
+anchor_bottom = 0.26500002
+offset_right = 0.5359955
+offset_bottom = 0.27998352
 theme = ExtResource("1_bubac")
 script = ExtResource("1_qcj7k")
 
@@ -45,11 +48,10 @@ size_flags_vertical = 1
 theme = ExtResource("3_syb2r")
 theme_override_constants/line_spacing = -6
 theme_override_font_sizes/font_size = 11
-text = "Sombrero"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-max_lines_visible = 2
+max_lines_visible = 3
 
 [node name="btnInfo" type="Button" parent="contCharacterCard/contCardElem" unique_id=1282074362]
 visible = false

@@ -18,6 +18,7 @@ func _onButtonDown() -> void:
 	
 	info_params.GetUserVirtualCurrency = true
 	info_params.GetPlayerProfile = true
+	info_params.GetUserReadOnlyData = true
 	
 	PlayFabManager.client.login_with_email(
 		emailString,
@@ -29,7 +30,7 @@ func _onButtonDown() -> void:
 func _on_playfab_logged_in(data: LoginResult) -> void:
 	email.text = ""
 	password.text = ""
-	PlayerData._setData(data)
+	await PlayerData._setData(data)
 	get_tree().change_scene_to_file(pathMenuAll)
 
 func _on_login_error(data) -> void:

@@ -3,6 +3,7 @@ extends Node
 # Señales para avisar a la interfaz cuando cambie el dinero
 signal gold_changed(new_amount: int)
 signal gacha_tokens_changed(new_amount: int)
+signal charactersSeted
 
 const DIC_CODE_USERNAME: String = "DisplayName"
 const DIC_CODE_GOLD: String = "OR"
@@ -13,6 +14,8 @@ var playfab_id: String = ""
 var username: String = ""
 
 var equipo: Array[CharacterBody3D] = []
+
+var characters: Array[CharacterDataModel] = []
 
 var gold: int = 0:
 	set(value):
@@ -30,6 +33,7 @@ func _ready() -> void:
 func _setData(data: LoginResult):
 	var usernameDic: Dictionary = data.InfoResultPayload.PlayerProfile
 	var currencyDic: Dictionary = data.InfoResultPayload.UserVirtualCurrency
+	await _setCharacters()
 	
 	username = usernameDic.get(DIC_CODE_USERNAME)
 	gold = currencyDic.get(DIC_CODE_GOLD)
@@ -40,6 +44,32 @@ func _delData():
 
 func _setTeam():
 	pass
+
+func _setTeamImp(a):
+	characters.clear()
+	var charactersDict: Dictionary = a.data.FunctionResult.personajes
+	
+	for character in charactersDict:
+		var characterData = CharacterDataModel.new(charactersDict.get(character))
+		characterData.id = character
+		
+		characters.push_front(characterData)
+	charactersSeted.emit()
+	
+func _setCharacters():
+	var dict = {
+		"FunctionName": "getGacharters",
+		"keys": [
+			"BarKey"
+		]
+	}
+	PlayFabManager.client.post_dict_auth(
+		dict, 
+		"/Client/ExecuteCloudScript", 
+		PlayFab.AUTH_TYPE.SESSION_TICKET, 
+		_setTeamImp
+	)
+	await charactersSeted
 
 func stringToInt(value: String) -> int:
 	var texto_limpio = value.strip_edges()

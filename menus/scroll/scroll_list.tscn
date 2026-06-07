@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://nudjyqgwvnor"]
 
 [ext_resource type="Theme" uid="uid://bo84q6mdsb6cy" path="res://menus/themes/ThemeScrollBar.tres" id="1_fm0e1"]
-[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="2_i628u"]
+[ext_resource type="Script" uid="uid://jvy8tkmmsq6c" path="res://menus/scroll/scroll_list.gd" id="2_fm0e1"]
 
 [node name="contScroll" type="ScrollContainer" unique_id=124515402]
 clip_children = 1
@@ -9,6 +9,7 @@ size_flags_vertical = 3
 theme = ExtResource("1_fm0e1")
 theme_override_constants/scrollbar_h_separation = 3
 horizontal_scroll_mode = 0
+script = ExtResource("2_fm0e1")
 
 [node name="contListElem" type="GridContainer" parent="." unique_id=1444737359]
 clip_contents = true
@@ -18,43 +19,3 @@ size_flags_vertical = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 4
-
-[node name="CharacterCard" parent="contListElem" unique_id=131578327 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard2" parent="contListElem" unique_id=1857383214 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard3" parent="contListElem" unique_id=538200179 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard4" parent="contListElem" unique_id=1336870830 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard5" parent="contListElem" unique_id=1009312235 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard6" parent="contListElem" unique_id=679484062 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard7" parent="contListElem" unique_id=1419559605 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard8" parent="contListElem" unique_id=59247005 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard9" parent="contListElem" unique_id=786816555 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2
-
-[node name="CharacterCard10" parent="contListElem" unique_id=1554235258 instance=ExtResource("2_i628u")]
-custom_minimum_size = Vector2(90, 140)
-layout_mode = 2

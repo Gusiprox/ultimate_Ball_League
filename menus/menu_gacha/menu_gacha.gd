@@ -87,9 +87,10 @@ func setCardsData(charDatas: Array[CharacterDataModel]):
 	var i = 0
 	for characterData in charDatas:
 		cardDatas.get(i).visible = true
-		cardDatas.get(i)._setData(ModelData.new(characterData))
+		cardDatas.get(i)._setData(characterData)
 		i = i+1
 		
+@warning_ignore("unused_parameter")
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	endAnimation.emit()
 
