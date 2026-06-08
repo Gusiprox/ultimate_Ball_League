@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl5vbtj2nuy1u"
-path="res://.godot/imported/MarcoAmarilloVertical.png-ca3213cb8af14ed6569bb5c67d506198.ctex"
+uid="uid://rqr2hl5ff75n"
+path="res://.godot/imported/check.png-9921bf61cd2e89f5f4f0c221fdc92d2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/menu_edit_character/img/MarcoAmarilloVertical.png"
-dest_files=["res://.godot/imported/MarcoAmarilloVertical.png-ca3213cb8af14ed6569bb5c67d506198.ctex"]
+source_file="res://menus/login/img/check.png"
+dest_files=["res://.godot/imported/check.png-9921bf61cd2e89f5f4f0c221fdc92d2c.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

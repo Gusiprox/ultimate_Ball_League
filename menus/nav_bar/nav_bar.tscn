@@ -51,7 +51,7 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 50
+theme_override_constants/separation = 190
 
 [node name="contNavBarButtons" type="HBoxContainer" parent="marginNavBar/contNavBarElements" unique_id=1054026203]
 layout_mode = 2
@@ -65,15 +65,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 14
 text = "Jugar"
-autowrap_mode = 2
-
-[node name="btnMenuEditPlayer" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=2103016809]
-custom_minimum_size = Vector2(130, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 14
-text = "Editar personaje"
 autowrap_mode = 2
 
 [node name="btnMenuEditTeam" type="Button" parent="marginNavBar/contNavBarElements/contNavBarButtons" unique_id=1697499274]
@@ -245,7 +236,6 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuPlay" to="." method="_on_btn_menu_play_pressed"]
-[connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditPlayer" to="." method="_on_btn_menu_edit_player_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuEditTeam" to="." method="_on_btn_menu_edit_team_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuGacha" to="." method="_on_btn_menu_gacha_pressed"]
 [connection signal="pressed" from="marginNavBar/contNavBarElements/contNavBarButtons/btnMenuStore" to="." method="_on_btn_menu_store_pressed"]

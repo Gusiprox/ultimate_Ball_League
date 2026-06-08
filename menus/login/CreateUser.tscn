@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://ca7dby62rvtkh"]
 
 [ext_resource type="Script" uid="uid://dpbeu1k4c6bxu" path="res://menus/login/create_user.gd" id="1_dtfol"]
+[ext_resource type="Theme" uid="uid://c6v8a6cwx1fvh" path="res://menus/themes/ThemeCreateUserTextbox.tres" id="2_c3os7"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="2_yy2fk"]
+[ext_resource type="Texture2D" uid="uid://fgh02wq8xier" path="res://menus/login/img/exclamation.png" id="3_4y6af"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="4_d8toc"]
+[ext_resource type="Texture2D" uid="uid://rqr2hl5ff75n" path="res://menus/login/img/check.png" id="5_d8toc"]
 
 [node name="CreateUser" type="Control" unique_id=927097092]
 layout_mode = 3
@@ -12,39 +16,86 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dtfol")
 
-[node name="username" type="TextEdit" parent="." unique_id=1398633855]
-layout_mode = 0
-offset_left = 258.0
-offset_top = 53.0
-offset_right = 829.0
-offset_bottom = 185.0
-placeholder_text = "Username"
+[node name="contCreateUserElem" type="VBoxContainer" parent="." unique_id=914198427]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.25
+offset_top = -139.0
+offset_right = 224.25
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_c3os7")
+theme_override_constants/separation = 20
 
-[node name="email" type="TextEdit" parent="." unique_id=154255501]
-layout_mode = 0
-offset_left = 253.0
-offset_top = 224.0
-offset_right = 822.0
-offset_bottom = 337.0
+[node name="username" type="TextEdit" parent="contCreateUserElem" unique_id=1398633855]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Nombre"
+
+[node name="email" type="TextEdit" parent="contCreateUserElem" unique_id=154255501]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
 placeholder_text = "Email"
 
-[node name="password" type="TextEdit" parent="." unique_id=165110031]
-layout_mode = 0
-offset_left = 259.0
-offset_top = 363.0
-offset_right = 834.0
-offset_bottom = 461.0
-placeholder_text = "Password
+[node name="password" type="TextEdit" parent="contCreateUserElem" unique_id=165110031]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Contraseña
 "
 context_menu_enabled = false
 
-[node name="Button" type="Button" parent="." unique_id=36293053]
-layout_mode = 0
-offset_left = 448.0
-offset_top = 519.0
-offset_right = 688.0
-offset_bottom = 581.0
-theme = ExtResource("2_yy2fk")
-text = "Crear Cuenta"
+[node name="contError" type="HBoxContainer" parent="contCreateUserElem" unique_id=1591067866]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
 
-[connection signal="button_down" from="Button" to="." method="_onButtonDown"]
+[node name="imgExclamation" type="NinePatchRect" parent="contCreateUserElem/contError" unique_id=1465820582]
+texture_filter = 4
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("3_4y6af")
+
+[node name="lblError" type="Label" parent="contCreateUserElem/contError" unique_id=1095798535]
+layout_mode = 2
+theme = ExtResource("4_d8toc")
+theme_override_colors/font_color = Color(0.9817845, 0.16471437, 0.08975806, 1)
+theme_override_font_sizes/font_size = 13
+text = "Se han introducido datos inválidos."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="contCorrect" type="HBoxContainer" parent="contCreateUserElem" unique_id=2139770916]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="imgExclamation" type="NinePatchRect" parent="contCreateUserElem/contCorrect" unique_id=1053870986]
+texture_filter = 4
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("5_d8toc")
+
+[node name="lblCorrect" type="Label" parent="contCreateUserElem/contCorrect" unique_id=1672824230]
+layout_mode = 2
+theme = ExtResource("4_d8toc")
+theme_override_colors/font_color = Color(0.10980392, 0.83137256, 0.15686275, 1)
+theme_override_font_sizes/font_size = 13
+text = "Se ha creado la cuenta."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="contCreateUserElem" unique_id=36293053]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_yy2fk")
+text = "Crear cuenta"
+
+[connection signal="button_down" from="contCreateUserElem/Button" to="." method="_onButtonDown"]
