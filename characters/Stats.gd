@@ -5,6 +5,8 @@ func _init(data: CharacterDataModel) -> void:
 	fuerzaEmpuje = data.knokForce
 	resistenciaEmpuje = data.knokResistance
 	velocidad = data.speed
+	pasiva = data.talent
+	habilidad = data.ability
 
 var equipo: String = ""
 

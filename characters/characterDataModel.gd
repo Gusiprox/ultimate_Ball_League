@@ -10,6 +10,8 @@ const eyesDicDir = "modelEyes"
 const MouthDicDir = "modelMouth"
 const FootsDicDir = "modelFoots"
 const hatDicDir = "modelHat"
+const habilityDir = "hability"
+const pasiveDir = "pasive"
 
 var id: int
 
@@ -39,3 +41,7 @@ func _init(data: Dictionary) -> void:
 	skinEyes = data.get(eyesDicDir)
 	skinHat = data.get(hatDicDir)
 	skinMouth = data.get(MouthDicDir)
+	if data.get(habilityDir) != null:
+		ability = data.get(habilityDir)
+	if data.get(pasiveDir) != null:
+		talent = data.get(pasiveDir)

@@ -19,7 +19,6 @@ func _setData(data: CharacterDataModel):
 	stats = Stats.new(data)
 	modelData = ModelData.new(data)
 
-
 func teletransportarACuadricula(pos: Vector2i) -> void:
 	posicionCuadricula = pos
 	global_position = Vector3(
