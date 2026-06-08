@@ -29,7 +29,7 @@
     - [Inteligencia artificial](#inteligencia-artificial)
   - [Elementos destacables](#elementos-destacables)
     - [Sistema de turnos](#sistema-de-turnos)
-  - [Fuentes](#fuentes)
+  - [Bibliografía](#bibliografía)
 
 ## Conceptualización
 
@@ -84,11 +84,11 @@ El escenario del juego es un campo de fútbol con 14 casillas de alto y 7 de anc
   
 Cada personaje contará con las siguientes estadísticas, que influirán en su utilización en el juego:
 
-- Fuerza de empuje: Indica las casillas que se puede mover cada personaje en su turno. 
+- Fuerza de empuje: Indica las casillas que se puede mover cada personaje en su turno.
 
-- Resistencia de empuje: Para evitar el avance de los atacantes. 
+- Resistencia de empuje: Para evitar el avance de los atacantes.
 
-- Velocidad: Decide cuándo obtiene el turno un personaje, a mayor velocidad antes podrá volver a actuar ese personaje. 
+- Velocidad: Decide cuándo obtiene el turno un personaje, a mayor velocidad antes podrá volver a actuar ese personaje.
 
 - Habilidad: Se activará en el turno del personaje pulsando la tecla **E** y tras usarla se terminará el turno del personaje y se deberá esperar una cantidad establecida de turnos para volver a utilizarla, algunos personajes pueden no llevar habilidad.
 
@@ -114,7 +114,7 @@ La mecánica principal del juego está basada en empujes.
 
 - Cuando sea el turno de un personaje las casillas que se encuentren en su fuerza de empuje resaltarán de color amarillo y para moverse a esa casilla solo se necesita pasar el cursor del ratón y hacer click izquierdo, al ganar un duelo se resaltarán las casillas a las que puedes empujar al adversario.
 
-- Para mover la camara se tiene que mantener click izquierdo y mover el ratón y con la rueda del ratón se puede hacer zoom.
+- Para mover la cámara se tiene que mantener click izquierdo y mover el ratón y con la rueda del ratón se puede hacer zoom.
 
 - Para activar una habilidad se tiene que pulsar la tecla **E** para que te muestre el rango de tus habilidades y luego seleccionar al objetivo de tu habilidad con el click izquierdo, en caso de no querer usar habilidad se puede volver a pulsar la **E** para moverse.
 
