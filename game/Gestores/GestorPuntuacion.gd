@@ -1,7 +1,6 @@
 class_name GestorPuntuacion
 
-signal golMarcado(equipo: String, azules: int, rojos: int)
-signal partidoFinalizado(resultado: String, azules: int, rojos: int)
+signal partidoFinalizado(puntosAzul: int, puntosRojo: int)
 
 var equipoJugador: String
 var res: String
@@ -30,12 +29,10 @@ func comprobarPunto(personaje: CharacterBody3D) -> void:
 
 	if equipoJugador == Constantes.EQUIPO_AZUL and posicionJugador.y == Constantes.LINEA_GOL_AZUL:
 		puntosAzul += 1
-		golMarcado.emit(Constantes.EQUIPO_AZUL, puntosAzul, puntosRojo)
 		_reiniciar(personaje)
 
 	elif equipoJugador == Constantes.EQUIPO_ROJO and posicionJugador.y == Constantes.LINEA_GOL_ROJO:
 		puntosRojo += 1
-		golMarcado.emit(Constantes.EQUIPO_ROJO, puntosAzul, puntosRojo)
 		_reiniciar(personaje)
 
 func _reiniciar(personaje: CharacterBody3D) -> void:
@@ -70,9 +67,9 @@ func _finalizar(azulGana: bool) -> void:
 	terreno.limpiarMovimiento()
 
 	res = Constantes.EQUIPO_AZUL if azulGana else Constantes.EQUIPO_ROJO
-	partidoFinalizado.emit(res, puntosAzul, puntosRojo)
+	partidoFinalizado.emit(puntosAzul, puntosRojo)
 
 func _declararEmpate() -> void:
 	terminado = true
 	terreno.limpiarMovimiento()
-	partidoFinalizado.emit(Constantes.MSG_EMPATE, puntosAzul, puntosRojo)
+	partidoFinalizado.emit(puntosAzul, puntosRojo)

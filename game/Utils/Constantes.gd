@@ -10,8 +10,8 @@ const LARGO_MAPA: int = 14
 const TAMANO_CASILLA: float = 1.1
 const ALTURA_PERSONAJE: float = 0.5
 
-const TURNOS_PARTIDO: int = 25
-const TURNOS_PRORROGA: int = 10
+const TURNOS_PARTIDO: int = 90
+const TURNOS_PRORROGA: int = 45
 
 const VALOR_UNIVERSAL_TURNO: float = 1000.0
 
