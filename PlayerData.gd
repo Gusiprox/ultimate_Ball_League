@@ -31,6 +31,7 @@ var gacha_tokens: int = 0:
 
 func _ready() -> void:
 	EventBus.reloadData.connect(_setInitData)
+	EventBus.saveTeam.connect(_setTeamImp)
 
 func _setData(data: LoginResult):
 	var usernameDic: Dictionary = data.InfoResultPayload.PlayerProfile
@@ -44,9 +45,17 @@ func _setData(data: LoginResult):
 func _delData():
 	pass
 
-func _setTeam():
-	pass
-
+func _setTeamImp(teamArray: Array[int]):
+	if teamArray == null or teamArray.is_empty():
+		return
+	
+	equipo.clear()
+	var charactersData: Array[CharacterDataModel]
+	
+	for characterId in teamArray:
+		charactersData = characters.get(characterId)
+	equipo = ParserUtil._charactersDataToCharactersBody(charactersData)
+	
 func _setCharactersImp(a):
 	characters.clear()
 	var charactersDict: Dictionary = a.data.FunctionResult.characters.personajes
@@ -79,8 +88,10 @@ func _setInitData():
 func _setInitDataImp(data):
 	await _setCharactersImp(data)
 	await  _setShopImp(data)
+	await  _setTeamImp([])
 	
 	initDataSetted.emit()
+
 
 func stringToInt(value: String) -> int:
 	var texto_limpio = value.strip_edges()
