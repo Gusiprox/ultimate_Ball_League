@@ -83,6 +83,7 @@ func _instanciarPersonajes() -> void:
 		personajes.append(personaje)
 	
 func _instanciarPersonajesTest() -> void:
+	@warning_ignore("integer_division")
 	var mitad: int = escenasPersonajes.size() / 2
 
 	for i: int in range(escenasPersonajes.size()):

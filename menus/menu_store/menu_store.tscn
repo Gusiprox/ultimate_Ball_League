@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2e8560ctbxjd"]
 
 [ext_resource type="Texture2D" uid="uid://b81rb2678cm8m" path="res://menus/menu_store/img/coins.png" id="1_24c0n"]
+[ext_resource type="Script" uid="uid://qcaw05gkjhm6" path="res://menus/menu_store/menu_store.gd" id="1_dfjxk"]
 [ext_resource type="Theme" uid="uid://d3b3ik0l8kapl" path="res://menus/themes/panel/ThemePanelStore.tres" id="1_lhwub"]
 [ext_resource type="Texture2D" uid="uid://qelhphsxis0g" path="res://menus/menu_store/img/shoppingCart.png" id="2_lhwub"]
 [ext_resource type="Texture2D" uid="uid://d1m8bc5u51mls" path="res://menus/menu_store/img/MarcoTienda.png" id="2_mruc5"]
@@ -14,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dfjxk")
 
 [node name="marginMenuStore" type="Control" parent="." unique_id=155260095]
 anchors_preset = 0
