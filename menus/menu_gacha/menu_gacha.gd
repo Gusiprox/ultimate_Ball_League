@@ -5,6 +5,10 @@ extends Control
 @onready var modelCharacter = $CanvasLayer/SubViewportContainer/SubViewport/CharacterPlaceholder2
 @onready var hboxCharactersCards = $CanvasLayer/HBoxCharacters
 
+@onready var lblForce = $CanvasLayer/HBoxFuerza/txtContent
+@onready var lblResistance = $CanvasLayer/HBoxResistencia/txtContent
+@onready var lblVelocity = $CanvasLayer/HBoxVelocidad/txtContent
+
 signal  endAnimation
 
 var animacionEnCurso: bool = false
@@ -63,6 +67,7 @@ func _correct(a) -> void:
 	for characterDict in dataDictionary:
 		var character = CharacterDataModel.new(dataDictionary.get(characterDict))
 		characters.append(character)
+		_setStatsData(character)
 		await runAnimation(character)
 	
 	setCardsData(characters)
@@ -89,7 +94,7 @@ func setCardsData(charDatas: Array[CharacterDataModel]):
 		cardDatas.get(i).visible = true
 		cardDatas.get(i)._setData(characterData)
 		i = i+1
-		
+	
 @warning_ignore("unused_parameter")
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	endAnimation.emit()
@@ -97,13 +102,11 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_btn_next_button_down() -> void:
 	endAnimation.emit()
 	
+func _setStatsData(data: CharacterDataModel):
 	
-	
-	
-	
-	
-	
-	
+	lblForce = str(data.knokForce)
+	lblResistance = str(data.knokResistance)
+	lblVelocity = str(data.speed)
 	
 	
 	
