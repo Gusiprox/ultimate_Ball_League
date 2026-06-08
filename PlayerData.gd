@@ -53,7 +53,7 @@ func _setTeamImp(teamArray: Array[int]):
 	var charactersData: Array[CharacterDataModel]
 	
 	for characterId in teamArray:
-		charactersData = characters.get(characterId)
+		charactersData.push_front(characters.get(characterId))
 	equipo = ParserUtil._charactersDataToCharactersBody(charactersData)
 	
 func _setCharactersImp(a):

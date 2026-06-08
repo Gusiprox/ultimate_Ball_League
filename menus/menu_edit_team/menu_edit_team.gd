@@ -36,6 +36,7 @@ func _loadCards():
 		var cartaActual = cards.get(i)
 		cartaActual._setData(PlayerData.characters.get(id))
 		cartaActual.visible = true
+		i = i+1
 
 func _setCardsInvisible():
 	card1.visible = false

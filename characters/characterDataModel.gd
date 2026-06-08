@@ -11,7 +11,7 @@ const MouthDicDir = "modelMouth"
 const FootsDicDir = "modelFoots"
 const hatDicDir = "modelHat"
 
-var id
+var id: int
 
 var name: String
 
