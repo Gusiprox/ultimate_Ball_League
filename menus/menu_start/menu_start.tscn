@@ -233,18 +233,6 @@ offset_bottom = 17.0
 theme = ExtResource("10_y7emq")
 text = "X"
 
-[node name="CreateUser" parent="panelCreateUser" unique_id=927097092 instance=ExtResource("15_7shux")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -235.5
-offset_top = -66.0
-offset_right = 232.5
-offset_bottom = -66.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="contCreateUserElem" type="VBoxContainer" parent="panelCreateUser" unique_id=1882403099]
 layout_mode = 1
 anchors_preset = 8
@@ -253,15 +241,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -234.25
-offset_top = -146.5
+offset_top = -177.84375
 offset_right = 234.25
-offset_bottom = 146.5
+offset_bottom = 177.84375
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 35
 
 [node name="contTitle" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=1264613460]
 layout_mode = 2
+theme_override_constants/separation = 170
 
 [node name="lblCreateUser" type="Label" parent="panelCreateUser/contCreateUserElem/contTitle" unique_id=1532704003]
 layout_mode = 2
@@ -269,6 +258,10 @@ size_flags_horizontal = 4
 theme = ExtResource("10_uv0w5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Crear cuenta"
+
+[node name="CreateUser" parent="panelCreateUser/contCreateUserElem/contTitle" unique_id=927097092 instance=ExtResource("15_7shux")]
+layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="pressed" from="contGameTitleAndBtn/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
