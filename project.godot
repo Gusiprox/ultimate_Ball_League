@@ -22,12 +22,12 @@ buses/default_bus_layout="uid://chkungmqewabk"
 [autoload]
 
 ParserUtil="*uid://w4a0dwaphylw"
+PlayerData="*uid://cxps6o6f21yd6"
 PlayFabManager="*uid://cweb6sfc0rrca"
 GlobalMenus="*uid://dwyk0utyjyxie"
 ModelsManager="*uid://dagdtr0y5n5vo"
 IaDataManager="*uid://0t37aa884m54"
 EventBus="*uid://ct1oc3t3oxgg3"
-ParserUtil="*uid://w4a0dwaphylw"
 
 [editor_plugins]
 
