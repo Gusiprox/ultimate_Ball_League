@@ -33,7 +33,11 @@
 
 ## Conceptualización
 
-### Historia **No sé que poner**
+### Historia
+
+La pasión de la gente por los deportes de balones, hace que todos los balones de los diferentes deportes cobren vida.
+
+Ellos viven para jugar y competir, y tú como jugador vas a ser su entrenador. Forma equipos de pelotas que llegan desde la cantera, entrenarlos y llevarlos a la victoria.
 
 ### Juego
 
@@ -54,7 +58,7 @@ Al hacer clic en el icono del usuario (o con el esc) se despliega un menú later
 - Cerrar sesión. 
 - Salir del juego.
 
-#### Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**
+#### Obtención de personajes
 
 Para conseguir personajes habrá un menú en el que de manera aleatoria te genera un personaje con estadísticas aleatorias a cambio de una moneda dentro del juego.
 
@@ -62,19 +66,19 @@ Esta parte la maneja el servidor para evitar la generación de personajes con m�
 
 Ejemplo explicativo:  
 Gastas X monedas y te dan a un jugador con:
-- Fuerza de empuje: 10.
+- Fuerza de empuje: 4.
 - Resistencia de empuje: 5.
-- Velocidad: 11.
-- Habilidad: “Aumento de resistencia de empuje +2”.
-- Talento:  “Aumenta la fuerza de empuje si tiene un compañero al lado”.
+- Velocidad: 10.
+- Habilidad: “Aumenta la fuerza de empuje si tiene un compañero al lado”.
+- Talento:  “Aumento de resistencia de empuje”.
 
 Y así tendrías tu nuevo personaje listo para usar.
 
 #### Partidas 
 
-Una partida cuenta con 2 jugadores (o un jugador y una IA), cada uno con un equipo de 5 personajes. Gana aquel jugador que tenga más puntos al acabar la partida. Si los jugadores empatan se continuará jugando hasta que uno de los jugadores desempate y si este periodo se alarga demasiado se terminará en empate.
+Una partida cuenta con 2 jugadores (o un jugador y una IA), cada uno con un equipo de 5 personajes. Gana aquel jugador que tenga más puntos al acabar la partida. Si los jugadores empatan se continuará jugando hasta que uno de los jugadores desempate y si este periodo se alarga demasiado se terminará en empate, la duración de la partida será de 90 turnos y la prórroga de 45.
 
-Se obtienen puntos al hacer que tus personajes, que serán pelotas con brazos y piernas, lleguen al final del campo enemigo que sería donde se encuentra su portería, al llegar a la portería el personaje volverá al inicio de su campo y el jugador obtendrá un punto.
+Se obtienen puntos al hacer que tus personajes lleguen al final del campo enemigo que sería donde se encuentra su portería, al llegar a la portería el personaje volverá al inicio de su campo y el jugador obtendrá un punto.
 
 Se va a utilizar un sistema de turnos en el que, mediante la estadística de velocidad de los jugadores, se decidirá a quién le ha llegado el turno para poder actuar y el final del partido.
 
@@ -172,11 +176,15 @@ Al iniciar una partida, el usuario tiene acceso a los siguientes menús:
 - **Menú de derrota:** en caso de que el usuario pierda la partida, le aparecerá un menú de derrota en el que podrá observar las monedas que ha obtenido. También podrá elegir si volver a los menús.
 - **Menú de empate:** en caso de que el usuario empate, le aparecerá un menú de empate en el que podrá observar las tiradas y monedas que ha ganado. También podrá elegir si volver a los menús.
 
+### Selector de equipo
+
+Para seleccionar el equipo tenemos un listado en el que puedes ir poniendo los personajes poco a poco, y formar tu equipo deseado, para jugar se tiene que seleccionar a 3 personajes y darle a "guardar equipo".
+
 ### Creación de escenarios
 
 Se cuenta con una escena que consta de la creación de una casilla y luego con otra escena que será el terreno de fútbol, donde se jugarán las partidas de fútbol, que contendrá la cantidad de casillas que nosotros indiquemos (en este caso sería un estadio de 14x7 casillas) el motivo de crear los escenarios de esta forma es para cuando, en un futuro, se quiera crear un escenario de otro deporte se pueda reutilizar la escena de la casilla y solamente se tenga que crear el escenario del nuevo deporte con las dimensiones que se necesite. 
 
-### Personajes **Tenemos que mirar como hacer esto y si eso hablar de las habilidades y pasivas aquí**
+### Personajes
 
 Tendremos un código base que será el que tenga la lógica de todos los personajes (moverse, asignarse equipos, etc) para evitar duplicar código, luego el resto de personajes extenderán de ese código base y tendrán sus propias estadísticas que serán asignadas dependiendo de sus caracteristicas.
 
@@ -186,11 +194,26 @@ Una vez se ha elegido qué personajes se usarán antes de empezar el partido, es
 
 ### Inteligencia artificial
 
-Si se decide jugar una partida con una IA como oponente este realizará movimientos para marcar gol y también será capaz de realizar duelos y seguir las reglas del sistema de empujes.
+Se contará con una IA como oponente y este realizará movimientos para marcar gol y realizar empujes respetando las reglas del juego.
 
 ## Elementos destacables
 
-### Sistema de turnos
+### Servidor
+
+Al ser un juego como servicio y con el arquetipo de “gacha” es necesario un servidor.
+
+Se ha usado “PlayFab” un ecosistema para videojuegos que funciona con peticiones API.
+
+PlayFab permite el uso de CloudScript, en el cual puedes crear tus propias peticiones personalizadas y usarlas en Godot.
+
+Se ha usado un Plugin de PlayFab para Godot, que transforma las peticiones API en código, y se usa en formato Diccionario.
+
+Con esto conseguimos que PlayFab se encargue de toda la lógica pesada como los inicios de sesión, creación de cuenta, datos guardados mientras lo consumimos con peticiones REST.
+
+También el servidor está protegido a hackeos directos, ya que por ejemplo en las compras, no usas lo que tienes en vista en el juego, si no lo que tienes en el servidor guardado, añadiendo capas de protección adicionales.
+
+
+### Sistema de turnos dinámico
 
 Para determinar el orden de los turnos se usa un sistema dinámico. A partir de la velocidad de cada personaje y de un valor universal, se calcula un parámetro denominado **valor de acción**.
 
@@ -202,3 +225,6 @@ Este sistema permite situaciones en las que personajes con una velocidad muy alt
 
 - [Godot Docs](https://docs.godotengine.org/en/stable/index.html)
 - [Godot Tactical RPG](https://github.com/ramaureirac/godot-tactical-rpg)
+
+## Distribucion
+Tenemos pensado primero distribuir nuestro juego a ordenadores y también tenemos intención de, en un futuro, poder llevarlo a dispositivos móviles ya que es la plataforma con mayor base de jugadores.
