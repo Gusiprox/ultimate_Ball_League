@@ -6,6 +6,7 @@ signal gacha_tokens_changed(new_amount: int)
 signal charactersSeted
 signal initDataSetted
 
+
 const DIC_CODE_USERNAME: String = "DisplayName"
 const DIC_CODE_GOLD: String = "OR"
 const DIC_CODE_GACHATOKEN: String = "GP"
@@ -29,7 +30,7 @@ var gacha_tokens: int = 0:
 		gacha_tokens_changed.emit(gacha_tokens)
 
 func _ready() -> void:
-	pass
+	EventBus.reloadData.connect(_setInitData)
 
 func _setData(data: LoginResult):
 	var usernameDic: Dictionary = data.InfoResultPayload.PlayerProfile

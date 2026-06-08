@@ -10,10 +10,13 @@ enum ModoCarta { SIN_BTN, BUY, EQUIP }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_setData(PlayerData.characters)
+	_setData()
 	contBox.columns = columns
+	EventBus.reloadData.connect(_setData)
 
-func _setData(data: Array[CharacterDataModel]):
+func _setData():
+
+	var data = PlayerData.characters
 	_limpiarLista()
 	for characterData: CharacterDataModel in data:
 		var nuevaCarta = cardMolde.instantiate()

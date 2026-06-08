@@ -9,12 +9,15 @@ extends Control
 @onready var lblResistance = $CanvasLayer/HBoxResistencia/txtContent
 @onready var lblVelocity = $CanvasLayer/HBoxVelocidad/txtContent
 
+@export var nodesCards: Array[Panel]
+
 signal  endAnimation
 
 var animacionEnCurso: bool = false
 
 func _ready() -> void:
 	gachaLayer.visible = false
+	
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -72,6 +75,7 @@ func _correct(a) -> void:
 	
 	setCardsData(characters)
 	animationPlayer.play("final")
+	EventBus.reloadData.emit()
 	await endAnimation
 	gachaLayer.visible = false
 
@@ -87,7 +91,7 @@ func runAnimation(characterData: CharacterDataModel):
 	await  endAnimation
 
 func setCardsData(charDatas: Array[CharacterDataModel]):
-	
+	_ocultarCartas()
 	var cardDatas = hboxCharactersCards.get_children()
 	var i = 0
 	for characterData in charDatas:
@@ -104,12 +108,14 @@ func _on_btn_next_button_down() -> void:
 	
 func _setStatsData(data: CharacterDataModel):
 	
-	lblForce = str(data.knokForce)
-	lblResistance = str(data.knokResistance)
-	lblVelocity = str(data.speed)
+	lblForce.text = str(data.knokForce)
+	lblResistance.text = str(data.knokResistance)
+	lblVelocity.text = str(data.speed)
 	
 	
-	
+func _ocultarCartas():
+	for oneCard in nodesCards:
+		oneCard.visible = false
 	
 	
 	
