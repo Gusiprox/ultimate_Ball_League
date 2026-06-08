@@ -15,7 +15,7 @@ var playfab_id: String = ""
 var username: String = ""
 
 var equipo: Array[CharacterBody3D] = []
-var shopItems: Array[Dictionary] = []
+var shopItems: Array[ItemData] = []
 var characters: Array[CharacterDataModel] = []
 
 var gold: int = 0:
@@ -58,7 +58,7 @@ func _setCharactersImp(a):
 
 func _setShopImp(a):
 	for itemShop in a.data.FunctionResult.catalog.catalogo:
-		shopItems.push_front(itemShop)
+		shopItems.push_front(ItemData.new(itemShop))
 
 func _setInitData():
 	var dict = {
