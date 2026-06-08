@@ -1,8 +1,90 @@
 [gd_scene format=3 uid="uid://dh5onnggax8ar"]
 
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="1_8ln0h"]
+
 [node name="MenuControls" type="Panel" unique_id=134436808]
 offset_left = 35.0
 offset_top = 107.0
 offset_right = 446.0
 offset_bottom = 416.89063
+theme = ExtResource("1_8ln0h")
 metadata/_edit_use_anchors_ = true
+
+[node name="contControlElem" type="VBoxContainer" parent="." unique_id=470044218]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.5
+offset_top = -92.0
+offset_right = 182.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="contMovementElem" type="HBoxContainer" parent="contControlElem" unique_id=1744493715]
+layout_mode = 2
+
+[node name="lblLeftClick" type="Label" parent="contControlElem/contMovementElem" unique_id=1773782839]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Clic izquierdo: "
+
+[node name="lblLeftClickExp" type="Label" parent="contControlElem/contMovementElem" unique_id=920576849]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 13
+text = "seleccionar la casilla a la que moverse o en qué enemigo utilizas una habilidad."
+autowrap_mode = 3
+
+[node name="contCamMove" type="HBoxContainer" parent="contControlElem" unique_id=942938543]
+layout_mode = 2
+
+[node name="lblCamMove" type="Label" parent="contControlElem/contCamMove" unique_id=998171132]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Clic derecho:"
+
+[node name="lblCamMoveExp" type="Label" parent="contControlElem/contCamMove" unique_id=1336101542]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 13
+text = "mantener pulsado y mover el ratón para mover la cámara."
+autowrap_mode = 3
+
+[node name="contCamZoom" type="HBoxContainer" parent="contControlElem" unique_id=1620670411]
+layout_mode = 2
+
+[node name="lblCamZoom" type="Label" parent="contControlElem/contCamZoom" unique_id=683129881]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Rueda del ratón:"
+
+[node name="lblCamZoomExp" type="Label" parent="contControlElem/contCamZoom" unique_id=1469732564]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 13
+text = "acercar o alejar la cámara."
+autowrap_mode = 3
+
+[node name="contAbility" type="HBoxContainer" parent="contControlElem" unique_id=1560992954]
+layout_mode = 2
+
+[node name="lblAbility" type="Label" parent="contControlElem/contAbility" unique_id=505912578]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Tecla E:"
+
+[node name="lblAbilityExp" type="Label" parent="contControlElem/contAbility" unique_id=1633449758]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 13
+text = "activar habilidad para poder usarla."
+autowrap_mode = 3
