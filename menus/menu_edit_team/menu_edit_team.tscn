@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_arh1h"]
 [ext_resource type="Script" path="res://menus/menu_edit_team/menu_edit_team.gd" id="1_y0m7y"]
-[ext_resource type="Texture2D" uid="uid://dl5vbtj2nuy1u" path="res://menus/menu_edit_character/img/MarcoAmarilloVertical.png" id="2_dpqnr"]
+[ext_resource type="Texture2D" uid="uid://dl5vbtj2nuy1u" path="res://menus/menu_edit_team/img/MarcoAmarilloVertical.png" id="2_dpqnr"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="2_n0moq"]
 [ext_resource type="PackedScene" uid="uid://nudjyqgwvnor" path="res://menus/scroll/scroll_list.tscn" id="3_uh1lp"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_uh1lp"]

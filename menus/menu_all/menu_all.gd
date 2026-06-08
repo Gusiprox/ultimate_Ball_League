@@ -12,7 +12,6 @@ const OPACIDAD_ANIMACION: float = 1.0
 @onready var conMenus = $contMenus
 @onready var dicMenus = {
 	navBar.SIGNAL_MENU_PLAY: $contMenus/MenuPlay,
-	navBar.SIGNAL_MENU_EDIT_CHAR: $contMenus/MenuEditCharacter,
 	navBar.SIGNAL_MENU_EDIT_TEAM: $contMenus/MenuEditTeam,
 	navBar.SIGNAL_MENU_GACHA: $contMenus/MenuGacha,
 	navBar.SIGNAL_MENU_STORE: $contMenus/MenuStore,
