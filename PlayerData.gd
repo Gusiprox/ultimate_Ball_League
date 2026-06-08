@@ -64,7 +64,7 @@ func _setCharactersImp(a):
 		var characterData = CharacterDataModel.new(charactersDict.get(character))
 		characterData.id = character
 		
-		characters.push_front(characterData)
+		characters.push_back(characterData)
 
 func _setShopImp(a):
 	shopItems.clear()

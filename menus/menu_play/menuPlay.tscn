@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbwdtcbpwg82v"]
 
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="1_inr87"]
+[ext_resource type="Script" uid="uid://by1uie7yjoo0" path="res://menus/menu_play/menu_play.gd" id="2_4lyia"]
 
 [node name="MenuPlay" type="Control" unique_id=37333949]
 layout_mode = 3
@@ -12,6 +13,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_inr87")
+script = ExtResource("2_4lyia")
 
 [node name="btnPlay" type="Button" parent="." unique_id=104223538]
 layout_mode = 0
@@ -23,3 +25,5 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "Jugar"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="btnPlay" to="." method="_on_btn_play_button_down"]

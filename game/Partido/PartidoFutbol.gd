@@ -50,7 +50,7 @@ func _ready() -> void:
 	nivel = escenaNivel.instantiate()
 	add_child(nivel)
 
-	_instanciarPersonajes()
+	await _instanciarPersonajes()
 
 	gestorTurnos = GestorTurnos.new()
 
@@ -66,7 +66,7 @@ func _instanciarPersonajes() -> void:
 		return
 	
 	personajesJugador = PlayerData.equipo
-	personajesRival = IaDataManager._getIaTeam()
+	personajesRival = await IaDataManager._getIaTeam()
 	
 	for personaje in personajesJugador:
 		personaje.stats.equipo = Constantes.EQUIPO_AZUL.capitalize()
