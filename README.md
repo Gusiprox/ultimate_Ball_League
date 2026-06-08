@@ -15,10 +15,10 @@
     - [Historia **No sé que poner**](#historia-no-sé-que-poner)
     - [Juego](#juego)
       - [Interfaz](#interfaz)
+      - [Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**](#obtención-de-personajes-esto-es-la-última-entrega-cambiadlo-como-veais-conveniente)
       - [Partidas](#partidas)
       - [Estadísticas de personajes](#estadísticas-de-personajes)
       - [Mecánica principal](#mecánica-principal)
-      - [Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**](#obtención-de-personajes-esto-es-la-última-entrega-cambiadlo-como-veais-conveniente)
       - [Controles](#controles)
   - [Arte](#arte)
   - [Programación](#programación)
@@ -28,6 +28,7 @@
     - [Partida](#partida)
     - [Inteligencia artificial](#inteligencia-artificial)
   - [Elementos destacables](#elementos-destacables)
+    - [Sistema de turnos](#sistema-de-turnos)
   - [Fuentes](#fuentes)
 
 ## Conceptualización
@@ -51,7 +52,23 @@ Al hacer clic en el icono del usuario (o con el esc) se despliega un menú later
   - Ver los controles del juego. 
   - Cambiar el idioma.
 - Cerrar sesión. 
-- Salir del juego. 
+- Salir del juego.
+
+#### Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**
+
+Para conseguir personajes habrá un menú en el que de manera aleatoria te genera un personaje con estadísticas aleatorias a cambio de una moneda dentro del juego.
+
+Esta parte la maneja el servidor para evitar la generación de personajes con métodos ilícitos, y así generar personajes garantizando que sean raros y valiosos.
+
+Ejemplo explicativo:  
+Gastas X monedas y te dan a un jugador con:
+- Fuerza de empuje: 10.
+- Resistencia de empuje: 5.
+- Velocidad: 11.
+- Habilidad: “Aumento de resistencia de empuje +2”.
+- Talento:  “Aumenta la fuerza de empuje si tiene un compañero al lado”.
+
+Y así tendrías tu nuevo personaje listo para usar.
 
 #### Partidas 
 
@@ -91,25 +108,9 @@ La mecánica principal del juego está basada en empujes.
 
 - Para calcular quién gana el duelo se calculará cual es mayor entre la resistencia de empuje del defensor y la fuerza de empuje del atacante menos las casillas que se tiene que mover para alcanzar al defensor, para que el atacante gane su valor tiene que ser estrictamente mayor.
 
-*Ejemplo explicativo*: Se tiene un jugador atacante con 6 puntos en fuerza de empuje y otro en el equipo contrario con 4 de resistencia de empuje. El atacante tras moverse 2 casillas, colisiona con el defensor e iniciarán un duelo en el que el defensor ganaría debido a que su resistencia de empuje (4) es mayor o igual a la fuerza de empuje restante del atacante (6 - 2 = 4).  
+*Ejemplo explicativo*: Se tiene un jugador atacante con 6 puntos en fuerza de empuje y otro en el equipo contrario con 4 de resistencia de empuje. El atacante tras moverse 2 casillas, colisiona con el defensor e iniciarán un duelo en el que el defensor ganaría debido a que su resistencia de empuje (4) es mayor o igual a la fuerza de empuje restante del atacante (6 - 2 = 4).
 
-#### Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**
-
-Para conseguir personajes habrá un menú en el que de manera aleatoria te genera un personaje con estadísticas aleatorias a cambio de una moneda dentro del juego.
-
-Esta parte la maneja el servidor para evitar la generación de personajes con métodos ilícitos, y así generar personajes garantizando que sean raros y valiosos.
-
-Ejemplo explicativo:  
-Gastas X monedas y te dan a un jugador con:
-- Fuerza de empuje: 10.
-- Resistencia de empuje: 5.
-- Velocidad: 11.
-- Habilidad: “Aumento de resistencia de empuje +2”.
-- Talento:  “Aumenta la fuerza de empuje si tiene un compañero al lado”.
-
-Y así tendrías tu nuevo personaje listo para usar.
-
-#### Controles
+#### Controles en partida
 
 - Cuando sea el turno de un personaje las casillas que se encuentren en su fuerza de empuje resaltarán de color amarillo y para moverse a esa casilla solo se necesita pasar el cursor del ratón y hacer click izquierdo, al ganar un duelo se resaltarán las casillas a las que puedes empujar al adversario.
 
@@ -189,7 +190,16 @@ Si se decide jugar una partida con una IA como oponente este realizará movimien
 
 ## Elementos destacables
 
-## Fuentes
+### Sistema de turnos
+
+Para determinar el orden de los turnos se usa un sistema dinámico. A partir de la velocidad de cada personaje y de un valor universal, se calcula un parámetro denominado **valor de acción**.
+
+Con este valor, los personajes se introducen en una cola, cuanto menor sea el valor de acción de un personaje, antes llegará su turno de actuar.
+
+Este sistema permite situaciones en las que personajes con una velocidad muy alta pueden actuar antes de que lo haga un personaje extremadamente lento, haciendo que la velocidad juegue un papel importante en las decisiones del partido.
+
+
+## Bibliografía
 
 - [Godot Docs](https://docs.godotengine.org/en/stable/index.html)
 - [Godot Tactical RPG](https://github.com/ramaureirac/godot-tactical-rpg)
