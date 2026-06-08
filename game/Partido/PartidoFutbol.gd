@@ -9,6 +9,8 @@ const POSICIONES_INICIALES: Array[Vector2i] = [
 	Vector2i(6, 10)
 ]
 
+@onready var menuPausa = $MenuInGame
+
 @export var test: bool = true
 @export var partidoIA: bool = true
 @export var escenaNivel: PackedScene
@@ -59,7 +61,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_E:
 		_alternarHabilidad()
-
+	
 func _instanciarPersonajes() -> void:
 	if test:
 		_instanciarPersonajesTest()
@@ -72,14 +74,12 @@ func _instanciarPersonajes() -> void:
 		personaje.stats.equipo = Constantes.EQUIPO_AZUL.capitalize()
 		
 		add_child(personaje)
-		#personaje.actualizarColorEquipo()
 		personajes.append(personaje)
 	
 	for personaje in personajesRival:
 		personaje.stats.equipo = Constantes.EQUIPO_ROJO.capitalize()
 		
 		add_child(personaje)
-		#personaje.actualizarColorEquipo()
 		personajes.append(personaje)
 	
 func _instanciarPersonajesTest() -> void:
@@ -106,7 +106,6 @@ func _iniciarPartida() -> void:
 	gestorIA = GestorIA.new(self, terreno, gestorMovimiento, gestorCombate, gestorTurnos)
 
 	gestorCombate.empujeResuelto.connect(_gestionarEmpuje)
-	gestorPuntuacion.golMarcado.connect(_actualizarGolMarcado)
 	gestorPuntuacion.partidoFinalizado.connect(_anunciarFinPartido)
 
 	for i: int in range(personajes.size()):
@@ -137,8 +136,6 @@ func _gestionarCambioTurno(p: CharacterBody3D) -> void:
 
 	if gestorPuntuacion.comprobarFinPartido():
 		return
-
-	print(personaje.stats.fuerzaEmpuje)
 
 	if not confirmarTurnoIA():
 		terreno.mostrarMovimiento(p.posicionCuadricula, p.stats.fuerzaEmpuje)
@@ -222,11 +219,13 @@ func _gestionarEmpuje(atacante: CharacterBody3D, _destino: Vector2i) -> void:
 	gestorPuntuacion.comprobarPunto(atacante)
 	gestorTurnos.terminarTurno()
 
-func _actualizarGolMarcado(equipo: String, azules: int, rojos: int) -> void:
-	print(Constantes.MSG_GOL.format({"equipo": equipo.to_upper(), "azules": azules, "rojos": rojos}))
-
-func _anunciarFinPartido(resultado: String, azules: int, rojos: int) -> void:
-	print(Constantes.MSG_FINAL.format({"resultado": resultado.to_upper(), "azules": azules, "rojos": rojos}))
+func _anunciarFinPartido(puntosAzules: int, puntosRojos: int) -> void:
+	if puntosAzules > puntosRojos:
+		get_tree().change_scene_to_file("res://menus/menu_win/menu_win.tscn")
+	elif puntosAzules < puntosRojos:
+		get_tree().change_scene_to_file("res://menus/menu_lose/menu_lose.tscn")
+	elif puntosAzules == puntosRojos:
+		get_tree().change_scene_to_file("res://menus/menu_tie/menu_tie.tscn")
 
 func confirmarTurnoIA() -> bool:
 	personaje = gestorTurnos.getPersonajeActual()
@@ -294,3 +293,6 @@ func _mostrarCasillaCuadrado(o: Vector2i) -> void:
 			posicion = o + Vector2i(x, y)
 			if terreno.comprobarDentroDelMapa(posicion) and posicion != o:
 				terreno.casillas[posicion].setDisponible(true)
+
+func gestionarEscPulsado():
+	menuPausa.visible = not menuPausa.visible
