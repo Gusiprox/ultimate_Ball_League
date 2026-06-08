@@ -12,10 +12,23 @@
   - [Integrantes del proyecto](#integrantes-del-proyecto)
   - [Índice](#índice)
   - [Conceptualización](#conceptualización)
+    - [Historia **No sé que poner**](#historia-no-sé-que-poner)
+    - [Juego](#juego)
+      - [Interfaz](#interfaz)
+      - [Partidas](#partidas)
+      - [Estadísticas de personajes](#estadísticas-de-personajes)
+      - [Mecánica principal](#mecánica-principal)
+      - [Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**](#obtención-de-personajes-esto-es-la-última-entrega-cambiadlo-como-veais-conveniente)
+      - [Controles](#controles)
   - [Arte](#arte)
   - [Programación](#programación)
     - [Menús](#menús)
+    - [Creación de escenarios](#creación-de-escenarios)
+    - [Personajes **Tenemos que mirar como hacer esto y si eso hablar de las habilidades y pasivas aquí**](#personajes-tenemos-que-mirar-como-hacer-esto-y-si-eso-hablar-de-las-habilidades-y-pasivas-aquí)
+    - [Partida](#partida)
+    - [Inteligencia artificial](#inteligencia-artificial)
   - [Elementos destacables](#elementos-destacables)
+  - [Fuentes](#fuentes)
 
 ## Conceptualización
 
@@ -23,17 +36,20 @@
 
 ### Juego
 
-#### Interfaz **Esto es la última entrega, cambiadlo como veais conveniente**
-Al abrir el juego el usuario se encuentra con un menú inicial en el que hay que darle a un botón start para empezar. Si no se ha iniciado sesión aparece una ventana por encima que pide iniciar sesión (o crear una cuenta si no tiene). Tiene el nombre del juego y un dibujo que tenga que ver con él
+#### Interfaz
 
-Una vez se haya iniciado sesión se accede al juego. En la parte superior de la pantalla hay una barra de menús, de izquierda a derecha: Menú principal (donde está el botón para empezar a jugar), editor de personaje, editor de equipo, gacha, tienda, inventario para ver todos los personajes y gorros que tiene.
+Al abrir el juego el usuario se encuentra con un menú inicial en el que el usuario puede ver el nombre del juego y la imágen de inicio. Para entrar al juego primero hay que hacer clic en el botón empezar, que abrirá el menú de inicio de sesión. En caso de que el usuario no tenga una cuenta, tendrá que abrir otro menú para crearla y después iniciar sesión.
 
-En la misma barra, a la derecha, se muestran las tiradas que tenga el usuario, el dinero y el usuario que haya iniciado sesión.
+Una vez se haya iniciado sesión, se accede al juego. En la parte superior de la pantalla hay una barra de menús, de izquierda a derecha: Menú principal (donde está el botón para empezar a jugar), editor de personaje, editor de equipo, gacha, tienda e inventario para que el usuario pueda ver todos los personajes y gorros que tiene.
+
+En la misma barra, a la derecha, se muestran las tiradas que tenga el usuario, el dinero y el nombre de la cuenta que haya iniciado sesión.
 
 Al hacer clic en el icono del usuario (o con el esc) se despliega un menú lateral con varias opciones que permiten al usuario ver:
 
-- Los controles del juego. 
-- Opciones. 
+- Opciones.
+  - Modificar el sonido del juego.
+  - Ver los controles del juego. 
+  - Cambiar el idioma.
 - Cerrar sesión. 
 - Salir del juego. 
 
@@ -49,8 +65,7 @@ El escenario del juego es un campo de fútbol con 14 casillas de alto y 7 de anc
 
 #### Estadísticas de personajes 
   
-Cada personaje contará con las siguientes estadísticas, que influirán en su utilización en el 
-juego:
+Cada personaje contará con las siguientes estadísticas, que influirán en su utilización en el juego:
 
 - Fuerza de empuje: Indica las casillas que se puede mover cada personaje en su turno. 
 
@@ -80,11 +95,9 @@ La mecánica principal del juego está basada en empujes.
 
 #### Obtención de personajes **Esto es la última entrega, cambiadlo como veais conveniente**
 
-Para conseguir personajes habrá un menú en el que de manera aleatoria te genera un 
-personaje con estadísticas aleatorias a cambio de una moneda dentro del juego.
+Para conseguir personajes habrá un menú en el que de manera aleatoria te genera un personaje con estadísticas aleatorias a cambio de una moneda dentro del juego.
 
-Esta parte la maneja el servidor para evitar la generación de personajes con métodos 
-ilícitos, y así generar personajes garantizando que sean raros y valiosos.
+Esta parte la maneja el servidor para evitar la generación de personajes con métodos ilícitos, y así generar personajes garantizando que sean raros y valiosos.
 
 Ejemplo explicativo:  
 Gastas X monedas y te dan a un jugador con:
@@ -100,9 +113,9 @@ Y así tendrías tu nuevo personaje listo para usar.
 
 - Cuando sea el turno de un personaje las casillas que se encuentren en su fuerza de empuje resaltarán de color amarillo y para moverse a esa casilla solo se necesita pasar el cursor del ratón y hacer click izquierdo, al ganar un duelo se resaltarán las casillas a las que puedes empujar al adversario.
 
-- Para mover la camara se tiene que mantener click izquierdo y mover el ratón y con la rueda del ratón se puede hacer zoom
+- Para mover la camara se tiene que mantener click izquierdo y mover el ratón y con la rueda del ratón se puede hacer zoom.
 
-- Para activar una habilidad se tiene que pulsar la tecla **E** para que te muestre el rango de tus habilidades y luego seleccionar al objetivo de tu habilidad con el click izquierdo, en caso de no querer usar habilidad se puede volver a pulsar la **E** para moverse
+- Para activar una habilidad se tiene que pulsar la tecla **E** para que te muestre el rango de tus habilidades y luego seleccionar al objetivo de tu habilidad con el click izquierdo, en caso de no querer usar habilidad se puede volver a pulsar la **E** para moverse.
 
 ## Arte
 
@@ -129,7 +142,8 @@ A continuación se proporciona información sobre dónde se han obtenido los ele
   - [Música de MenuAll.](https://pixabay.com/music/video-games-game-176807/)
 
 ## Programación
-El videojuego será hecho con el sistema de escenas y nodos de Godot con código escrito en GDScript, el servidor usado será Playfab y los modelos 3D serán creados con Blender
+
+El videojuego ha sido hecho con el sistema de escenas y nodos de Godot con código escrito en GDScript, el servidor usado es Playfab y los modelos 3D han sido creados con Blender.
 
 ### Menús
 
@@ -157,7 +171,6 @@ Al iniciar una partida, el usuario tiene acceso a los siguientes menús:
 - **Menú de victoria:** en caso de que el usuario gane la partida le aparecerá un menú de victoria en el que podrá observar las tiradas y monedas que ha ganado. También podrá elegir si volver a los menús o buscar una partida nueva (NO IMPLEMENTADO).
 - **Menú de derrota:** en caso de que el usuario pierda la partida, le aparecerá un menú de derrota en el que podrá observar las monedas que ha obtenido. También podrá elegir si volver a los menús o buscar una partida nueva (NO IMPLEMENTADO).
 
-
 ### Creación de escenarios
 
 Se cuenta con una escena que consta de la creación de una casilla y luego con otra escena que será el terreno de fútbol, donde se jugarán las partidas de fútbol, que contendrá la cantidad de casillas que nosotros indiquemos (En este caso sería un estadio de 14x7 casillas) el motivo de crear los escenarios de esta forma es para cuando, en un futuro, se quiera crear un escenario de otro deporte se pueda reutilizar la escena de la casilla y solamente se tenga que crear el escenario del nuevo deporte con las dimensiones que se necesite. 
@@ -172,7 +185,7 @@ Una vez se ha elegido qué personajes se usarán antes de empezar el partido, es
 
 ### Inteligencia artificial
 
-Si se decide jugar una partida con una IA como oponente este realizará movimientos para marcar gol y también será capaz de realizar duelos y seguir las reglas del sistema de empujes
+Si se decide jugar una partida con una IA como oponente este realizará movimientos para marcar gol y también será capaz de realizar duelos y seguir las reglas del sistema de empujes.
 
 ## Elementos destacables
 
