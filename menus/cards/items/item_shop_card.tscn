@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://c7q466e7gle2o"]
+
+[ext_resource type="Theme" uid="uid://dfkdedvmnlmh3" path="res://menus/themes/panel/ThemePanelCard.tres" id="1_pysx7"]
+[ext_resource type="Script" uid="uid://b5ymrjtucopik" path="res://menus/cards/items/item_shop_card.gd" id="2_fnpef"]
+[ext_resource type="PackedScene" uid="uid://ypkyxcbc67f4" path="res://menus/cards/items/item_icon.tscn" id="3_6f2ru"]
+[ext_resource type="Theme" uid="uid://b2oiv6ec10eev" path="res://menus/themes/letters/ThemeFontTexturina.tres" id="4_co6yo"]
+[ext_resource type="Theme" uid="uid://ceg2gyug7on21" path="res://menus/themes/button/ThemeButtonInfo.tres" id="5_5coch"]
+[ext_resource type="Texture2D" uid="uid://bvmp1oef0ncng" path="res://menus/cards/img/info.png" id="6_n7hdq"]
+[ext_resource type="Theme" uid="uid://3ecjr106vte8" path="res://menus/themes/button/ThemeButtonCard.tres" id="7_bm418"]
+
+[node name="CharacterCard" type="Panel" unique_id=131578327]
+custom_minimum_size = Vector2(140, 200)
+anchors_preset = -1
+anchor_right = 0.12200001
+anchor_bottom = 0.30900002
+offset_right = -15.544006
+offset_bottom = -4.23201
+theme = ExtResource("1_pysx7")
+script = ExtResource("2_fnpef")
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemIcon" parent="." unique_id=1580156268 instance=ExtResource("3_6f2ru")]
+visible = false
+layout_mode = 0
+offset_left = -28.0
+offset_top = 22.0
+offset_right = 484.0
+offset_bottom = 534.0
+scale = Vector2(0.4, 0.4)
+stretch = true
+
+[node name="contCharacterCard" type="VBoxContainer" parent="." unique_id=1678937318]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -81.0
+offset_right = 28.5
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 26
+
+[node name="contCardElem" type="HBoxContainer" parent="contCharacterCard" unique_id=1521894613]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="lblName" type="Label" parent="contCharacterCard/contCardElem" unique_id=1575995712]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 1
+theme = ExtResource("4_co6yo")
+theme_override_constants/line_spacing = -6
+theme_override_font_sizes/font_size = 11
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+max_lines_visible = 3
+
+[node name="btnInfo" type="Button" parent="contCharacterCard/contCardElem" unique_id=1282074362]
+visible = false
+texture_filter = 4
+custom_minimum_size = Vector2(17, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+theme = ExtResource("5_5coch")
+icon = ExtResource("6_n7hdq")
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="btnEquip" type="Button" parent="contCharacterCard" unique_id=651566328]
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_bm418")
+theme_override_font_sizes/font_size = 9
+text = "Equipar"
+autowrap_mode = 2
+
+[node name="btnBuy" type="Button" parent="contCharacterCard" unique_id=1285473928]
+visible = false
+custom_minimum_size = Vector2(50, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("7_bm418")
+theme_override_font_sizes/font_size = 9
+text = "Comprar"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="contCharacterCard/contCardElem/btnInfo" to="." method="_on_btn_info_pressed"]
+[connection signal="button_down" from="contCharacterCard/btnBuy" to="." method="_on_btn_buy_button_down"]

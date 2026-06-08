@@ -4,6 +4,7 @@ extends Node
 signal gold_changed(new_amount: int)
 signal gacha_tokens_changed(new_amount: int)
 signal charactersSeted
+signal initDataSetted
 
 const DIC_CODE_USERNAME: String = "DisplayName"
 const DIC_CODE_GOLD: String = "OR"
@@ -14,7 +15,7 @@ var playfab_id: String = ""
 var username: String = ""
 
 var equipo: Array[CharacterBody3D] = []
-
+var shopItems: Array[ItemData] = []
 var characters: Array[CharacterDataModel] = []
 
 var gold: int = 0:
@@ -33,7 +34,7 @@ func _ready() -> void:
 func _setData(data: LoginResult):
 	var usernameDic: Dictionary = data.InfoResultPayload.PlayerProfile
 	var currencyDic: Dictionary = data.InfoResultPayload.UserVirtualCurrency
-	await _setCharacters()
+	await _setInitData()
 	
 	username = usernameDic.get(DIC_CODE_USERNAME)
 	gold = currencyDic.get(DIC_CODE_GOLD)
@@ -45,20 +46,23 @@ func _delData():
 func _setTeam():
 	pass
 
-func _setTeamImp(a):
+func _setCharactersImp(a):
 	characters.clear()
-	var charactersDict: Dictionary = a.data.FunctionResult.personajes
+	var charactersDict: Dictionary = a.data.FunctionResult.characters.personajes
 	
 	for character in charactersDict:
 		var characterData = CharacterDataModel.new(charactersDict.get(character))
 		characterData.id = character
 		
 		characters.push_front(characterData)
-	charactersSeted.emit()
-	
-func _setCharacters():
+
+func _setShopImp(a):
+	for itemShop in a.data.FunctionResult.catalog.catalogo:
+		shopItems.push_front(ItemData.new(itemShop))
+
+func _setInitData():
 	var dict = {
-		"FunctionName": "getGacharters",
+		"FunctionName": "getInitData",
 		"keys": [
 			"BarKey"
 		]
@@ -67,9 +71,15 @@ func _setCharacters():
 		dict, 
 		"/Client/ExecuteCloudScript", 
 		PlayFab.AUTH_TYPE.SESSION_TICKET, 
-		_setTeamImp
+		_setInitDataImp
 	)
-	await charactersSeted
+	await initDataSetted
+
+func _setInitDataImp(data):
+	await _setCharactersImp(data)
+	await  _setShopImp(data)
+	
+	initDataSetted.emit()
 
 func stringToInt(value: String) -> int:
 	var texto_limpio = value.strip_edges()

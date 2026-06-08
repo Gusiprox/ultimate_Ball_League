@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ypkyxcbc67f4"]
+
+[ext_resource type="Script" uid="uid://bchinfjltssp3" path="res://menus/cards/items/item_icon.gd" id="1_fd12t"]
+[ext_resource type="ArrayMesh" uid="uid://cbs46ivj1ympe" path="res://characters/models/hats/def.tres" id="1_skiwu"]
+
+[node name="ItemIcon" type="SubViewportContainer" unique_id=1580156268]
+offset_right = 512.0
+offset_bottom = 512.0
+script = ExtResource("1_fd12t")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=215595895]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1372340706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2612912, 0.12876141, 1.1164792)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport" unique_id=1554765454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3140247, -1.0728381)
+mesh = ExtResource("1_skiwu")

@@ -38,6 +38,7 @@ func _onButtonDown() -> void:
 	info_params.GetUserVirtualCurrency = true
 	info_params.GetPlayerProfile = true
 	info_params.GetUserReadOnlyData = true
+	info_params.GetUserInventory = true
 	
 	PlayFabManager.client.login_with_email(
 		emailString,
