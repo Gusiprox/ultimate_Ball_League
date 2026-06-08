@@ -64,3 +64,7 @@ func actualizarBotones():
 		ModoCarta.EQUIP:
 			btnBuy.visible = false
 			btnEquip.visible = true
+
+
+func _on_btn_equip_button_down() -> void:
+	EventBus.equipCard.emit(dataSave.id)

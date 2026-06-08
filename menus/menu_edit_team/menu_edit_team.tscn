@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://cfnoay1blshlx"]
 
 [ext_resource type="Theme" uid="uid://rova0c7npbcs" path="res://menus/themes/panel/ThemePanelChar.tres" id="1_arh1h"]
-[ext_resource type="Script" path="res://menus/menu_edit_team/menu_edit_team.gd" id="1_y0m7y"]
+[ext_resource type="Script" uid="uid://cywm3r7o4hhnq" path="res://menus/menu_edit_team/menu_edit_team.gd" id="1_y0m7y"]
 [ext_resource type="Texture2D" uid="uid://dl5vbtj2nuy1u" path="res://menus/menu_edit_team/img/MarcoAmarilloVertical.png" id="2_dpqnr"]
 [ext_resource type="Theme" uid="uid://dx2dyxq1r4a6b" path="res://menus/themes/letters/ThemeLettersDark.tres" id="2_n0moq"]
 [ext_resource type="PackedScene" uid="uid://nudjyqgwvnor" path="res://menus/scroll/scroll_list.tscn" id="3_uh1lp"]
 [ext_resource type="Theme" uid="uid://dsv5ttqf6yvwx" path="res://menus/themes/button/ThemeYellowBtn.tres" id="4_uh1lp"]
+[ext_resource type="PackedScene" uid="uid://bd11wy3hwhwo5" path="res://menus/cards/character_card.tscn" id="6_p52nm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4uk4v"]
 bg_color = Color(0.1330637, 0.41505545, 0.14027178, 1)
@@ -86,8 +87,27 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_4uk4v")
 
+[node name="HBoxContainer" type="HBoxContainer" parent="contMenuField/MenuField" unique_id=2003122258]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 476.0
+offset_bottom = 326.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="CharacterCard" parent="contMenuField/MenuField/HBoxContainer" unique_id=131578327 instance=ExtResource("6_p52nm")]
+layout_mode = 2
+
+[node name="CharacterCard2" parent="contMenuField/MenuField/HBoxContainer" unique_id=1128656887 instance=ExtResource("6_p52nm")]
+layout_mode = 2
+
+[node name="CharacterCard3" parent="contMenuField/MenuField/HBoxContainer" unique_id=1942604399 instance=ExtResource("6_p52nm")]
+layout_mode = 2
+
 [node name="btnSaveTeam" type="Button" parent="contMenuField" unique_id=136171993]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_uh1lp")
 text = "Guardar equipo"
+
+[connection signal="button_down" from="contMenuField/btnSaveTeam" to="." method="_on_btn_save_team_button_down"]

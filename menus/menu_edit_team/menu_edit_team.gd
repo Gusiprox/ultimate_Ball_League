@@ -1,17 +1,43 @@
 extends Control
 
+@onready var card1 = $contMenuField/MenuField/HBoxContainer/CharacterCard
+@onready var card2 = $contMenuField/MenuField/HBoxContainer/CharacterCard2
+@onready var card3 = $contMenuField/MenuField/HBoxContainer/CharacterCard3
+
+var teamIds: Array[int] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var dict = {
-		"FunctionName": "getGacharters",
-		"keys": [
-			"BarKey"
-		]
-	}
+	_setCardsInvisible()	
+	EventBus.equipCard.connect(_equipACard)
+
+func _on_btn_save_team_button_down() -> void:
+	EventBus.saveTeam.emit(teamIds)
+
+func _equipACard(id: int):
+	if teamIds.has(id):
+		return
+	else: 
+		teamIds.push_front(id)
+	if teamIds.size() > 3:
+		teamIds.resize(3)
+	_loadCards()
 	
-	PlayFabManager.client.post_dict_auth(dict, "/Client/ExecuteCloudScript", PlayFab.AUTH_TYPE.SESSION_TICKET, _correct)
+func _loadCards():
+	_setCardsInvisible()
+	
+	var cards = [
+		card1,
+		card2,
+		card3
+	]
+	var i = 0
+	for id in teamIds:
+		var cartaActual = cards.get(i)
+		cartaActual._setData(PlayerData.characters.get(id))
+		cartaActual.visible = true
 
-
-func _correct(a):
-	a
+func _setCardsInvisible():
+	card1.visible = false
+	card2.visible = false
+	card3.visible = false

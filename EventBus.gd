@@ -7,3 +7,5 @@ signal buyItem(itemData: ItemData)
 signal reloadData
 
 signal saveTeam(team: Array[int])
+
+signal equipCard(int)
