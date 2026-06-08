@@ -3,16 +3,18 @@ extends Node3D
 @onready var characterModel =  $CharacterPlaceholder
 
 var stats: Stats
+var modelData: ModelData
 
 var posicionCuadricula: Vector2i = Vector2i.ZERO
 var posicionInicial: Vector2i = Vector2i.ZERO
 
 func _ready() -> void:
-	pass
+	characterModel._setData(modelData)
 
 func _setData(data: CharacterDataModel):
 	stats = Stats.new(data)
-	characterModel._setData(ModelData.new(data))
+	modelData = ModelData.new(data)
+
 
 func teletransportarACuadricula(pos: Vector2i) -> void:
 	posicionCuadricula = pos
