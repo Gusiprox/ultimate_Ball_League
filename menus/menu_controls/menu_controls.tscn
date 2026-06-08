@@ -47,7 +47,7 @@ layout_mode = 2
 [node name="lblCamMove" type="Label" parent="contControlElem/contCamMove" unique_id=998171132]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Clic derecho:"
+text = "Clic derecho: "
 
 [node name="lblCamMoveExp" type="Label" parent="contControlElem/contCamMove" unique_id=1336101542]
 custom_minimum_size = Vector2(240, 0)
@@ -63,7 +63,7 @@ layout_mode = 2
 [node name="lblCamZoom" type="Label" parent="contControlElem/contCamZoom" unique_id=683129881]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Rueda del ratón:"
+text = "Rueda del ratón: "
 
 [node name="lblCamZoomExp" type="Label" parent="contControlElem/contCamZoom" unique_id=1469732564]
 custom_minimum_size = Vector2(240, 0)
@@ -79,7 +79,7 @@ layout_mode = 2
 [node name="lblAbility" type="Label" parent="contControlElem/contAbility" unique_id=505912578]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Tecla E:"
+text = "Tecla E: "
 
 [node name="lblAbilityExp" type="Label" parent="contControlElem/contAbility" unique_id=1633449758]
 custom_minimum_size = Vector2(240, 0)

@@ -48,8 +48,7 @@ placeholder_text = "Email"
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-placeholder_text = "Contraseña
-"
+placeholder_text = "Contraseña"
 context_menu_enabled = false
 
 [node name="contError" type="HBoxContainer" parent="contCreateUserElem" unique_id=1591067866]
