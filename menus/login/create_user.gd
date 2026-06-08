@@ -4,21 +4,32 @@ extends Control
 @onready var password = $password
 @onready var username = $username
 
+var pathMenuAll = "res://menus/menu_all/menu_all.tscn"
+
+func _ready() -> void:
+	PlayFabManager.client.registered.connect(_onSuccessfull)
+	PlayFabManager.client.api_error.connect(_onError)
 
 func _onButtonDown() -> void:
-	var emailText = email.text
-	var passwordText = password.text
-	var usernameText = username.text
+	var emailText: String = email.text
+	var passwordText: String = password.text
+	var usernameText: String = username.text
+	var info_params = GetPlayerCombinedInfoRequestParams.new()
 	
+	info_params.GetUserVirtualCurrency = true
+	info_params.GetPlayerProfile = true
+	info_params.GetUserReadOnlyData = true
+	info_params.GetUserInventory = true
 	PlayFabManager.client.register_email_password(
 		usernameText,
 		emailText,
 		passwordText,
-		null
+		info_params
 	)
 
-func _onSuccessfull(result) -> void:
-	print("Correcto")
+func _onSuccessfull(data) -> void:
+	pass
+	# Crear aqui algo para salir del menu de crear usuario y decir que ha salido bien
 	
 func _onError(result) -> void:
-	print("Fallo")
+	print("Fallo") # Aqui los fallos

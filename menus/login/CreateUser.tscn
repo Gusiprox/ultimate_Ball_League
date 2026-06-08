@@ -14,27 +14,28 @@ script = ExtResource("1_dtfol")
 
 [node name="username" type="TextEdit" parent="." unique_id=1398633855]
 layout_mode = 0
-offset_left = 263.0
-offset_top = 179.0
-offset_right = 834.0
-offset_bottom = 311.0
-placeholder_text = "Email"
+offset_left = 258.0
+offset_top = 53.0
+offset_right = 829.0
+offset_bottom = 185.0
+placeholder_text = "Username"
 
 [node name="email" type="TextEdit" parent="." unique_id=154255501]
 layout_mode = 0
-offset_left = 267.0
-offset_top = 357.0
-offset_right = 836.0
-offset_bottom = 470.0
-placeholder_text = "Password"
+offset_left = 253.0
+offset_top = 224.0
+offset_right = 822.0
+offset_bottom = 337.0
+placeholder_text = "Email"
 
 [node name="password" type="TextEdit" parent="." unique_id=165110031]
 layout_mode = 0
-offset_left = 265.0
-offset_top = 54.0
-offset_right = 840.0
-offset_bottom = 152.0
-placeholder_text = "Username"
+offset_left = 259.0
+offset_top = 363.0
+offset_right = 834.0
+offset_bottom = 461.0
+placeholder_text = "Password
+"
 context_menu_enabled = false
 
 [node name="Button" type="Button" parent="." unique_id=36293053]

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var itemCardNode = preload("res://menus/cards/items/item_icon.tscn")
-@onready var scrollShopItems = $marginMenuStore/frame/contStoreElem/marginStore/contScroll
+@onready var scrollShopItems = $marginMenuStore/frame/contStoreElem/marginStore/ScrollListStore
 
 var items: Array[ItemData] = []
 

@@ -14,6 +14,7 @@
 [ext_resource type="Theme" uid="uid://bip6mg4r1fkba" path="res://menus/themes/button/ThemeCloseMenu.tres" id="10_y7emq"]
 [ext_resource type="PackedScene" uid="uid://1po63b1fpubw" path="res://menus/login/Login.tscn" id="11_vn0s5"]
 [ext_resource type="AudioStream" uid="uid://2hum2kl2mcha" path="res://menus/music/mainMenu.mp3" id="12_7xx02"]
+[ext_resource type="PackedScene" uid="uid://ca7dby62rvtkh" path="res://menus/login/CreateUser.tscn" id="15_7shux"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7xx02"]
 shader = ExtResource("7_y7emq")
@@ -199,7 +200,6 @@ theme = ExtResource("10_y7emq")
 text = "X"
 
 [node name="panelCreateUser" type="Panel" parent="." unique_id=1009609065]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -233,6 +233,18 @@ offset_bottom = 17.0
 theme = ExtResource("10_y7emq")
 text = "X"
 
+[node name="CreateUser" parent="panelCreateUser" unique_id=927097092 instance=ExtResource("15_7shux")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -235.5
+offset_top = -66.0
+offset_right = 232.5
+offset_bottom = -66.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="contCreateUserElem" type="VBoxContainer" parent="panelCreateUser" unique_id=1882403099]
 layout_mode = 1
 anchors_preset = 8
@@ -258,21 +270,8 @@ theme = ExtResource("10_uv0w5")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Crear cuenta"
 
-[node name="conTextboxAndBtn" type="VBoxContainer" parent="panelCreateUser/contCreateUserElem" unique_id=615740308]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="btnCreateUser" type="Button" parent="panelCreateUser/contCreateUserElem/conTextboxAndBtn" unique_id=1549339883]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("1_bond3")
-theme_override_font_sizes/font_size = 13
-text = "Crear cuenta"
-
 [connection signal="pressed" from="contGameTitleAndBtn/btnStart" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btnExit" to="." method="_on_btn_exit_pressed"]
 [connection signal="pressed" from="panelLogin/VBoxContainer/contCreateUser/btnOpenCreateUser" to="." method="_on_btn_open_create_user_pressed"]
 [connection signal="pressed" from="panelLogin/btnCloseLogin" to="." method="_on_btn_close_login_pressed"]
 [connection signal="pressed" from="panelCreateUser/btnCloseCreateUser" to="." method="_on_btn_close_create_user_pressed"]
-[connection signal="pressed" from="panelCreateUser/contCreateUserElem/conTextboxAndBtn/btnCreateUser" to="." method="_on_btn_create_user_pressed"]
