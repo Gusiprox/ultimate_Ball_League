@@ -3,7 +3,6 @@ extends Panel
 const CERRAR_VENTANA_STATS = "cerrarVentanaStats"
 const GUARDAR_POSICIONES_REALES = "guardarPosicionesReales"
 const SIGNAL_MENU_PLAY = "play"
-const SIGNAL_MENU_EDIT_CHAR = "editCharacter"
 const SIGNAL_MENU_EDIT_TEAM = "editTeam"
 const SIGNAL_MENU_GACHA = "gacha"
 const SIGNAL_MENU_STORE = "store"
@@ -29,7 +28,6 @@ var submenusMenuUser: Array = []
 var posicionesSubmenus = {}
 var vinculacionBotones = {
 	"btnMenuPlay": SIGNAL_MENU_PLAY,
-	"btnMenuEditPlayer": SIGNAL_MENU_EDIT_CHAR,
 	"btnMenuEditTeam": SIGNAL_MENU_EDIT_TEAM,
 	"btnMenuGacha": SIGNAL_MENU_GACHA,
 	"btnMenuStore": SIGNAL_MENU_STORE,
@@ -136,9 +134,6 @@ func _on_btn_menu_user_pressed() -> void:
 
 func _on_btn_menu_play_pressed() -> void:
 	menuRequested.emit(SIGNAL_MENU_PLAY)
-
-func _on_btn_menu_edit_player_pressed() -> void:
-	menuRequested.emit(SIGNAL_MENU_EDIT_CHAR)
 
 func _on_btn_menu_edit_team_pressed() -> void:
 	menuRequested.emit(SIGNAL_MENU_EDIT_TEAM)
