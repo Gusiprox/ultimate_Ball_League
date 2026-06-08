@@ -67,6 +67,7 @@ func _setCharactersImp(a):
 		characters.push_front(characterData)
 
 func _setShopImp(a):
+	shopItems.clear()
 	for itemShop in a.data.FunctionResult.catalog.catalogo:
 		shopItems.push_front(ItemData.new(itemShop))
 
@@ -89,6 +90,7 @@ func _setInitDataImp(data):
 	await _setCharactersImp(data)
 	await  _setShopImp(data)
 	await  _setTeamImp([])
+	await _setShopImp(data)
 	
 	initDataSetted.emit()
 
