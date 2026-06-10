@@ -22,12 +22,12 @@ var characters: Array[CharacterDataModel] = []
 var gold: int = 0:
 	set(value):
 		gold = value
-		gold_changed.emit(gold) # Emite automáticamente al cambiar
+		gold_changed.emit(value) # Emite automáticamente al cambiar
 
 var gacha_tokens: int = 0:
 	set(value):
 		gacha_tokens = value
-		gacha_tokens_changed.emit(gacha_tokens)
+		gacha_tokens_changed.emit(value)
 
 func _ready() -> void:
 	EventBus.reloadData.connect(_setInitData)
@@ -66,6 +66,12 @@ func _setCharactersImp(a):
 		
 		characters.push_back(characterData)
 
+func _setCurrencyImp(a):
+	var currencyDict: Dictionary = a.data.FunctionResult.currencies
+	
+	gold = currencyDict.get(DIC_CODE_GOLD)
+	gacha_tokens = currencyDict.get(DIC_CODE_GACHATOKEN)
+
 func _setShopImp(a):
 	shopItems.clear()
 	for itemShop in a.data.FunctionResult.catalog.catalogo:
@@ -91,6 +97,8 @@ func _setInitDataImp(data):
 	await  _setShopImp(data)
 	await  _setTeamImp([])
 	await _setShopImp(data)
+	
+	_setCurrencyImp(data)
 	
 	initDataSetted.emit()
 

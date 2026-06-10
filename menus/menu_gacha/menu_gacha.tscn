@@ -880,6 +880,7 @@ vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=339540147]
 layer = 10
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=698598366]
 offset_left = -4.0
@@ -896,7 +897,7 @@ scale = Vector2(1.4, 1.4)
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=2102808196]
 handle_input_locally = false
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1859925003]
 transform = Transform3D(-0.06805013, 0.19561149, 0.9783176, -1.9192786e-10, 0.9805907, -0.19606599, -0.9976819, -0.013342316, -0.06672933, -1.108417, -0.22275794, -1.8481662)
